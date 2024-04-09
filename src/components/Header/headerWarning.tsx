@@ -14,14 +14,14 @@ const HeaderWarning = () => {
           >
             <div className="flex items-center justify-center h-full tail-aviso-alternado-texto tail-aviso-alternado-texto-1 ev-aviso-alternado-texto">
               <span className="tail-aviso-alternado-texto-interno tail-aviso-alternado-texto-interno-1 ev-aviso-alternado-texto-interno">
-                opa de Primeira compra: ¨GANHE10¨ - 10% de desconto
+                Cupom de Primeira compra: ¨GANHE10¨ - 10% de desconto
               </span>
             </div>
           </a>
         </li>
       </ul>
     </section>
-  )
-}
+  );
+};
 
 export default HeaderWarning;
