@@ -1,0 +1,44 @@
+.tail-aviso-alternado-lista,
+.tail-aviso-alternado-item {
+    background-color: #000;
+}
+
+.tail-aviso-alternado-item,
+.tail-aviso-alternado-link {
+    color: #fff
+}
+
+.tail-topo-categorias-toggle {
+    inset: 0 auto 0 -100%;
+    position: fixed;
+    transition: all 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 400;
+}
+
+.tail-topo-hamburger-abrir:checked+.tail-topo-categorias-toggle {
+    left: 0;
+    right: 0;
+}
+
+.tail-topo-mobile-summary::-webkit-details-marker {
+    display: none;
+}
+
+.tail-topo-login {
+    transition: opacity 200ms, visibility 200ms;
+}
+
+.tail-topo-login-toggle:checked+.tail-topo-login {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tail-topo-sacola-lista {
+    transition: opacity 200ms, visibility 200ms;
+    z-index: 399;
+}
+
+.tail-topo-sacola-toggle:checked+.tail-topo-sacola-lista {
+    opacity: 1;
+    visibility: visible;
+}
