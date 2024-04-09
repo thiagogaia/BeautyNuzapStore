@@ -1,0 +1,28 @@
+.tail-privacidade-texto a {
+  line-height: inherit;
+  text-decoration: underline;
+}
+.tail-privacidade {
+  transform: translate(-50%, 110vh);
+}
+.tail-privacidade-mostrar {
+  animation: privacidadeMostrar 1s forwards;
+  animation-delay: 1s;
+}
+.tail-privacidade-esconder {
+  animation: privacidadeEsconder 2s forwards;
+}
+/* animacoes */
+@keyframes privacidadeMostrar {
+  100% {
+    transform: translate(-50%, 0vh);
+  }
+}
+@keyframes privacidadeEsconder {
+  0% {
+    transform: translate(-50%, 0vh);
+  }
+  100% {
+    transform: translate(-50%, 110vh);
+  }
+}

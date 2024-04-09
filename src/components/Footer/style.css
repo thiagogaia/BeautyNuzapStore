@@ -1,0 +1,13 @@
+.tail-rodape-fonte {
+  font-family: var(--tail-rodape-fonte);
+}
+.tail-rodape-pagamento {
+  max-height: 57px;
+  max-width: 300px;
+}
+.tail-rodape-ssl {
+  max-width: 200px;
+}
+.tail-rodape-assinatura {
+  color: #f1592b;
+}

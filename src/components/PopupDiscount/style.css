@@ -1,0 +1,135 @@
+@media only screen and (max-width: 999px) {
+  .popup-news-foto-computador {
+    order: 1;
+  }
+  .popup-news-foto-celular {
+    order: 2;
+  }
+  .popup-news-tela-1 {
+    order: 3;
+  }
+  .popup-news-tela-2 {
+    order: 4;
+  }
+  .popup-news-btn {
+    border-radius: px;
+  }
+  .popup-news-tela-1-campo {
+    border-radius: px;
+  }
+  .popup-news-tela-1-info {
+    text-align: left;
+  }
+  .popup-news-tela-1-titulo {
+    font-size: px;
+  }
+  .popup-news-tela-1-titulo ~ .popup-news-tela-1-desc-1 {
+    margin-top: px;
+  }
+  .popup-news-tela-1-desc-1 {
+    font-size: px;
+  }
+  .popup-news-tela-1-titulo ~ .popup-news-tela-1-desc-2,
+  .popup-news-tela-1-desc-1 ~ .popup-news-tela-1-desc-2 {
+    margin-top: px;
+  }
+  .popup-news-tela-1-desc-2 {
+    font-size: px;
+  }
+  .popup-news-tela-1-campo-nome {
+    font-size: px;
+  }
+  .popup-news-tela-1-campo-email {
+    font-size: px;
+  }
+  .popup-news-tela-1-btn {
+    font-size: px;
+  }
+  .popup-news-tela-1-info {
+    font-size: px;
+  }
+  .popup-news-tela-2-desc-1 {
+    font-size: px;
+  }
+  .popup-news-tela-2-desc-2 {
+    font-size: px;
+  }
+  .popup-news-tela-2-btn {
+    font-size: px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .popup-news-foto-computador {
+    order: 1;
+  }
+  .popup-news-foto-celular {
+    order: 2;
+  }
+  .popup-news-tela-1 {
+    order: 3;
+  }
+  .popup-news-tela-2 {
+    order: 4;
+  }
+  .popup-news-desc {
+    font-size: px;
+  }
+  .popup-news-btn {
+    border-radius: px;
+  }
+  .popup-news-btn {
+    font-size: px;
+  }
+  .popup-news-tela-1-titulo,
+  .popup-news-tela-1-foto-computador + .popup-news-tela-1-titulo {
+    margin-top: px;
+  }
+  .popup-news-tela-1-titulo {
+    font-size: px;
+  }
+  .popup-news-tela-1-titulo ~ .popup-news-tela-1-desc-1 {
+    margin-top: px;
+  }
+  .popup-news-tela-1-desc-1 {
+    font-size: px;
+  }
+  .popup-news-tela-1-titulo ~ .popup-news-tela-1-desc-2 {
+    margin-top: px;
+  }
+  .popup-news-tela-1-desc-2 {
+    font-size: px;
+  }
+  .popup-news-tela-1-campo {
+    border-radius: px;
+  }
+  .popup-news-tela-1-campo {
+    font-size: px;
+  }
+  .popup-news-tela-1-nome {
+    margin-top: px;
+  }
+  .popup-news-tela-1-email {
+    margin-top: px;
+  }
+  .popup-news-tela-1-btn {
+    margin-top: px;
+  }
+  .popup-news-tela-1-info {
+    text-align: left;
+  }
+  .popup-news-tela-1-info {
+    margin-top: px;
+  }
+  .popup-news-tela-1-info {
+    font-size: px;
+  }
+  .popup-news-tela-2-desc-1 {
+    font-size: px;
+  }
+  .popup-news-tela-2-desc-2 {
+    font-size: px;
+  }
+  .popup-news-tela-2-btn {
+    margin-top: px;
+  }
+}
