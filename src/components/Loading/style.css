@@ -1,0 +1,30 @@
+.loading-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-container>svg {
+    position: absolute;
+}
+
+.external-circle {
+    animation: rotate 20s infinite linear;
+}
+
+.internal-circle {
+    animation: rotate 20s infinite linear reverse;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(3600deg);
+    }
+}
