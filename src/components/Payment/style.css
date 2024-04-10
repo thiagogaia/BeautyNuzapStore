@@ -1,0 +1,91 @@
+.tail-carrinho-btn-continuar-loading {
+    border-radius: inherit;
+}
+
+.tail-carrinho-btn-continuar-loading-fundo {
+    transform: translateX(-100%);
+    transition: transform var(--tailCarrinhoAnimacaoPrincipal) ease-in-out;
+}
+
+/* Fundo do botão ao iniciar animação */
+.tail-carrinho-btn-continuar[data-enviar="true"] {
+    background-color: #3B82F6;
+}
+
+/* Esconde texto e icone de setas */
+.tail-carrinho-btn-continuar[data-enviar="true"] .tail-carrinho-btn-continuar-texto, .tail-carrinho-btn-continuar[data-enviar="true"] .tail-carrinho-btn-continuar-icone {
+    opacity: 0;
+}
+
+/* Exibe div de carregamento */
+.tail-carrinho-btn-continuar[data-enviar="true"] .tail-carrinho-btn-continuar-loading {
+    opacity: 1;
+}
+
+/* Animação do fundo */
+.tail-carrinho-btn-continuar[data-enviar="true"] .tail-carrinho-btn-continuar-loading-fundo {
+    transition: transform var(--tailCarrinhoAnimacaoPrincipal) ease-in-out;
+    transform: translateX(0);
+}
+
+/* Animação do icone de carregamento */
+.tail-carrinho-btn-continuar[data-enviar="true"] .tail-carrinho-btn-continuar-loading-icone {
+    animation: tailCarrinhoLoading var(--tailCarrinhoAnimacaoPrincipal) ease-in-out forwards;
+}
+
+/* Animação do icone de sucesso */
+.tail-carrinho-btn-continuar[data-enviar="true"] .tail-carrinho-btn-continuar-loading-sucesso-icone {
+    animation: tailCarrinhoLoadingSucesso var(--tailCarrinhoAnimacaoSecundaria) ease-in-out var(--tailCarrinhoAnimacaoPrincipal) forwards;
+}
+
+@keyframes tailCarrinhoLoading {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    10%, 90% {
+        opacity: 1;
+    }
+}
+
+@keyframes tailCarrinhoLoadingSucesso {
+    0% {
+        opacity: 0;
+        scale: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.tail-carrinho-lateral-summary-icone {
+    transform: rotate(0);
+}
+
+.tail-carrinho-lateral-details[open] .tail-carrinho-lateral-summary-icone {
+    transform: rotate(90deg);
+}
+
+/* Esconde ::marker do details no Safari */
+.tail-carrinho-lateral-summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Animação da bolinha do elemento indicador de scroll */
+.tail-scroll-indicador-bolinha {
+    animation: mouseScroll 1s ease-out infinite alternate;
+}
+
+@keyframes mouseScroll {
+    0% {
+        transform: translateY(0.25rem);
+        height: 0px;
+    }
+
+    100% {
+        transform: translateY(0);
+        height: 8px;
+    }
+}
