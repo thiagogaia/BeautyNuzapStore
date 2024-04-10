@@ -2,4 +2,7 @@
   --tail-rodape-fonte: "Montserrat", sans-serif;
   --swiper-navigation-color: #fff;
   --swiper-pagination-color: #fff;
+  --tailProdVerSummaryAltura: 100px;
+  --tailProdVerLarguraCol1: minmax(0, 60%);
+  --tailProdVerLarguraCol2: minmax(0, 40%);
 }
