@@ -1,0 +1,15 @@
+/* Modal */
+.tail-prod-ver-modal {
+    padding: 0;
+    max-height: 80%;
+
+}
+
+.tail-prod-ver-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* página do carrinho esconde o footer */
+/* footer {
+    display: none;
+} */

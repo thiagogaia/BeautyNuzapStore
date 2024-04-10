@@ -1,0 +1,83 @@
+@keyframes fadeFiltros {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Mostrar/Esconder filtros */
+.tail-busca-filtro-mostrar {
+    animation: fadeFiltros 500ms;
+}
+
+.tail-busca-filtro-mostrar-btn-input:checked+.tail-busca-filtro-mostrar {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+}
+
+@media(max-width:1023px) {
+    .tail-busca-filtro-mostrar-btn-input:checked+.tail-busca-filtro-mostrar {
+        display: block;
+        position: fixed;
+        z-index: 1000;
+    }
+}
+
+.tail-busca-filtro-details[open] .tail-busca-tag-lista {
+    animation: fadeIn 500ms ease-in-out forwards;
+}
+
+/* Animação ícone cruz */
+.tail-busca-filtro-icone {
+    transition: transform 200ms ease-in-out;
+}
+
+.tail-busca-filtro-details[open] .tail-busca-filtro-icone {
+    transform: rotate(-135deg);
+}
+
+/* Esconde marker no Safari */
+.tail-busca-filtro-summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Destaca filtro selecionado */
+.tail-busca-filtro-variacao-label:checked,
+.tail-busca-filtro-variacao-label:has(input:checked) {
+    border-color: #00b800;
+}
+
+.tail-busca-filtro-variacao-cor-item,
+.tail-busca-filtro-variacao-cor::before {
+    transition: order 3s, color 3s
+}
+
+.tail-busca-filtro-variacao-cor:has(.tail-busca-filtro-variacao-cor-checkbox:checked)::before {
+    background: url('https://braavo-static.nyc3.cdn.digitaloceanspaces.com/webroot/img/_icones/busca-filtro-check.webp') center no-repeat #00b800;
+    background-size: 10px 10px;
+    border-radius: 100%;
+    color: #fff;
+    content: '';
+    height: 16px;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    width: 16px;
+}
+
+.tail-busca-filtro-variacao-cor-item:has(.tail-busca-filtro-variacao-cor-checkbox:checked) {
+    order: 0 !important;
+}
+
+.tail-busca-filtro-variacao-cor-item:has(.tail-busca-filtro-variacao-cor-checkbox) {
+    order: 1 !important;
+}
+
+/* Altura minima para variações do filtro */
+.tail-busca-filtro-variacao-2-label {
+    min-height: 2.5rem;
+}

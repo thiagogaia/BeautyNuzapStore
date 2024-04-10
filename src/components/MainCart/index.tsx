@@ -106,40 +106,15 @@ const MainCart = () => {
                               </defs>
                               <g data-name="Layer 2" id="Layer_2">
                                 <g id="Workspace">
-                                  <rect
-                                    className="cls-1"
-                                    height={24}
-                                    width={24}
-                                  />
-                                  <polyline
-                                    className="cls-2"
-                                    points="8 8 9 18 15 18 16 8"
-                                  />
-                                  <line
-                                    className="cls-2"
-                                    x1={7}
-                                    x2={17}
-                                    y1={8}
-                                    y2={8}
-                                  />
+                                  <rect className="cls-1" height={24} width={24} />
+                                  <polyline className="cls-2" points="8 8 9 18 15 18 16 8" />
+                                  <line className="cls-2" x1={7} x2={17} y1={8} y2={8} />
                                   <polyline
                                     className="cls-2"
                                     points="10.5 8 10.5 6 13.5 6 13.5 8"
                                   />
-                                  <line
-                                    className="cls-2"
-                                    x1="10.5"
-                                    x2={11}
-                                    y1={10}
-                                    y2={16}
-                                  />
-                                  <line
-                                    className="cls-2"
-                                    x1="13.5"
-                                    x2={13}
-                                    y1={10}
-                                    y2={16}
-                                  />
+                                  <line className="cls-2" x1="10.5" x2={11} y1={10} y2={16} />
+                                  <line className="cls-2" x1="13.5" x2={13} y1={10} y2={16} />
                                 </g>
                               </g>
                             </svg>
@@ -327,9 +302,7 @@ const MainCart = () => {
                   </div>
                 </div>
                 <div className="flex flex-row pt-4 tail-carr-prod-resumo-produtos">
-                  <div className="flex-none w-20 text-sm text-left">
-                    Subtotal*
-                  </div>
+                  <div className="flex-none w-20 text-sm text-left">Subtotal*</div>
                   <div className="w-full text-base font-bold text-right">
                     R$ 349,90 <div className="text-xs font-normal">1 item </div>
                   </div>
@@ -372,18 +345,14 @@ const MainCart = () => {
                   Finalizar compra
                 </button>
               </section>
-              <style
-                dangerouslySetInnerHTML={{ __html: "footer{display: none;}" }}
-              />
             </div>
           </div>
           <div className="flex flex-col mx-auto my-6 lg:max-w-2xl tail-carr-prod-interno">
             <div className="pt-6 border-t border-gray-200 border-solid tail-carr-prod-texto-2">
               <div className="text-xs text-center">
-                *O carrinho de compras armazena temporariamente uma lista dos
-                produtos e não garante a disponibilidade em estoque no momento
-                da compra. O preço e a disponibilidade dos produtos estão
-                sujeitos a alterações.
+                *O carrinho de compras armazena temporariamente uma lista dos produtos e não garante
+                a disponibilidade em estoque no momento da compra. O preço e a disponibilidade dos
+                produtos estão sujeitos a alterações.
               </div>
             </div>
           </div>
@@ -407,11 +376,7 @@ const MainCart = () => {
                   stroke="currentColor"
                   className="flex-shrink-0 h-4 pointer-events-none"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -419,9 +384,7 @@ const MainCart = () => {
               <div className="text-sm lg:text-base">Link para compartilhar</div>
               <textarea
                 className="block w-full h-40 px-3 py-2 text-sm text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none md:text-base focus:border-indigo-500 ring-0 disabled-bg js-carr-prod-compartilhar-campo"
-                defaultValue={
-                  "https://www.vivadress.com.br/comprar?skus=16515%2C1%2C0%2C0"
-                }
+                defaultValue={"https://www.vivadress.com.br/comprar?skus=16515%2C1%2C0%2C0"}
               />
               <div className="grid gap-2 md:grid-cols-2">
                 <button
@@ -462,12 +425,6 @@ const MainCart = () => {
           <div
             data-classe="js-tail-carrinho-compartilhar-modal"
             className="escondido fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid rounded-lg shadow-lg scroll-auto tail-prod-ver-modal bg-white top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 tail-produto-modal-polyfill-div js-tail-produto-modal-polyfill-div"
-          />
-          <style
-            dangerouslySetInnerHTML={{
-              __html:
-                "\n  /* Modal */\n  .tail-prod-ver-modal{\n    padding:0;\n    max-height:80%;\n  }\n  .tail-prod-ver-modal::backdrop{background:rgba(0,0,0,0.7);}\n",
-            }}
           />
         </article>
       </div>

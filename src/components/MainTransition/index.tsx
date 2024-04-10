@@ -1,4 +1,5 @@
 import MainCart from "../MainCart";
+import MainProductList from "../MainProductList";
 import Slider from "../Slider";
 import FeaturedCategories from "./featuredCategories";
 import Instagram from "./instagram";
@@ -126,7 +127,10 @@ const MainTransition = () => {
             </div>
           </div>
         </article>
+
         <MainCart />
+
+        <MainProductList />
       </main>
     </>
   );
