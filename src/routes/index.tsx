@@ -5,7 +5,7 @@ import Home from "../pages/Home";
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/" element={<Home />} />
+      <Route path="/:storeUri" element={<Home />} />
     </Switch>
   );
 };

@@ -32,7 +32,7 @@ const Header = () => {
       className="top-0 z-50 w-full overflow-visible sticky tail-cabecalho ev-cabecalho js-tail-cabecalho"
       data-template="1201"
     >
-      <HeaderWarning />
+      {/* <HeaderWarning /> */}
 
       <section className="overflow-visible text-xs relative tail-topo ev-topo js-tail-topo js-appec-escondido">
         <section
