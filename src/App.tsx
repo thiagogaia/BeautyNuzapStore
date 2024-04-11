@@ -1,13 +1,9 @@
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import WidgetWhatsapp from "./components/WidgetWhatsapp";
-import PopupDiscount from "./components/PopupDiscount";
-import WidgetPrivacity from "./components/WidgetPrivacity";
-import MainTransition from "./components/MainTransition";
-import Payment from "./components/Payment";
 import { useState } from "react";
 import Loading from "./components/Loading";
+import Routes from "./routes";
 
 function App() {
   const [load, setLoad] = useState(true);
@@ -22,14 +18,8 @@ function App() {
         <>
           <Header />
           <div className="js-tail-topo-ancora"></div>
-          <MainTransition />
-          <Footer />
-
-          <WidgetWhatsapp numero="5548991729419" />
-          <PopupDiscount />
-          <WidgetPrivacity />
-
-          <Payment />
+          <Routes />
+          <Footer />          
         </>
       )}
     </>
