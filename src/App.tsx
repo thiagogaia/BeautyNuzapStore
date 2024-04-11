@@ -5,18 +5,33 @@ import WidgetWhatsapp from "./components/WidgetWhatsapp";
 import PopupDiscount from "./components/PopupDiscount";
 import WidgetPrivacity from "./components/WidgetPrivacity";
 import MainTransition from "./components/MainTransition";
+import Payment from "./components/Payment";
+import { useState } from "react";
+import Loading from "./components/Loading";
 
 function App() {
+  const [load, setLoad] = useState(true);
+  const promise = new Promise((resolve) => setTimeout(() => resolve(true), 1000));
+  promise.then(() => setLoad(false));
+
   return (
     <>
-      <Header />
-      <div className="js-tail-topo-ancora"></div>
-      <MainTransition />
-      <Footer />
+      {load ? (
+        <Loading />
+      ) : (
+        <>
+          <Header />
+          <div className="js-tail-topo-ancora"></div>
+          <MainTransition />
+          <Footer />
 
-      <WidgetWhatsapp numero="5548991729419" />
-      <PopupDiscount />
-      <WidgetPrivacity />
+          <WidgetWhatsapp numero="5548991729419" />
+          <PopupDiscount />
+          <WidgetPrivacity />
+
+          <Payment />
+        </>
+      )}
     </>
   );
 }

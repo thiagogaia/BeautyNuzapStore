@@ -1,8 +1,11 @@
 import MainCart from "../MainCart";
-import Slider from "../Slider";
+import MainProductList from "../MainProductList";
+import MainProductPage from "../MainProductPage";
+import Slider from "./slider";
 import FeaturedCategories from "./featuredCategories";
 import Instagram from "./instagram";
 import Showcase from "./showcase";
+
 import "./style.css";
 
 const MainTransition = () => {
@@ -126,7 +129,12 @@ const MainTransition = () => {
             </div>
           </div>
         </article>
+
         <MainCart />
+
+        <MainProductList />
+
+        <MainProductPage />
       </main>
     </>
   );
