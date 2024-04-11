@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 
 const Home = () => {
   const { storeUri } = useParams();
+
   /* useEffect(() => {
     window.scrollTo(0, 0);
     api.get(`/users/${user_id}`).then((res) => {

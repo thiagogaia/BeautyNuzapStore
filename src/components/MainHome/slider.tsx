@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Autoplay, Pagination, Navigation, Mousewheel, Keyboard } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Slider = () => {
   return (
@@ -13,15 +13,13 @@ const Slider = () => {
         <ul className="cont-lista cont-lista-120  esconder-dk esconder-mn ">
           <li className="cont-item-bann-slider " data-id={120}>
             <Swiper
-              modules={[Navigation, Pagination, Autoplay, Keyboard, Mousewheel]}
+              modules={[Navigation, Pagination, Autoplay]}
               autoplay={true}
               autoplay-pause-on-mouse-enter={true}
               autoplay-wait-for-transition={true}
               css-mode={true}
               effect="slide"
-              keyboard={false}
               loop={true}
-              mousewheel={true}
               navigation={true}
               pagination={{ clickable: true }}
               resizeObserver={true}
@@ -145,15 +143,13 @@ const Slider = () => {
         <ul className="cont-lista cont-lista-37  esconder-ip esconder-fb ">
           <li className="cont-item-bann-slider " data-id={37}>
             <Swiper
-              modules={[Navigation, Pagination, Autoplay, Keyboard, Mousewheel]}
+              modules={[Navigation, Pagination, Autoplay]}
               autoplay={true}
               autoplay-pause-on-mouse-enter={true}
               autoplay-wait-for-transition={true}
               css-mode={true}
               effect="slide"
-              keyboard={false}
               loop={true}
-              mousewheel={true}
               navigation={true}
               pagination={{ clickable: true }}
               resizeObserver={true}
@@ -232,38 +228,40 @@ const Slider = () => {
                 </a>
               </SwiperSlide>
               <SwiperSlide>
-                <picture>
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/600/4117446507.webp"
-                    media="(resolution:1x) and (max-width:639px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
-                    media="(resolution:2x) and (max-width:639px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
-                    media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
-                    media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/0/4117446507.webp"
-                    media="(resolution:1x) and (min-width:1024px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/0/4117446507.webp"
-                    media="(resolution:2x) and (min-width:1024px)"
-                  />
-                  <img
-                    loading="eager"
-                    src="/4117446507.webp"
-                    alt="Viva Dress"
-                    className="hidden w-full js-tail-swiper-image-adicionais"
-                  />
-                </picture>
+                <a href="/cat/70/ate-75-off">
+                  <picture>
+                    <source
+                      srcSet="https://thumb.braavo.me/vivadress/600/4117446507.webp"
+                      media="(resolution:1x) and (max-width:639px)"
+                    />
+                    <source
+                      srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
+                      media="(resolution:2x) and (max-width:639px)"
+                    />
+                    <source
+                      srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
+                      media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
+                    />
+                    <source
+                      srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
+                      media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
+                    />
+                    <source
+                      srcSet="https://thumb.braavo.me/vivadress/0/4117446507.webp"
+                      media="(resolution:1x) and (min-width:1024px)"
+                    />
+                    <source
+                      srcSet="https://thumb.braavo.me/vivadress/0/4117446507.webp"
+                      media="(resolution:2x) and (min-width:1024px)"
+                    />
+                    <img
+                      loading="eager"
+                      src="/4117446507.webp"
+                      alt="Viva Dress"
+                      className="hidden w-full js-tail-swiper-image-adicionais"
+                    />
+                  </picture>
+                </a>
               </SwiperSlide>
             </Swiper>
           </li>
