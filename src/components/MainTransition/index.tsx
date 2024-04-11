@@ -39,7 +39,7 @@ const MainTransition = () => {
                         />
                         <img
                           loading="lazy"
-                          src="https://thumb.braavo.me/vivadress/0/720908950.png"
+                          src="/720908950.png"
                           alt="Viva Dress"
                           className="cont-fotos-imagem mx-auto"
                         />
@@ -69,7 +69,7 @@ const MainTransition = () => {
                               />
                               <img
                                 loading="lazy"
-                                src="https://thumb.braavo.me/vivadress/0/2644292766.jpg"
+                                src="/2644292766.jpg"
                                 alt="Viva Dress"
                                 className="cont-banners-imagem"
                               />
@@ -105,7 +105,7 @@ const MainTransition = () => {
                         <picture className="w-full">
                           <img
                             loading="lazy"
-                            src="https://thumb.braavo.me/vivadress/0/3809129515.jpg"
+                            src="/3809129515.jpg"
                             alt="Viva Dress"
                             className="cont-fotos-imagem mx-auto"
                           />

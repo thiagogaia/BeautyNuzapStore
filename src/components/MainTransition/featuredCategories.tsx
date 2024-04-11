@@ -13,7 +13,7 @@ const FeaturedCategories = () => {
                   <picture className="w-full">
                     <img
                       loading="lazy"
-                      src="https://thumb.braavo.me/vivadress/0/4199208637.jpg"
+                      src="/4199208637.jpg"
                       alt="Viva Dress"
                       className="cont-fotos-imagem mx-auto"
                     />
@@ -32,7 +32,7 @@ const FeaturedCategories = () => {
                   <picture className="w-full">
                     <img
                       loading="lazy"
-                      src="https://thumb.braavo.me/vivadress/0/2576397449.jpg"
+                      src="/2576397449.jpg"
                       alt="Viva Dress"
                       className="cont-fotos-imagem mx-auto"
                     />
@@ -51,7 +51,7 @@ const FeaturedCategories = () => {
                   <picture className="w-full">
                     <img
                       loading="lazy"
-                      src="https://thumb.braavo.me/vivadress/0/242855006.jpg"
+                      src="/242855006.jpg"
                       alt="Viva Dress"
                       className="cont-fotos-imagem mx-auto"
                     />
@@ -70,7 +70,7 @@ const FeaturedCategories = () => {
                   <picture className="w-full">
                     <img
                       loading="lazy"
-                      src="https://thumb.braavo.me/vivadress/0/2801737167.jpg"
+                      src="/2801737167.jpg"
                       alt="Viva Dress"
                       className="cont-fotos-imagem mx-auto"
                     />
@@ -89,7 +89,7 @@ const FeaturedCategories = () => {
                   <picture className="w-full">
                     <img
                       loading="lazy"
-                      src="https://thumb.braavo.me/vivadress/0/2214971709.jpg"
+                      src="/2214971709.jpg"
                       alt="Viva Dress"
                       className="cont-fotos-imagem mx-auto"
                     />

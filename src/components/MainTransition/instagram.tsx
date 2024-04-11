@@ -4,19 +4,19 @@ const Instagram = () => {
   const instagramImages = [
     {
       link: "/instagram/404/1707160798",
-      img: "https://thumb.braavo.me/vivadress/400/3586542259.jpg",
+      img: "/3586542259.jpg",
     },
     {
       link: "/instagram/403/1706724600",
-      img: "https://thumb.braavo.me/vivadress/400/2707333948.jpg",
+      img: "/2707333948.jpg",
     },
     {
       link: "/instagram/402/1705073465",
-      img: "https://thumb.braavo.me/vivadress/400/989589331.jpg",
+      img: "/989589331.jpg",
     },
     {
       link: "/instagram/401/1704904821",
-      img: "https://thumb.braavo.me/vivadress/400/1298480547.jpg",
+      img: "/1298480547.jpg",
     },
   ];
   return (
@@ -91,7 +91,7 @@ const Instagram = () => {
                 target="_blank"
               >
                 <img
-                  src="https://static.braavo.com.br/webroot/img/2015/vitr-insta-colorido.svg"
+                  src="/vitr-insta-colorido.svg"
                   className="flex-shrink-0"
                   alt="Ícone do Instagram"
                 />

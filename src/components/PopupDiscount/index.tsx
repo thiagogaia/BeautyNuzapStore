@@ -38,14 +38,14 @@ const PopupDiscount = () => {
           </button>
           <figure className="popup-news-foto-computador popup-news-foto-computador-principal">
             <img
-              src="https://thumb.braavo.me/vivadress/0/569134886.webp"
+              src="/569134886.webp"
               alt="Newsletter"
               className="popup-news-imagem popup-news-imagem-computador"
             />
           </figure>
           <figure className="popup-news-foto-celular">
             <img
-              src="https://thumb.braavo.me/vivadress/0/3848092405.webp"
+              src="/3848092405.webp"
               alt="Newsletter"
               className="popup-news-imagem popup-news-imagem-celular"
             />

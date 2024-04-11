@@ -604,7 +604,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/2931042245.webp"
+                                  src="/2931042245.webp"
                                   title="Marinho A"
                                   alt="Marinho A"
                                   className="w-full h-full rounded-full"
@@ -627,7 +627,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/3007139633.webp"
+                                  src="/3007139633.webp"
                                   title="Azul Royal B"
                                   alt="Azul Royal B"
                                   className="w-full h-full rounded-full"
@@ -650,7 +650,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/165226872.webp"
+                                  src="/165226872.webp"
                                   title="Azul Turquesa A"
                                   alt="Azul Turquesa A"
                                   className="w-full h-full rounded-full"
@@ -673,7 +673,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/880672682.webp"
+                                  src="/880672682.webp"
                                   title="Branco D"
                                   alt="Branco D"
                                   className="w-full h-full rounded-full"
@@ -696,7 +696,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/1572455586.webp"
+                                  src="/1572455586.webp"
                                   title="Cinza A"
                                   alt="Cinza A"
                                   className="w-full h-full rounded-full"
@@ -719,7 +719,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/3642403535.webp"
+                                  src="/3642403535.webp"
                                   title="Cinza H"
                                   alt="Cinza H"
                                   className="w-full h-full rounded-full"
@@ -742,7 +742,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/3522080908.webp"
+                                  src="/3522080908.webp"
                                   title="Fúcsia A A"
                                   alt="Fúcsia A A"
                                   className="w-full h-full rounded-full"
@@ -765,7 +765,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/3963160522.webp"
+                                  src="/3963160522.webp"
                                   title="Fúcsia B"
                                   alt="Fúcsia B"
                                   className="w-full h-full rounded-full"
@@ -788,7 +788,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/2043620072.webp"
+                                  src="/2043620072.webp"
                                   title="Lilás H"
                                   alt="Lilás H"
                                   className="w-full h-full rounded-full"
@@ -811,7 +811,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/2571858009.gif"
+                                  src="/2571858009.gif"
                                   title="Marsala"
                                   alt="Marsala"
                                   className="w-full h-full rounded-full"
@@ -834,7 +834,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/2896017108.webp"
+                                  src="/2896017108.webp"
                                   title="Nude F"
                                   alt="Nude F"
                                   className="w-full h-full rounded-full"
@@ -857,7 +857,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/2734987390.webp"
+                                  src="/2734987390.webp"
                                   title="Preto"
                                   alt="Preto"
                                   className="w-full h-full rounded-full"
@@ -880,7 +880,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/3051652028.webp"
+                                  src="/3051652028.webp"
                                   title="Rose AW"
                                   alt="Rose AW"
                                   className="w-full h-full rounded-full"
@@ -903,7 +903,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/1790848673.webp"
+                                  src="/1790848673.webp"
                                   title="Vermelho A"
                                   alt="Vermelho A"
                                   className="w-full h-full rounded-full"
@@ -926,7 +926,7 @@ const MainProductList = () => {
                                   />
                                 </div>
                                 <img
-                                  src="https://thumb.braavo.me/vivadress/0/696776394.webp"
+                                  src="/696776394.webp"
                                   title="Rose G"
                                   alt="Rose G"
                                   className="w-full h-full rounded-full"
@@ -1299,7 +1299,7 @@ const MainProductList = () => {
                               />
                               <img
                                 loading="lazy"
-                                src="https://thumb.braavo.me/vivadress/400/362157411.png"
+                                src="/362157411.png"
                                 alt="Vestido Longo Acetinado Vermelho"
                                 className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
                               />
@@ -1317,7 +1317,7 @@ const MainProductList = () => {
                               />
                               <img
                                 loading="lazy"
-                                src="https://thumb.braavo.me/vivadress/400/1379299251.png"
+                                src="/1379299251.png"
                                 alt="Vestido Longo Acetinado Vermelho"
                                 className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
                               />

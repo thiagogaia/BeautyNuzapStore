@@ -120,7 +120,7 @@ const MainProductPage = () => {
                             >
                               <img
                                 loading="eager"
-                                src="https://thumb.braavo.me/vivadress/600/1483771895.webp"
+                                src="/1483771895.webp"
                                 srcSet="https://thumb.braavo.me/vivadress/600/1483771895.webp 600w,https://thumb.braavo.me/vivadress/1000/1483771895.webp 1000w,https://thumb.braavo.me/vivadress/0/1483771895.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
@@ -144,7 +144,7 @@ const MainProductPage = () => {
                             >
                               <img
                                 loading="lazy"
-                                src="https://thumb.braavo.me/vivadress/600/3659536422.webp"
+                                src="/3659536422.webp"
                                 srcSet="https://thumb.braavo.me/vivadress/600/3659536422.webp 600w,https://thumb.braavo.me/vivadress/1000/3659536422.webp 1000w,https://thumb.braavo.me/vivadress/0/3659536422.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
@@ -168,7 +168,7 @@ const MainProductPage = () => {
                             >
                               <img
                                 loading="lazy"
-                                src="https://thumb.braavo.me/vivadress/600/2677421173.webp"
+                                src="/2677421173.webp"
                                 srcSet="https://thumb.braavo.me/vivadress/600/2677421173.webp 600w,https://thumb.braavo.me/vivadress/1000/2677421173.webp 1000w,https://thumb.braavo.me/vivadress/0/2677421173.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
@@ -192,7 +192,7 @@ const MainProductPage = () => {
                             >
                               <img
                                 loading="lazy"
-                                src="https://thumb.braavo.me/vivadress/600/476883442.webp"
+                                src="/476883442.webp"
                                 srcSet="https://thumb.braavo.me/vivadress/600/476883442.webp 600w,https://thumb.braavo.me/vivadress/1000/476883442.webp 1000w,https://thumb.braavo.me/vivadress/0/476883442.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
@@ -230,7 +230,7 @@ const MainProductPage = () => {
                           <div className="h-full">
                             <img
                               loading="eager"
-                              src="https://thumb.braavo.me/vivadress/200/1483771895.webp"
+                              src="/1483771895.webp"
                               alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                               className="inline-block object-cover w-full h-full align-middle"
                             />
@@ -243,7 +243,7 @@ const MainProductPage = () => {
                           <div className="h-full">
                             <img
                               loading="eager"
-                              src="https://thumb.braavo.me/vivadress/200/3659536422.webp"
+                              src="/3659536422.webp"
                               alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                               className="inline-block object-cover w-full h-full align-middle"
                             />
@@ -256,7 +256,7 @@ const MainProductPage = () => {
                           <div className="h-full">
                             <img
                               loading="eager"
-                              src="https://thumb.braavo.me/vivadress/200/2677421173.webp"
+                              src="/2677421173.webp"
                               alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                               className="inline-block object-cover w-full h-full align-middle"
                             />
@@ -269,7 +269,7 @@ const MainProductPage = () => {
                           <div className="h-full">
                             <img
                               loading="eager"
-                              src="https://thumb.braavo.me/vivadress/200/476883442.webp"
+                              src="/476883442.webp"
                               alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                               className="inline-block object-cover w-full h-full align-middle"
                             />
@@ -1431,7 +1431,7 @@ const MainProductPage = () => {
                             />
                             <img
                               loading="lazy"
-                              src="https://thumb.braavo.me/vivadress/400/1483771895.jpg"
+                              src="/1483771895.jpg"
                               alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                               className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
                             />
@@ -1449,7 +1449,7 @@ const MainProductPage = () => {
                             />
                             <img
                               loading="lazy"
-                              src="https://thumb.braavo.me/vivadress/400/3659536422.jpg"
+                              src="/3659536422.jpg"
                               alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                               className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
                             />
@@ -1623,7 +1623,7 @@ const MainProductPage = () => {
                           />
                           <img
                             loading="lazy"
-                            src="https://thumb.braavo.me/vivadress/400/1483771895.jpg"
+                            src="/1483771895.jpg"
                             alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
                           />
@@ -1641,7 +1641,7 @@ const MainProductPage = () => {
                           />
                           <img
                             loading="lazy"
-                            src="https://thumb.braavo.me/vivadress/400/3659536422.jpg"
+                            src="/3659536422.jpg"
                             alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
                           />

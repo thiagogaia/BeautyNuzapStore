@@ -79,7 +79,7 @@ const MainCart = () => {
                         <div className="flex-none w-28">
                           <img
                             loading="lazy"
-                            src="https://thumb.braavo.me/vivadress/400/259243190.webp"
+                            src="/259243190.webp"
                             alt="Vestido Longo Acetinado Chris Ombro a Ombro Roxo"
                             className
                           />

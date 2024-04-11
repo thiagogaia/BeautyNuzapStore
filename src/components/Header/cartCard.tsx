@@ -5,7 +5,7 @@ const CartCard = () => {
         <div className="flex py-5 gap-x-4">
           <div className="flex-shrink-0">
             <img
-              src="https://thumb.braavo.me/vivadress/200/1596482158.webp"
+              src="/1596482158.webp"
               style={{ aspectRatio: "3/4" }}
               className="h-20 rounded-md object-cover"
             />

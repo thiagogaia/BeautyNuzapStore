@@ -56,7 +56,7 @@ const Slider = () => {
                     />
                     <img
                       loading="eager"
-                      src="https://thumb.braavo.me/vivadress/0/2475935748.webp"
+                      src="/2475935748.webp"
                       alt="Viva Dress"
                       className="w-full"
                     />
@@ -92,7 +92,7 @@ const Slider = () => {
                     />
                     <img
                       loading="eager"
-                      src="https://thumb.braavo.me/vivadress/0/711463916.webp"
+                      src="/711463916.webp"
                       alt="Viva Dress"
                       className="hidden w-full js-tail-swiper-image-adicionais"
                     />
@@ -128,7 +128,7 @@ const Slider = () => {
                     />
                     <img
                       loading="eager"
-                      src="https://thumb.braavo.me/vivadress/0/2196677245.webp"
+                      src="/2196677245.webp"
                       alt="Viva Dress"
                       className="hidden w-full js-tail-swiper-image-adicionais"
                     />
@@ -188,7 +188,7 @@ const Slider = () => {
                     />
                     <img
                       loading="eager"
-                      src="https://thumb.braavo.me/vivadress/0/2128662641.webp"
+                      src="/2128662641.webp"
                       alt="Viva Dress"
                       className="w-full"
                     />
@@ -224,7 +224,7 @@ const Slider = () => {
                     />
                     <img
                       loading="eager"
-                      src="https://thumb.braavo.me/vivadress/0/1099921719.webp"
+                      src="/1099921719.webp"
                       alt="Viva Dress"
                       className="hidden w-full js-tail-swiper-image-adicionais"
                     />
@@ -259,7 +259,7 @@ const Slider = () => {
                   />
                   <img
                     loading="eager"
-                    src="https://thumb.braavo.me/vivadress/0/4117446507.webp"
+                    src="/4117446507.webp"
                     alt="Viva Dress"
                     className="hidden w-full js-tail-swiper-image-adicionais"
                   />

@@ -7,7 +7,7 @@ const Payment = () => {
         <div className="w-full px-4 ml-auto lg:max-w-screen-sm lg:px-8">
           <a href="/carrinho" className="block ml-auto">
             <img
-              src="https://www.vivadress.com.br/logo/logo_carrinho.jpg"
+              src="/logo_carrinho.jpg"
               alt="Viva Dress"
               title="Viva Dress"
               className="max-h-10 tail-carr-topo-logo"
@@ -1590,7 +1590,7 @@ const Payment = () => {
                     <div className="flex flex-grow gap-3 pt-1.5">
                       <div className="overflow-visible relative self-center flex-shrink-0 w-14">
                         <div className="overflow-hidden border border-gray-300 border-solid rounded-md">
-                          <img src="https://thumb.braavo.me/vivadress/200/3998669464.webp" />
+                          <img src="/3998669464.webp" />
                         </div>
                         <div
                           style={{ fontSize: 10 }}

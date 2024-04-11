@@ -6,7 +6,7 @@ const Logo = () => {
           <a href="/" className="ev-topo-logo-foto-link">
             <img
               loading="lazy"
-              src="https://braavo-thumb.nyc3.digitaloceanspaces.com/vivadress/0/3608396007.webp"
+              src="3608396007.webp"
               width={259}
               height={60}
               className="object-contain max-h-12 md:max-h-20 ev-topo-logo-foto-img tail-topo-logo-img"

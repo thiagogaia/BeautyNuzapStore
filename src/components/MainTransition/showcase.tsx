@@ -67,7 +67,7 @@ const Showcase = ({ title }: IShowcaseProps) => {
                           />
                           <img
                             loading="lazy"
-                            src="https://thumb.braavo.me/vivadress/400/1483771895.jpg"
+                            src="/1483771895.jpg"
                             alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
                           />
@@ -85,7 +85,7 @@ const Showcase = ({ title }: IShowcaseProps) => {
                           />
                           <img
                             loading="lazy"
-                            src="https://thumb.braavo.me/vivadress/400/3659536422.jpg"
+                            src="/3659536422.jpg"
                             alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
                           />

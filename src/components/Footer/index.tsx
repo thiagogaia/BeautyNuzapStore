@@ -270,7 +270,7 @@ const Footer = () => {
                       <figure className>
                         <img
                           loading="lazy"
-                          src="//braavo-static.nyc3.cdn.digitaloceanspaces.com/webroot/img/_rodape/tail-pagamento-2-linhas-4-colunas-pix-boleto.webp"
+                          src="/tail-pagamento-2-linhas-4-colunas-pix-boleto.webp"
                           className="mx-auto lg:mx-0 tail-rodape-pagamento"
                           alt="Formas de Pagamento"
                         />
@@ -290,7 +290,7 @@ const Footer = () => {
                       <figure className>
                         <img
                           loading="lazy"
-                          src="//braavo-static.nyc3.cdn.digitaloceanspaces.com/webroot/img/_rodape/tail-ssl-preto.webp"
+                          src="/tail-ssl-preto.webp"
                           className="mx-auto lg:m-0 tail-rodape-ssl"
                           alt="Formas de Pagamento"
                         />
@@ -313,7 +313,7 @@ const Footer = () => {
                         >
                           <img
                             loading="lazy"
-                            src="https://static.braavo.com.br/webroot/img/_rodape/tail-upagency.webp"
+                            src="/tail-upagency.webp"
                             className="max-h-10 m-auto lg:m-0"
                             alt="Agência Up"
                           />
