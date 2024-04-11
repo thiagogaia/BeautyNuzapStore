@@ -11,7 +11,7 @@ import Loading from "./components/Loading";
 
 function App() {
   const [load, setLoad] = useState(true);
-  const promise = new Promise((resolve) => setTimeout(() => resolve(true), 3000));
+  const promise = new Promise((resolve) => setTimeout(() => resolve(true), 1000));
   promise.then(() => setLoad(false));
 
   return (

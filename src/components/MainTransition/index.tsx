@@ -1,10 +1,11 @@
 import MainCart from "../MainCart";
 import MainProductList from "../MainProductList";
 import MainProductPage from "../MainProductPage";
-import Slider from "../Slider";
+import Slider from "./slider";
 import FeaturedCategories from "./featuredCategories";
 import Instagram from "./instagram";
 import Showcase from "./showcase";
+
 import "./style.css";
 
 const MainTransition = () => {

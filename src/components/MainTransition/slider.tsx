@@ -1,6 +1,11 @@
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay, Keyboard } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Autoplay, Pagination, Navigation, Mousewheel, Keyboard } from "swiper/modules";
+
 const Slider = () => {
   return (
     <>
@@ -8,14 +13,7 @@ const Slider = () => {
         <ul className="cont-lista cont-lista-120  esconder-dk esconder-mn ">
           <li className="cont-item-bann-slider " data-id={120}>
             <Swiper
-              modules={[
-                Navigation,
-                Pagination,
-                Scrollbar,
-                A11y,
-                Autoplay,
-                Keyboard,
-              ]}
+              modules={[Navigation, Pagination, Autoplay, Keyboard, Mousewheel]}
               autoplay={true}
               autoplay-pause-on-mouse-enter={true}
               autoplay-wait-for-transition={true}
@@ -24,12 +22,12 @@ const Slider = () => {
               keyboard={false}
               loop={true}
               mousewheel={true}
-              navigation
+              navigation={true}
               pagination={{ clickable: true }}
-              resize-observer={true}
+              resizeObserver={true}
               className="w-full"
             >
-              <SwiperSlide data-swiper-autoplay={5000}>
+              <SwiperSlide>
                 <a href="/cat/15/mil-formas">
                   <picture>
                     <source
@@ -65,7 +63,7 @@ const Slider = () => {
                   </picture>
                 </a>
               </SwiperSlide>
-              <SwiperSlide data-swiper-autoplay={5000}>
+              <SwiperSlide>
                 <a href="/cat/70/ate-75-off">
                   <picture>
                     <source
@@ -101,7 +99,7 @@ const Slider = () => {
                   </picture>
                 </a>
               </SwiperSlide>
-              <SwiperSlide data-swiper-autoplay={5000}>
+              <SwiperSlide>
                 <a href="/cat/5/new-in">
                   <picture>
                     <source
@@ -141,19 +139,13 @@ const Slider = () => {
           </li>
         </ul>
       </div>
+
       <div className="cont-separador cont-separador-37  esconder-ip esconder-fb " />
       <div className="cont-limite cont-limite-37  esconder-ip esconder-fb ">
         <ul className="cont-lista cont-lista-37  esconder-ip esconder-fb ">
           <li className="cont-item-bann-slider " data-id={37}>
             <Swiper
-              modules={[
-                Navigation,
-                Pagination,
-                Scrollbar,
-                A11y,
-                Autoplay,
-                Keyboard,
-              ]}
+              modules={[Navigation, Pagination, Autoplay, Keyboard, Mousewheel]}
               autoplay={true}
               autoplay-pause-on-mouse-enter={true}
               autoplay-wait-for-transition={true}
@@ -162,12 +154,12 @@ const Slider = () => {
               keyboard={false}
               loop={true}
               mousewheel={true}
-              navigation
+              navigation={true}
               pagination={{ clickable: true }}
-              resize-observer={true}
+              resizeObserver={true}
               className="w-full"
             >
-              <SwiperSlide data-swiper-autoplay={5000}>
+              <SwiperSlide>
                 <a href="/cat/5/new-in">
                   <picture>
                     <source
@@ -203,7 +195,7 @@ const Slider = () => {
                   </picture>
                 </a>
               </SwiperSlide>
-              <SwiperSlide data-swiper-autoplay={5000}>
+              <SwiperSlide>
                 <a href="/cat/15/mil-formas">
                   <picture>
                     <source
@@ -239,7 +231,7 @@ const Slider = () => {
                   </picture>
                 </a>
               </SwiperSlide>
-              <SwiperSlide data-swiper-autoplay={5000}>
+              <SwiperSlide>
                 <picture>
                   <source
                     srcSet="https://thumb.braavo.me/vivadress/600/4117446507.webp"
@@ -280,9 +272,11 @@ const Slider = () => {
       <div className="cont-separador cont-separador-119 cont-alt-md " />
       <div className="cont-limite cont-limite-119 cont-pdd-pq ">
         <ul className="cont-lista cont-lista-119 cont-mgm-l-md ">
-          <li className="vitr-grupo-box vitr-grupo-hash-141 conteudo-hash-141 cont-item cont-item-141  cont-mgm-i-md" data-id={141}>
-            <div className="cont-fotos">
-            </div>
+          <li
+            className="vitr-grupo-box vitr-grupo-hash-141 conteudo-hash-141 cont-item cont-item-141  cont-mgm-i-md"
+            data-id={141}
+          >
+            <div className="cont-fotos"></div>
           </li>
         </ul>
       </div>
