@@ -1,34 +1,32 @@
 import "./App.css";
 
-import { useState } from "react";
+import { useContext } from "react";
 import Loading from "./components/Loading";
 import Routes from "./routes";
-import FingerprintJS from '@fingerprintjs/fingerprintjs'
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import { ProductsContext } from "./contexts/Products";
 
 async function computeHash() {
-  const fpPromise = FingerprintJS.load({ monitoring: false })
-  const fp = await fpPromise
-  const result = await fp.get()
-  window.localStorage.setItem('userFingerPrint', result.visitorId);
-  return result
+  const fpPromise = FingerprintJS.load({ monitoring: false });
+  const fp = await fpPromise;
+  const result = await fp.get();
+  window.localStorage.setItem("userFingerPrint", result.visitorId);
+  return result;
 }
 
 function App() {
-  computeHash()
-  const [load, setLoad] = useState(true);
-  const promise = new Promise((resolve) => setTimeout(() => resolve(true), 1000));
-  promise.then(() => setLoad(false));
+  computeHash();
+
+  const { loading } = useContext(ProductsContext);
 
   return (
     <>
-      {load ? (
+      {loading ? (
         <Loading />
       ) : (
         <>
-          
           <div className="js-tail-topo-ancora"></div>
           <Routes />
-                    
         </>
       )}
     </>

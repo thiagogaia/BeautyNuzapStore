@@ -1,7 +1,7 @@
 interface props {
-  numero: string
+  numero: string;
 }
-const WidgetWhatsapp = ({numero}:props) => {
+const WidgetWhatsapp = ({ numero }: props) => {
   return (
     <>
       <a
@@ -17,14 +17,12 @@ const WidgetWhatsapp = ({numero}:props) => {
           version="1.1"
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
           x="0px"
           y="0px"
           width="23px"
           height="24px"
           viewBox="0 0 23 24"
           enable-background="new 0 0 23 24"
-          xml:space="preserve"
         >
           <g>
             <g>

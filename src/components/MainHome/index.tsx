@@ -1,14 +1,14 @@
-import MainCart from "../MainCart";
-import MainProductList from "../MainProductList";
-import MainProductPage from "../MainProductPage";
-import Slider from "./slider";
-import FeaturedCategories from "./featuredCategories";
-import Instagram from "./instagram";
-import Showcase from "./showcase";
+// import MainCart from "../MainCart";
+// import MainProductList from "../MainProductList";
+// import MainProductPage from "../MainProductPage";
+// import InformativeComponent from "./informativeComponent";
+// import FeaturedCategories from "./featuredCategories";
+// import Instagram from "./instagram";
+// import Showcase from "./showcase";
 
 import "./style.css";
+import Slider from "./slider";
 import PaymentMethods from "./paymentMethods";
-import InformativeComponent from "./informativeComponent";
 import CardProduct from "../CardProduct";
 
 const MainHome = () => {
@@ -24,12 +24,12 @@ const MainHome = () => {
             <PaymentMethods />
 
             <div className="cont-separador cont-separador-427 cont-alt-md " />
-            <div className="cont-limite cont-limite-40">              
-              <ul className="tail-listagem-prod-lista js-tail-listagem-prod-lista js-tail-paginacao-busca-lista flex-grow grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+            <div className="cont-limite cont-limite-40">
+              <ul className="padding-home-pg tail-listagem-prod-lista js-tail-listagem-prod-lista js-tail-paginacao-busca-lista flex-grow grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
                 {[...new Array(8)].map((e) => (
                   <CardProduct key={e} />
                 ))}
-              </ul>              
+              </ul>
             </div>
 
             {/* <div className="cont-separador cont-separador-427 cont-alt-md " />
@@ -49,8 +49,6 @@ const MainHome = () => {
 
             {/* <div className="cont-separador cont-separador-65 cont-alt-gr " />
             <Instagram /> */}
-
-            
           </div>
         </article>
       </main>

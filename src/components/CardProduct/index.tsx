@@ -18,12 +18,12 @@ const CardProduct = () => {
           >
             <picture>
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/362157411.webp 200w, https://thumb.braavo.me/vivadress/400/362157411.webp 400w, https://thumb.braavo.me/vivadress/600/362157411.webp 600w"
+                srcSet="/362157411.webp 200w, /362157411.webp 400w, /362157411.webp 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/webp"
               />
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/362157411.png 200w, https://thumb.braavo.me/vivadress/400/362157411.png 400w, https://thumb.braavo.me/vivadress/600/362157411.png 600w"
+                srcSet="/362157411.png 200w, /362157411.png 400w, /362157411.png 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/jpeg"
               />
@@ -36,12 +36,12 @@ const CardProduct = () => {
             </picture>
             <picture>
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/1379299251.webp 200w, https://thumb.braavo.me/vivadress/400/1379299251.webp 400w, https://thumb.braavo.me/vivadress/600/1379299251.webp 600w"
+                srcSet="/1379299251.webp 200w, /1379299251.webp 400w, /1379299251.webp 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/webp"
               />
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/1379299251.png 200w, https://thumb.braavo.me/vivadress/400/1379299251.png 400w, https://thumb.braavo.me/vivadress/600/1379299251.png 600w"
+                srcSet="/1379299251.png 200w, /1379299251.png 400w, /1379299251.png 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/jpeg"
               />
@@ -87,12 +87,8 @@ const CardProduct = () => {
                       className=" flex items-center gap-0.5 text-xs text-gray-500 tail-listagem-prod-precos2-parcela ev-listagem-prod-preco-parcela"
                       data-seta-posicao="direita"
                     >
-                      <span className="mr-0.5 tail-listagem-prod-precos2-parcela-parcelas">
-                        5x
-                      </span>
-                      <span className="tail-listagem-prod-precos2-parcela-cifrao">
-                        R$ 55,98
-                      </span>
+                      <span className="mr-0.5 tail-listagem-prod-precos2-parcela-parcelas">5x</span>
+                      <span className="tail-listagem-prod-precos2-parcela-cifrao">R$ 55,98</span>
                     </div>
                     <div
                       className="hidden flex items-center gap-0.5 pl-1 text-xs text-gray-500 tail-listagem-prod-preco-avista ev-listagem-prod-preco-avista"

@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 const PopupDiscount = () => {
   return (
     <>
@@ -57,17 +57,12 @@ const PopupDiscount = () => {
               PRIMEIRA COMPRA
             </h1>
             <p className="popup-news-tela-1-desc-1 popup-news-desc js-popup-news-testar-font-weight">
-              Informe o seu melhor e-mail e GANHE 10% OFF na sua primeira
-              compra.
+              Informe o seu melhor e-mail e GANHE 10% OFF na sua primeira compra.
             </p>
-            <div
-              className="popup-news-tela-1-form js-popup-news-form"
-              noValidate
-            >
+            <div className="popup-news-tela-1-form js-popup-news-form">
               <div className="popup-news-tela-1-nome">
                 <input
                   type="text"
-                  defaultValue
                   placeholder="Digite seu nome"
                   className="popup-news-tela-1-campo popup-news-tela-1-campo-nome js-popup-news-nome js-popup-news-testar-font-weight"
                 />
@@ -75,7 +70,6 @@ const PopupDiscount = () => {
               <div className="popup-news-tela-1-email">
                 <input
                   type="email"
-                  defaultValue
                   placeholder="Digite seu e-mail"
                   className="popup-news-tela-1-campo popup-news-tela-1-campo-email js-popup-news-email js-popup-news-testar-font-weight"
                 />

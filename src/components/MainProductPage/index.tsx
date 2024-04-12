@@ -86,13 +86,13 @@ const MainProductPage = () => {
                       <div className="relative order-1 w-full p-1 ml-2 border border-white border-solid lg:max-w-4xl">
                         <div
                           className="absolute left-0 px-2 py-1 ml-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
-                          onclick="produtoVerFotosSeta(this, 'voltar');"
+                          // onclick="produtoVerFotosSeta(this, 'voltar');"
                         >
                           &lt;
                         </div>
                         <div
                           className="absolute right-0 px-2 py-1 mr-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
-                          onclick="produtoVerFotosSeta(this, 'avancar');"
+                          // onclick="produtoVerFotosSeta(this, 'avancar');"
                         >
                           &gt;
                         </div>
@@ -112,16 +112,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/1483771895.webp"
+                              href="/1483771895.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/1483771895.webp"
+                              data-src="/1483771895.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="eager"
                                 src="/1483771895.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/1483771895.webp 600w,https://thumb.braavo.me/vivadress/1000/1483771895.webp 1000w,https://thumb.braavo.me/vivadress/0/1483771895.webp 2x"
+                                srcSet="/1483771895.webp 600w,/1483771895.webp 1000w,/1483771895.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -136,16 +136,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/3659536422.webp"
+                              href="/3659536422.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/3659536422.webp"
+                              data-src="/3659536422.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="lazy"
                                 src="/3659536422.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/3659536422.webp 600w,https://thumb.braavo.me/vivadress/1000/3659536422.webp 1000w,https://thumb.braavo.me/vivadress/0/3659536422.webp 2x"
+                                srcSet="/3659536422.webp 600w,/3659536422.webp 1000w,/3659536422.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -160,16 +160,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/2677421173.webp"
+                              href="/2677421173.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/2677421173.webp"
+                              data-src="/2677421173.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="lazy"
                                 src="/2677421173.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/2677421173.webp 600w,https://thumb.braavo.me/vivadress/1000/2677421173.webp 1000w,https://thumb.braavo.me/vivadress/0/2677421173.webp 2x"
+                                srcSet="/2677421173.webp 600w,/2677421173.webp 1000w,/2677421173.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -184,16 +184,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/476883442.webp"
+                              href="/476883442.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/476883442.webp"
+                              data-src="/476883442.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="lazy"
                                 src="/476883442.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/476883442.webp 600w,https://thumb.braavo.me/vivadress/1000/476883442.webp 1000w,https://thumb.braavo.me/vivadress/0/476883442.webp 2x"
+                                srcSet="/476883442.webp 600w,/476883442.webp 1000w,/476883442.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -207,25 +207,13 @@ const MainProductPage = () => {
                               scrollSnapStop: "always",
                               scrollSnapAlign: "center",
                             }}
-                          >
-                            <div className="w-full h-full">
-                              <iframe
-                                src="https://player.vimeo.com/video/927583123?share=copy"
-                                allowFullScreen=""
-                                frameBorder={0}
-                                data-video-type="vimeo"
-                                rel="nofollow"
-                                className="w-full h-full"
-                                style={{ aspectRatio: "3/4" }}
-                              />
-                            </div>
-                          </div>
+                          ></div>
                         </div>
                       </div>
                       <div className="flex flex-col flex-none w-12 gap-2 order-0 ">
                         <div
                           className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                          onclick="produtoVerFotosThumb(this, 0);"
+                          // onclick="produtoVerFotosThumb(this, 0);"
                         >
                           <div className="h-full">
                             <img
@@ -238,7 +226,7 @@ const MainProductPage = () => {
                         </div>
                         <div
                           className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                          onclick="produtoVerFotosThumb(this, 1);"
+                          // onclick="produtoVerFotosThumb(this, 1);"
                         >
                           <div className="h-full">
                             <img
@@ -251,7 +239,7 @@ const MainProductPage = () => {
                         </div>
                         <div
                           className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                          onclick="produtoVerFotosThumb(this, 2);"
+                          // onclick="produtoVerFotosThumb(this, 2);"
                         >
                           <div className="h-full">
                             <img
@@ -264,7 +252,7 @@ const MainProductPage = () => {
                         </div>
                         <div
                           className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                          onclick="produtoVerFotosThumb(this, 3);"
+                          // onclick="produtoVerFotosThumb(this, 3);"
                         >
                           <div className="h-full">
                             <img
@@ -277,7 +265,7 @@ const MainProductPage = () => {
                         </div>
                         <div
                           className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                          onclick="produtoVerFotosThumb(this, 4);"
+                          // onclick="produtoVerFotosThumb(this, 4);"
                         >
                           <div className="relative flex items-center justify-center h-full text-center">
                             <svg
@@ -314,8 +302,8 @@ const MainProductPage = () => {
                     method="post"
                     action="/carrinho"
                     autoComplete="off"
-                    noValidate="novalidate"
-                    onsubmit="etapaComprarFetch()"
+                    noValidate
+                    // onsubmit="etapaComprarFetch()"
                     data-fetch={1}
                     data-escolher-variacao={0}
                     data-pixel-evento-unico={0}
@@ -327,7 +315,7 @@ const MainProductPage = () => {
                     <input
                       type="hidden"
                       defaultValue={0}
-                      readOnly=""
+                      readOnly
                       className="js-tail-comprar-personalizado"
                     />
                     <input
@@ -384,7 +372,7 @@ const MainProductPage = () => {
                           <div
                             className="relative flex flex-col justify-center h-32 gap-1 p-4 bg-gray-100 rounded-lg cursor-pointer lg:h-28 ev-etapa-preco-grupo tail-etapa-preco-grupo"
                             data-privado={0}
-                            onclick="etapaParcelaFetch()"
+                            // onclick="etapaParcelaFetch()"
                           >
                             <div className="flex items-center justify-center gap-1 lg:justify-start tail-etapa-preco-de-container js-tail-etapa-preco-de-container">
                               <del
@@ -473,7 +461,7 @@ const MainProductPage = () => {
                         </div>
                         <input
                           type="hidden"
-                          readOnly=""
+                          readOnly
                           defaultValue=""
                           className="js-tail-etapa-parcela-dados"
                         />
@@ -515,7 +503,7 @@ const MainProductPage = () => {
                                   data-quantidade={2}
                                   data-personalizado={0}
                                   data-logado={0}
-                                  onclick="etapaVariResetar(), produtoVerFotosVariacao(this), etapaVariMostrar(), etapaVariPers(), etapaVariSkuId(), etapaPreco(), etapaUrlEscrever(), etapaFreteMostrarOuNao(), etapaComprarTopoSemVari(), etapaComprarTopoVariTitulo(), etapaComprarBotao()"
+                                  // onclick="etapaVariResetar(), produtoVerFotosVariacao(this), etapaVariMostrar(), etapaVariPers(), etapaVariSkuId(), etapaPreco(), etapaUrlEscrever(), etapaFreteMostrarOuNao(), etapaComprarTopoSemVari(), etapaComprarTopoVariTitulo(), etapaComprarBotao()"
                                   className="hidden tail-prod-ver-variacao-input ev-prod-ver-variacao-input js-tail-etapa-variacao-input js-tail-etapa-variacao-1-input"
                                 />
                                 <label
@@ -550,7 +538,7 @@ const MainProductPage = () => {
                                   data-quantidade={0}
                                   data-personalizado={0}
                                   data-logado={0}
-                                  onclick="etapaVariResetar(), produtoVerFotosVariacao(this), etapaVariMostrar(), etapaVariPers(), etapaVariSkuId(), etapaPreco(), etapaUrlEscrever(), etapaFreteMostrarOuNao(), etapaComprarTopoSemVari(), etapaComprarTopoVariTitulo(), etapaComprarBotao()"
+                                  // onclick="etapaVariResetar(), produtoVerFotosVariacao(this), etapaVariMostrar(), etapaVariPers(), etapaVariSkuId(), etapaPreco(), etapaUrlEscrever(), etapaFreteMostrarOuNao(), etapaComprarTopoSemVari(), etapaComprarTopoVariTitulo(), etapaComprarBotao()"
                                   className="hidden tail-prod-ver-variacao-input ev-prod-ver-variacao-input js-tail-etapa-variacao-input js-tail-etapa-variacao-1-input"
                                 />
                                 <label
@@ -624,7 +612,7 @@ const MainProductPage = () => {
                         <button
                           type="button"
                           className="flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border border-transparent border-solid rounded-lg select-none hover:opacity-70 escondido tail-etapa-comprar-btn-espera js-tail-etapa-comprar-btn-esgotado"
-                          onclick="etapaEsperaModal()"
+                          // onclick="etapaEsperaModal()"
                         >
                           <div className="tail-etapa-comprar-btn-texto-espera">Avise-me</div>
                         </button>
@@ -644,7 +632,7 @@ const MainProductPage = () => {
                           href="#"
                           rel="nofollow"
                           data-produto-id={2581}
-                          onclick="etapaDesejoFetch()"
+                          // onclick="etapaDesejoFetch()"
                           className="grid px-3 border border-black border-solid rounded-lg place-content-center group md:px-2 tail-etapa-desejo-link ev-etapa-desejo-link js-tail-etapa-desejo-link"
                           data-seta-posicao="direita"
                         >
@@ -834,10 +822,10 @@ const MainProductPage = () => {
                           type="text"
                           name=""
                           placeholder="Digite seu CEP"
-                          maxlenght={9}
+                          max={9}
                           pattern="[0-9]*"
-                          onkeypress="etapaFreteEnterNoInput()"
-                          oninput="etapaFreteCepCompleto()"
+                          // onkeypress="etapaFreteEnterNoInput()"
+                          // oninput="etapaFreteCepCompleto()"
                           className="w-full flex-shrink px-2.5 py-2 overflow-visible text-xs transition-colors bg-white border border-gray-300 border-solid rounded-lg hover:border-blue-500 outline-none focus:border-blue-500 tail-etapa-frete-cep js-tail-etapa-frete-cep js-cookie-cep js-imask-cep"
                           data-mascara-regra="#####-###"
                           autoComplete="off"
@@ -847,7 +835,7 @@ const MainProductPage = () => {
                         />
                         <button
                           type="button"
-                          onclick="etapaFreteFetch()"
+                          // onclick="etapaFreteFetch()"
                           className="relative flex items-center flex-shrink-0 gap-1 px-3 text-white transition-opacity bg-black rounded-lg w-34 hover:opacity-70 tail-etapa-frete-btn ev-etapa-frete-btn js-tail-etapa-frete-btn"
                           data-seta-posicao="direita"
                         >
@@ -886,13 +874,13 @@ const MainProductPage = () => {
                   </details>
                   <input
                     type="hidden"
-                    readOnly=""
+                    readOnly
                     defaultValue="0.700;349.90;0;0.0;0.0;0.0;;2010-01-01"
                     className="js-tail-etapa-frete-dados-16435"
                   />
                   <input
                     type="hidden"
-                    readOnly=""
+                    readOnly
                     defaultValue="0.700;349.90;0;0.0;0.0;0.0;;2010-01-01"
                     className="js-tail-etapa-frete-dados-16436"
                   />
@@ -1014,7 +1002,7 @@ const MainProductPage = () => {
                   <button
                     type="button"
                     className="flex-shrink-0 p-1.5 border border-gray-200 border-solid rounded-full hover:bg-gray-100 cursor-pointer"
-                    onclick="etapaEsperaModalBtnFechar()"
+                    // onclick="etapaEsperaModalBtnFechar()"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1037,7 +1025,7 @@ const MainProductPage = () => {
                       type="email"
                       id="etapa-espera-email"
                       placeholder="Digite seu e-mail"
-                      onkeypress="etapaEsperaEnterNoInput()"
+                      // onkeypress="etapaEsperaEnterNoInput()"
                       className="flex items-center w-full px-2 py-2.5 transition-shadow bg-white border border-gray-300 border-solid rounded-lg shadow outline-none placeholder-gray-500 hover:border-black focus:border-black js-tail-etapa-espera-email js-cookie-email"
                       style={{
                         backgroundImage: 'url("data:image/png',
@@ -1052,7 +1040,7 @@ const MainProductPage = () => {
                   <div className="grid gap-2 transition-all transform md:grid-cols-2">
                     <button
                       type="button"
-                      onclick="etapaEsperaFetch()"
+                      // onclick="etapaEsperaFetch()"
                       className="relative flex items-center justify-center gap-1 px-4 py-3 text-base text-white transition-opacity bg-black rounded-lg hover:opacity-70 tail-etapa-espera-btn ev-etapa-espera-btn js-tail-etapa-espera-btn"
                       data-seta-posicao="direita"
                     >
@@ -1141,7 +1129,7 @@ const MainProductPage = () => {
                   <button
                     type="button"
                     className="flex-shrink-0 p-1.5 border border-gray-200 border-solid rounded-full hover:bg-gray-100 cursor-pointer"
-                    onclick="etapaEsperaModalBtnFechar()"
+                    // onclick="etapaEsperaModalBtnFechar()"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1164,7 +1152,7 @@ const MainProductPage = () => {
                       type="email"
                       id="etapa-espera-email"
                       placeholder="Digite seu e-mail"
-                      onkeypress="etapaEsperaEnterNoInput()"
+                      // onkeypress="etapaEsperaEnterNoInput()"
                       className="flex items-center w-full px-2 py-2.5 transition-shadow bg-white border border-gray-300 border-solid rounded-lg shadow outline-none placeholder-gray-500 hover:border-black focus:border-black js-tail-etapa-espera-email js-cookie-email"
                       style={{
                         backgroundImage: 'url("data:image/png',
@@ -1179,7 +1167,7 @@ const MainProductPage = () => {
                   <div className="grid gap-2 transition-all transform md:grid-cols-2">
                     <button
                       type="button"
-                      onclick="etapaEsperaFetch()"
+                      // onclick="etapaEsperaFetch()"
                       className="relative flex items-center justify-center gap-1 px-4 py-3 text-base text-white transition-opacity bg-black rounded-lg hover:opacity-70 tail-etapa-espera-btn ev-etapa-espera-btn js-tail-etapa-espera-btn"
                       data-seta-posicao="direita"
                     >
@@ -1382,7 +1370,7 @@ const MainProductPage = () => {
                 <button
                   aria-label="Voltar Slider para os produtos anteriores"
                   className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                  onclick="listagemSlider('voltar');"
+                  // onclick="listagemSlider('voltar');"
                 >
                   <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                     <svg
@@ -1420,12 +1408,12 @@ const MainProductPage = () => {
                         >
                           <picture>
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/1483771895.webp 200w, https://thumb.braavo.me/vivadress/400/1483771895.webp 400w, https://thumb.braavo.me/vivadress/600/1483771895.webp 600w"
+                              srcSet="/1483771895.webp 200w, /1483771895.webp 400w, /1483771895.webp 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/webp"
                             />
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/1483771895.jpg 200w, https://thumb.braavo.me/vivadress/400/1483771895.jpg 400w, https://thumb.braavo.me/vivadress/600/1483771895.jpg 600w"
+                              srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/jpeg"
                             />
@@ -1438,12 +1426,12 @@ const MainProductPage = () => {
                           </picture>
                           <picture>
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/3659536422.webp 200w, https://thumb.braavo.me/vivadress/400/3659536422.webp 400w, https://thumb.braavo.me/vivadress/600/3659536422.webp 600w"
+                              srcSet="/3659536422.webp 200w, /3659536422.webp 400w, /3659536422.webp 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/webp"
                             />
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/3659536422.jpg 200w, https://thumb.braavo.me/vivadress/400/3659536422.jpg 400w, https://thumb.braavo.me/vivadress/600/3659536422.jpg 600w"
+                              srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/jpeg"
                             />
@@ -1550,7 +1538,7 @@ const MainProductPage = () => {
                 <button
                   aria-label="Avançar Slider para os próximos produtos"
                   className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                  onclick="listagemSlider('avancar')"
+                  // onclick="listagemSlider('avancar')"
                 >
                   <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                     <svg
@@ -1577,7 +1565,7 @@ const MainProductPage = () => {
                 <button
                   aria-label="Voltar Slider para os produtos anteriores"
                   className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                  onclick="listagemSlider('voltar');"
+                  // onclick="listagemSlider('voltar');"
                 >
                   <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                     <svg
@@ -1612,12 +1600,12 @@ const MainProductPage = () => {
                       >
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.webp 200w, https://thumb.braavo.me/vivadress/400/1483771895.webp 400w, https://thumb.braavo.me/vivadress/600/1483771895.webp 600w"
+                            srcSet="/1483771895.webp 200w, /1483771895.webp 400w, /1483771895.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.jpg 200w, https://thumb.braavo.me/vivadress/400/1483771895.jpg 400w, https://thumb.braavo.me/vivadress/600/1483771895.jpg 600w"
+                            srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />
@@ -1630,12 +1618,12 @@ const MainProductPage = () => {
                         </picture>
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.webp 200w, https://thumb.braavo.me/vivadress/400/3659536422.webp 400w, https://thumb.braavo.me/vivadress/600/3659536422.webp 600w"
+                            srcSet="/3659536422.webp 200w, /3659536422.webp 400w, /3659536422.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.jpg 200w, https://thumb.braavo.me/vivadress/400/3659536422.jpg 400w, https://thumb.braavo.me/vivadress/600/3659536422.jpg 600w"
+                            srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />
@@ -1662,7 +1650,7 @@ const MainProductPage = () => {
                 <button
                   aria-label="Avançar Slider para os próximos produtos"
                   className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                  onclick="listagemSlider('avancar')"
+                  // onclick="listagemSlider('avancar')"
                 >
                   <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                     <svg
@@ -1693,7 +1681,7 @@ const MainProductPage = () => {
                 <button
                   aria-label="Voltar Slider para os produtos anteriores"
                   className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                  onclick="listagemSlider('voltar');"
+                  // onclick="listagemSlider('voltar');"
                 >
                   <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                     <svg
@@ -1716,7 +1704,7 @@ const MainProductPage = () => {
                 <button
                   aria-label="Avançar Slider para os próximos produtos"
                   className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                  onclick="listagemSlider('avancar')"
+                  // onclick="listagemSlider('avancar')"
                 >
                   <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                     <svg
@@ -1744,7 +1732,7 @@ const MainProductPage = () => {
             >
               <button
                 className="relative flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border-none rounded-lg select-none outline-none hover:opacity-70 ev-etapa-comprar-btn ev-etapa-comprar-btn js-tail-etapa-comprar-flutuante-btn"
-                onclick="etapaComprarBotaoFlutuanteClique()"
+                // onclick="etapaComprarBotaoFlutuanteClique()"
               >
                 Comprar
               </button>

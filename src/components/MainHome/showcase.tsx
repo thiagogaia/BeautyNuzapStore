@@ -18,7 +18,7 @@ const Showcase = ({ title }: IShowcaseProps) => {
               <button
                 aria-label="Voltar Slider para os produtos anteriores"
                 className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                onclick="listagemSlider('voltar');"
+                // onclick="listagemSlider('voltar');"
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                   <svg
@@ -56,12 +56,12 @@ const Showcase = ({ title }: IShowcaseProps) => {
                       >
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.webp 200w, https://thumb.braavo.me/vivadress/400/1483771895.webp 400w, https://thumb.braavo.me/vivadress/600/1483771895.webp 600w"
+                            srcSet="/1483771895.webp 200w, /1483771895.webp 400w, /1483771895.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.jpg 200w, https://thumb.braavo.me/vivadress/400/1483771895.jpg 400w, https://thumb.braavo.me/vivadress/600/1483771895.jpg 600w"
+                            srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />
@@ -74,12 +74,12 @@ const Showcase = ({ title }: IShowcaseProps) => {
                         </picture>
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.webp 200w, https://thumb.braavo.me/vivadress/400/3659536422.webp 400w, https://thumb.braavo.me/vivadress/600/3659536422.webp 600w"
+                            srcSet="/3659536422.webp 200w, /3659536422.webp 400w, /3659536422.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.jpg 200w, https://thumb.braavo.me/vivadress/400/3659536422.jpg 400w, https://thumb.braavo.me/vivadress/600/3659536422.jpg 600w"
+                            srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />
@@ -187,7 +187,7 @@ const Showcase = ({ title }: IShowcaseProps) => {
               <button
                 aria-label="Avançar Slider para os próximos produtos"
                 className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                onclick="listagemSlider('avancar')"
+                // onclick="listagemSlider('avancar')"
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                   <svg
