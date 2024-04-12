@@ -23,7 +23,7 @@ const PaymentMethods = () => {
                   <img
                     loading="lazy"
                     src="/720908950.png"
-                    alt="Viva Dress"
+                    alt="Joelik"
                     className="cont-fotos-imagem mx-auto"
                   />
                 </picture>
@@ -53,7 +53,7 @@ const PaymentMethods = () => {
                         <img
                           loading="lazy"
                           src="/2644292766.jpg"
-                          alt="Viva Dress"
+                          alt="Joelik"
                           className="cont-banners-imagem"
                         />
                       </picture>

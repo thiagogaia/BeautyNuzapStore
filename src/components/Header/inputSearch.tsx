@@ -20,7 +20,7 @@ const InputSearch = () => {
                 type="text"
                 inputMode="search"
                 name="b"
-                aria-label="Buscar em Viva Dress"
+                aria-label="Buscar em Joelik"
                 autoCorrect="off"
                 autoCapitalize="none"
                 autoComplete="off"

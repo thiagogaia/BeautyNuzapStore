@@ -14,7 +14,7 @@ const InformativeComponent = () => {
                           <img
                             loading="lazy"
                             src="/3809129515.jpg"
-                            alt="Viva Dress"
+                            alt="Joelik"
                             className="cont-fotos-imagem mx-auto"
                           />
                         </picture>

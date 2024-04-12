@@ -55,7 +55,7 @@ const Slider = () => {
                     <img
                       loading="eager"
                       src="/2475935748.webp"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="w-full"
                     />
                   </picture>
@@ -91,7 +91,7 @@ const Slider = () => {
                     <img
                       loading="eager"
                       src="/711463916.webp"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="hidden w-full js-tail-swiper-image-adicionais"
                     />
                   </picture>
@@ -127,7 +127,7 @@ const Slider = () => {
                     <img
                       loading="eager"
                       src="/2196677245.webp"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="hidden w-full js-tail-swiper-image-adicionais"
                     />
                   </picture>
@@ -185,7 +185,7 @@ const Slider = () => {
                     <img
                       loading="eager"
                       src="/2128662641.webp"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="w-full"
                     />
                   </picture>
@@ -221,7 +221,7 @@ const Slider = () => {
                     <img
                       loading="eager"
                       src="/1099921719.webp"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="hidden w-full js-tail-swiper-image-adicionais"
                     />
                   </picture>
@@ -250,7 +250,7 @@ const Slider = () => {
                   <img
                     loading="eager"
                     src="/4117446507.webp"
-                    alt="Viva Dress"
+                    alt="Joelik"
                     className="hidden w-full js-tail-swiper-image-adicionais"
                   />
                 </picture>
