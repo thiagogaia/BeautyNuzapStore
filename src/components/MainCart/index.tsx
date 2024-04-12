@@ -383,7 +383,7 @@ const MainCart = () => {
               <div className="text-sm lg:text-base">Link para compartilhar</div>
               <textarea
                 className="block w-full h-40 px-3 py-2 text-sm text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none md:text-base focus:border-indigo-500 ring-0 disabled-bg js-carr-prod-compartilhar-campo"
-                defaultValue={"https://www.vivadress.com.br/comprar?skus=16515%2C1%2C0%2C0"}
+                defaultValue={"https://www.nuzap.com.br/joelik/comprar?skus=16515%2C1%2C0%2C0"}
               />
               <div className="grid gap-2 md:grid-cols-2">
                 <button

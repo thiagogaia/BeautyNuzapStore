@@ -694,7 +694,7 @@ const MainProductPage = () => {
                         >
                           <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                             <a
-                              href="https://wa.me/?text=https%3A%2F%2Fwww.vivadress.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
+                              href="https://wa.me/?text=https%3A%2F%2Fwww.nuzap.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
                               className="p-2 inline-block cursor-pointer ev-etapa-social-link js-whatsapp"
                               target="_blank"
                             >
@@ -718,7 +718,7 @@ const MainProductPage = () => {
                           </li>
                           <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                             <a
-                              href="mailto:?Subject=Olha%20o%20que%20eu%20gostei&body=Achei%20legal%20e%20queria%20compartilhar%20com%20você:%20https%3A%2F%2Fwww.vivadress.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
+                              href="mailto:?Subject=Olha%20o%20que%20eu%20gostei&body=Achei%20legal%20e%20queria%20compartilhar%20com%20você:%20https%3A%2F%2Fwww.nuzap.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
                               className="p-2 inline-block cursor-pointer ev-etapa-social-link"
                             >
                               <span className="sr-only">Compartilhar via E-mail</span>

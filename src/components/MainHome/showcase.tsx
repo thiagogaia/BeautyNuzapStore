@@ -5,7 +5,7 @@ const Showcase = ({ title }: IShowcaseProps) => {
     <>
       <div className="cont-limite cont-limite-427 cont-pdd-pq ">
         <h2 className="tt vitr-tt cont-tt  cont-ali-ip-c cont-ali-fb-c cont-ali-dk-c cont-ali-mn-c cont-tt-427">
-          <a href="https://www.vivadress.com.br/cat/5/new-in" className="tt-url">
+          <a href="https://www.nuzap.com.br/joelik/cat/5/new-in" className="tt-url">
             <span className="tt-texto">{title}</span>
           </a>
         </h2>
