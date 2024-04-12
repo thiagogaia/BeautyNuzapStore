@@ -180,19 +180,14 @@ const MainProductList = () => {
                       </svg>
                     </label>
                   </div>
-                  <form
-                    action="/cat/17/ver-todos"
-                    autoComplete="off"
-                    method="get"
-                    noValidate="novalidate"
-                  >
+                  <form action="/cat/17/ver-todos" autoComplete="off" method="get" noValidate>
                     <input type="hidden" name="b" defaultValue="" />
                     <input
                       type="radio"
                       name="o1"
                       id="FiltroOrdenarbarato"
                       defaultValue="barato"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -200,7 +195,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarcaro"
                       defaultValue="caro"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -208,7 +203,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenardesconto"
                       defaultValue="desconto"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -216,7 +211,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarvendas"
                       defaultValue="vendas"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -224,8 +219,8 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarpop"
                       defaultValue="pop"
-                      defaultChecked=""
-                      onchange="this.form.submit();"
+                      defaultChecked
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -233,7 +228,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarnome"
                       defaultValue="nome"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -241,7 +236,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarnovo"
                       defaultValue="novo"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -249,7 +244,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarestoque"
                       defaultValue="estoque"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -257,7 +252,7 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenarrelev"
                       defaultValue="relev"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <input
@@ -265,14 +260,14 @@ const MainProductList = () => {
                       name="o1"
                       id="FiltroOrdenaraleat"
                       defaultValue="aleat"
-                      onchange="this.form.submit();"
+                      // onchange="this.form.submit();"
                       className="hidden"
                     />
                     <div className="w-full js-appec-escondido">
                       <div className="text-xs divide-y divide-gray-200 divide-solid tail-busca-filtro-geral">
                         <details
                           className="select-none tail-busca-filtro-details tail-busca-filtro-details-cates"
-                          open=""
+                          open
                         >
                           <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
                             <span
@@ -599,7 +594,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1300"
                                     defaultValue={1300}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -622,7 +617,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1259"
                                     defaultValue={1259}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -645,7 +640,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1485"
                                     defaultValue={1485}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -668,7 +663,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1618"
                                     defaultValue={1618}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -691,7 +686,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1397"
                                     defaultValue={1397}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -714,7 +709,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1697"
                                     defaultValue={1697}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -737,7 +732,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1621"
                                     defaultValue={1621}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -760,7 +755,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1164"
                                     defaultValue={1164}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -783,7 +778,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1363"
                                     defaultValue={1363}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -806,7 +801,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1053"
                                     defaultValue={1053}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -829,7 +824,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1651"
                                     defaultValue={1651}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -852,7 +847,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1047"
                                     defaultValue={1047}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -875,7 +870,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1680"
                                     defaultValue={1680}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -898,7 +893,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1284"
                                     defaultValue={1284}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -921,7 +916,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1299"
                                     defaultValue={1299}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="sr-only tail-busca-filtro-variacao-cor-checkbox"
                                   />
                                 </div>
@@ -982,7 +977,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1003"
                                     defaultValue={1003}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1000,7 +995,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1004"
                                     defaultValue={1004}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1018,7 +1013,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1005"
                                     defaultValue={1005}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1036,7 +1031,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1006"
                                     defaultValue={1006}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1054,7 +1049,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1007"
                                     defaultValue={1007}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1072,7 +1067,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1008"
                                     defaultValue={1008}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1090,7 +1085,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1009"
                                     defaultValue={1009}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1108,7 +1103,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1010"
                                     defaultValue={1010}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1126,7 +1121,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1011"
                                     defaultValue={1011}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1144,7 +1139,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1016"
                                     defaultValue={1016}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1162,7 +1157,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1017"
                                     defaultValue={1017}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1180,7 +1175,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1015"
                                     defaultValue={1015}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1198,7 +1193,7 @@ const MainProductList = () => {
                                     name="v1[]"
                                     id="FiltroVari1012"
                                     defaultValue={1012}
-                                    onchange="this.form.submit();"
+                                    // onchange="this.form.submit();"
                                     className="hidden"
                                   />
                                 </div>
@@ -1249,7 +1244,7 @@ const MainProductList = () => {
                                 name="d1[]"
                                 id="FiltroDest4"
                                 defaultValue={4}
-                                onchange="this.form.submit();"
+                                // onchange="this.form.submit();"
                                 className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                               />
                               <label htmlFor="FiltroDest4" className="flex gap-1">

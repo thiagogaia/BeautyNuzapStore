@@ -34,7 +34,7 @@ const Instagram = () => {
               <button
                 aria-label="Voltar Slider para os produtos anteriores"
                 className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-inst-seta"
-                onclick="listagemSlider('voltar');"
+                // onclick="listagemSlider('voltar');"
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-inst-seta-interno ev-listagem-seta-interno">
                   <svg
@@ -63,7 +63,7 @@ const Instagram = () => {
               <button
                 aria-label="Avançar Slider para os próximos produtos"
                 className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-inst-seta"
-                onclick="listagemSlider('avancar')"
+                // onclick="listagemSlider('avancar')"
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-inst-seta-interno ev-listagem-seta-interno">
                   <svg

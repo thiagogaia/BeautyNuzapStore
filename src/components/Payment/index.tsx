@@ -23,7 +23,7 @@ const Payment = () => {
               action="/carrinho/cliente"
               autoComplete="off"
               method="post"
-              noValidate="novalidate"
+              noValidate
               data-vale-desconto={0.0}
               data-total="199.90"
               className="js-carrinho-cliente-form js-recaptcha"
@@ -389,7 +389,7 @@ const Payment = () => {
                           data-rotulo="Nome completo*"
                           id="ClienteNome"
                           name="dados[Cliente][nome]"
-                          onBlur="carrinhoClienteDestinatario()"
+                          // onBlur="carrinhoClienteDestinatario()"
                           placeholder="Nome"
                           className="h-12 px-2 text-sm placeholder-transparent bg-white border border-gray-300 border-solid rounded-md outline-none hover:border-blue-500 focus:border-blue-500 ring-0 tail-carrinho-form-campo js-carrinho-cliente-nome"
                         />
@@ -478,7 +478,6 @@ const Payment = () => {
                               id="ClienteNascimento"
                               inputMode="numeric"
                               name="dados[Cliente][nascimento]"
-                              obs="(dd/mm/aaaa)"
                               placeholder="dd/mm/aaaa"
                               className="h-12 px-2 text-sm placeholder-transparent bg-white border border-gray-300 border-solid rounded-md outline-none hover:border-blue-500 focus:border-blue-500 ring-0 tail-carrinho-form-campo js-imask-nascimento"
                               data-mascara-regra="##/##/####"
@@ -664,7 +663,6 @@ const Payment = () => {
                                   data-rotulo="País"
                                   id="EnderecoPais"
                                   name="dados[Endereco][pais]"
-                                  placeholder="País"
                                   className="border border-gray-300 border-solid rounded-md w-full h-12 pt-4 pl-2 pr-8 text-sm bg-gray-50 outline-none appearance-none cursor-pointer hover:border-blue-500 tail-carrinho-form-campo js-carrinho-endereco-pais"
                                 >
                                   <option value="BR">Brazil</option>
@@ -963,7 +961,6 @@ const Payment = () => {
                                 inputMode="numeric"
                                 maxLength={9}
                                 name="dados[Endereco][cep_1]"
-                                obs='<span class="align-baseline">Não sabe seu CEP? <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" rel="external" target="_blank" class="underline align-baseline">clique aqui</a></span>'
                                 placeholder="CEP"
                                 className="h-12 px-2 text-sm placeholder-transparent bg-white border border-gray-300 border-solid rounded-md outline-none hover:border-blue-500 focus:border-blue-500 ring-0 tail-carrinho-form-campo js-imask-cep js-carrinho-endereco-cep1"
                                 data-mascara-regra="#####-###"
@@ -1083,7 +1080,6 @@ const Payment = () => {
                                 inputMode="numeric"
                                 maxLength={10}
                                 name="dados[Endereco][numero]"
-                                obs="(digite 0 para sem número)"
                                 placeholder="Número"
                                 className="h-12 px-2 text-sm placeholder-transparent bg-white border border-gray-300 border-solid rounded-md outline-none hover:border-blue-500 focus:border-blue-500 ring-0 tail-carrinho-form-campo js-carrinho-endereco-numero"
                               />
@@ -1111,7 +1107,6 @@ const Payment = () => {
                                 id="EnderecoComplemento"
                                 maxLength={30}
                                 name="dados[Endereco][complemento]"
-                                obs="(opcional)"
                                 placeholder="Complemento"
                                 className="h-12 px-2 text-sm placeholder-transparent bg-white border border-gray-300 border-solid rounded-md outline-none hover:border-blue-500 focus:border-blue-500 ring-0 tail-carrinho-form-campo"
                               />

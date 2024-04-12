@@ -1,6 +1,6 @@
 import "./style.css";
 
-import HeaderWarning from "./headerWarning";
+// import HeaderWarning from "./headerWarning";
 import Logo from "./logo";
 import InputSearch from "./inputSearch";
 import InputSearchMobile from "./inputSearchMobile";
@@ -42,7 +42,10 @@ const Header = () => {
           <div className="grid grid-cols-3 overflow-visible tail-topo-classe-limite">
             <div className="flex items-center md:gap-6 md:flex-col md:items-start lg:items-center lg:flex-row">
               <div className="flex items-center md:order-last lg:order-none md:hidden ev-topo-categorias-toggle-btn-abrir js-tail-topo-inverter">
-                <label htmlFor="tail-topo-hamburger-abrir" onclick="topoToggleTodosFechar(this)">
+                <label
+                  htmlFor="tail-topo-hamburger-abrir"
+                  // onclick="topoToggleTodosFechar(this)"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -196,7 +199,7 @@ const Header = () => {
                     <label
                       htmlFor="tail-topo-login-toggle"
                       className="js-tail-topo-inverter"
-                      onclick="topoToggleTodosFechar(this)"
+                      // onclick="topoToggleTodosFechar(this)"
                     >
                       <HiOutlineUser style={{ fontSize: "1.5rem" }} />
                     </label>
@@ -243,7 +246,7 @@ const Header = () => {
                     <label
                       htmlFor="tail-topo-sacola-toggle"
                       className="relative inline-block overflow-visible"
-                      onclick="topoToggleTodosFechar(this)"
+                      // onclick="topoToggleTodosFechar(this)"
                     >
                       <span className="inline-block js-tail-topo-inverter">
                         <HiOutlineShoppingBag style={{ fontSize: "1.45rem" }} />
