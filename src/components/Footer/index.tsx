@@ -386,7 +386,7 @@ const Footer = () => {
                       rel="external"
                       target="_blank"
                     >
-                      <img src="img/logo-web.png" alt="Nuzap" width={50}  />
+                      <img src="https://loja.nuzap.com.br/img/logo-web.png" alt="Nuzap" width={50}  />
                     </a>
                   </div>
                 </div>
