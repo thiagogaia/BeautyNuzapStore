@@ -648,6 +648,16 @@
   }
 }
 
+.padding-home-pg {
+  padding: 1rem;
+}
+
+@media only screen and (min-width:1250px) {
+  .padding-home-pg {
+    padding: 0;
+  }
+}
+
 .swiper {
   width: 100%;
 }
