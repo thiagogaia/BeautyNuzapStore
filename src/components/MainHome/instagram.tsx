@@ -86,7 +86,7 @@ const Instagram = () => {
 
             <div className=" mt-2">
               <a
-                href="https://www.instagram.com/viva.dress/"
+                href="https://www.instagram.com/joelikoficial/"
                 className="flex items-center justify-center gap-2 mx-auto divide-x divide-gray-300 w-max divide-solid"
                 target="_blank"
               >
@@ -95,7 +95,7 @@ const Instagram = () => {
                   className="flex-shrink-0"
                   alt="Ícone do Instagram"
                 />
-                <span className="pl-2">Siga @viva.dress</span>
+                <span className="pl-2">Siga @joelikoficial</span>
               </a>
             </div>
           </li>

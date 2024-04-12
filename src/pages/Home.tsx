@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+// import { useContext, useEffect, useState } from "react";
 import MainHome from "../components/MainHome";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import WidgetPrivacity from "../components/WidgetPrivacity";
 import WidgetWhatsapp from "../components/WidgetWhatsapp";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 const Home = () => {
-  const { storeUri } = useParams();
+  // const { storeUri } = useParams();
   /* useEffect(() => {
     window.scrollTo(0, 0);
     api.get(`/users/${user_id}`).then((res) => {

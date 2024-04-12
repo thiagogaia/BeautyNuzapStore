@@ -735,7 +735,7 @@ const MainProductPage = () => {
                           </li>
                           <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                             <a
-                              href="//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.vivadress.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
+                              href="//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.nuzao.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
                               target="_blank"
                               className="p-2 inline-block cursor-pointer ev-etapa-social-link"
                             >

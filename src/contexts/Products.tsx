@@ -12,8 +12,8 @@ const ProductsProvider = ({ children }: IProviderProps) => {
     api
       .get("/products?_url=joelik&_page=1&_limit=8")
       .then((res) => {
-        // setProducts(res.data);
-        // setLoading(false);
+        setProducts(res.data);
+        setLoading(false);
 
         console.log(res.data);
       })

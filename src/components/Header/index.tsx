@@ -1,6 +1,6 @@
 import "./style.css";
 
-// import HeaderWarning from "./headerWarning";
+import HeaderWarning from "./headerWarning";
 import Logo from "./logo";
 import InputSearch from "./inputSearch";
 import InputSearchMobile from "./inputSearchMobile";
@@ -32,7 +32,7 @@ const Header = () => {
       className="top-0 z-50 w-full overflow-visible sticky tail-cabecalho ev-cabecalho js-tail-cabecalho"
       data-template="1201"
     >
-      {/* <HeaderWarning /> */}
+      <HeaderWarning />
 
       <section className="overflow-visible text-xs relative tail-topo ev-topo js-tail-topo js-appec-escondido">
         <section
@@ -101,7 +101,7 @@ const Header = () => {
                   <ul className="flex justify-center gap-1 md:justify-start ev-topo-social-lista">
                     <li className="ev-topo-social-item  ev-topo-social-dados-item">
                       <a
-                        href="http://www.facebook.com/oficialvivadress"
+                        href="http://www.facebook.com/joelikoficial"
                         className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
                         title="facebook"
                         rel="external"
@@ -112,7 +112,7 @@ const Header = () => {
                     </li>
                     <li className="ev-topo-social-item  ev-topo-social-dados-item">
                       <a
-                        href="http://www.instagram.com/viva.dress/"
+                        href="http://www.instagram.com/joelikoficial/"
                         className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
                         title="instagram"
                         rel="external"
@@ -123,7 +123,7 @@ const Header = () => {
                     </li>
                     <li className="ev-topo-social-item  ev-topo-social-dados-item">
                       <a
-                        href="http://tiktok.com/@viva.dress"
+                        href="http://tiktok.com/@joelikoficial"
                         className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
                         title="tiktok"
                         rel="external"

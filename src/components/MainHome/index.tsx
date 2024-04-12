@@ -3,7 +3,7 @@
 // import MainProductPage from "../MainProductPage";
 // import InformativeComponent from "./informativeComponent";
 // import FeaturedCategories from "./featuredCategories";
-// import Instagram from "./instagram";
+import Instagram from "./instagram";
 // import Showcase from "./showcase";
 
 import "./style.css";
@@ -47,8 +47,8 @@ const MainHome = () => {
             {/* <div className="cont-separador cont-separador-425 cont-alt-md " />
             <Showcase title="até 75% off" /> */}
 
-            {/* <div className="cont-separador cont-separador-65 cont-alt-gr " />
-            <Instagram /> */}
+            <div className="cont-separador cont-separador-65 cont-alt-gr " />
+            <Instagram />
           </div>
         </article>
       </main>
