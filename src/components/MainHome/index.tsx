@@ -1,16 +1,15 @@
-import MainCart from "../MainCart";
-import MainProductList from "../MainProductList";
-import MainProductPage from "../MainProductPage";
-import Slider from "./slider";
-import FeaturedCategories from "./featuredCategories";
-import Instagram from "./instagram";
-import Showcase from "./showcase";
+// import MainCart from "../MainCart";
+// import MainProductList from "../MainProductList";
+// import MainProductPage from "../MainProductPage";
+// import InformativeComponent from "./informativeComponent";
+// import FeaturedCategories from "./featuredCategories";
+// import Instagram from "./instagram";
+// import Showcase from "./showcase";
 
 import "./style.css";
+import Slider from "./slider";
 import PaymentMethods from "./paymentMethods";
-import InformativeComponent from "./informativeComponent";
 import CardProduct from "../CardProduct";
-import Payment from "../Payment";
 
 const MainHome = () => {
   return (
@@ -33,28 +32,23 @@ const MainHome = () => {
               </ul>
             </div>
 
-            <div className="cont-separador cont-separador-427 cont-alt-md " />
-            <Showcase title="New In" />
+            {/* <div className="cont-separador cont-separador-427 cont-alt-md " />
+            <Showcase title="New In" /> */}
 
-            <div className="cont-separador cont-separador-166 cont-alt-md " />
-            <FeaturedCategories />
+            {/* <div className="cont-separador cont-separador-166 cont-alt-md " />
+            <FeaturedCategories /> */}
 
-            <div className="cont-separador cont-separador-422 cont-alt-md " />
-            <Showcase title="Best sellers" />
+            {/* <div className="cont-separador cont-separador-422 cont-alt-md " />
+            <Showcase title="Best sellers" /> */}
 
-            <div className="cont-separador cont-separador-143 cont-alt-md " />
-            <InformativeComponent />
+            {/* <div className="cont-separador cont-separador-143 cont-alt-md " />
+            <InformativeComponent /> */}
 
-            <div className="cont-separador cont-separador-425 cont-alt-md " />
-            <Showcase title="até 75% off" />
+            {/* <div className="cont-separador cont-separador-425 cont-alt-md " />
+            <Showcase title="até 75% off" /> */}
 
-            <div className="cont-separador cont-separador-65 cont-alt-gr " />
-            <Instagram />
-
-            <MainCart />
-            <MainProductList />
-            <MainProductPage />
-            <Payment />
+            {/* <div className="cont-separador cont-separador-65 cont-alt-gr " />
+            <Instagram /> */}
           </div>
         </article>
       </main>

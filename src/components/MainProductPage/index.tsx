@@ -112,16 +112,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/1483771895.webp"
+                              href="/1483771895.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/1483771895.webp"
+                              data-src="/1483771895.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="eager"
                                 src="/1483771895.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/1483771895.webp 600w,https://thumb.braavo.me/vivadress/1000/1483771895.webp 1000w,https://thumb.braavo.me/vivadress/0/1483771895.webp 2x"
+                                srcSet="/1483771895.webp 600w,/1483771895.webp 1000w,/1483771895.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -136,16 +136,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/3659536422.webp"
+                              href="/3659536422.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/3659536422.webp"
+                              data-src="/3659536422.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="lazy"
                                 src="/3659536422.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/3659536422.webp 600w,https://thumb.braavo.me/vivadress/1000/3659536422.webp 1000w,https://thumb.braavo.me/vivadress/0/3659536422.webp 2x"
+                                srcSet="/3659536422.webp 600w,/3659536422.webp 1000w,/3659536422.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -160,16 +160,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/2677421173.webp"
+                              href="/2677421173.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/2677421173.webp"
+                              data-src="/2677421173.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="lazy"
                                 src="/2677421173.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/2677421173.webp 600w,https://thumb.braavo.me/vivadress/1000/2677421173.webp 1000w,https://thumb.braavo.me/vivadress/0/2677421173.webp 2x"
+                                srcSet="/2677421173.webp 600w,/2677421173.webp 1000w,/2677421173.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -184,16 +184,16 @@ const MainProductPage = () => {
                             }}
                           >
                             <a
-                              href="https://thumb.braavo.me/vivadress/0/476883442.webp"
+                              href="/476883442.webp"
                               className="inline-block w-full"
                               data-fancybox="galeria-produtos"
-                              data-src="https://thumb.braavo.me/vivadress/0/476883442.webp"
+                              data-src="/476883442.webp"
                               data-caption="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                             >
                               <img
                                 loading="lazy"
                                 src="/476883442.webp"
-                                srcSet="https://thumb.braavo.me/vivadress/600/476883442.webp 600w,https://thumb.braavo.me/vivadress/1000/476883442.webp 1000w,https://thumb.braavo.me/vivadress/0/476883442.webp 2x"
+                                srcSet="/476883442.webp 600w,/476883442.webp 1000w,/476883442.webp 2x"
                                 sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                                 alt="Vestido Longo Tule Glitter Busto Plissado Fucsia"
                                 className="inline-block w-full h-full align-middle object-fit"
@@ -207,19 +207,7 @@ const MainProductPage = () => {
                               scrollSnapStop: "always",
                               scrollSnapAlign: "center",
                             }}
-                          >
-                            <div className="w-full h-full">
-                              <iframe
-                                src="https://player.vimeo.com/video/927583123?share=copy"
-                                allowFullScreen
-                                frameBorder={0}
-                                data-video-type="vimeo"
-                                rel="nofollow"
-                                className="w-full h-full"
-                                style={{ aspectRatio: "3/4" }}
-                              />
-                            </div>
-                          </div>
+                          ></div>
                         </div>
                       </div>
                       <div className="flex flex-col flex-none w-12 gap-2 order-0 ">
@@ -1420,12 +1408,12 @@ const MainProductPage = () => {
                         >
                           <picture>
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/1483771895.webp 200w, https://thumb.braavo.me/vivadress/400/1483771895.webp 400w, https://thumb.braavo.me/vivadress/600/1483771895.webp 600w"
+                              srcSet="/1483771895.webp 200w, /1483771895.webp 400w, /1483771895.webp 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/webp"
                             />
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/1483771895.jpg 200w, https://thumb.braavo.me/vivadress/400/1483771895.jpg 400w, https://thumb.braavo.me/vivadress/600/1483771895.jpg 600w"
+                              srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/jpeg"
                             />
@@ -1438,12 +1426,12 @@ const MainProductPage = () => {
                           </picture>
                           <picture>
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/3659536422.webp 200w, https://thumb.braavo.me/vivadress/400/3659536422.webp 400w, https://thumb.braavo.me/vivadress/600/3659536422.webp 600w"
+                              srcSet="/3659536422.webp 200w, /3659536422.webp 400w, /3659536422.webp 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/webp"
                             />
                             <source
-                              srcSet="https://thumb.braavo.me/vivadress/200/3659536422.jpg 200w, https://thumb.braavo.me/vivadress/400/3659536422.jpg 400w, https://thumb.braavo.me/vivadress/600/3659536422.jpg 600w"
+                              srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                               type="image/jpeg"
                             />
@@ -1612,12 +1600,12 @@ const MainProductPage = () => {
                       >
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.webp 200w, https://thumb.braavo.me/vivadress/400/1483771895.webp 400w, https://thumb.braavo.me/vivadress/600/1483771895.webp 600w"
+                            srcSet="/1483771895.webp 200w, /1483771895.webp 400w, /1483771895.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.jpg 200w, https://thumb.braavo.me/vivadress/400/1483771895.jpg 400w, https://thumb.braavo.me/vivadress/600/1483771895.jpg 600w"
+                            srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />
@@ -1630,12 +1618,12 @@ const MainProductPage = () => {
                         </picture>
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.webp 200w, https://thumb.braavo.me/vivadress/400/3659536422.webp 400w, https://thumb.braavo.me/vivadress/600/3659536422.webp 600w"
+                            srcSet="/3659536422.webp 200w, /3659536422.webp 400w, /3659536422.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.jpg 200w, https://thumb.braavo.me/vivadress/400/3659536422.jpg 400w, https://thumb.braavo.me/vivadress/600/3659536422.jpg 600w"
+                            srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />

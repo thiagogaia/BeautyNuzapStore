@@ -29,27 +29,27 @@ const Slider = () => {
                 <a href="/cat/15/mil-formas">
                   <picture>
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/600/2475935748.webp"
+                      srcSet="/2475935748.webp"
                       media="(resolution:1x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2475935748.webp"
+                      srcSet="/2475935748.webp"
                       media="(resolution:2x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2475935748.webp"
+                      srcSet="/2475935748.webp"
                       media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2475935748.webp"
+                      srcSet="/2475935748.webp"
                       media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/2475935748.webp"
+                      srcSet="/2475935748.webp"
                       media="(resolution:1x) and (min-width:1024px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/2475935748.webp"
+                      srcSet="/2475935748.webp"
                       media="(resolution:2x) and (min-width:1024px)"
                     />
                     <img
@@ -65,27 +65,27 @@ const Slider = () => {
                 <a href="/cat/70/ate-75-off">
                   <picture>
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/600/711463916.webp"
+                      srcSet="/711463916.webp"
                       media="(resolution:1x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/711463916.webp"
+                      srcSet="/711463916.webp"
                       media="(resolution:2x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/711463916.webp"
+                      srcSet="/711463916.webp"
                       media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/711463916.webp"
+                      srcSet="/711463916.webp"
                       media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/711463916.webp"
+                      srcSet="/711463916.webp"
                       media="(resolution:1x) and (min-width:1024px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/711463916.webp"
+                      srcSet="/711463916.webp"
                       media="(resolution:2x) and (min-width:1024px)"
                     />
                     <img
@@ -101,27 +101,27 @@ const Slider = () => {
                 <a href="/cat/5/new-in">
                   <picture>
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/600/2196677245.webp"
+                      srcSet="/2196677245.webp"
                       media="(resolution:1x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2196677245.webp"
+                      srcSet="/2196677245.webp"
                       media="(resolution:2x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2196677245.webp"
+                      srcSet="/2196677245.webp"
                       media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2196677245.webp"
+                      srcSet="/2196677245.webp"
                       media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/2196677245.webp"
+                      srcSet="/2196677245.webp"
                       media="(resolution:1x) and (min-width:1024px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/2196677245.webp"
+                      srcSet="/2196677245.webp"
                       media="(resolution:2x) and (min-width:1024px)"
                     />
                     <img
@@ -159,27 +159,27 @@ const Slider = () => {
                 <a href="/cat/5/new-in">
                   <picture>
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/600/2128662641.webp"
+                      srcSet="/2128662641.webp"
                       media="(resolution:1x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2128662641.webp"
+                      srcSet="/2128662641.webp"
                       media="(resolution:2x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2128662641.webp"
+                      srcSet="/2128662641.webp"
                       media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/2128662641.webp"
+                      srcSet="/2128662641.webp"
                       media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/2128662641.webp"
+                      srcSet="/2128662641.webp"
                       media="(resolution:1x) and (min-width:1024px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/2128662641.webp"
+                      srcSet="/2128662641.webp"
                       media="(resolution:2x) and (min-width:1024px)"
                     />
                     <img
@@ -195,27 +195,27 @@ const Slider = () => {
                 <a href="/cat/15/mil-formas">
                   <picture>
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/600/1099921719.webp"
+                      srcSet="/1099921719.webp"
                       media="(resolution:1x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/1099921719.webp"
+                      srcSet="/1099921719.webp"
                       media="(resolution:2x) and (max-width:639px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/1099921719.webp"
+                      srcSet="/1099921719.webp"
                       media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/1000/1099921719.webp"
+                      srcSet="/1099921719.webp"
                       media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/1099921719.webp"
+                      srcSet="/1099921719.webp"
                       media="(resolution:1x) and (min-width:1024px)"
                     />
                     <source
-                      srcSet="https://thumb.braavo.me/vivadress/0/1099921719.webp"
+                      srcSet="/1099921719.webp"
                       media="(resolution:2x) and (min-width:1024px)"
                     />
                     <img
@@ -229,28 +229,22 @@ const Slider = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <picture>
+                  <source srcSet="/4117446507.webp" media="(resolution:1x) and (max-width:639px)" />
+                  <source srcSet="/4117446507.webp" media="(resolution:2x) and (max-width:639px)" />
                   <source
-                    srcSet="https://thumb.braavo.me/vivadress/600/4117446507.webp"
-                    media="(resolution:1x) and (max-width:639px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
-                    media="(resolution:2x) and (max-width:639px)"
-                  />
-                  <source
-                    srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
+                    srcSet="/4117446507.webp"
                     media="(resolution:1x) and (min-width:640px) and (max-width:1023px)"
                   />
                   <source
-                    srcSet="https://thumb.braavo.me/vivadress/1000/4117446507.webp"
+                    srcSet="/4117446507.webp"
                     media="(resolution:2x) and (min-width:640px) and (max-width:1023px)"
                   />
                   <source
-                    srcSet="https://thumb.braavo.me/vivadress/0/4117446507.webp"
+                    srcSet="/4117446507.webp"
                     media="(resolution:1x) and (min-width:1024px)"
                   />
                   <source
-                    srcSet="https://thumb.braavo.me/vivadress/0/4117446507.webp"
+                    srcSet="/4117446507.webp"
                     media="(resolution:2x) and (min-width:1024px)"
                   />
                   <img
