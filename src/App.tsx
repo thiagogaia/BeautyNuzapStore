@@ -1,6 +1,4 @@
 import "./App.css";
-import "./styles/index.css"
-
 import { useContext } from "react";
 import Loading from "./components/Loading";
 import Routes from "./routes";
