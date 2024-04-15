@@ -8,8 +8,8 @@ const Payment = () => {
           <a href="/carrinho" className="block ml-auto">
             <img
               src="/logo_carrinho.jpg"
-              alt="Viva Dress"
-              title="Viva Dress"
+              alt="Joelik"
+              title="Joelik"
               className="max-h-10 tail-carr-topo-logo"
             />
           </a>

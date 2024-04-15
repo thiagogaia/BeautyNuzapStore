@@ -648,12 +648,12 @@
   }
 }
 
-.gap-4 {
-  padding: 1rem;
+.padding-home-pg {
+  padding: .5rem;
 }
 
-@media only screen and (min-width:1024px) {
-  .gap-4 {
+@media only screen and (min-width:1250px) {
+  .padding-home-pg {
     padding: 0;
   }
 }

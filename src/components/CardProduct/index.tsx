@@ -19,12 +19,12 @@ const CardProduct = ({ ...data }: IProductData) => {
           >
             <picture>
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/362157411.webp 200w, https://thumb.braavo.me/vivadress/400/362157411.webp 400w, https://thumb.braavo.me/vivadress/600/362157411.webp 600w"
+                srcSet="/362157411.webp 200w, /362157411.webp 400w, /362157411.webp 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/webp"
               />
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/362157411.png 200w, https://thumb.braavo.me/vivadress/400/362157411.png 400w, https://thumb.braavo.me/vivadress/600/362157411.png 600w"
+                srcSet="/362157411.png 200w, /362157411.png 400w, /362157411.png 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/jpeg"
               />
@@ -37,12 +37,12 @@ const CardProduct = ({ ...data }: IProductData) => {
             </picture>
             <picture>
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/1379299251.webp 200w, https://thumb.braavo.me/vivadress/400/1379299251.webp 400w, https://thumb.braavo.me/vivadress/600/1379299251.webp 600w"
+                srcSet="/1379299251.webp 200w, /1379299251.webp 400w, /1379299251.webp 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/webp"
               />
               <source
-                srcSet="https://thumb.braavo.me/vivadress/200/1379299251.png 200w, https://thumb.braavo.me/vivadress/400/1379299251.png 400w, https://thumb.braavo.me/vivadress/600/1379299251.png 600w"
+                srcSet="/1379299251.png 200w, /1379299251.png 400w, /1379299251.png 600w"
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                 type="image/jpeg"
               />

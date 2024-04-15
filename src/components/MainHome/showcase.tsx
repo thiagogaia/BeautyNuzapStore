@@ -5,7 +5,7 @@ const Showcase = ({ title }: IShowcaseProps) => {
     <>
       <div className="cont-limite cont-limite-427 cont-pdd-pq ">
         <h2 className="tt vitr-tt cont-tt  cont-ali-ip-c cont-ali-fb-c cont-ali-dk-c cont-ali-mn-c cont-tt-427">
-          <a href="https://www.vivadress.com.br/cat/5/new-in" className="tt-url">
+          <a href="https://www.nuzap.com.br/joelik/cat/5/new-in" className="tt-url">
             <span className="tt-texto">{title}</span>
           </a>
         </h2>
@@ -56,12 +56,12 @@ const Showcase = ({ title }: IShowcaseProps) => {
                       >
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.webp 200w, https://thumb.braavo.me/vivadress/400/1483771895.webp 400w, https://thumb.braavo.me/vivadress/600/1483771895.webp 600w"
+                            srcSet="/1483771895.webp 200w, /1483771895.webp 400w, /1483771895.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/1483771895.jpg 200w, https://thumb.braavo.me/vivadress/400/1483771895.jpg 400w, https://thumb.braavo.me/vivadress/600/1483771895.jpg 600w"
+                            srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />
@@ -74,12 +74,12 @@ const Showcase = ({ title }: IShowcaseProps) => {
                         </picture>
                         <picture>
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.webp 200w, https://thumb.braavo.me/vivadress/400/3659536422.webp 400w, https://thumb.braavo.me/vivadress/600/3659536422.webp 600w"
+                            srcSet="/3659536422.webp 200w, /3659536422.webp 400w, /3659536422.webp 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/webp"
                           />
                           <source
-                            srcSet="https://thumb.braavo.me/vivadress/200/3659536422.jpg 200w, https://thumb.braavo.me/vivadress/400/3659536422.jpg 400w, https://thumb.braavo.me/vivadress/600/3659536422.jpg 600w"
+                            srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                             sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
                             type="image/jpeg"
                           />

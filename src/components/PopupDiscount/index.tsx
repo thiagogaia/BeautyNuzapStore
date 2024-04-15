@@ -93,7 +93,7 @@ const PopupDiscount = () => {
               Clique no botão a baixo para ativar o seu desconto
             </p>
             <a
-              href="https://www.vivadress.com.br/desconto/ganhei10"
+              href="https://www.nuzap.com.br/joelik/desconto/ganhei10"
               className="popup-news-tela-2-btn popup-news-btn js-popup-news-btn js-popup-news-testar-font-weight"
             >
               ATIVAR DESCONTO{" "}
@@ -101,7 +101,7 @@ const PopupDiscount = () => {
           </section>
           {/* tela-2 */}
           <a
-            href="https://www.vivadress.com.br/desconto/ganhei10"
+            href="https://www.nuzap.com.br/joelik/desconto/ganhei10"
             className="popup-news-mascara js-popup-mascara escondido"
           />
         </div>

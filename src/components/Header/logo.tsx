@@ -6,11 +6,11 @@ const Logo = () => {
           <a href="/" className="ev-topo-logo-foto-link">
             <img
               loading="lazy"
-              src="3608396007.webp"
+              src="https://d27c430md2jwf3.cloudfront.net/img/3608396007.png"
               width={259}
               height={60}
               className="object-contain max-h-12 md:max-h-20 ev-topo-logo-foto-img tail-topo-logo-img"
-              alt="Viva Dress"
+              alt="Joelik"
             />
           </a>
         </div>

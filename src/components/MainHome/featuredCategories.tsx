@@ -14,7 +14,7 @@ const FeaturedCategories = () => {
                     <img
                       loading="lazy"
                       src="/4199208637.jpg"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="cont-fotos-imagem mx-auto"
                     />
                   </picture>
@@ -33,7 +33,7 @@ const FeaturedCategories = () => {
                     <img
                       loading="lazy"
                       src="/2576397449.jpg"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="cont-fotos-imagem mx-auto"
                     />
                   </picture>
@@ -52,7 +52,7 @@ const FeaturedCategories = () => {
                     <img
                       loading="lazy"
                       src="/242855006.jpg"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="cont-fotos-imagem mx-auto"
                     />
                   </picture>
@@ -71,7 +71,7 @@ const FeaturedCategories = () => {
                     <img
                       loading="lazy"
                       src="/2801737167.jpg"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="cont-fotos-imagem mx-auto"
                     />
                   </picture>
@@ -90,7 +90,7 @@ const FeaturedCategories = () => {
                     <img
                       loading="lazy"
                       src="/2214971709.jpg"
-                      alt="Viva Dress"
+                      alt="Joelik"
                       className="cont-fotos-imagem mx-auto"
                     />
                   </picture>

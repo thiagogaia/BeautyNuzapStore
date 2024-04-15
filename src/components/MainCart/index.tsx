@@ -35,7 +35,7 @@ const MainCart = () => {
                           d="M10 19l-7-7m0 0l7-7m-7 7h18"
                         />
                       </svg>
-                      Continuar comprando{" "}
+                      Continuar comprando
                     </a>
                     <button
                       type="button"
@@ -56,7 +56,7 @@ const MainCart = () => {
                           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                         />
                       </svg>
-                      Compartilhar carrinho{" "}
+                      Compartilhar carrinho
                     </button>
                   </div>
                 </div>
@@ -212,12 +212,16 @@ const MainCart = () => {
                                 name="dados[Carrinho][0][conjunto_hash]"
                                 defaultValue={0}
                               />
-                              <input type="hidden" name="dados[Carrinho][0][pers_json]" />
+                              <input
+                                type="hidden"
+                                name="dados[Carrinho][0][pers_json]"
+                                defaultValue={0}
+                              />
                             </div>
                             <div className="text-base text-right tail-carr-prod-preco">
                               <div className="gap-2 text-right tail-carr-prod-preco-parcelas">
                                 <div className="font-bold tail-carr-prod-preco-parcelas-interno">
-                                  R$ 349,90{" "}
+                                  R$ 349,90
                                 </div>
                               </div>
                             </div>
@@ -322,7 +326,7 @@ const MainCart = () => {
                     className="w-full text-base font-bold text-right js-carr-prod-total"
                     data-total="349.90"
                   >
-                    R$ 349,90{" "}
+                    R$ 349,90
                     <button
                       type="button"
                       className="text-xs font-normal underline cursor-pointer"
@@ -379,7 +383,7 @@ const MainCart = () => {
               <div className="text-sm lg:text-base">Link para compartilhar</div>
               <textarea
                 className="block w-full h-40 px-3 py-2 text-sm text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none md:text-base focus:border-indigo-500 ring-0 disabled-bg js-carr-prod-compartilhar-campo"
-                defaultValue={"https://www.vivadress.com.br/comprar?skus=16515%2C1%2C0%2C0"}
+                defaultValue={"https://www.nuzap.com.br/joelik/comprar?skus=16515%2C1%2C0%2C0"}
               />
               <div className="grid gap-2 md:grid-cols-2">
                 <button

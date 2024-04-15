@@ -11,19 +11,19 @@ const PaymentMethods = () => {
               <figure className="cont-fotos-box cont-fotos-hash-247 cont-mgm-s-md">
                 <picture className="w-full">
                   <source
-                    srcSet="https://thumb.braavo.me/vivadress/400/720908950.webp 400w, https://thumb.braavo.me/vivadress/600/720908950.webp 600w, https://thumb.braavo.me/vivadress/0/720908950.webp 1x, https://thumb.braavo.me/vivadress/0/720908950.webp 2x"
+                    srcSet="/720908950.webp 400w, /720908950.webp 600w, /720908950.webp 1x, /720908950.webp 2x"
                     sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, (max-width: 1199px) 600px, 100vw"
                     type="image/webp"
                   />
                   <source
-                    srcSet="https://thumb.braavo.me/vivadress/400/720908950.png 400w, https://thumb.braavo.me/vivadress/600/720908950.png 600w, https://thumb.braavo.me/vivadress/0/720908950.png 1x, https://thumb.braavo.me/vivadress/0/720908950.png 2x"
+                    srcSet="720908950.png 400w, /720908950.png 600w, /720908950.png 1x, /720908950.png 2x"
                     sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, (max-width: 1199px) 600px, 100vw"
                     type="image/jpeg"
                   />
                   <img
                     loading="lazy"
                     src="/720908950.png"
-                    alt="Viva Dress"
+                    alt="Joelik"
                     className="cont-fotos-imagem mx-auto"
                   />
                 </picture>
@@ -41,19 +41,19 @@ const PaymentMethods = () => {
                     <figure className="cont-banners-box ">
                       <picture className="w-full">
                         <source
-                          srcSet="https://thumb.braavo.me/vivadress/400/2644292766.webp 400w, https://thumb.braavo.me/vivadress/600/2644292766.webp 600w, https://thumb.braavo.me/vivadress/0/2644292766.webp 1x, https://thumb.braavo.me/vivadress/0/2644292766.webp 2x"
+                          srcSet="/2644292766.webp 400w, /2644292766.webp 600w, /2644292766.webp 1x, /2644292766.webp 2x"
                           sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, (max-width: 1199px) 600px, 100vw"
                           type="image/webp"
                         />
                         <source
-                          srcSet="https://thumb.braavo.me/vivadress/400/2644292766.jpg 400w, https://thumb.braavo.me/vivadress/600/2644292766.jpg 600w, https://thumb.braavo.me/vivadress/0/2644292766.jpg 1x, https://thumb.braavo.me/vivadress/0/2644292766.jpg 2x"
+                          srcSet="/2644292766.jpg 400w, /2644292766.jpg 600w, /2644292766.jpg 1x, /2644292766.jpg 2x"
                           sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, (max-width: 1199px) 600px, 100vw"
                           type="image/jpeg"
                         />
                         <img
                           loading="lazy"
                           src="/2644292766.jpg"
-                          alt="Viva Dress"
+                          alt="Joelik"
                           className="cont-banners-imagem"
                         />
                       </picture>
