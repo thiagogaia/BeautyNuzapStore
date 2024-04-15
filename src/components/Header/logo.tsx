@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { StoreContext } from "../../contexts/Store";
+
 const Logo = () => {
+  const { storeData } = useContext(StoreContext);
   return (
     <div data-nome="logo-1" className="overflow-visible tail-topo-logo js-tail-topo-inverter">
       <div className="ev-topo-logo-interno">
@@ -6,7 +10,7 @@ const Logo = () => {
           <a href="/" className="ev-topo-logo-foto-link">
             <img
               loading="lazy"
-              src="https://d27c430md2jwf3.cloudfront.net/img/3608396007.png"
+              src={storeData.business.logo}
               width={259}
               height={60}
               className="object-contain max-h-12 md:max-h-20 ev-topo-logo-foto-img tail-topo-logo-img"

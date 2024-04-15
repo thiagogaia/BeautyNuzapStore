@@ -1,34 +1,30 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { IProductsProviderData, IProviderProps } from "./types";
 import { api } from "../services/api";
+import { StoreContext } from "./Store";
 
 export const ProductsContext = createContext<IProductsProviderData>({} as IProductsProviderData);
 
 const ProductsProvider = ({ children }: IProviderProps) => {
   const [productList, setProductList] = useState([]);
-  const [storeUri, setStoreUri] = useState("");
-  const [load, setLoad] = useState(true);
+
+  const { storeUri } = useContext(StoreContext);
 
   useEffect(() => {
-    api
-      .get(`/products?_url=${storeUri}&_page=1&_limit=8`)
-      .then((res) => {
-        if (typeof res.data !== "string") {
-          setLoad(false);
+    if (storeUri.length > 0) {
+      api
+        .get(`/products?_url=${storeUri}&_page=1&_limit=8`)
+        .then((res) => {
           setProductList(res.data);
-        }
-      })
-      .catch(() => {});
+        })
+        .catch(() => {});
+    }
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeUri]);
 
-  return (
-    <ProductsContext.Provider value={{ load, productList, setStoreUri }}>
-      {children}
-    </ProductsContext.Provider>
-  );
+  return <ProductsContext.Provider value={{ productList }}>{children}</ProductsContext.Provider>;
 };
 
 export default ProductsProvider;

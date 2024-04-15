@@ -10,22 +10,14 @@ import Cart from "./cart";
 
 import { BsHeart } from "react-icons/bs";
 import { HiOutlineUser, HiOutlineShoppingBag } from "react-icons/hi2";
-import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { useContext } from "react";
+import { StoreContext } from "../../contexts/Store";
 
 const Header = () => {
-  const tags = [
-    { name: "NEW IN", href: "/cat/5/new-in" },
-    { name: "BEST SELLERS", href: "/cat/4/best-sellers" },
-    { name: "ATÉ 75% OFF", href: "/cat/70/ate-75-off" },
-    { name: "TODOS VESTIDOS LONGOS", href: "/cat/2/todos-vestidos-longos" },
-    { name: "VESTIDOS CURTOS", href: "/cat/1/vestidos-curtos" },
-    { name: "MIL FORMAS", href: "/c/mil-formas" },
-    { name: "BRILHE", href: "/cat/16/brilhe" },
-    { name: "OCASIÕES", href: "/cat/19/ocasioes" },
-    { name: "ATÉ 199,90", href: "/cat/29/ate-199-90" },
-    { name: "VER TODOS", href: "/cat/17/ver-todos" },
-    { name: "BLOG", href: "/cat/55/blog" },
-  ];
+  const { storeData } = useContext(StoreContext);
+  const categories = storeData.business.categories;
+  const social_links = storeData.business.social_links;
 
   return (
     <header
@@ -89,8 +81,12 @@ const Header = () => {
                 <div className="w-64 h-full overflow-auto text-sm bg-white md:w-72 lg:w-80 ev-topo-categorias-toggle-interno ev-topo-categorias-toggle-1-interno">
                   <div className="overflow-visible ev-topo-categorias-toggle-interno ev-topo-categorias-toggle-1-dados-interno0">
                     <div className="flex flex-col overflow-visible uppercase divide-y divide-gray-200 divide-solid tail-topo-categorias-toggle-lista ev-topo-categorias-toggle-lista ev-topo-categorias-toggle-1-dados-lista0">
-                      {tags.map((tag, index) => (
-                        <FilterTagMobile key={index} href={tag.href} name={tag.name} />
+                      {categories.map((category) => (
+                        <FilterTagMobile
+                          key={category.id}
+                          href={category.uri}
+                          name={category.name}
+                        />
                       ))}
                     </div>
                   </div>
@@ -99,39 +95,45 @@ const Header = () => {
               <div data-nome="social-1" className="hidden md:block js-tail-topo-inverter">
                 <div className="ev-topo-social-interno">
                   <ul className="flex justify-center gap-1 md:justify-start ev-topo-social-lista">
-                    <li className="ev-topo-social-item  ev-topo-social-dados-item">
-                      <a
-                        href="http://www.facebook.com/joelikoficial"
-                        className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
-                        title="facebook"
-                        rel="external"
-                        target="_blank"
-                      >
-                        <FaFacebookF style={{ fontSize: "1.2rem" }} />
-                      </a>
-                    </li>
-                    <li className="ev-topo-social-item  ev-topo-social-dados-item">
-                      <a
-                        href="http://www.instagram.com/joelikoficial/"
-                        className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
-                        title="instagram"
-                        rel="external"
-                        target="_blank"
-                      >
-                        <FaInstagram style={{ fontSize: "1.2rem" }} />
-                      </a>
-                    </li>
-                    <li className="ev-topo-social-item  ev-topo-social-dados-item">
-                      <a
-                        href="http://tiktok.com/@joelikoficial"
-                        className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
-                        title="tiktok"
-                        rel="external"
-                        target="_blank"
-                      >
-                        <FaTiktok style={{ fontSize: "1.2rem" }} />
-                      </a>
-                    </li>
+                    {social_links.facebook && (
+                      <li className="ev-topo-social-item  ev-topo-social-dados-item">
+                        <a
+                          href={social_links.facebook}
+                          className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
+                          title="facebook"
+                          rel="external"
+                          target="_blank"
+                        >
+                          <FaFacebookF style={{ fontSize: "1.2rem" }} />
+                        </a>
+                      </li>
+                    )}
+                    {social_links.instagram && (
+                      <li className="ev-topo-social-item  ev-topo-social-dados-item">
+                        <a
+                          href={social_links.instagram}
+                          className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
+                          title="instagram"
+                          rel="external"
+                          target="_blank"
+                        >
+                          <FaInstagram style={{ fontSize: "1.2rem" }} />
+                        </a>
+                      </li>
+                    )}
+                    {social_links.youtube && (
+                      <li className="ev-topo-social-item  ev-topo-social-dados-item">
+                        <a
+                          href={social_links.youtube}
+                          className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
+                          title="tiktok"
+                          rel="external"
+                          target="_blank"
+                        >
+                          <FaYoutube style={{ fontSize: "1.2rem" }} />
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -279,8 +281,8 @@ const Header = () => {
                 <div className="overflow-visible ev-topo-categorias-interno ev-topo-categorias-1-interno">
                   <nav className="overflow-visible ev-topo-categorias-interno ev-topo-categorias-1-dados-interno0">
                     <ul className="flex flex-wrap justify-center px-6 overflow-visible uppercase border-b border-gray-200 border-solid gap-x-3 tail-topo-categorias-lista-0 ev-topo-categorias-lista ev-topo-categorias-1-dados-lista0">
-                      {tags.map((tag, index) => (
-                        <FilterTag key={index} href={tag.href} name={tag.name} />
+                      {categories.map((category) => (
+                        <FilterTag key={category.id} href={category.uri} name={category.name} />
                       ))}
                     </ul>
                   </nav>

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
-import { ProductsContext } from "../contexts/Products";
 import { useParams } from "react-router-dom";
+import { StoreContext } from "../contexts/Store";
+// import { ProductsContext } from "../contexts/Products";
 
 import MainHome from "../components/MainHome";
 import Header from "../components/Header";
@@ -10,7 +11,7 @@ import WidgetWhatsapp from "../components/WidgetWhatsapp";
 import Loading from "../components/Loading";
 
 const Home = () => {
-  const { load, setStoreUri } = useContext(ProductsContext);
+  const { load, setStoreUri } = useContext(StoreContext);
   const { storeUri } = useParams();
 
   useEffect(() => {

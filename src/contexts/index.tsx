@@ -1,8 +1,13 @@
 import { FC, PropsWithChildren } from "react";
+import StoreProvider from "./Store";
 import ProductsProvider from "./Products";
 
-const ContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  return <ProductsProvider>{children}</ProductsProvider>;
+const Providers: FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <StoreProvider>
+      <ProductsProvider>{children}</ProductsProvider>
+    </StoreProvider>
+  );
 };
 
-export default ContextProvider;
+export default Providers;

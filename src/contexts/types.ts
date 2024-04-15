@@ -4,10 +4,15 @@ export interface IProviderProps {
   children: ReactNode;
 }
 
-export interface IProductsProviderData {
+export interface IStoreProviderData {
   load: boolean;
-  productList: IProductData[];
+  storeData: IStoreData;
+  storeUri: string;
   setStoreUri: (e: string) => void;
+}
+
+export interface IProductsProviderData {
+  productList: IProductData[];
 }
 
 export interface IProductData {
@@ -92,4 +97,119 @@ export interface IProductVariationItem {
   category_id: string;
   description_small: string;
   variation: string;
+}
+
+export interface IStoreData {
+  store_shopper: unknown;
+  business: IStoreBusiness;
+  data_view: IStoreDataView;
+  store_sellers: IStoreSeller[];
+}
+
+export interface IStoreBusiness {
+  url: string;
+  urlImgLoad: string;
+  name: string;
+  site: string;
+  whatsapp: string;
+  whatsapp_ddi: string;
+  logo: string;
+  social_integrations: IStoreSocialIntegrations;
+  social_links: IStoreSocialLinks;
+  categories: IStoreCategorie[];
+  shipping: IStoreShipping[];
+  payments_accept: IStorePaymentAccept[];
+  minimum_order: IStoreMinimumOrder;
+  block_access: string;
+  block_prices: string;
+  send_order: string;
+  zip: string;
+  get_address: string;
+  get_cpf_cnpj: string;
+  select_seller: string;
+  calc_delivery_fee: string;
+  control_stock_config: IStoreControlStockCofig;
+  block_store: string;
+  block_store_config: null;
+  slides: IStoreSlide[];
+  store_variations: IStoreVariation[];
+  store_variation_items: IStoreVariation[];
+  store_max_price: number;
+  store_min_price: number;
+  transparentPay: boolean;
+}
+
+export interface IStoreSocialIntegrations {
+  facebook_pixel: string;
+  google_analytics: string;
+  google_tagmanager: string;
+  whatsapp_widget: string;
+}
+
+export interface IStoreSocialLinks {
+  instagram: string;
+  facebook: string;
+  youtube: string;
+  site_blog: string;
+}
+
+export interface IStoreShipping {
+  code: number;
+  slug: string;
+  name: string;
+}
+
+export interface IStorePaymentAccept {
+  code: number;
+  name: string;
+  symbol: string;
+}
+
+export interface IStoreMinimumOrder {
+  type: string;
+  type_name: string;
+  min: string;
+}
+
+export interface IStoreControlStockCofig {
+  not_negative_stock: string;
+  not_display_product: string;
+  inactive_product: null;
+  display_stock: string;
+  separate_stock: null;
+}
+
+export interface IStoreSlide {
+  id: string;
+  link: string;
+  image_mobile: string;
+  image_tablet: string;
+  image_desktop: string;
+}
+
+export interface IStoreCategorie {
+  id: string;
+  name: string;
+  uri: string;
+  active: string;
+  order: string;
+}
+
+export interface IStoreVariation {
+  id: string;
+  name: string;
+}
+
+export interface IStoreDataView {
+  token: string;
+  uuid: string;
+}
+
+export interface IStoreSeller {
+  id: string;
+  name: string;
+  phone: string;
+  phone_ddi: string;
+  first_name: string;
+  last_name: string;
 }
