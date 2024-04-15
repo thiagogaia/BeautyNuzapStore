@@ -1,6 +1,7 @@
+import { IProductData } from "../../contexts/types";
 import "./style.css";
 
-const CardProduct = () => {
+const CardProduct = ({ ...data }: IProductData) => {
   return (
     <>
       <li
@@ -87,12 +88,8 @@ const CardProduct = () => {
                       className=" flex items-center gap-0.5 text-xs text-gray-500 tail-listagem-prod-precos2-parcela ev-listagem-prod-preco-parcela"
                       data-seta-posicao="direita"
                     >
-                      <span className="mr-0.5 tail-listagem-prod-precos2-parcela-parcelas">
-                        5x
-                      </span>
-                      <span className="tail-listagem-prod-precos2-parcela-cifrao">
-                        R$ 55,98
-                      </span>
+                      <span className="mr-0.5 tail-listagem-prod-precos2-parcela-parcelas">5x</span>
+                      <span className="tail-listagem-prod-precos2-parcela-cifrao">R$ 55,98</span>
                     </div>
                     <div
                       className="hidden flex items-center gap-0.5 pl-1 text-xs text-gray-500 tail-listagem-prod-preco-avista ev-listagem-prod-preco-avista"

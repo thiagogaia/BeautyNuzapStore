@@ -15,9 +15,7 @@ const Slider = () => {
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               autoplay={true}
-              autoplay-pause-on-mouse-enter={true}
-              autoplay-wait-for-transition={true}
-              css-mode={true}
+              css-mode="true"
               effect="slide"
               loop={true}
               navigation={true}
@@ -145,9 +143,7 @@ const Slider = () => {
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               autoplay={true}
-              autoplay-pause-on-mouse-enter={true}
-              autoplay-wait-for-transition={true}
-              css-mode={true}
+              css-mode="true"
               effect="slide"
               loop={true}
               navigation={true}

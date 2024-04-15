@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 const Footer = () => {
   return (
     <>
@@ -9,7 +9,7 @@ const Footer = () => {
         >
           <div className="py-6 px-8 w-full tail-rodape-limite-1">
             <div className="flex gap-7 lg:gap-0 flex-col lg:flex-row lg:justify-between">
-              <div className>
+              <div>
                 <div
                   data-nome="menu_1"
                   className=" tail-rodape-coluna tail-rodape-coluna-menu js-tail-rodape-coluna"
@@ -183,7 +183,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className>
+              <div>
                 <div
                   data-nome="texto_1"
                   className=" tail-rodape-coluna tail-rodape-coluna-texto js-tail-rodape-coluna"
@@ -266,8 +266,8 @@ const Footer = () => {
                     <h2 className="mb-2 text-sm font-bold json-rodape-borda-titulo json-rodape-pagamento_1-borda-titulo tail-rodape-tt tail-rodape-tt-pagamento js-tail-rodape-tt json-rodape-fundo-titulo json-rodape-pagamento_1-fundo-titulo json-rodape-cores-titulo json-rodape-pagamento_1-cores-titulo">
                       FORMAS DE PAGAMENTO
                     </h2>
-                    <div className>
-                      <figure className>
+                    <div>
+                      <figure>
                         <img
                           loading="lazy"
                           src="/tail-pagamento-2-linhas-4-colunas-pix-boleto.webp"
@@ -286,8 +286,8 @@ const Footer = () => {
                     <h2 className="mb-1 text-sm font-bold lg:mb-2 json-rodape-borda-titulo json-rodape-ssl_1-borda-titulo json-rodape-fundo-titulo json-rodape-ssl_1-fundo-titulo tail-rodape-tt tail-rodape-tt-ssl js-tail-rodape-tt json-rodape-cores-titulo json-rodape-ssl_1-cores-titulo">
                       SEGURANÇA
                     </h2>
-                    <div className>
-                      <figure className>
+                    <div>
+                      <figure>
                         <img
                           loading="lazy"
                           src="/tail-ssl-preto.webp"
@@ -298,13 +298,13 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
-                <div data-nome="agencia_up" className>
+                <div data-nome="agencia_up">
                   <div className="json-rodape-borda-interno json-rodape-agencia_up-borda-interno json-rodape-fundo-interno json-rodape-agencia_up-fundo-interno json-rodape-cores-interno json-rodape-agencia_up-cores-interno">
                     <h2 className="font-bold text-sm mb-2 json-rodape-borda-titulo json-rodape-agencia_up-borda-titulo json-rodape-fundo-titulo json-rodape-agencia_up-fundo-titulo json-rodape-cores-titulo json-rodape-agencia_up-cores-titulo">
                       DESENVOLVIMENTO
                     </h2>
-                    <div className>
-                      <figure className>
+                    <div>
+                      <figure>
                         <a
                           href="//www.upagencybrasil.com.br/"
                           className="inline-block"
@@ -339,17 +339,17 @@ const Footer = () => {
                       action="/lista/newsletter"
                       autoComplete="off"
                       method="post"
-                      noValidate="novalidate"
+                      noValidate
                       className=" js-newsletter"
                     >
-                      <div className>
+                      <div>
                         <div className="border-b border-b border-solid border-black border-opacity-10 py-3 text-left tail-rodape-news-nome">
                           <input
                             type="email"
                             name="newsNome"
                             autoComplete="off"
                             placeholder="Nome"
-                            onkeyup="nesletterEnter(this, event);"
+                            // onKeyUp="nesletterEnter(this, event);"
                             className="outline-none py-1 bg-transparent placeholder-black js-newsletter-nome"
                           />
                         </div>
@@ -359,14 +359,14 @@ const Footer = () => {
                             name="newsEmail"
                             autoComplete="off"
                             placeholder="E-mail"
-                            onkeyup="nesletterEnter(this, event);"
+                            // onkeyup="nesletterEnter(this, event);"
                             className="outline-none py-1 bg-transparent placeholder-black col-span-4 leading-none js-newsletter-email"
                           />
                           <input
                             type="button"
                             defaultValue="OK"
                             aria-label="Enviar email para receber dicas, novidades e promoções"
-                            onclick="nesletterSubmit(this);"
+                            // onclick="nesletterSubmit(this);"
                             className="rounded-full h-8 w-8 bg-gray-200 cursor-pointer text-black justify-self-end leading-none tail-rodape-news-btn-ok ev-rodape-news-btn-ok"
                           />
                         </div>
@@ -383,7 +383,7 @@ const Footer = () => {
           className="px-2 flex w-full justify-center lg:px-0 border-t border-solid border-black border-opacity-10 json-rodape-rodape_interno_2-fundo-interno tail-rodape-interno-2"
         >
           <div className="py-3 flex flex-col items-center gap-3 lg:gap-2 tail-rodape-limite-2">
-            <div className>
+            <div>
               <div data-nome="texto_2" className=" ">
                 <div className="json-rodape-borda-interno json-rodape-texto_2-borda-interno json-rodape-fundo-interno json-rodape-texto_2-fundo-interno json-rodape-cores-interno json-rodape-texto_2-cores-interno">
                   <div className="flex flex-col gap-1 lg:flex-row json-rodape-borda-texto json-rodape-texto_2-borda-texto json-rodape-fundo-texto json-rodape-texto_2-fundo-texto json-rodape-cores-texto json-rodape-texto_2-cores-texto">
@@ -400,16 +400,12 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className>
-              <div data-nome="assinatura" className>
+            <div>
+              <div data-nome="assinatura">
                 <div className="flex gap-0 lg:gap-1 flex-wrap justify-center items-center json-rodape-borda-interno json-rodape-assinatura-borda-interno json-rodape-fundo-interno json-rodape-assinatura-fundo-interno json-rodape-cores-interno json-rodape-assinatura-cores-interno">
                   <div className="w-full lg:w-auto">
                     Desenvolvimento:
-                    <a
-                      href="//www.upagencybrasil.com.br/"
-                      target="_blank"
-                      rel="external"
-                    >
+                    <a href="//www.upagencybrasil.com.br/" target="_blank" rel="external">
                       {" "}
                       Up Agency
                     </a>
@@ -421,14 +417,12 @@ const Footer = () => {
                   <div className="json-rodape-borda-texto json-rodape-assinatura-borda-texto json-rodape-fundo-texto json-rodape-assinatura-fundo-texto json-rodape-cores-texto json-rodape-assinatura-cores-texto">
                     <a
                       href="//www.braavo.com.br?utm_campaign=vivadress&utm_source=loja"
-                      className
                       title="Braavo! - Lojas Virtuais"
                       rel="external"
                       target="_blank"
                     >
                       <svg
                         className="h-5 fill-current tail-rodape-assinatura"
-                        alt="link para a plataforma Braavo!"
                         xmlns="http://www.w3.org/2000/svg"
                         id="Layer_1"
                         data-name="Layer 1"
@@ -450,10 +444,7 @@ const Footer = () => {
                           d="M542,334.71l0-.11a86.25,86.25,0,0,0,5.56-9.79,85.73,85.73,0,0,0,3.47-9.34,63.11,63.11,0,0,0,2.71-17.93q0-16.26-9.56-27.42a30.36,30.36,0,0,0-24-11.14q-11.16,0-23.5,5.87a82.55,82.55,0,0,0-22.14,17.63q-10.56,11.44-15.37,23.2a53.35,53.35,0,0,0-5.27,23.95q0,17.63,10.39,27.87,10.24,10.54,27.11,10.55a44.87,44.87,0,0,0,10.55-1.21,87.43,87.43,0,0,0,10.24-3.77,72.67,72.67,0,0,0,20.21-15.39A99,99,0,0,0,542,334.71Zm-33,20.89a28.87,28.87,0,0,1-9.88,4.92,18.28,18.28,0,0,1-12.54-.41c-14.31-6.21-16.75-32.38-5.44-58.45s32.09-42.17,46.4-36,16.76,32.39,5.45,58.46C526.82,338.17,518,349.26,508.92,355.6Z"
                           transform="translate(-29.05 -187.1)"
                         />
-                        <path
-                          d="M566.35,316.05"
-                          transform="translate(-29.05 -187.1)"
-                        />
+                        <path d="M566.35,316.05" transform="translate(-29.05 -187.1)" />
                         <path
                           d="M549.59,319.52s-11,33,1.25,48.53c0,0-17.56-6.53-16-26.9C534.8,341.15,539.29,319.79,549.59,319.52Z"
                           transform="translate(-29.05 -187.1)"
@@ -466,10 +457,7 @@ const Footer = () => {
                           d="M445.82,319.44s-11,33,1.24,48.52c0,0-17.53-6.53-16-26.9C431,341.06,435.51,319.7,445.82,319.44Z"
                           transform="translate(-29.05 -187.1)"
                         />
-                        <path
-                          d="M624.94,336.07"
-                          transform="translate(-29.05 -187.1)"
-                        />
+                        <path d="M624.94,336.07" transform="translate(-29.05 -187.1)" />
                         <path
                           d="M260.74,283.58C252.2,251,209,234.19,164.14,246s-74.22,47.67-65.69,80.22,51.8,49.39,96.61,37.63S269.28,316.12,260.74,283.58Zm-60.48,66.09c-34.07,8.94-66.95-3.87-73.44-28.61s15.86-52,49.93-61,66.95,3.87,73.44,28.6S234.33,340.73,200.26,349.67Z"
                           transform="translate(-29.05 -187.1)"
@@ -507,10 +495,7 @@ const Footer = () => {
                             style={{ opacity: "0.35000000000000003" }}
                           />
                         </g>
-                        <path
-                          d="M110.39,242.2"
-                          transform="translate(-29.05 -187.1)"
-                        />
+                        <path d="M110.39,242.2" transform="translate(-29.05 -187.1)" />
                         <text x="-29.05" y="-187.1" />
                         <path
                           d="M160.31,377.3c5,4.76,3.18,14.83-4.09,22.5s-17.24,10-22.26,5.27-3.19-14.84,4.09-22.51S155.29,372.54,160.31,377.3Z"

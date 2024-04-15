@@ -10,7 +10,7 @@ const MainCart = () => {
               <div className="js-carr-prod-botoes">
                 <button
                   type="submit"
-                  onclick="tailPixelEventoCarrinhoProdutos(), carrinhoResumoContinuar()"
+                  // onclick="tailPixelEventoCarrinhoProdutos(), carrinhoResumoContinuar()"
                   className="w-full px-4 py-3 font-medium text-white rounded-md lg:hidden botao-primario carr-prod-botao botao tail-carr-prod-botao-continuar-1"
                 >
                   Finalizar compra
@@ -40,7 +40,7 @@ const MainCart = () => {
                     <button
                       type="button"
                       className="px-2 py-3 flex justify-center items-center gap-2 leading-none bg-gray-100 text-xs font-bold rounded-md hover:underline focus:underline lg:px-3 lg:text-sm tail-carr-prod-voltar ev-carr-prod-voltar cursor-pointer"
-                      onclick="carrinhoCompartilharModalAbrir()"
+                      // onclick="carrinhoCompartilharModalAbrir()"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ const MainCart = () => {
                 action="/carrinho"
                 autoComplete="off"
                 method="post"
-                noValidate="novalidate"
+                noValidate
                 className="js-carrinho-produto-listagem"
               >
                 <div className="w-full text-sm">
@@ -81,7 +81,6 @@ const MainCart = () => {
                             loading="lazy"
                             src="/259243190.webp"
                             alt="Vestido Longo Acetinado Chris Ombro a Ombro Roxo"
-                            className
                           />
                         </div>
                         <div className="relative grid flex-auto gap-4">
@@ -89,7 +88,7 @@ const MainCart = () => {
                             htmlFor="Carrinho0Excluir"
                             title="Remover"
                             className="absolute top-0 right-0 text-xs text-red-600 underline cursor-pointer tail-carr-excluir"
-                            onclick="carrinhoRemover()"
+                            // onclick="carrinhoRemover()"
                           >
                             <svg
                               className="h-8 fill-current"
@@ -136,7 +135,7 @@ const MainCart = () => {
                                 <button
                                   type="button"
                                   className="grid p-0.5 rounded-full cursor-pointer place-content-center bg-black ev-carrinho-produto-tabela-qtd-menos"
-                                  onclick="carrinhoQuantidade('negativo')"
+                                  // onclick="carrinhoQuantidade('negativo')"
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -159,13 +158,13 @@ const MainCart = () => {
                                   defaultValue={1}
                                   data-quantidade={1}
                                   inputMode="numeric"
-                                  onblur="carrinhoQuantidade('igual')"
+                                  // onblur="carrinhoQuantidade('igual')"
                                   className="py-2 text-center bg-gray-100 bg-opacity-50 border border-gray-200 border-solid rounded w-9 js-carrinho-produto-listagem-quantidade-input"
                                 />
                                 <button
                                   type="button"
                                   className="grid p-0.5 rounded-full cursor-pointer place-content-center bg-black ev-carrinho-produto-tabela-qtd-mais"
-                                  onclick="carrinhoQuantidade('positivo')"
+                                  // onclick="carrinhoQuantidade('positivo')"
                                 >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -213,11 +212,7 @@ const MainCart = () => {
                                 name="dados[Carrinho][0][conjunto_hash]"
                                 defaultValue={0}
                               />
-                              <input
-                                type="hidden"
-                                name="dados[Carrinho][0][pers_json]"
-                                defaultValue
-                              />
+                              <input type="hidden" name="dados[Carrinho][0][pers_json]" />
                             </div>
                             <div className="text-base text-right tail-carr-prod-preco">
                               <div className="gap-2 text-right tail-carr-prod-preco-parcelas">
@@ -274,7 +269,7 @@ const MainCart = () => {
                       action="/desconto"
                       autoComplete="off"
                       method="post"
-                      noValidate="novalidate"
+                      noValidate
                       className="flex gap-2 items-strech js-carrinho-resumo-desconto"
                     >
                       <div
@@ -294,7 +289,7 @@ const MainCart = () => {
                       <button
                         type="submit"
                         className="flex-none px-3.5 text-white rounded-lg botao botao-primario carr-prod-desconto-btn"
-                        onclick="carrinhoDesconto()"
+                        // onclick="carrinhoDesconto()"
                       >
                         Aplicar
                       </button>
@@ -315,7 +310,7 @@ const MainCart = () => {
                     <button
                       type="button"
                       className="text-xs font-normal underline cursor-pointer"
-                      onclick="freteResumoModalAbrir()"
+                      // onclick="freteResumoModalAbrir()"
                     >
                       Calcular Frete
                     </button>
@@ -331,7 +326,7 @@ const MainCart = () => {
                     <button
                       type="button"
                       className="text-xs font-normal underline cursor-pointer"
-                      onclick="parcelaResumoModalAbrir()"
+                      // onclick="parcelaResumoModalAbrir()"
                     >
                       Ver parcelamentos
                     </button>
@@ -339,7 +334,7 @@ const MainCart = () => {
                 </div>
                 <button
                   type="submit"
-                  onclick="tailPixelEventoCarrinhoProdutos(), carrinhoResumoContinuar()"
+                  // onclick="tailPixelEventoCarrinhoProdutos(), carrinhoResumoContinuar()"
                   className="w-full px-4 py-3 font-medium text-white rounded-lg botao-primario carr-prod-botao carr-prod-botao-finalizar botao tail-carr-prod-botao-continuar-2"
                 >
                   Finalizar compra
@@ -366,7 +361,7 @@ const MainCart = () => {
               <button
                 type="button"
                 className="flex-shrink-0 p-1.5 border border-gray-300 border-solid rounded-full hover:bg-gray-100"
-                onclick="carrinhoCompartilharModalFechar()"
+                // onclick="carrinhoCompartilharModalFechar()"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -390,7 +385,7 @@ const MainCart = () => {
                 <button
                   type="button"
                   className="px-4 py-3 text-sm text-white bg-black rounded-lg md:text-base"
-                  onclick="carrinhoCompartilhar()"
+                  // onclick="carrinhoCompartilhar()"
                 >
                   Copiar
                 </button>
