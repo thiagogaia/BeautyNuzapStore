@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { IProductData } from "../../contexts/types";
 
 interface IProps {
@@ -6,22 +5,15 @@ interface IProps {
 }
 
 const ProductVariations = ({ productData }: IProps) => {
-  const [variations, setVariations] = useState<string[]>([]);
-  const [variationItem, setVariationItem] = useState<Array<string[]>>([]);
-  const [currentVariation, setCurrentVariation] = useState("");
+  const measures = ["PP", "P", "M", "G", "GG", "XG", "XGG", "XS", "S", "L", "XL", "XXL"];
+  const productSizes: string[] = [];
 
-  useEffect(() => {
-    if (Object.keys(productData).length > 0) {
-      setVariations(productData.variation_data?.map((e) => e.name));
-      setVariationItem(
-        productData.variation_data?.map((e) => e.item.map((x) => x.variation_item_name))
-      );
-      setCurrentVariation(productData.variation_data?.map((e) => e.name)[0]);
-    }
-
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [productData]);
+  productData.variation_data.map((product) => {
+    const sizes = product.item
+      .map((e) => e.variation_item_name)
+      .filter((e) => measures.includes(e));
+    productSizes.push(...sizes);
+  });
 
   return (
     <div className="grid gap-8 tail-prod-ver-grupo-variacoes ">
@@ -31,39 +23,11 @@ const ProductVariations = ({ productData }: IProps) => {
           className="overflow-visible relative grid gap-1 tail-etapa-vari-item js-tail-etapa-vari-item js-prod-ver-etapa-variacao-clone-vari "
         >
           <h2 className="cat-title flex items-center gap-1 text-gray-800 pointer-events-none tail-etapa-vari-titulo js-tail-etapa-vari-titulo">
-            Variação:
+            Tamanho:
           </h2>
           <ul className="flex flex-wrap gap-2">
-            {Object.keys(productData).length > 0 &&
-              productData.variation_data?.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex-shrink-0 flex gap-1.5 flex-wrap relative js-tail-etapa-variacao-item js-tail-etapa-comprar-topo-vari2"
-                  onClick={() => setCurrentVariation(variations[variations.indexOf(item.name)])}
-                >
-                  <input
-                    type="radio"
-                    id={item.id}
-                    className="hidden tail-prod-ver-variacao-input ev-prod-ver-variacao-input js-tail-etapa-variacao-input js-tail-etapa-variacao-1-input"
-                  />
-                  <label
-                    htmlFor={item.id}
-                    className="px-1.5 h-10 grid place-content-center border border-gray-300 border-solid rounded-lg cursor-pointer ev-prod-ver-variacao-label tail-prod-ver-variacao-label tail-prod-ver-variacao-texto js-tail-etapa-variacao-label js-tail-etapa-variacao-label-texto ev-etapa-variacao-label"
-                  >
-                    {item.name}
-                  </label>
-                </li>
-              ))}
-          </ul>
-        </div>
-
-        <div
-          data-vari-id={1002}
-          className="overflow-visible relative grid gap-1 tail-etapa-vari-item js-tail-etapa-vari-item js-prod-ver-etapa-variacao-clone-vari "
-        >
-          <ul className="flex flex-wrap gap-2">
-            {Object.keys(productData).length > 0 &&
-              variationItem[variations.indexOf(currentVariation)]?.map((item) => (
+            {Object.keys(productData).length > 0 && productSizes.length > 0 ? (
+              productSizes.map((item) => (
                 <li
                   key={item}
                   className="flex-shrink-0 flex gap-1.5 flex-wrap relative js-tail-etapa-variacao-item js-tail-etapa-comprar-topo-vari2"
@@ -80,7 +44,14 @@ const ProductVariations = ({ productData }: IProps) => {
                     {item}
                   </label>
                 </li>
-              ))}
+              ))
+            ) : (
+              <li className="flex-shrink-0 flex gap-1.5 flex-wrap relative js-tail-etapa-variacao-item js-tail-etapa-comprar-topo-vari2">
+                <label className="px-1.5 h-10 grid place-content-center border border-gray-300 border-solid rounded-lg cursor-pointer ev-prod-ver-variacao-label tail-prod-ver-variacao-label tail-prod-ver-variacao-texto js-tail-etapa-variacao-label js-tail-etapa-variacao-label-texto ev-etapa-variacao-label">
+                  Tamanho não informado
+                </label>
+              </li>
+            )}
           </ul>
         </div>
 

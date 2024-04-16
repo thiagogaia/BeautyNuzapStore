@@ -38,18 +38,22 @@ const Gallery = ({ productData }: Props) => {
               <div className=" flex flex-row js-produto-ver-foto-interno js-produto-ver-foto-interno-2581-0">
                 {/* image displayed */}
                 <div className="relative order-1 w-full p-1 ml-2 border border-white border-solid lg:max-w-4xl">
-                  <div
-                    className="absolute left-0 px-2 py-1 ml-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
-                    // onclick="produtoVerFotosSeta(this, 'voltar');"
-                  >
-                    &lt;
-                  </div>
-                  <div
-                    className="absolute right-0 px-2 py-1 mr-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
-                    // onclick="produtoVerFotosSeta(this, 'avancar');"
-                  >
-                    &gt;
-                  </div>
+                  {productData.gallery.length > 0 && (
+                    <>
+                      <div
+                        className="absolute left-0 px-2 py-1 ml-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
+                        // onclick="produtoVerFotosSeta(this, 'voltar');"
+                      >
+                        &lt;
+                      </div>
+                      <div
+                        className="absolute right-0 px-2 py-1 mr-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
+                        // onclick="produtoVerFotosSeta(this, 'avancar');"
+                      >
+                        &gt;
+                      </div>
+                    </>
+                  )}
 
                   <div
                     className="flex overflow-x-auto js-produto-ver-foto-capa"
@@ -59,9 +63,37 @@ const Gallery = ({ productData }: Props) => {
                       scrollSnapType: "x mandatory",
                     }}
                   >
-                    {productData.gallery.map((product) => (
+                    {productData.gallery.length > 0 ? (
+                      productData.gallery.map((product) => (
+                        <div
+                          key={product.id}
+                          className="flex-none w-full text-center"
+                          style={{
+                            scrollSnapStop: "always",
+                            scrollSnapAlign: "center",
+                          }}
+                        >
+                          <a
+                            href={product.imgUrl}
+                            className="inline-block w-full"
+                            data-fancybox="galeria-produtos"
+                            data-src={product.imgUrl}
+                            data-caption="product img"
+                          >
+                            <img
+                              loading="eager"
+                              src={product.imgUrl}
+                              srcSet={`${product.imgUrl} 600w,${product.imgUrl} 1000w,${product.imgUrl} 2x`}
+                              sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
+                              alt="product img"
+                              className="inline-block w-full h-full align-middle object-fit"
+                            />
+                          </a>
+                        </div>
+                      ))
+                    ) : (
                       <div
-                        key={product.id}
+                        key={productData.id}
                         className="flex-none w-full text-center"
                         style={{
                           scrollSnapStop: "always",
@@ -69,23 +101,23 @@ const Gallery = ({ productData }: Props) => {
                         }}
                       >
                         <a
-                          href={product.imgUrl}
+                          href={productData.imgUrl}
                           className="inline-block w-full"
                           data-fancybox="galeria-produtos"
-                          data-src={product.imgUrl}
+                          data-src={productData.imgUrl}
                           data-caption="product img"
                         >
                           <img
                             loading="eager"
-                            src={product.imgUrl}
-                            srcSet={`${product.imgUrl} 600w,${product.imgUrl} 1000w,${product.imgUrl} 2x`}
+                            src={productData.imgUrl}
+                            srcSet={`${productData.imgUrl} 600w,${productData.imgUrl} 1000w,${productData.imgUrl} 2x`}
                             sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                             alt="product img"
                             className="inline-block w-full h-full align-middle object-fit"
                           />
                         </a>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
                 {/* images on the side */}
