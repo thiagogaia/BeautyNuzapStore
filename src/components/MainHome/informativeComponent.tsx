@@ -23,7 +23,7 @@ const InformativeComponent = () => {
                   </div>
                 </li>
               </ul>
-            </div>
+      </div>
     </>
   )
 }

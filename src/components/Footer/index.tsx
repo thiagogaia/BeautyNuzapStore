@@ -199,7 +199,6 @@ const Footer = () => {
                         (exceto feriados)
                       </span>
                       <div className="grid gap-2 leading-normal">
-                        
                         <span className="leading-normal">
                           Pedidos e Envio de Comprovantes
                           <br />
@@ -286,7 +285,6 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
-                
               </div>
               <div className="flex justify-center">
                 <div
@@ -386,7 +384,11 @@ const Footer = () => {
                       rel="external"
                       target="_blank"
                     >
-                      <img src="https://loja.nuzap.com.br/img/logo-web.png" alt="Nuzap" width={50}  />
+                      <img
+                        src="https://loja.nuzap.com.br/img/logo-web.png"
+                        alt="Nuzap"
+                        width={50}
+                      />
                     </a>
                   </div>
                 </div>

@@ -22,7 +22,7 @@ const WidgetWhatsapp = ({ numero }: props) => {
           width="23px"
           height="24px"
           viewBox="0 0 23 24"
-          enable-background="new 0 0 23 24"
+          enableBackground="new 0 0 23 24"
         >
           <g>
             <g>
