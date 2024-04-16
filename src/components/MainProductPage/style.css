@@ -169,3 +169,7 @@
         opacity: 1;
     }
 }
+
+.cat-title {
+    display: flex !important;
+}
