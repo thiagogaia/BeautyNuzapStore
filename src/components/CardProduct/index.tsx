@@ -1,9 +1,14 @@
+import { useParams } from "react-router-dom";
 import { IProductData } from "../../contexts/types";
 import "./style.css";
 
-const CardProduct = ({ ...data }: IProductData) => {
+interface Props extends IProductData {
+  className?: string;
+}
+const CardProduct = ({ className, ...data }: Props) => {
   const measures = ["PP", "P", "M", "G", "GG", "XG", "XGG", "XS", "S", "L", "XL", "XXL"];
   const productSizes: string[] = [];
+  const { storeUri } = useParams();
 
   data.variation_data.map((product) => {
     const sizes = product.item
@@ -15,11 +20,14 @@ const CardProduct = ({ ...data }: IProductData) => {
   return (
     <>
       <li
-        className="relative flex flex-col border border-gray-300 border-solid rounded-lg cursor-pointer tail-listagem-prod-item ev-listagem-prod-item js-tail-listagem-prod-item js-tail-paginacao-busca-item"
+        className={
+          "relative flex flex-col border border-gray-300 border-solid rounded-lg cursor-pointer tail-listagem-prod-item ev-listagem-prod-item js-tail-listagem-prod-item js-tail-paginacao-busca-item " +
+          className
+        }
         data-seta-posicao="direita"
       >
         <a
-          href=""
+          href={`/${storeUri}/produto/${data.uri}`}
           target="_self"
           className="flex flex-col justify-between flex-grow tail-listagem-prod-link js-tail-paginacao-busca-link"
         >
@@ -32,7 +40,7 @@ const CardProduct = ({ ...data }: IProductData) => {
               <source
                 srcSet={`${data.imgUrl} 200w, ${data.imgUrl} 400w, ${data.imgUrl} 600w`}
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                type="image/jpg"
+                type="image/*"
               />
               <img
                 loading="lazy"
@@ -47,7 +55,7 @@ const CardProduct = ({ ...data }: IProductData) => {
                   data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
                 } 400w, ${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 600w`}
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                type="image/jpg"
+                type="image/*"
               />
               <img
                 loading="lazy"
@@ -56,6 +64,7 @@ const CardProduct = ({ ...data }: IProductData) => {
                 className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
               />
             </picture>
+            {/* discont */}
             <div
               className=" absolute top-0 py-1 px-3 right-0 bg-black text-sm text-white rounded-tr-lg rounded-bl-lg ev-listagem-prod-desconto tail-listagem-prod-desconto"
               data-seta-posicao="direita"

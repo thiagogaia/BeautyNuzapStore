@@ -24,6 +24,8 @@ const ProductsProvider = ({ children }: IProviderProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeUri]);
 
+  // getProduct("saia-juliana-paes-1708711257");
+
   return <ProductsContext.Provider value={{ productList }}>{children}</ProductsContext.Provider>;
 };
 

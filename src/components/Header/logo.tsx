@@ -7,7 +7,7 @@ const Logo = () => {
     <div data-nome="logo-1" className="overflow-visible tail-topo-logo js-tail-topo-inverter">
       <div className="ev-topo-logo-interno">
         <div className="ev-topo-logo-foto">
-          <a href="/" className="ev-topo-logo-foto-link">
+          <a href={"/" + storeData.business.name} className="ev-topo-logo-foto-link">
             <img
               loading="lazy"
               src={storeData.business.logo}

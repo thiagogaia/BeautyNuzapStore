@@ -1,15 +1,12 @@
 import { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { StoreContext } from "../contexts/Store";
-
-import MainHome from "../components/MainHome";
+import { useParams } from "react-router-dom";
 import Header from "../components/Header";
+import MainProductList from "../components/MainProductList";
 import Footer from "../components/Footer";
-import WidgetPrivacity from "../components/WidgetPrivacity";
-import WidgetWhatsapp from "../components/WidgetWhatsapp";
 import Loading from "../components/Loading";
 
-const Home = () => {
+const ProductList = () => {
   const { load, setStoreUri } = useContext(StoreContext);
   const { storeUri } = useParams();
 
@@ -28,9 +25,7 @@ const Home = () => {
       ) : (
         <>
           <Header />
-          <MainHome />
-          <WidgetWhatsapp numero="5548991729419" />
-          <WidgetPrivacity />
+          <MainProductList />
           <Footer />
         </>
       )}
@@ -38,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ProductList;

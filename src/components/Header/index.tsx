@@ -13,11 +13,13 @@ import { HiOutlineUser, HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useContext } from "react";
 import { StoreContext } from "../../contexts/Store";
+import { useParams } from "react-router-dom";
 
 const Header = () => {
   const { storeData } = useContext(StoreContext);
   const categories = storeData.business.categories;
   const social_links = storeData.business.social_links;
+  const { storeUri } = useParams();
 
   return (
     <header
@@ -84,7 +86,7 @@ const Header = () => {
                       {categories.map((category) => (
                         <FilterTagMobile
                           key={category.id}
-                          href={category.uri}
+                          href={`${storeUri}/loja/${category.uri}`}
                           name={category.name}
                         />
                       ))}
@@ -143,6 +145,7 @@ const Header = () => {
             <div className="flex items-center justify-center overflow-visible">
               <Logo />
             </div>
+
             <div className="flex flex-wrap items-center justify-end gap-2 overflow-visible md:gap-3">
               <div
                 data-nome="desejo-1"
@@ -271,6 +274,7 @@ const Header = () => {
           </div>
         </section>
 
+        {/* desktop categories */}
         <section
           data-nome="interno_2"
           className="flex justify-between overflow-visible transition duration-300 ev-topo-interno-2 js-tail-topo-interno-2"
@@ -282,7 +286,11 @@ const Header = () => {
                   <nav className="overflow-visible ev-topo-categorias-interno ev-topo-categorias-1-dados-interno0">
                     <ul className="flex flex-wrap justify-center px-6 overflow-visible uppercase border-b border-gray-200 border-solid gap-x-3 tail-topo-categorias-lista-0 ev-topo-categorias-lista ev-topo-categorias-1-dados-lista0">
                       {categories.map((category) => (
-                        <FilterTag key={category.id} href={category.uri} name={category.name} />
+                        <FilterTag
+                          key={category.id}
+                          href={`${storeUri}/loja/${category.uri}`}
+                          name={category.name}
+                        />
                       ))}
                     </ul>
                   </nav>
