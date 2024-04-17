@@ -7,14 +7,14 @@ const FilterTag = ({ href, name }: IFilterTag) => {
       data-nome={name}
     >
       <div>
-        <a
-          href={href}
+        <button
+          onClick={() => (window.location.pathname = href)}
           rel="next"
           className="inline-block p-3 tail-topo-categorias-link-0 ev-topo-categorias-link ev-topo-categorias-1-dados-link0 tail-topo-categorias-1-dados-link-0 js-tail-topo-inverter"
           data-nome={name}
         >
           <div className="tail-topo-categorias-1-dados-link-0-texto">{name}</div>
-        </a>
+        </button>
       </div>
     </li>
   );

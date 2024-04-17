@@ -1013,7 +1013,7 @@ const MainProductPage = () => {
                             <source
                               srcSet="/1483771895.jpg 200w, /1483771895.jpg 400w, /1483771895.jpg 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                              type="image/jpeg"
+                              type="image/*"
                             />
                             <img
                               loading="lazy"
@@ -1031,7 +1031,7 @@ const MainProductPage = () => {
                             <source
                               srcSet="/3659536422.jpg 200w, /3659536422.jpg 400w, /3659536422.jpg 600w"
                               sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                              type="image/jpeg"
+                              type="image/*"
                             />
                             <img
                               loading="lazy"

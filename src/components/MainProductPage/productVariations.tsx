@@ -27,9 +27,9 @@ const ProductVariations = ({ productData }: IProps) => {
           </h2>
           <ul className="flex flex-wrap gap-2">
             {Object.keys(productData).length > 0 && productSizes.length > 0 ? (
-              productSizes.map((item) => (
+              productSizes.map((item, index) => (
                 <li
-                  key={item}
+                  key={item + index}
                   className="flex-shrink-0 flex gap-1.5 flex-wrap relative js-tail-etapa-variacao-item js-tail-etapa-comprar-topo-vari2"
                 >
                   <input

@@ -40,7 +40,7 @@ const CardProduct = ({ className, ...data }: Props) => {
               <source
                 srcSet={`${data.imgUrl} 200w, ${data.imgUrl} 400w, ${data.imgUrl} 600w`}
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                type="image/jpg"
+                type="image/*"
               />
               <img
                 loading="lazy"
@@ -55,7 +55,7 @@ const CardProduct = ({ className, ...data }: Props) => {
                   data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
                 } 400w, ${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 600w`}
                 sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                type="image/jpg"
+                type="image/*"
               />
               <img
                 loading="lazy"
