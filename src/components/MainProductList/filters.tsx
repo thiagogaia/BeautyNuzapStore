@@ -11,7 +11,7 @@ interface Props {
 const Filters = ({ storeData, productList, categoryId }: Props) => {
   const category = storeData.business.categories.find((e) => e.id === categoryId);
 
-  console.log(productList);
+  // console.log(productList);
 
   return (
     <div className="py-2 lg:py-0 lg:pb-12 lg:w-60 js-appec-escondido">

@@ -65,12 +65,14 @@ const CardProduct = ({ className, ...data }: Props) => {
               />
             </picture>
             {/* discont */}
-            <div
-              className=" absolute top-0 py-1 px-3 right-0 bg-black text-sm text-white rounded-tr-lg rounded-bl-lg ev-listagem-prod-desconto tail-listagem-prod-desconto"
-              data-seta-posicao="direita"
-            >
-              -15%
-            </div>
+            {data.price_promo !== null && Number(data.price_promo) > Number(data.price) && (
+              <div
+                className=" absolute top-0 py-1 px-3 right-0 bg-black text-sm text-white rounded-tr-lg rounded-bl-lg ev-listagem-prod-desconto tail-listagem-prod-desconto"
+                data-seta-posicao="direita"
+              >
+                {100 - (Number(data.price_promo) / Number(data.price)) * 100}%
+              </div>
+            )}
           </div>
 
           <div className="flex-grow flex flex-col gap-1.5 px-2 pt-1 pb-2 tail-listagem-prod-conteudo">

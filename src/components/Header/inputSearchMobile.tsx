@@ -1,6 +1,10 @@
 import { CiSearch } from "react-icons/ci";
 
-const InputSearchMobile = () => {
+interface Props {
+  storeUri: string;
+}
+
+const InputSearchMobile = ({ storeUri }: Props) => {
   return (
     <div
       data-nome="busca-2"

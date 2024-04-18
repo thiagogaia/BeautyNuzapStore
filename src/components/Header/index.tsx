@@ -140,7 +140,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <InputSearch />
+              <InputSearch storeUri={storeUri || ""} />
             </div>
             <div className="flex items-center justify-center overflow-visible">
               <Logo />
@@ -297,7 +297,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <InputSearchMobile />
+              <InputSearchMobile storeUri={storeUri || ""} />
             </div>
           </div>
         </section>
