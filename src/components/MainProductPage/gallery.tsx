@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { IProductData } from "../../contexts/types";
 
 interface Props {
@@ -5,6 +6,22 @@ interface Props {
 }
 
 const Gallery = ({ productData }: Props) => {
+  const images = [productData, ...productData.gallery];
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    return () => {};
+  }, [slideIndex]);
+
+  const slideControl = (direction: "prev" | "next") => {
+    if (direction === "prev" && slideIndex > 0) {
+      setSlideIndex(slideIndex - 1);
+    }
+    if (direction === "next" && slideIndex < images.length - 1) {
+      setSlideIndex(slideIndex + 1);
+    }
+  };
+
   return (
     <>
       <section className="flex flex-col gap-1.5 lg:w-full">
@@ -35,125 +52,69 @@ const Gallery = ({ productData }: Props) => {
             </div>
 
             {productData.gallery && (
-              <div className=" flex flex-row js-produto-ver-foto-interno js-produto-ver-foto-interno-2581-0">
+              <div className="flex flex-row js-produto-ver-foto-interno js-produto-ver-foto-interno-2581-0">
                 {/* image displayed */}
-                <div className="relative order-1 w-full p-1 ml-2 border border-white border-solid lg:max-w-4xl">
+                <div className=" relative order-1 w-full p-1 ml-2 border border-white border-solid lg:max-w-4xl">
                   {productData.gallery.length > 0 && (
                     <>
                       <div
-                        className="absolute left-0 px-2 py-1 ml-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
-                        // onclick="produtoVerFotosSeta(this, 'voltar');"
+                        className="absolute z-10 left-0 px-2 py-1 ml-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
+                        onClick={() => slideControl("prev")}
                       >
                         &lt;
                       </div>
                       <div
-                        className="absolute right-0 px-2 py-1 mr-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
-                        // onclick="produtoVerFotosSeta(this, 'avancar');"
+                        className="absolute z-10 right-0 px-2 py-1 mr-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
+                        onClick={() => slideControl("next")}
                       >
                         &gt;
                       </div>
                     </>
                   )}
 
-                  <div
-                    className="flex overflow-x-auto js-produto-ver-foto-capa"
-                    style={{
-                      scrollbarWidth: "none",
-                      scrollBehavior: "smooth",
-                      scrollSnapType: "x mandatory",
-                    }}
-                  >
-                    {/* first image */}
-                    <div
-                      key={productData.id}
-                      className="flex-none w-full text-center"
-                      style={{
-                        scrollSnapStop: "always",
-                        scrollSnapAlign: "center",
-                      }}
-                    >
-                      <a
-                        href={productData.imgUrl}
-                        className="inline-block w-full"
-                        data-fancybox="galeria-produtos"
-                        data-src={productData.imgUrl}
-                        data-caption="product img"
+                  <div className="flex overflow-x-auto js-produto-ver-foto-capa">
+                    {/* gallery images */}
+                    {images.map((product) => (
+                      <div
+                        key={product.id}
+                        className="flex-none w-full text-center"
+                        style={{
+                          transform: `translateX(${slideIndex * -100}%)`,
+                          transition: "transform .5s",
+                        }}
                       >
                         <img
                           loading="eager"
-                          src={productData.imgUrl}
-                          srcSet={`${productData.imgUrl} 600w,${productData.imgUrl} 1000w,${productData.imgUrl} 2x`}
+                          src={product.imgUrl}
+                          srcSet={`${product.imgUrl} 600w,${product.imgUrl} 1000w,${product.imgUrl} 2x`}
                           sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                           alt="product img"
                           className="inline-block w-full h-full align-middle object-fit"
                         />
-                      </a>
-                    </div>
-                    {/* gallery images */}
-                    {productData.gallery.length > 0 &&
-                      productData.gallery.map((product) => (
-                        <div
-                          key={product.id}
-                          className="flex-none w-full text-center"
-                          style={{
-                            scrollSnapStop: "always",
-                            scrollSnapAlign: "center",
-                          }}
-                        >
-                          <a
-                            href={product.imgUrl}
-                            className="inline-block w-full"
-                            data-fancybox="galeria-produtos"
-                            data-src={product.imgUrl}
-                            data-caption="product img"
-                          >
-                            <img
-                              loading="eager"
-                              src={product.imgUrl}
-                              srcSet={`${product.imgUrl} 600w,${product.imgUrl} 1000w,${product.imgUrl} 2x`}
-                              sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
-                              alt="product img"
-                              className="inline-block w-full h-full align-middle object-fit"
-                            />
-                          </a>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-                {/* images on the side */}
-                <div className="flex flex-col flex-none w-12 gap-2 order-0 ">
-                  {/* firs imge */}
-                  <div
-                    className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                    // onclick="produtoVerFotosThumb(this, 0);"
-                  >
-                    <div className="h-full">
-                      <img
-                        loading="eager"
-                        src={productData.imgUrl}
-                        alt="product img"
-                        className="inline-block object-cover w-full h-full align-middle"
-                      />
-                    </div>
-                  </div>
-                  {/* gallery images */}
-                  {productData.gallery.length > 0 &&
-                    productData.gallery.map((product) => (
-                      <div
-                        key={product.id}
-                        className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                        // onclick="produtoVerFotosThumb(this, 0);"
-                      >
-                        <div className="h-full">
-                          <img
-                            loading="eager"
-                            src={product.imgUrl}
-                            alt="product img"
-                            className="inline-block object-cover w-full h-full align-middle"
-                          />
-                        </div>
                       </div>
                     ))}
+                  </div>
+                </div>
+
+                {/* images on the side */}
+                <div className="flex flex-col flex-none w-12 gap-2 order-0 ">
+                  {/* gallery images */}
+                  {images.map((product, index) => (
+                    <div
+                      key={product.id}
+                      className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                      onClick={() => setSlideIndex(index)}
+                    >
+                      <div className="h-full">
+                        <img
+                          loading="eager"
+                          src={product.imgUrl}
+                          alt="product img"
+                          className="inline-block object-cover w-full h-full align-middle"
+                        />
+                      </div>
+                    </div>
+                  ))}
                   {/* video */}
                   {/* <div
                   className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
