@@ -25,7 +25,7 @@ export interface IProductData {
   ean: string;
   name: string;
   price: string;
-  price_promo: null;
+  price_promo: string;
   image: string;
   category: string;
   category_id: string;
@@ -36,15 +36,15 @@ export interface IProductData {
   stock: string;
   idItem: string;
   variation_item_name: string;
-  external_link: null;
+  external_link: string;
   variations: string;
-  variation_id: null;
-  variation_name: null;
+  variation_id: string;
+  variation_name: string;
   variations_items: string;
   removeProd: string;
   stockProd: string;
-  promo_start: null;
-  promo_end: null;
+  promo_start: string;
+  promo_end: string;
   imgUrl: string;
   gallery: IProductGalleryItem[];
   variation_data: IProductVariationData[];
@@ -54,7 +54,7 @@ export interface IProductGalleryItem {
   id: string;
   id_store_product: string;
   file: string;
-  subtitle: null;
+  subtitle: string;
   imgUrl: string;
 }
 
@@ -80,13 +80,13 @@ export interface IProductVariationItem {
   variation_item_name: string;
   description: string;
   price: string;
-  price_promo: null;
+  price_promo: string;
   active: string;
   stock: string;
-  sciId: null;
-  totalSepareted: null;
+  sciId: string;
+  totalSepareted: string;
   qty: string;
-  date_expire: null;
+  date_expire: string;
   imgUrl: string;
   name: string;
   id_store: string;
@@ -130,7 +130,7 @@ export interface IStoreBusiness {
   calc_delivery_fee: string;
   control_stock_config: IStoreControlStockCofig;
   block_store: string;
-  block_store_config: null;
+  block_store_config: string;
   slides: IStoreSlide[];
   store_variations: IStoreVariation[];
   store_variation_items: IStoreVariation[];
@@ -174,9 +174,9 @@ export interface IStoreMinimumOrder {
 export interface IStoreControlStockCofig {
   not_negative_stock: string;
   not_display_product: string;
-  inactive_product: null;
+  inactive_product: string;
   display_stock: string;
-  separate_stock: null;
+  separate_stock: string;
 }
 
 export interface IStoreSlide {

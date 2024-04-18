@@ -63,7 +63,34 @@ const Gallery = ({ productData }: Props) => {
                       scrollSnapType: "x mandatory",
                     }}
                   >
-                    {productData.gallery.length > 0 ? (
+                    {/* first image */}
+                    <div
+                      key={productData.id}
+                      className="flex-none w-full text-center"
+                      style={{
+                        scrollSnapStop: "always",
+                        scrollSnapAlign: "center",
+                      }}
+                    >
+                      <a
+                        href={productData.imgUrl}
+                        className="inline-block w-full"
+                        data-fancybox="galeria-produtos"
+                        data-src={productData.imgUrl}
+                        data-caption="product img"
+                      >
+                        <img
+                          loading="eager"
+                          src={productData.imgUrl}
+                          srcSet={`${productData.imgUrl} 600w,${productData.imgUrl} 1000w,${productData.imgUrl} 2x`}
+                          sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
+                          alt="product img"
+                          className="inline-block w-full h-full align-middle object-fit"
+                        />
+                      </a>
+                    </div>
+                    {/* gallery images */}
+                    {productData.gallery.length > 0 &&
                       productData.gallery.map((product) => (
                         <div
                           key={product.id}
@@ -90,54 +117,43 @@ const Gallery = ({ productData }: Props) => {
                             />
                           </a>
                         </div>
-                      ))
-                    ) : (
-                      <div
-                        key={productData.id}
-                        className="flex-none w-full text-center"
-                        style={{
-                          scrollSnapStop: "always",
-                          scrollSnapAlign: "center",
-                        }}
-                      >
-                        <a
-                          href={productData.imgUrl}
-                          className="inline-block w-full"
-                          data-fancybox="galeria-produtos"
-                          data-src={productData.imgUrl}
-                          data-caption="product img"
-                        >
-                          <img
-                            loading="eager"
-                            src={productData.imgUrl}
-                            srcSet={`${productData.imgUrl} 600w,${productData.imgUrl} 1000w,${productData.imgUrl} 2x`}
-                            sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
-                            alt="product img"
-                            className="inline-block w-full h-full align-middle object-fit"
-                          />
-                        </a>
-                      </div>
-                    )}
+                      ))}
                   </div>
                 </div>
                 {/* images on the side */}
                 <div className="flex flex-col flex-none w-12 gap-2 order-0 ">
-                  {productData.gallery.map((product) => (
-                    <div
-                      key={product.id}
-                      className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                      // onclick="produtoVerFotosThumb(this, 0);"
-                    >
-                      <div className="h-full">
-                        <img
-                          loading="eager"
-                          src={product.imgUrl}
-                          alt="product img"
-                          className="inline-block object-cover w-full h-full align-middle"
-                        />
-                      </div>
+                  {/* firs imge */}
+                  <div
+                    className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                    // onclick="produtoVerFotosThumb(this, 0);"
+                  >
+                    <div className="h-full">
+                      <img
+                        loading="eager"
+                        src={productData.imgUrl}
+                        alt="product img"
+                        className="inline-block object-cover w-full h-full align-middle"
+                      />
                     </div>
-                  ))}
+                  </div>
+                  {/* gallery images */}
+                  {productData.gallery.length > 0 &&
+                    productData.gallery.map((product) => (
+                      <div
+                        key={product.id}
+                        className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                        // onclick="produtoVerFotosThumb(this, 0);"
+                      >
+                        <div className="h-full">
+                          <img
+                            loading="eager"
+                            src={product.imgUrl}
+                            alt="product img"
+                            className="inline-block object-cover w-full h-full align-middle"
+                          />
+                        </div>
+                      </div>
+                    ))}
                   {/* video */}
                   {/* <div
                   className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
