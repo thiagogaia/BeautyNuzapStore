@@ -1,22 +1,29 @@
-import { useParams } from "react-router-dom";
-import { IProductData } from "../../contexts/types";
 import "./style.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { IProductData, IProductVariationData, IProductVariationItem } from "../../contexts/types";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props extends IProductData {
   className?: string;
 }
 const CardProduct = ({ className, ...data }: Props) => {
-  const measures = ["PP", "P", "M", "G", "GG", "XG", "XGG", "XS", "S", "L", "XL", "XXL"];
-  const productSizes: string[] = [];
+  const [variations, setVariations] = useState<IProductVariationData[]>([]);
+  const [variationItens, setVariationItens] = useState<IProductVariationItem[]>([]);
   const { storeUri } = useParams();
 
-  data.variation_data.map((product) => {
-    const sizes = product.item
-      .map((e) => e.variation_item_name)
-      .filter((e) => measures.includes(e));
-    productSizes.push(...sizes);
-  });
+  useEffect(() => {
+    if (data.variation_data.length > 0) {
+      if (data.variation_data[0].item.length > 0) {
+        setVariationItens(data.variation_data[0].item);
+      } else {
+        setVariations(data.variation_data);
+      }
+    }
 
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <li
@@ -147,28 +154,29 @@ const CardProduct = ({ className, ...data }: Props) => {
             </div>
           </div>
         </a>
-        {/* sizes */}
+
+        {/* variations */}
         <div className="relative mb-2 tail-variacao-slider js-tail-variacao-slider">
           <ul className="tail-listagem-prod-variacao-lista flex flex-wrap gap-1 px-2 tail-listagem-prod-lista-vari tail-listagem-prod-slider-container">
-            {productSizes.length > 0 ? (
-              [...new Set(productSizes)].sort().map((size) => (
-                <li
-                  key={data.id + size}
-                  className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
-                  title="38"
-                >
-                  {size}
-                </li>
-              ))
-            ) : (
-              <li
-                className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
-                title="38"
-              >
-                Tamanho não informado
-              </li>
-            )}
-            <li aria-hidden="true" className="hidden" />
+            {variationItens.length > 0
+              ? variationItens.map((variation) => (
+                  <li
+                    key={uuidv4()}
+                    className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
+                    title="38"
+                  >
+                    {variation.variation_item_name}
+                  </li>
+                ))
+              : variations.map((variation) => (
+                  <li
+                    key={uuidv4()}
+                    className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
+                    title="38"
+                  >
+                    {variation.name}
+                  </li>
+                ))}
           </ul>
         </div>
       </li>
