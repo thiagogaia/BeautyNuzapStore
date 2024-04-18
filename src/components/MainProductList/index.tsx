@@ -16,14 +16,19 @@ const MainProductList = () => {
   const { storeUri, categoryUri } = useParams();
 
   const [productList, setProductList] = useState<IProductData[]>([]);
+  const product = URLSearchParams.get("product");
   const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
 
   const [load, setLoad] = useState<boolean>(true);
-  const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0].id;
+  const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0]?.id;
 
   useEffect(() => {
     api
-      .get(`products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`)
+      .get(
+        product === null
+          ? `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`
+          : `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${product}`
+      )
       .then((res) => {
         setProductList(res.data);
         setLoad(false);
@@ -166,11 +171,19 @@ const MainProductList = () => {
                   {load ? (
                     <Loading />
                   ) : (
-                    <ul className="tail-listagem-prod-lista js-tail-listagem-prod-lista js-tail-paginacao-busca-lista flex-grow grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-                      {productList.map((data) => (
-                        <CardProduct key={data.id} {...data} />
-                      ))}
-                    </ul>
+                    <>
+                      {productList.length > 0 ? (
+                        <ul className="tail-listagem-prod-lista js-tail-listagem-prod-lista js-tail-paginacao-busca-lista flex-grow grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+                          {productList.map((data) => (
+                            <CardProduct key={data.id} {...data} />
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="flex justify-center items-center h-[10rem] w-[100%] text-xl">
+                          Produto não encontrado
+                        </p>
+                      )}
+                    </>
                   )}
                 </section>
               </div>

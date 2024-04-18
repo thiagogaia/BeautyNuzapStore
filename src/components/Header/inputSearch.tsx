@@ -12,6 +12,7 @@ const InputSearch = ({ storeUri }: Props) => {
     window.location.href =
       window.location.origin + "/" + `${storeUri}/search?product=${inputValue}`;
   };
+
   return (
     <div
       data-nome="busca-1"
@@ -19,7 +20,6 @@ const InputSearch = ({ storeUri }: Props) => {
     >
       <div className="ev-topo-busca-interno">
         <form
-          action={`${storeUri}/search`}
           autoComplete="off"
           method="get"
           noValidate

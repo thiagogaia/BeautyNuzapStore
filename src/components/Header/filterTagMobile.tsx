@@ -5,7 +5,7 @@ const FilterTagMobile = ({ href, name }: IFilterTag) => {
     <div className="overflow-visible px-2.5 tail-topo-categorias-toggle-1-dados-item-0 ev-topo-categorias-toggle-item ev-topo-categorias-toggle-1-dados-item0">
       <div className="flex items-center gap-2">
         <button
-          onClick={() => (window.location.pathname = href)}
+          onClick={() => (window.location.href = window.location.origin + "/" + href)}
           rel="next"
           className="flex-grow inline-block py-4 text-left ev-topo-categorias-toggle-link ev-topo-categorias-toggle-1-dados-link0 tail-topo-categorias-toggle-1-dados-link-0"
           data-nome={name}
