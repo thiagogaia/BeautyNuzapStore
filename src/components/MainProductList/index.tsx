@@ -13,10 +13,9 @@ import { IProductData } from "../../contexts/types";
 const MainProductList = () => {
   const [URLSearchParams] = useSearchParams();
   const { storeData } = useContext(StoreContext);
-  const { storeUri, categoryUri } = useParams();
+  const { storeUri, categoryUri, productSearched } = useParams();
 
   const [productList, setProductList] = useState<IProductData[]>([]);
-  const product = URLSearchParams.get("product");
   const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
 
   const [load, setLoad] = useState<boolean>(true);
@@ -25,9 +24,9 @@ const MainProductList = () => {
   useEffect(() => {
     api
       .get(
-        product === null
+        productSearched === undefined
           ? `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`
-          : `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${product}`
+          : `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}`
       )
       .then((res) => {
         setProductList(res.data);

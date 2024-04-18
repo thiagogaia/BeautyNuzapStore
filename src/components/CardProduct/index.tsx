@@ -72,12 +72,12 @@ const CardProduct = ({ className, ...data }: Props) => {
               />
             </picture>
             {/* discont */}
-            {data.price_promo !== null && Number(data.price_promo) > Number(data.price) && (
+            {data.price_promo !== null && Number(data.price_promo) < Number(data.price) && (
               <div
                 className=" absolute top-0 py-1 px-3 right-0 bg-black text-sm text-white rounded-tr-lg rounded-bl-lg ev-listagem-prod-desconto tail-listagem-prod-desconto"
                 data-seta-posicao="direita"
               >
-                {100 - (Number(data.price_promo) / Number(data.price)) * 100}%
+                {Math.round(100 - (Number(data.price_promo) / Number(data.price)) * 100)}%
               </div>
             )}
           </div>
