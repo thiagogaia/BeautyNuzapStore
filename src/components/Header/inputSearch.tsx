@@ -9,7 +9,8 @@ const InputSearch = ({ storeUri }: Props) => {
 
   const search = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = window.location.origin + "/" + `${storeUri}/search/${inputValue}`;
+    window.location.href =
+      window.location.origin + "/" + `${storeUri}/search?product=${inputValue}`;
   };
 
   return (
