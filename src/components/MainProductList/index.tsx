@@ -13,21 +13,20 @@ import { IProductData } from "../../contexts/types";
 const MainProductList = () => {
   const [URLSearchParams] = useSearchParams();
   const { storeData } = useContext(StoreContext);
-  const { storeUri, categoryUri } = useParams();
+  const { storeUri, categoryUri, productSearched } = useParams();
 
   const [productList, setProductList] = useState<IProductData[]>([]);
-  const product = URLSearchParams.get("product");
-  const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
-
   const [load, setLoad] = useState<boolean>(true);
+
   const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0]?.id;
+  const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
 
   useEffect(() => {
     api
       .get(
-        product === null
+        productSearched === undefined
           ? `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`
-          : `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${product}`
+          : `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}`
       )
       .then((res) => {
         setProductList(res.data);
@@ -86,6 +85,15 @@ const MainProductList = () => {
                       <span>Maior preço</span>
                     </label>
                     <label
+                      htmlFor="FiltroOrdenarnome"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Nome</span>
+                    </label>
+                    {/* <label
                       htmlFor="FiltroOrdenardesconto"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
@@ -111,15 +119,6 @@ const MainProductList = () => {
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Popular</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarnome"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Nome</span>
                     </label>
                     <label
                       htmlFor="FiltroOrdenarnovo"
@@ -156,13 +155,13 @@ const MainProductList = () => {
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Aleatórios</span>
-                    </label>
+                    </label> */}
                   </div>
                 </details>
               </div>
             </div>
 
-            <Filters storeData={storeData} productList={productList} categoryId={categoryId} />
+            <Filters storeData={storeData} categoryId={categoryId} />
 
             <div className="flex flex-col w-full gap-4 lg:w-auto lg:flex-1">
               {/* product listing */}
