@@ -7,8 +7,8 @@ const Routes = () => {
   return (
     <Switch>
       <Route path="/:storeUri" element={<Home />} />
-      <Route path="/:storeUri/loja/:categoryUri" element={<ProductList />}></Route>
-      <Route path="/:storeUri/search/:productSearched" element={<ProductList />} />
+      <Route path="/:storeUri/loja/:categoryUri" element={<ProductList />} />
+      <Route path="/:storeUri/search" element={<ProductList />} />
       <Route path="/:storeUri/produto/:productUri" element={<Product />} />
     </Switch>
   );
