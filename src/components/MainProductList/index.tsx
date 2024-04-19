@@ -23,16 +23,20 @@ const MainProductList = () => {
 
   const orderBy = URLSearchParams.get("order");
   const maxPrice = URLSearchParams.get("price");
-  const variations = URLSearchParams.get("variation");
+  const variations = URLSearchParams.get("variations");
+  const categories = URLSearchParams.get("categories");
 
   useEffect(() => {
     setLoad(true);
+    console.log(orderBy, maxPrice, variations, categories);
 
     const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}&_order_by=name_asc`;
     const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}&_order_by=name_asc`;
-    const filterUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_order_by=${orderBy}${
-      variations !== null ? `&_variations=${variations}` : ""
-    }${maxPrice !== null ? `&_maxprice=${maxPrice}` : ""}`;
+    const filterUrl = `products?_url=${storeUri}&_page=${page}&_limit=12${
+      categories !== null ? `&_categories=${categories}` : ""
+    }&_order_by=${orderBy}${variations !== null ? `&_variations=${variations}` : ""}${
+      maxPrice !== null ? `&_maxprice=${maxPrice}` : ""
+    }`;
 
     api
       .get(orderBy !== null ? filterUrl : productSearched === undefined ? categoryUrl : searchUrl)
@@ -132,7 +136,8 @@ const MainProductList = () => {
               categoryId={categoryId}
               maxPrice={maxPrice}
               orderBy={orderBy}
-              variatioList={variations}
+              variationList={variations}
+              categoryList={categories}
             />
 
             <div className="flex flex-col w-full gap-4 lg:w-auto lg:flex-1">

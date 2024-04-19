@@ -8,10 +8,18 @@ interface Props {
   categoryId: string;
   orderBy: string | null;
   maxPrice: string | null;
-  variatioList: string | null;
+  variationList: string | null;
+  categoryList: string | null;
 }
 
-const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Props) => {
+const Filters = ({
+  storeData,
+  categoryId,
+  orderBy,
+  maxPrice,
+  variationList,
+  categoryList,
+}: Props) => {
   const category = storeData.business.categories.find((e) => e.id === categoryId);
   const variations = storeData.business.store_variations;
   const variationItems = storeData.business.store_variation_items;
@@ -23,6 +31,12 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
     if (form.current) {
       const fields = form.current.querySelectorAll("input");
 
+      const categoriesFields = [...fields]
+        .filter((field) => field.name === "categories")
+        .filter((field) => field.checked)
+        .map((field) => field.value)
+        .join(",");
+
       const variationsFields = [...fields]
         .filter((field) => field.name === "variations")
         .filter((field) => field.checked)
@@ -30,18 +44,20 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
         .join(",");
 
       const maxPriceField = [...fields]
-        .filter((field) => field.name === "maxPrice")
+        .filter((field) => field.name === "price")
         .map((field) => field.value)
         .join(",");
 
       const orderByField = [...fields]
-        .filter((field) => field.name === "orderBy")
+        .filter((field) => field.name === "order")
         .filter((field) => field.checked)
         .map((field) => field.defaultValue)[0];
 
       const url = `?order=${orderByField}${
-        variationsFields.length > 0 ? `&variation=${variationsFields}` : ""
-      }${+maxPriceField > 0 ? `&price=${maxPriceField}` : ""}`;
+        categoriesFields.length > 0 ? `&categories=${categoriesFields}` : ""
+      }${variationsFields.length > 0 ? `&variations=${variationsFields}` : ""}${
+        +maxPriceField > 0 ? `&price=${maxPriceField}` : ""
+      }`;
       navigate(url);
     }
 
@@ -101,7 +117,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
             <>
               <input
                 type="radio"
-                name="orderBy"
+                name="order"
                 id="FiltroOrdenarnomeAsc"
                 defaultValue="name_asc"
                 onChange={search}
@@ -110,7 +126,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
               />
               <input
                 type="radio"
-                name="orderBy"
+                name="order"
                 id="FiltroOrdenarnomeDesc"
                 defaultValue="name_desc"
                 onChange={search}
@@ -118,7 +134,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
               />
               <input
                 type="radio"
-                name="orderBy"
+                name="order"
                 id="FiltroOrdenarbarato"
                 defaultValue="price_asc"
                 onChange={search}
@@ -126,7 +142,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
               />
               <input
                 type="radio"
-                name="orderBy"
+                name="order"
                 id="FiltroOrdenarcaro"
                 defaultValue="price_desc"
                 onChange={search}
@@ -186,8 +202,8 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                             value={variation.id}
                             onChange={search}
                             checked={
-                              variatioList !== null &&
-                              variatioList.split(",").includes(variation.id)
+                              variationList !== null &&
+                              variationList.split(",").includes(variation.id)
                                 ? true
                                 : false
                             }
@@ -251,7 +267,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                             value={item.id}
                             onChange={search}
                             checked={
-                              variatioList !== null && variatioList.split(",").includes(item.id)
+                              variationList !== null && variationList.split(",").includes(item.id)
                                 ? true
                                 : false
                             }
@@ -317,19 +333,24 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                         </li>
                       ) : (
                         storeData.business.categories.map((cat) => (
-                          <li key={cat.id} style={{ marginBottom: "2px" }}>
-                            <button
-                              className="underline"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  window.location.origin +
-                                  `/${storeData.business.name}/loja/${cat.uri}`)
+                          <div className="flex items-start gap-2" key={cat.id}>
+                            <input
+                              type="checkbox"
+                              id={cat.id}
+                              name="categories"
+                              value={cat.id}
+                              onChange={search}
+                              checked={
+                                categoryList !== null && categoryList.split(",").includes(cat.id)
+                                  ? true
+                                  : false
                               }
-                            >
-                              {cat.name}
-                            </button>
-                          </li>
+                              className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
+                            />
+                            <label htmlFor={cat.id} className="flex flex-wrap gap-1">
+                              <div>{cat.name}</div>
+                            </label>
+                          </div>
                         ))
                       )}
                     </ul>
@@ -479,7 +500,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                       <div className="pl-2 font-bold">Mínimo:</div>
                       <input
                         type="text"
-                        name="precorderBy"
+                        name="preco1"
                         defaultValue=""
                         placeholder="De"
                         className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
@@ -494,11 +515,14 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
 
                       <CurrencyInput
                         type="text"
-                        name="maxPrice"
-                        defaultValue={maxPrice !== null && +maxPrice > 0 ? maxPrice : ""}
+                        name="price"
+                        defaultValue={maxPrice !== null && Number(maxPrice) > 0 ? maxPrice : ""}
                         placeholder="Até"
                         className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
                         autoComplete="off"
+                        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                          e.key === "Enter" && e.preventDefault()
+                        }
                       />
                     </div>
                     <div className="self-end flex-shrink-0">
