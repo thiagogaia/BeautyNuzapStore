@@ -13,14 +13,13 @@ import { IProductData } from "../../contexts/types";
 const MainProductList = () => {
   const [URLSearchParams] = useSearchParams();
   const { storeData } = useContext(StoreContext);
-  const { storeUri, categoryUri } = useParams();
+  const { storeUri, categoryUri, productSearched } = useParams();
 
   const [productList, setProductList] = useState<IProductData[]>([]);
-  const product = URLSearchParams.get("product");
-  const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
-
   const [load, setLoad] = useState<boolean>(true);
+
   const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0]?.id;
+  const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
 
   const orderBy = URLSearchParams.get("order");
   const maxPrice = URLSearchParams.get("price");
@@ -37,7 +36,6 @@ const MainProductList = () => {
 
     api
       .get(orderBy !== null ? filterUrl : productSearched === undefined ? categoryUrl : searchUrl)
-
       .then((res) => {
         setProductList(res.data);
         setLoad(false);
@@ -134,7 +132,7 @@ const MainProductList = () => {
               categoryId={categoryId}
               maxPrice={maxPrice}
               orderBy={orderBy}
-              variatioList={variations}
+              variationList={variations}
             />
 
             <div className="flex flex-col w-full gap-4 lg:w-auto lg:flex-1">
