@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { IStoreData } from "../../contexts/types";
 import { useNavigate } from "react-router-dom";
+import CurrencyInput from "react-currency-masked-input";
 
 interface Props {
   storeData: IStoreData;
@@ -490,15 +491,14 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                     </div> */}
                     <div className="flex-shrink">
                       <div className="pl-2 font-bold">Máximo:</div>
-                      <input
-                        type="number"
+
+                      <CurrencyInput
+                        type="text"
                         name="maxPrice"
                         defaultValue={maxPrice !== null && +maxPrice > 0 ? maxPrice : ""}
                         placeholder="Até"
                         className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
                         autoComplete="off"
-                        inputMode="decimal"
-                        pattern="[0-9]*"
                       />
                     </div>
                     <div className="self-end flex-shrink-0">
