@@ -13,13 +13,14 @@ import { IProductData } from "../../contexts/types";
 const MainProductList = () => {
   const [URLSearchParams] = useSearchParams();
   const { storeData } = useContext(StoreContext);
-  const { storeUri, categoryUri, productSearched } = useParams();
+  const { storeUri, categoryUri } = useParams();
 
   const [productList, setProductList] = useState<IProductData[]>([]);
-  const [load, setLoad] = useState<boolean>(true);
-
-  const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0]?.id;
+  const product = URLSearchParams.get("product");
   const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
+
+  const [load, setLoad] = useState<boolean>(true);
+  const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0]?.id;
 
   const orderBy = URLSearchParams.get("order");
   const maxPrice = URLSearchParams.get("price");
@@ -36,6 +37,7 @@ const MainProductList = () => {
 
     api
       .get(orderBy !== null ? filterUrl : productSearched === undefined ? categoryUrl : searchUrl)
+
       .then((res) => {
         setProductList(res.data);
         setLoad(false);

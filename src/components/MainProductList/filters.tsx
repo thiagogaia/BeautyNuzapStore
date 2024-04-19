@@ -1,3 +1,4 @@
+
 import { useRef } from "react";
 import { IStoreData } from "../../contexts/types";
 import { useNavigate } from "react-router-dom";
@@ -5,6 +6,7 @@ import CurrencyInput from "react-currency-masked-input";
 
 interface Props {
   storeData: IStoreData;
+  productList: IProductData[];
   categoryId: string;
   orderBy: string | null;
   maxPrice: string | null;
@@ -12,10 +14,8 @@ interface Props {
 }
 
 const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Props) => {
+
   const category = storeData.business.categories.find((e) => e.id === categoryId);
-  const variations = storeData.business.store_variations;
-  const variationItems = storeData.business.store_variation_items;
-  const navigate = useNavigate();
 
   const form = useRef<HTMLFormElement>(null);
 
@@ -310,33 +310,15 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                     </svg>
                   </summary>
                   <div className="grid gap-2 px-1 pb-4 text-left text-gray-700 tail-busca-filtro-texto">
-                    <ul className="pt-2 pl-4 grid gap-2 list-disc">
-                      {category !== undefined ? (
-                        <li className="pt-2">
-                          <p>{category?.name}</p>
-                        </li>
-                      ) : (
-                        storeData.business.categories.map((cat) => (
-                          <li key={cat.id} style={{ marginBottom: "2px" }}>
-                            <button
-                              className="underline"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  window.location.origin +
-                                  `/${storeData.business.name}/loja/${cat.uri}`)
-                              }
-                            >
-                              {cat.name}
-                            </button>
-                          </li>
-                        ))
-                      )}
+                    <ul className="list-disc grid gap-2 text-xs divide-y divide-gray-300 divide-solid">
+                      <li className="pt-2">
+                        <a href="#">{category?.name}</a>
+                      </li>
                     </ul>
                   </div>
                 </details>
 
-                {/* order mobile labels */}
+                {/* order mobile */}
                 <details className="lg:hidden select-none tail-busca-filtro-details">
                   <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
                     <span className="flex items-center gap-1 text-sm font-bold text-gray-700 tail-busca-filtro-nome">
@@ -384,6 +366,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                         }}
                         className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
                       >
+
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Nome A - Z</span>
@@ -475,11 +458,11 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                     </svg>
                   </summary>
                   <div className="overflow-visible flex gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
-                    {/* <div className="flex-shrink">
+                    <div className="flex-shrink">
                       <div className="pl-2 font-bold">Mínimo:</div>
                       <input
                         type="text"
-                        name="precorderBy"
+                        name="preco1"
                         defaultValue=""
                         placeholder="De"
                         className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
@@ -488,7 +471,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                         pattern="[0-9]*"
                         data-mascara-decimal-validar={1}
                       />
-                    </div> */}
+                    </div>
                     <div className="flex-shrink">
                       <div className="pl-2 font-bold">Máximo:</div>
 
@@ -503,8 +486,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                     </div>
                     <div className="self-end flex-shrink-0">
                       <button
-                        type="button"
-                        onClick={search}
+                        type="submit"
                         className="border border-solid border-gray-300 p-2 text-white bg-black rounded-lg ev-busca-filtro-preco-btn tail-busca-filtro-preco-botao"
                         data-seta-posicao="cima"
                       >
@@ -529,7 +511,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                 </details>
 
                 {/* color */}
-                {/* <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-varis">
+                <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-varis">
                   <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
                     <span className="text-sm font-bold text-gray-700 tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1">
                       <svg
@@ -588,10 +570,10 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                       </label>
                     </li>
                   </ul>
-                </details> */}
+                </details>
 
                 {/* size */}
-                {/* <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-varis">
+                <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-varis">
                   <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
                     <span className="text-sm font-bold text-gray-700 tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1">
                       <svg
@@ -608,7 +590,7 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                           d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z"
                         />
                       </svg>
-                      Variações
+                      Tamanho
                     </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -625,7 +607,6 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                       />
                     </svg>
                   </summary>
-
                   <ul className="grid grid-cols-4 justify-items-center overflow-auto max-h-96 gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
                     <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
                       <label
@@ -645,8 +626,224 @@ const Filters = ({ storeData, categoryId, orderBy, maxPrice, variatioList }: Pro
                         36
                       </label>
                     </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1004"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1004"
+                            defaultValue={1004}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        38
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1005"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1005"
+                            defaultValue={1005}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        40
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1006"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1006"
+                            defaultValue={1006}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        42
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1007"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1007"
+                            defaultValue={1007}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        44
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1008"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1008"
+                            defaultValue={1008}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        46
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1009"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1009"
+                            defaultValue={1009}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        48
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1010"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1010"
+                            defaultValue={1010}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        50
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1011"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1011"
+                            defaultValue={1011}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        52
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1016"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1016"
+                            defaultValue={1016}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        G
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1017"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1017"
+                            defaultValue={1017}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        GG
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1015"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1015"
+                            defaultValue={1015}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        M
+                      </label>
+                    </li>
+                    <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
+                      <label
+                        htmlFor="FiltroVari1012"
+                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                      >
+                        <div className="relative">
+                          <input
+                            type="checkbox"
+                            name="v1[]"
+                            id="FiltroVari1012"
+                            defaultValue={1012}
+                            // onchange="this.form.submit();"
+                            className="hidden"
+                          />
+                        </div>
+                        Único
+                      </label>
+                    </li>
                   </ul>
-                </details> */}
+                </details>
 
                 {/* highlights */}
                 {/* <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-dests">
