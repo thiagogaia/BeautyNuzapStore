@@ -1,13 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { IProductsProviderData, IProviderProps } from "./types";
+import { IProductsProviderData, IProviderProps, IProductData } from "./types";
 import { api } from "../services/api";
 import { StoreContext } from "./Store";
 
 export const ProductsContext = createContext<IProductsProviderData>({} as IProductsProviderData);
 
 const ProductsProvider = ({ children }: IProviderProps) => {
-  const [productList, setProductList] = useState([]);
-
+  const [productList, setProductList] = useState([] as IProductData[]);
   const { storeUri } = useContext(StoreContext);
 
   useEffect(() => {
