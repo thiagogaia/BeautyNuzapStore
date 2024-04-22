@@ -28,7 +28,6 @@ const MainProductList = () => {
 
   useEffect(() => {
     setLoad(true);
-    console.log(orderBy, maxPrice, variations, categories);
 
     const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}&_order_by=name_asc`;
     const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}&_order_by=name_asc`;

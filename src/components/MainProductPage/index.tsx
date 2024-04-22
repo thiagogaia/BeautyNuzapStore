@@ -2,16 +2,19 @@ import "./style.css";
 import { useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { api } from "../../services/api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IProductData } from "../../contexts/types";
 import Gallery from "./gallery";
 import ProductVariations from "./productVariations";
 import Loading from "../Loading";
+import { CartContext } from "../../contexts/cart";
 
 const MainProductPage = () => {
   const { productUri, storeUri } = useParams();
   const [productData, setProductData] = useState({} as IProductData);
   const [load, setLoad] = useState(true);
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     api
@@ -214,7 +217,8 @@ const MainProductPage = () => {
                       <div className="grid gap-4 tail-prod-ver-grupo-comprar">
                         <div className="flex gap-2 tail-etapa-comprar js-tail-etapa-comprar w-full lg:max-w-xs">
                           <button
-                            type="submit"
+                            type="button"
+                            onClick={() => addToCart(productData)}
                             className="relative flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border border-transparent border-solid rounded-lg select-none outline-none hover:opacity-70 ev-etapa-comprar-btn tail-etapa-comprar-btn js-tail-etapa-comprar-btn"
                             data-seta-posicao="esquerda"
                           >

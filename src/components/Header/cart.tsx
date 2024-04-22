@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import CartCard from "./cartCard";
+import { StoreContext } from "../../contexts/Store";
 
 const Cart = () => {
+  const { storeUri } = useContext(StoreContext);
   return (
     <nav className="fixed top-0 right-0 invisible w-64 h-screen text-sm bg-white shadow-md rounded-l-md md:w-96 ev-topo-carrinho-lista ev-topo-carrinho-1-dados-lista opacity-0 sm:bg-opacity-60 sm:backdrop-filter sm:backdrop-blur-md md:bg-opacity-60 md:backdrop-filter md:backdrop-blur-md lg:bg-opacity-60 lg:backdrop-filter lg:backdrop-blur-md xl:bg-opacity-60 xl:backdrop-filter xl:backdrop-blur-md tail-topo-sacola-lista">
       <div className="flex flex-col content-start h-full tail-topo-carrinho-interno">
@@ -20,12 +23,14 @@ const Cart = () => {
           </label>
         </div>
         <div className="p-5 text-sm font-bold text-center">
-          <a
-            href="/carrinho"
+          <button
+            onClick={() =>
+              (window.location.href = window.location.origin + `/${storeUri}/carrinho`)
+            }
             className="inline-block w-full py-4 text-center border border-gray-300 border-solid rounded-md tail-topo-carrinho-produto-ir ev-topo-carrinho-produto-ir ev-topo-carrinho-1-produto-ir"
           >
             Ir para o carrinho
-          </a>
+          </button>
         </div>
         <div className="p-5 text-sm font-bold text-center">
           <div className="flex items-center justify-center gap-1 text-base font-bold js-tail-topo-carrinho-subtotal">

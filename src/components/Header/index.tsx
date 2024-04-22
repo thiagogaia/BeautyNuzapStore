@@ -147,6 +147,7 @@ const Header = () => {
             </div>
 
             <div className="flex flex-wrap items-center justify-end gap-2 overflow-visible md:gap-3">
+              {/* favorites */}
               <div
                 data-nome="desejo-1"
                 className="overflow-visible w-min md:ml-4 tail-topo-desejo ev-topo-desejo js-tail-topo-inverter"
@@ -159,6 +160,8 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+
+              {/* login/register desktop */}
               <div
                 data-nome="login-1"
                 className="relative hidden overflow-visible md:order-first md:block"
@@ -195,6 +198,7 @@ const Header = () => {
                   </nav>
                 </div>
               </div>
+              {/* login/register mobile */}
               <div
                 data-nome="login-toggle-1"
                 className="relative z-20 overflow-visible w-min md:hidden tail-topo-login ev-topo-login"
@@ -242,6 +246,7 @@ const Header = () => {
                 </div>
               </div>
 
+              {/* cart */}
               <div
                 data-nome="carrinho-1"
                 className="overflow-visible ev-topo-carrinho ev-topo-carrinho-1 tail-topo-sacola"
@@ -254,7 +259,7 @@ const Header = () => {
                       // onclick="topoToggleTodosFechar(this)"
                     >
                       <span className="inline-block js-tail-topo-inverter">
-                        <HiOutlineShoppingBag style={{ fontSize: "1.45rem" }} />
+                        <HiOutlineShoppingBag style={{ fontSize: "1.45rem", cursor: "pointer" }} />
                       </span>
                       <div className="absolute flex items-center justify-center cursor-pointer rounded-full -right-1 h-4 w-4 -top-1 bg-red-500 text-white font-bold leading-none tail-topo-sacola-numero js-tail-topo-carrinho-numero">
                         4

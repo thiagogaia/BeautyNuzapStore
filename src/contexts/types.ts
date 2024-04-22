@@ -15,6 +15,15 @@ export interface IProductsProviderData {
   productList: IProductData[];
 }
 
+export interface ICartProviderData {
+  cart: ICartProductData[];
+  addToCart: (e: IProductData) => void;
+}
+
+export interface ICartProductData extends IProductData {
+  quantity: number;
+}
+
 export interface IProductData {
   id: string;
   variation_item_id: string;
