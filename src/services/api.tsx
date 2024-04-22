@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import { getCookies } from "./cookies";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import { getParams } from "./getParams";
 
 const BASE_URL = import.meta.env.VITE_API_URL
 
@@ -9,7 +10,10 @@ const api: AxiosInstance = axios.create({
   timeout: 10000,
   headers: {   
     "Content-Type": "application/json", 
-    "Cookies": JSON.stringify(getCookies())
+    "Cookies": JSON.stringify(getCookies()),
+    "GetParams": getParams(),
+    "Location": window.location.href,
+    "Referrer": document.referrer
   }
 });
 
