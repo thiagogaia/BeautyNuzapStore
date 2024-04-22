@@ -14,11 +14,14 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useContext } from "react";
 import { StoreContext } from "../../contexts/Store";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../contexts/cart";
 
 const Header = () => {
   const { storeData } = useContext(StoreContext);
+  const { cart } = useContext(CartContext);
   const categories = storeData.business.categories;
   const social_links = storeData.business.social_links;
+
   const { storeUri } = useParams();
 
   return (
@@ -262,7 +265,7 @@ const Header = () => {
                         <HiOutlineShoppingBag style={{ fontSize: "1.45rem", cursor: "pointer" }} />
                       </span>
                       <div className="absolute flex items-center justify-center cursor-pointer rounded-full -right-1 h-4 w-4 -top-1 bg-red-500 text-white font-bold leading-none tail-topo-sacola-numero js-tail-topo-carrinho-numero">
-                        4
+                        {cart.reduce((acc, item) => acc + item.quantity, 0)}
                       </div>
                     </label>
                   </div>
@@ -272,7 +275,7 @@ const Header = () => {
                     id="tail-topo-sacola-toggle"
                     className="hidden tail-topo-sacola-toggle js-tail-topo-toggle-todos"
                   />
-                  <Cart />
+                  <Cart cart={cart} />
                 </div>
               </div>
             </div>
