@@ -1,13 +1,25 @@
 import { useRef } from "react";
 import { IStoreData } from "../../contexts/types";
 import { useNavigate } from "react-router-dom";
+import CurrencyInput from "react-currency-masked-input";
 
 interface Props {
   storeData: IStoreData;
   categoryId: string;
+  orderBy: string | null;
+  maxPrice: string | null;
+  variationList: string | null;
+  categoryList: string | null;
 }
 
-const Filters = ({ storeData, categoryId }: Props) => {
+const Filters = ({
+  storeData,
+  categoryId,
+  orderBy,
+  maxPrice,
+  variationList,
+  categoryList,
+}: Props) => {
   const category = storeData.business.categories.find((e) => e.id === categoryId);
   const variations = storeData.business.store_variations;
   const variationItems = storeData.business.store_variation_items;
@@ -19,25 +31,33 @@ const Filters = ({ storeData, categoryId }: Props) => {
     if (form.current) {
       const fields = form.current.querySelectorAll("input");
 
+      const categoriesFields = [...fields]
+        .filter((field) => field.name === "categories")
+        .filter((field) => field.checked)
+        .map((field) => field.value)
+        .join(",");
+
       const variationsFields = [...fields]
         .filter((field) => field.name === "variations")
         .filter((field) => field.checked)
         .map((field) => field.value)
         .join(",");
 
-      const maxPrice = [...fields]
-        .filter((field) => field.name === "maxPrice")
+      const maxPriceField = [...fields]
+        .filter((field) => field.name === "price")
         .map((field) => field.value)
         .join(",");
 
-      const orderBy = [...fields]
-        .filter((field) => field.name === "orderBy")
+      const orderByField = [...fields]
+        .filter((field) => field.name === "order")
         .filter((field) => field.checked)
         .map((field) => field.defaultValue)[0];
 
-      const url = `?order=${orderBy}${
-        variationsFields.length > 0 ? `&variation=${variationsFields}` : ""
-      }${+maxPrice > 0 ? `&price=${maxPrice}` : ""}`;
+      const url = `?order=${orderByField}${
+        categoriesFields.length > 0 ? `&categories=${categoriesFields}` : ""
+      }${variationsFields.length > 0 ? `&variations=${variationsFields}` : ""}${
+        +maxPriceField > 0 ? `&price=${maxPriceField}` : ""
+      }`;
       navigate(url);
     }
 
@@ -97,85 +117,37 @@ const Filters = ({ storeData, categoryId }: Props) => {
             <>
               <input
                 type="radio"
-                name="orderBy"
-                id="FiltroOrdenarbarato"
-                defaultValue="price_asc"
+                name="order"
+                id="FiltroOrdenarnomeAsc"
+                defaultValue="name_asc"
                 onChange={search}
+                className="hidden"
                 defaultChecked
+              />
+              <input
+                type="radio"
+                name="order"
+                id="FiltroOrdenarnomeDesc"
+                defaultValue="name_desc"
+                onChange={search}
                 className="hidden"
               />
               <input
                 type="radio"
-                name="orderBy"
+                name="order"
+                id="FiltroOrdenarbarato"
+                defaultValue="price_asc"
+                onChange={search}
+                className="hidden"
+              />
+              <input
+                type="radio"
+                name="order"
                 id="FiltroOrdenarcaro"
                 defaultValue="price_desc"
                 onChange={search}
                 className="hidden"
               />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenarnome"
-                defaultValue="name_asc"
-                onChange={search}
-                className="hidden"
-              />
-              {/* <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenardesconto"
-                defaultValue="desconto"
-                // onchange="this.form.submit();"
-                className="hidden"
-              />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenarvendas"
-                defaultValue="vendas"
-                // onchange="this.form.submit();"
-                className="hidden"
-              />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenarpop"
-                defaultValue="pop"
-                // onchange="this.form.submit();"
-                className="hidden"
-              />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenarnovo"
-                defaultValue="novo"
-                // onchange="this.form.submit();"
-                className="hidden"
-              />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenarestoque"
-                defaultValue="estoque"
-                // onchange="this.form.submit();"
-                className="hidden"
-              />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenarrelev"
-                defaultValue="relev"
-                // onchange="this.form.submit();"
-                className="hidden"
-              />
-              <input
-                type="radio"
-                name="orderBy"
-                id="FiltroOrdenaraleat"
-                defaultValue="aleat"
-                // onchange="this.form.submit();"
-                className="hidden"
-              /> */}
             </>
 
             {/* filters */}
@@ -228,7 +200,13 @@ const Filters = ({ storeData, categoryId }: Props) => {
                             id={variation.id}
                             name="variations"
                             value={variation.id}
-                            onClick={search}
+                            onChange={search}
+                            checked={
+                              variationList !== null &&
+                              variationList.split(",").includes(variation.id)
+                                ? true
+                                : false
+                            }
                             className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                           />
                           <label htmlFor={variation.id} className="flex flex-wrap gap-1">
@@ -287,7 +265,12 @@ const Filters = ({ storeData, categoryId }: Props) => {
                             id={item.id}
                             name="variations"
                             value={item.id}
-                            onClick={search}
+                            onChange={search}
+                            checked={
+                              variationList !== null && variationList.split(",").includes(item.id)
+                                ? true
+                                : false
+                            }
                             className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                           />
                           <label htmlFor={item.id} className="flex flex-wrap gap-1">
@@ -350,19 +333,24 @@ const Filters = ({ storeData, categoryId }: Props) => {
                         </li>
                       ) : (
                         storeData.business.categories.map((cat) => (
-                          <li key={cat.id} style={{ marginBottom: "2px" }}>
-                            <button
-                              className="underline"
-                              type="button"
-                              onClick={() =>
-                                (window.location.href =
-                                  window.location.origin +
-                                  `/${storeData.business.name}/loja/${cat.uri}`)
+                          <div className="flex items-start gap-2" key={cat.id}>
+                            <input
+                              type="checkbox"
+                              id={cat.id}
+                              name="categories"
+                              value={cat.id}
+                              onChange={search}
+                              checked={
+                                categoryList !== null && categoryList.split(",").includes(cat.id)
+                                  ? true
+                                  : false
                               }
-                            >
-                              {cat.name}
-                            </button>
-                          </li>
+                              className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
+                            />
+                            <label htmlFor={cat.id} className="flex flex-wrap gap-1">
+                              <div>{cat.name}</div>
+                            </label>
+                          </div>
                         ))
                       )}
                     </ul>
@@ -406,11 +394,49 @@ const Filters = ({ storeData, categoryId }: Props) => {
                   </summary>
                   <div className="grid pb-4">
                     <label
+                      htmlFor="FiltroOrdenarnomeAsc"
+                      data-nome="Nome"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{
+                          backgroundColor:
+                            orderBy !== null && orderBy === "name_asc" ? "black" : "white",
+                        }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Nome A - Z</span>
+                    </label>
+                    <label
+                      htmlFor="FiltroOrdenarnomeDesc"
+                      data-nome="Nome"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{
+                          backgroundColor:
+                            orderBy !== null && orderBy === "name_desc" ? "black" : "white",
+                        }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Nome Z - A</span>
+                    </label>
+                    <label
                       htmlFor="FiltroOrdenarbarato"
                       data-nome="Menor preço"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
+                      <div
+                        style={{
+                          backgroundColor:
+                            orderBy !== null && orderBy === "price_asc" ? "black" : "white",
+                        }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Menor preço</span>
@@ -420,91 +446,17 @@ const Filters = ({ storeData, categoryId }: Props) => {
                       data-nome="Maior preço"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
+                      <div
+                        style={{
+                          backgroundColor:
+                            orderBy !== null && orderBy === "price_desc" ? "black" : "white",
+                        }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Maior preço</span>
                     </label>
-                    <label
-                      htmlFor="FiltroOrdenarnome"
-                      data-nome="Nome"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Nome</span>
-                    </label>
-                    {/* <label
-                      htmlFor="FiltroOrdenardesconto"
-                      data-nome="Melhor desconto"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Melhor desconto</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarvendas"
-                      data-nome="Mais vendidos"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Mais vendidos</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarpop"
-                      data-nome="Popular"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-black border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Popular</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarnovo"
-                      data-nome="Lançamentos"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Lançamentos</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarestoque"
-                      data-nome="Estoque"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Estoque</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarrelev"
-                      data-nome="Relevantes"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Relevantes</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenaraleat"
-                      data-nome="Aleatórios"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Aleatórios</span>
-                    </label> */}
                   </div>
                 </details>
 
@@ -548,7 +500,7 @@ const Filters = ({ storeData, categoryId }: Props) => {
                       <div className="pl-2 font-bold">Mínimo:</div>
                       <input
                         type="text"
-                        name="precorderBy"
+                        name="preco1"
                         defaultValue=""
                         placeholder="De"
                         className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
@@ -560,15 +512,17 @@ const Filters = ({ storeData, categoryId }: Props) => {
                     </div> */}
                     <div className="flex-shrink">
                       <div className="pl-2 font-bold">Máximo:</div>
-                      <input
-                        type="number"
-                        name="maxPrice"
-                        defaultValue=""
+
+                      <CurrencyInput
+                        type="text"
+                        name="price"
+                        defaultValue={maxPrice !== null && Number(maxPrice) > 0 ? maxPrice : ""}
                         placeholder="Até"
                         className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
                         autoComplete="off"
-                        inputMode="decimal"
-                        pattern="[0-9]*"
+                        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                          e.key === "Enter" && e.preventDefault()
+                        }
                       />
                     </div>
                     <div className="self-end flex-shrink-0">
@@ -653,328 +607,6 @@ const Filters = ({ storeData, categoryId }: Props) => {
                           src="/2931042245.webp"
                           title="Marinho A"
                           alt="Marinho A"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1259"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1259"
-                            defaultValue={1259}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/3007139633.webp"
-                          title="Azul Royal B"
-                          alt="Azul Royal B"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1485"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1485"
-                            defaultValue={1485}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/165226872.webp"
-                          title="Azul Turquesa A"
-                          alt="Azul Turquesa A"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1618"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1618"
-                            defaultValue={1618}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/880672682.webp"
-                          title="Branco D"
-                          alt="Branco D"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1397"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1397"
-                            defaultValue={1397}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/1572455586.webp"
-                          title="Cinza A"
-                          alt="Cinza A"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1697"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1697"
-                            defaultValue={1697}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/3642403535.webp"
-                          title="Cinza H"
-                          alt="Cinza H"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1621"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1621"
-                            defaultValue={1621}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/3522080908.webp"
-                          title="Fúcsia A A"
-                          alt="Fúcsia A A"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1164"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1164"
-                            defaultValue={1164}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/3963160522.webp"
-                          title="Fúcsia B"
-                          alt="Fúcsia B"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1363"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1363"
-                            defaultValue={1363}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/2043620072.webp"
-                          title="Lilás H"
-                          alt="Lilás H"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1053"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1053"
-                            defaultValue={1053}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/2571858009.gif"
-                          title="Marsala"
-                          alt="Marsala"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1651"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1651"
-                            defaultValue={1651}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/2896017108.webp"
-                          title="Nude F"
-                          alt="Nude F"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1047"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1047"
-                            defaultValue={1047}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/2734987390.webp"
-                          title="Preto"
-                          alt="Preto"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1680"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1680"
-                            defaultValue={1680}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/3051652028.webp"
-                          title="Rose AW"
-                          alt="Rose AW"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1284"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1284"
-                            defaultValue={1284}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/1790848673.webp"
-                          title="Vermelho A"
-                          alt="Vermelho A"
-                          className="w-full h-full rounded-full"
-                        />
-                      </label>
-                    </li>
-                    <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
-                      <label
-                        htmlFor="FiltroVari1299"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                      >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            name="v1[]"
-                            id="FiltroVari1299"
-                            defaultValue={1299}
-                            // onchange="this.form.submit();"
-                            className="sr-only tail-busca-filtro-variacao-cor-checkbox"
-                          />
-                        </div>
-                        <img
-                          src="/696776394.webp"
-                          title="Rose G"
-                          alt="Rose G"
                           className="w-full h-full rounded-full"
                         />
                       </label>

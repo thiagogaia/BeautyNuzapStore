@@ -21,13 +21,25 @@ const MainProductList = () => {
   const categoryId = storeData.business.categories.filter((e) => e.uri === categoryUri)[0]?.id;
   const page = URLSearchParams.get("page") === null ? 1 : Number(URLSearchParams.get("page"));
 
+  const orderBy = URLSearchParams.get("order");
+  const maxPrice = URLSearchParams.get("price");
+  const variations = URLSearchParams.get("variations");
+  const categories = URLSearchParams.get("categories");
+
   useEffect(() => {
+    setLoad(true);
+    console.log(orderBy, maxPrice, variations, categories);
+
+    const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}&_order_by=name_asc`;
+    const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}&_order_by=name_asc`;
+    const filterUrl = `products?_url=${storeUri}&_page=${page}&_limit=12${
+      categories !== null ? `&_categories=${categories}` : ""
+    }&_order_by=${orderBy}${variations !== null ? `&_variations=${variations}` : ""}${
+      maxPrice !== null ? `&_maxprice=${maxPrice}` : ""
+    }`;
+
     api
-      .get(
-        productSearched === undefined
-          ? `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`
-          : `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}`
-      )
+      .get(orderBy !== null ? filterUrl : productSearched === undefined ? categoryUrl : searchUrl)
       .then((res) => {
         setProductList(res.data);
         setLoad(false);
@@ -35,7 +47,7 @@ const MainProductList = () => {
       .catch(() => {});
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [orderBy, maxPrice, variations]);
 
   return (
     <>
@@ -67,10 +79,37 @@ const MainProductList = () => {
                   </summary>
                   <div className="absolute z-10 py-2 text-gray-700 bg-white border border-gray-300 border-solid rounded-lg shadow-2xl w-36 tail-busca-tag-lista lg:-ml-20">
                     <label
+                      htmlFor="FiltroOrdenarnomeAsc"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{ backgroundColor: orderBy === "name_asc" ? "black" : "white" }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Nome A - Z</span>
+                    </label>
+                    <label
+                      htmlFor="FiltroOrdenarnomeDesc"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{ backgroundColor: orderBy === "name_desc" ? "black" : "white" }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Nome Z - A</span>
+                    </label>
+                    <label
                       htmlFor="FiltroOrdenarbarato"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
+                      <div
+                        style={{ backgroundColor: orderBy === "price_asc" ? "black" : "white" }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Menor preço</span>
@@ -79,89 +118,27 @@ const MainProductList = () => {
                       htmlFor="FiltroOrdenarcaro"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
+                      <div
+                        style={{ backgroundColor: orderBy === "price_desc" ? "black" : "white" }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Maior preço</span>
                     </label>
-                    <label
-                      htmlFor="FiltroOrdenarnome"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Nome</span>
-                    </label>
-                    {/* <label
-                      htmlFor="FiltroOrdenardesconto"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Melhor desconto</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarvendas"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Mais vendidos</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarpop"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-black border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Popular</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarnovo"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Lançamentos</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarestoque"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Estoque</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenarrelev"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Relevantes</span>
-                    </label>
-                    <label
-                      htmlFor="FiltroOrdenaraleat"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
-                    >
-                      <div className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full">
-                        <span className="sr-only">Ordenação ativa</span>
-                      </div>
-                      <span>Aleatórios</span>
-                    </label> */}
                   </div>
                 </details>
               </div>
             </div>
 
-            <Filters storeData={storeData} categoryId={categoryId} />
+            <Filters
+              storeData={storeData}
+              categoryId={categoryId}
+              maxPrice={maxPrice}
+              orderBy={orderBy}
+              variationList={variations}
+              categoryList={categories}
+            />
 
             <div className="flex flex-col w-full gap-4 lg:w-auto lg:flex-1">
               {/* product listing */}
