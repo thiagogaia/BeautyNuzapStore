@@ -15,9 +15,7 @@ const CartProvider = ({ children }: IProviderProps) => {
   }, [storeUri]);
 
   useEffect(() => {
-    if (cart.length > 0) {
-      localStorage.setItem(`cart-${storeUri}`, JSON.stringify(cart));
-    }
+    localStorage.setItem(`cart-${storeUri}`, JSON.stringify(cart));
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,7 +38,31 @@ const CartProvider = ({ children }: IProviderProps) => {
     }
   };
 
-  return <CartContext.Provider value={{ cart, addToCart }}>{children}</CartContext.Provider>;
+  const removeToCart = (productId: string) => {
+    const filtredProduct = cart.find((product) => product.id === productId);
+    const { quantity } = filtredProduct as ICartProductData;
+
+    if (quantity > 1) {
+      const updateCart = cart.map((prod) =>
+        prod.id === productId ? { ...prod, quantity: prod.quantity - 1 } : prod
+      );
+      setCart(updateCart);
+    } else {
+      excludeProduct(productId);
+    }
+  };
+
+  const excludeProduct = (productId: string) => {
+    const newList = cart.filter((e) => e.id !== productId);
+
+    setCart(newList);
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, addToCart, removeToCart, excludeProduct }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export default CartProvider;

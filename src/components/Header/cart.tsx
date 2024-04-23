@@ -36,20 +36,22 @@ const Cart = ({ cart }: Props) => {
             }
             className="inline-block w-full py-4 text-center border border-gray-300 border-solid rounded-md tail-topo-carrinho-produto-ir ev-topo-carrinho-produto-ir ev-topo-carrinho-1-produto-ir"
           >
-            Ir para o carrinho
+            {cart.length > 0 ? "Ir para o carrinho" : "Carrinho vazio"}
           </button>
         </div>
-        <div className="p-5 text-sm font-bold text-center">
-          <div className="flex items-center justify-center gap-1 text-base font-bold js-tail-topo-carrinho-subtotal">
-            <span className="font-normal">Subtotal:</span>
-            <span className="js-tail-topo-carrinho-subtotal-valor">
-              {totalPrice.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </span>
+        {cart.length > 0 && (
+          <div className="p-5 text-sm font-bold text-center">
+            <div className="flex items-center justify-center gap-1 text-base font-bold js-tail-topo-carrinho-subtotal">
+              <span className="font-normal">Subtotal:</span>
+              <span className="js-tail-topo-carrinho-subtotal-valor">
+                {totalPrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+            </div>
           </div>
-        </div>
+        )}
         <ul className="p-5 overflow-y-auto border-t border-b border-gray-200 border-solid divide-y divide-gray-200 divide-solid js-tail-topo-carrinho-produto-lista">
           {cart.map((item) => (
             <CartCard key={item.id} product={item} />

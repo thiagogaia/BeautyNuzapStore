@@ -18,6 +18,8 @@ export interface IProductsProviderData {
 export interface ICartProviderData {
   cart: ICartProductData[];
   addToCart: (e: IProductData) => void;
+  removeToCart: (e: string) => void;
+  excludeProduct: (e: string) => void;
 }
 
 export interface ICartProductData extends IProductData {

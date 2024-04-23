@@ -5,7 +5,6 @@ import MainCart from "../components/MainCart";
 import { useContext, useEffect } from "react";
 import { StoreContext } from "../contexts/Store";
 import Footer from "../components/Footer";
-import CartProvider from "../contexts/cart";
 
 const Cart = () => {
   const { load, setStoreUri } = useContext(StoreContext);
@@ -26,9 +25,7 @@ const Cart = () => {
       ) : (
         <>
           <Header />
-          <CartProvider>
-            <MainCart />
-          </CartProvider>
+          <MainCart />
           <Footer />
         </>
       )}
