@@ -2,6 +2,7 @@ import { useContext } from "react";
 import CartCard from "./cartCard";
 import { StoreContext } from "../../contexts/Store";
 import { ICartProductData } from "../../contexts/types";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props {
   cart: ICartProductData[];
@@ -54,7 +55,7 @@ const Cart = ({ cart }: Props) => {
         )}
         <ul className="p-5 overflow-y-auto border-t border-b border-gray-200 border-solid divide-y divide-gray-200 divide-solid js-tail-topo-carrinho-produto-lista">
           {cart.map((item) => (
-            <CartCard key={item.id} product={item} />
+            <CartCard key={uuidv4()} product={item} />
           ))}
         </ul>
       </div>

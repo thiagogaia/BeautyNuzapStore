@@ -34,6 +34,7 @@ export interface ICartProductData {
   price_promo: string;
   stock: string;
   variation: string;
+  variation_name: string;
   variation_id: string;
   variation_item_id: string;
   discount: number;

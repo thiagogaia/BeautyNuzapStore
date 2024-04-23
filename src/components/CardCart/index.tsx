@@ -25,7 +25,7 @@ const CardCart = ({ item }: Props) => {
             htmlFor="Carrinho0Excluir"
             title="Remover"
             className="absolute top-0 right-0 text-xs text-red-600 underline cursor-pointer tail-carr-excluir"
-            onClick={() => excludeProduct(item.id)}
+            onClick={() => excludeProduct(item.variation_name)}
           >
             <svg
               className="h-8 fill-current"
@@ -64,7 +64,7 @@ const CardCart = ({ item }: Props) => {
                 {item.name}
               </span>
             </div>
-            <div>Variação: {item.variation}</div>
+            <div>Variação: {item.variation_name}</div>
           </div>
           <div className="relative flex items-center justify-between flex-auto gap-1 lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="js-carrinho-produto-listagem-quantidade">
@@ -72,7 +72,7 @@ const CardCart = ({ item }: Props) => {
                 <button
                   type="button"
                   className="grid p-0.5 rounded-full cursor-pointer place-content-center bg-black ev-carrinho-produto-tabela-qtd-menos"
-                  onClick={() => removeToCart(item.id)}
+                  onClick={() => removeToCart(item.variation_name)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

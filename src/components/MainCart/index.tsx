@@ -3,6 +3,7 @@ import "./style.css";
 import { CartContext } from "../../contexts/cart";
 import CardCart from "../CardCart";
 import { StoreContext } from "../../contexts/Store";
+import { v4 as uuidv4 } from "uuid";
 
 const MainCart = () => {
   const { storeUri } = useContext(StoreContext);
@@ -83,7 +84,7 @@ const MainCart = () => {
                       <div className="grid gap-4">
                         {/* CARD MAP */}
                         {cart.map((item) => (
-                          <CardCart key={item.id} item={item} />
+                          <CardCart key={uuidv4()} item={item} />
                         ))}
                         {/* CARD MAP */}
                       </div>

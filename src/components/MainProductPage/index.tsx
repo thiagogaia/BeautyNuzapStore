@@ -13,6 +13,10 @@ const MainProductPage = () => {
   const { productUri, storeUri } = useParams();
   const [productData, setProductData] = useState({} as IProductData);
   const [load, setLoad] = useState(true);
+  const [variation, setVariation] = useState("");
+  const [variationId, setVariationId] = useState("");
+  const [variationItem, setVariationItem] = useState("");
+  const [variationItemId, setVariationItemId] = useState("");
 
   const { addToCart } = useContext(CartContext);
 
@@ -24,6 +28,11 @@ const MainProductPage = () => {
       .get(`/products/${productUri}?_store=${storeUri}`)
       .then((res) => {
         setProductData(res.data);
+        setVariation(res.data.variation_data[0].name);
+        setVariationId(res.data.variation_data[0].id);
+        setVariationItem(res.data.variation_data[0].item[0].variation_item_name);
+        setVariationItemId(res.data.variation_data[0].item[0].id);
+
         setLoad(false);
       })
       .catch(() => {});
@@ -32,9 +41,12 @@ const MainProductPage = () => {
   }, []);
 
   const purchase = (productData: IProductData) => {
-    // console.log(productData);
-
-    addToCart(productData);
+    addToCart({
+      ...productData,
+      variation_name: `${variation} - ${variationItem}`,
+      variation_id: variationId,
+      variation_item_id: variationItemId,
+    });
   };
 
   return (
@@ -227,7 +239,16 @@ const MainProductPage = () => {
                             </div>
                           </div>
                         </div>
-                        <ProductVariations productData={productData} />
+
+                        <ProductVariations
+                          productData={productData}
+                          variation={variation}
+                          setVariation={setVariation}
+                          setVariationId={setVariationId}
+                          variationItem={variationItem}
+                          setVariationItemId={setVariationItemId}
+                          setVariationItem={setVariationItem}
+                        />
                       </div>
                       <div className="grid gap-4 tail-prod-ver-grupo-comprar">
                         <div className="flex gap-2 tail-etapa-comprar js-tail-etapa-comprar w-full lg:max-w-xs">
@@ -263,13 +284,14 @@ const MainProductPage = () => {
                               Comprar
                             </div>
                           </button>
-                          <button
+                          {/* warn me */}
+                          {/* <button
                             type="button"
-                            className="flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border border-transparent border-solid rounded-lg select-none hover:opacity-70 escondido tail-etapa-comprar-btn-espera js-tail-etapa-comprar-btn-esgotado"
+                            className="flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border border-transparent border-solid rounded-lg select-none hover:opacity-70 tail-etapa-comprar-btn-espera js-tail-etapa-comprar-btn-esgotado"
                             // onclick="etapaEsperaModal()"
                           >
                             <div className="tail-etapa-comprar-btn-texto-espera">Avise-me</div>
-                          </button>
+                          </button> */}
                           <button
                             type="button"
                             className="flex-grow py-3 text-base tracking-wide text-center text-gray-500 bg-gray-100 border border-gray-300 border-solid rounded-lg pointer-events-none select-none cursor-not-allowed escondido tail-etapa-comprar-btn-consulte js-tail-etapa-comprar-btn-consulte"
