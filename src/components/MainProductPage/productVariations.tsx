@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { StoreContext } from "../../contexts/Store";
 import { IProductData } from "../../contexts/types";
 import { v4 as uuidv4 } from "uuid";
 
@@ -6,6 +8,8 @@ interface IProps {
 }
 
 const ProductVariations = ({ productData }: IProps) => {
+  const { storeData } = useContext(StoreContext);
+
   return (
     <div className="grid gap-8 tail-prod-ver-grupo-variacoes ">
       <div className="relative grid gap-4 overflow-visible variacoes-1 js-tail-etapa-vari-div js-prod-ver-etapa-variacao-clone">
@@ -43,18 +47,20 @@ const ProductVariations = ({ productData }: IProps) => {
           ))}
 
         {/* stock */}
-        <div className="tail-pers-divs-ultimas-unidades tail-pers-divs js-tail-pers-divs">
-          <div className="px-3 py-2 font-bold text-yellow-600 rounded-lg bg-yellow-50 w-max tail-pers-divs-ultimas-unidades-interno">
-            <div className="flex items-center justify-center gap-1">
-              <div className="font-bold border-b-2 border-yellow-600 border-solid tail-ultimas-unidades-qtd">
-                {productData.stock}
-              </div>
-              <div className="tail-ultimas-unidades-texto">
-                {+productData.stock === 1 ? "unidade disponível" : "unidades disponíveis"}
+        {storeData.business.control_stock_config.display_stock === "on" && (
+          <div className="tail-pers-divs-ultimas-unidades tail-pers-divs js-tail-pers-divs">
+            <div className="px-3 py-2 font-bold text-yellow-600 rounded-lg bg-yellow-50 w-max tail-pers-divs-ultimas-unidades-interno">
+              <div className="flex items-center justify-center gap-1">
+                <div className="font-bold border-b-2 border-yellow-600 border-solid tail-ultimas-unidades-qtd">
+                  {productData.stock}
+                </div>
+                <div className="tail-ultimas-unidades-texto">
+                  {+productData.stock === 1 ? "unidade disponível" : "unidades disponíveis"}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {+productData.stock <= 0 ? (
           <div

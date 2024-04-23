@@ -16,6 +16,9 @@ const MainProductPage = () => {
 
   const { addToCart } = useContext(CartContext);
 
+  const checkPricePromo =
+    Number(productData.price_promo) < Number(productData.price) && Number(productData.price_promo);
+
   useEffect(() => {
     api
       .get(`/products/${productUri}?_store=${storeUri}`)
@@ -27,6 +30,12 @@ const MainProductPage = () => {
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const purchase = (productData: IProductData) => {
+    console.log(productData);
+
+    addToCart(productData);
+  };
 
   return (
     <>
@@ -63,8 +72,6 @@ const MainProductPage = () => {
                 <div className="flex flex-col gap-8">
                   <div className="relative flex-shrink-0 text-sm lg:w-full lg:col-start-2 lg:row-span-2">
                     <form
-                      method="post"
-                      action="/carrinho"
                       autoComplete="off"
                       noValidate
                       // onsubmit="etapaComprarFetch()"
@@ -85,16 +92,14 @@ const MainProductPage = () => {
                         </h1>
                         <div className="flex items-center gap-1.5 text-xs text-gray-500 tail-prod-ver-codigo">
                           <div className="">
-                            <span>Código</span>
-                            <span>{productData.code}</span>
+                            <span>Código {productData.code}</span>
                           </div>
 
                           {/* reference */}
                           {/* <div className="h-3 w-px bg-gray-400 rounded-full" />
-                        <div className="">
-                          <span>Referência</span>
-                          6407V04
-                        </div> */}
+                          <div className="">
+                            <span>Referência 6407V04</span>
+                          </div> */}
                         </div>
                       </div>
 
@@ -113,44 +118,54 @@ const MainProductPage = () => {
                               ) : (
                                 <>
                                   {/* discont */}
-                                  {/* <div className="flex items-center justify-center gap-1 lg:justify-start tail-etapa-preco-de-container js-tail-etapa-preco-de-container">
-                                  <del
-                                    className="relative flex items-center flex-shrink-0 gap-1 text-base text-gray-600 no-underline tail-etapa-preco-de ev-etapa-preco-de js-tail-etapa-preco-de"
-                                    data-seta-posicao="cima"
-                                  >
-                                    <div className="absolute w-full h-px bg-gray-600" />
-                                    <span className="">R$ </span>
-                                    <span className="js-tail-etapa-preco-de-valor">429,90</span>
-                                  </del>
-                                  <div
-                                    className="flex items-center gap-1 text-xs text-green-700 tail-etapa-preco-economia js-tail-etapa-preco-economia"
-                                    data-preco-economia-exibir={1}
-                                  >
-                                    <div className="hidden">
-                                      <span className="js-tail-etapa-preco-economia-moeda">R$</span>
-                                      <span className="js-tail-etapa-preco-economia-valor">
-                                        80,00
-                                      </span>
+                                  {Boolean(checkPricePromo) && (
+                                    <div className="flex items-center justify-center gap-1 lg:justify-start tail-etapa-preco-de-container js-tail-etapa-preco-de-container">
+                                      <del
+                                        className="relative flex items-center flex-shrink-0 gap-1 text-base text-gray-600 no-underline tail-etapa-preco-de ev-etapa-preco-de js-tail-etapa-preco-de"
+                                        data-seta-posicao="cima"
+                                      >
+                                        <div className="absolute w-full h-px bg-gray-600" />
+                                        <span className="js-tail-etapa-preco-de-valor">
+                                          {Number(productData.price).toLocaleString("pt-BR", {
+                                            style: "currency",
+                                            currency: "BRL",
+                                          })}
+                                        </span>
+                                      </del>
+                                      <div
+                                        className="flex items-center gap-1 text-xs text-green-700 tail-etapa-preco-economia js-tail-etapa-preco-economia"
+                                        data-preco-economia-exibir={1}
+                                      >
+                                        {/* <div className="hidden">
+                                          <span className="js-tail-etapa-preco-economia-valor">
+                                            R$ 99,90
+                                          </span>
+                                        </div> */}
+                                        <div className="">
+                                          <span className="js-tail-etapa-preco-economia-numero">
+                                            {Math.round(
+                                              100 -
+                                                (Number(productData.price_promo) /
+                                                  Number(productData.price)) *
+                                                  100
+                                            )}
+                                            % OFF
+                                          </span>
+                                        </div>
+                                      </div>
                                     </div>
-                                    <div className="">
-                                      <span className="js-tail-etapa-preco-economia-numero">
-                                        18
-                                      </span>
-                                      <span className="js-tail-etapa-preco-economia-porcento">
-                                        %
-                                      </span>
-                                      OFF
-                                    </div>
-                                  </div>
-                                </div> */}
-
+                                  )}
                                   <div className="flex flex-col items-center justify-center gap-1 lg:flex-row lg:justify-start tail-etapa-preco-grupo-precos-principais">
                                     <div
                                       className="flex items-center flex-shrink-0 gap-1 text-3xl font-bold lg:text-2xl tail-etapa-preco-por ev-etapa-preco-por js-tail-etapa-preco-por"
                                       data-seta-posicao="cima"
                                     >
                                       <span className="js-tail-etapa-preco-por-valor">
-                                        {Number(productData.price).toLocaleString("pt-BR", {
+                                        {Number(
+                                          checkPricePromo
+                                            ? productData.price_promo
+                                            : productData.price
+                                        ).toLocaleString("pt-BR", {
                                           style: "currency",
                                           currency: "BRL",
                                         })}
@@ -159,37 +174,37 @@ const MainProductPage = () => {
 
                                     {/* parcels */}
                                     {/* <div
-                                className="flex items-center gap-1 text-sm text-gray-600 tail-etapa-parcela ev-etapa-parcela js-tail-etapa-parcela"
-                                data-seta-posicao="cima"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  strokeWidth="1.5"
-                                  stroke="currentColor"
-                                  className="flex-shrink-0 w-4 h-4 tail-etapa-parcela-icone"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
-                                  />
-                                </svg>
-                                <div className="tail-etapa-parcela-texto">
-                                  <span className="tail-etapa-parcela-texto-numero js-tail-etapa-parcela-numero">
-                                    6
-                                  </span>
-                                  <span className="tail-etapa-parcela-texto-x">x</span>
-                                  <span className="tail-etapa-parcela-texto-cifrao">R$</span>
-                                  <span className="tail-etapa-parcela-texto-valor js-tail-etapa-parcela-valor">
-                                    58,32
-                                  </span>
-                                  <span className="tail-etapa-parcela-texto-sem-juros">
-                                    sem juros
-                                  </span>
-                                </div>
-                              </div> */}
+                                      className="flex items-center gap-1 text-sm text-gray-600 tail-etapa-parcela ev-etapa-parcela js-tail-etapa-parcela"
+                                      data-seta-posicao="cima"
+                                    >
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="flex-shrink-0 w-4 h-4 tail-etapa-parcela-icone"
+                                      >
+                                        <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+                                        />
+                                      </svg>
+                                      <div className="tail-etapa-parcela-texto">
+                                        <span className="tail-etapa-parcela-texto-numero js-tail-etapa-parcela-numero">
+                                          6
+                                        </span>
+                                        <span className="tail-etapa-parcela-texto-x">x</span>
+                                        <span className="tail-etapa-parcela-texto-cifrao">R$</span>
+                                        <span className="tail-etapa-parcela-texto-valor js-tail-etapa-parcela-valor">
+                                          58,32
+                                        </span>
+                                        <span className="tail-etapa-parcela-texto-sem-juros">
+                                          sem juros
+                                        </span>
+                                      </div>
+                                    </div> */}
                                   </div>
 
                                   {/* discount in cash */}
@@ -218,7 +233,7 @@ const MainProductPage = () => {
                         <div className="flex gap-2 tail-etapa-comprar js-tail-etapa-comprar w-full lg:max-w-xs">
                           <button
                             type="button"
-                            onClick={() => addToCart(productData)}
+                            onClick={() => purchase(productData)}
                             className="relative flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border border-transparent border-solid rounded-lg select-none outline-none hover:opacity-70 ev-etapa-comprar-btn tail-etapa-comprar-btn js-tail-etapa-comprar-btn"
                             data-seta-posicao="esquerda"
                           >

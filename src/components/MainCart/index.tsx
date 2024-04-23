@@ -121,42 +121,42 @@ const MainCart = () => {
                 <div className="flex-shrink-0 lg:sticky lg:top-0">
                   <section className="grid gap-4 p-4 bg-gray-100 border border-gray-300 border-solid divide-y divide-gray-200 rounded-lg divide-solid lg:w-64 tail-carr-prod-resumo js-carr-prod-resumo">
                     {/* Discount coupon */}
-                    {/* <div className="grid gap-1 tail-carr-prod-resumo-cupom js-carr-prod-resumo-cupom ">
-                  <div className="text-sm text-left tail-carr-prod-resumo-cupom-tt js-carr-prod-resumo-cupom-tt">
-                    Cupom de desconto
-                  </div>
-                  <div className="flex flex-col gap-1 tail-carr-prod-resumo-cupom-info">
-                    <form
-                      action="/desconto"
-                      autoComplete="off"
-                      method="post"
-                      noValidate
-                      className="flex gap-2 items-strech js-carrinho-resumo-desconto"
-                    >
-                      <div
-                        className="flex-auto  border-transparent form-div-desconto-codigo"
-                        data-campo="Desconto.codigo"
-                      >
-                        <div className="relative flex gap-1 js-tail-form-text-lista">
-                          <input
-                            type="text"
-                            data-rotulo
-                            id="DescontoCodigo"
-                            name="dados[Desconto][codigo]"
-                            className="block w-full px-3 py-2 text-base text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none sm:text-sm focus:border-indigo-500 ring-0 disabled-bg border-gray-200 js-carrinho-resumo-desconto-campo"
-                          />
-                        </div>
+                    <div className="grid gap-1 tail-carr-prod-resumo-cupom js-carr-prod-resumo-cupom ">
+                      <div className="text-sm text-left tail-carr-prod-resumo-cupom-tt js-carr-prod-resumo-cupom-tt">
+                        Cupom de desconto
                       </div>
-                      <button
-                        type="submit"
-                        className="flex-none px-3.5 text-white rounded-lg botao botao-primario carr-prod-desconto-btn"
-                        // onclick="carrinhoDesconto()"
-                      >
-                        Aplicar
-                      </button>
-                    </form>
-                  </div>
-                </div> */}
+                      <div className="flex flex-col gap-1 tail-carr-prod-resumo-cupom-info">
+                        <form
+                          action="/desconto"
+                          autoComplete="off"
+                          method="post"
+                          noValidate
+                          className="flex gap-2 items-strech js-carrinho-resumo-desconto"
+                        >
+                          <div
+                            className="flex-auto  border-transparent form-div-desconto-codigo"
+                            data-campo="Desconto.codigo"
+                          >
+                            <div className="relative flex gap-1 js-tail-form-text-lista">
+                              <input
+                                type="text"
+                                data-rotulo
+                                id="DescontoCodigo"
+                                name="dados[Desconto][codigo]"
+                                className="block w-full px-3 py-2 text-base text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none sm:text-sm focus:border-indigo-500 ring-0 disabled-bg border-gray-200 js-carrinho-resumo-desconto-campo"
+                              />
+                            </div>
+                          </div>
+                          <button
+                            type="submit"
+                            className="flex-none px-3.5 text-white rounded-lg botao botao-primario carr-prod-desconto-btn"
+                            // onclick="carrinhoDesconto()"
+                          >
+                            Aplicar
+                          </button>
+                        </form>
+                      </div>
+                    </div>
                     <div className="flex flex-row pt-4 tail-carr-prod-resumo-produtos">
                       <div className="flex-none w-20 text-sm text-left">Subtotal*</div>
                       <div className="w-full text-base font-bold text-right">
