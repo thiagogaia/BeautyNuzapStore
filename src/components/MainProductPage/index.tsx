@@ -2,7 +2,7 @@ import "./style.css";
 import { useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { api } from "../../services/api";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { IProductData } from "../../contexts/types";
 import Gallery from "./gallery";
 import ProductVariations from "./productVariations";
@@ -17,6 +17,8 @@ const MainProductPage = () => {
   const [variationId, setVariationId] = useState("");
   const [variationItem, setVariationItem] = useState("");
   const [variationItemId, setVariationItemId] = useState("");
+  const [buyModal, setBuyModal] = useState<boolean>(false);
+  const modal = useRef<HTMLDivElement>(null);
 
   const { addToCart } = useContext(CartContext);
 
@@ -47,7 +49,26 @@ const MainProductPage = () => {
       variation_id: variationId,
       variation_item_id: variationItemId,
     });
+
+    setBuyModal(true);
   };
+
+  useEffect(() => {
+    const pageClickEvent = (e: Event) => {
+      if (modal.current !== null && modal.current.contains(e.target as Node)) {
+        setBuyModal(false);
+        console.log("fecha");
+      }
+    };
+
+    if (buyModal) {
+      console.log("abre");
+
+      document.addEventListener("click", pageClickEvent);
+    }
+
+    return () => document.removeEventListener("click", pageClickEvent);
+  }, [buyModal]);
 
   return (
     <>
@@ -623,137 +644,6 @@ const MainProductPage = () => {
                 </div>
               </div>
 
-              <dialog className="fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal js-tail-prod-ver-modal js-tail-etapa-comprar-modal" />
-              <dialog className="fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal js-tail-prod-ver-modal js-tail-etapa-frete-modal" />
-              <dialog className="fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal js-tail-prod-ver-modal js-tail-etapa-parcela-modal" />
-              <dialog className="fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal js-tail-prod-ver-modal js-tail-etapa-espera-modal">
-                <section className="overflow-visible js-tail-etapa-espera">
-                  <div className="sticky top-0 z-10 flex items-center justify-between gap-2 p-4 bg-white border-b border-gray-200 border-solid lg:px-8">
-                    <h2 className="text-xl lg:text-2xl">Avise-me quando este produto chegar</h2>
-                    <button
-                      type="button"
-                      className="flex-shrink-0 p-1.5 border border-gray-200 border-solid rounded-full hover:bg-gray-100 cursor-pointer"
-                      // onclick="etapaEsperaModalBtnFechar()"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={3}
-                        stroke="currentColor"
-                        className="flex-shrink-0 h-4 pointer-events-none"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div className="grid gap-4 px-4 py-6 lg:px-8">
-                    <div className="grid gap-1 text-sm text-gray-800">
-                      <label htmlFor="etapa-espera-email" className="font-bold">
-                        E-mail
-                      </label>
-                      <input
-                        type="email"
-                        id="etapa-espera-email"
-                        placeholder="Digite seu e-mail"
-                        // onkeypress="etapaEsperaEnterNoInput()"
-                        className="flex items-center w-full px-2 py-2.5 transition-shadow bg-white border border-gray-300 border-solid rounded-lg shadow outline-none placeholder-gray-500 hover:border-black focus:border-black js-tail-etapa-espera-email js-cookie-email"
-                        style={{
-                          backgroundImage: 'url("data:image/png',
-                          backgroundRepeat: "no-repeat",
-                          backgroundSize: 20,
-                          backgroundPosition: "97% center",
-                          cursor: "auto",
-                        }}
-                        data-temp-mail-org={0}
-                      />
-                    </div>
-                    <div className="grid gap-2 transition-all transform md:grid-cols-2">
-                      <button
-                        type="button"
-                        // onclick="etapaEsperaFetch()"
-                        className="relative flex items-center justify-center gap-1 px-4 py-3 text-base text-white transition-opacity bg-black rounded-lg hover:opacity-70 tail-etapa-espera-btn ev-etapa-espera-btn js-tail-etapa-espera-btn"
-                        data-seta-posicao="direita"
-                      >
-                        <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full escondido js-tail-etapa-espera-btn-carregando">
-                          <svg
-                            className="h-4 animate-spin"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx={12}
-                              cy={12}
-                              r={10}
-                              stroke="currentColor"
-                              strokeWidth={4}
-                            />
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            />
-                          </svg>
-                        </div>
-                        <div className="js-tail-etapa-espera-btn-texto">Avise-me</div>
-                      </button>
-                      <div className="flex items-center row-start-2 gap-2 px-3 py-2 mx-auto text-sm font-bold text-green-600 transition-opacity rounded-lg opacity-0 bg-green-50 md:mx-0 lg:text-base w-max md:row-start-1 md:col-start-2 escondido js-tail-etapa-espera-alerta-sucesso">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="h-5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                          />
-                        </svg>
-                        <span className="js-tail-etapa-espera-alerta-sucesso-texto" />
-                      </div>
-                      <div className="flex items-center row-start-2 gap-2 px-3 py-2 mx-auto text-sm font-bold text-red-600 transition-opacity rounded-lg opacity-0 bg-red-50 md:mx-0 lg:text-base w-max md:row-start-1 md:col-start-2 escondido js-tail-etapa-espera-alerta-erro">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="h-5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                          />
-                        </svg>
-                        <span className="js-tail-etapa-espera-alerta-erro-texto" />
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </dialog>
-              <dialog className="fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal js-tail-prod-ver-modal js-tail-produto-pergunta-modal"></dialog>
-              <div
-                data-classe="js-tail-etapa-comprar-modal"
-                className="escondido fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal bg-white top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 tail-produto-modal-polyfill-div js-tail-produto-modal-polyfill-div"
-              />
-              <div
-                data-classe="js-tail-etapa-frete-modal"
-                className="escondido fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal bg-white top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 tail-produto-modal-polyfill-div js-tail-produto-modal-polyfill-div"
-              />
-              <div
-                data-classe="js-tail-etapa-parcela-modal"
-                className="escondido fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal bg-white top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 tail-produto-modal-polyfill-div js-tail-produto-modal-polyfill-div"
-              />
               {/* Notify me when this product arrives */}
               <div
                 data-classe="js-tail-etapa-espera-modal"
@@ -873,13 +763,6 @@ const MainProductPage = () => {
                   </div>
                 </section>
               </div>
-
-              <div
-                data-classe="js-tail-produto-pergunta-modal"
-                className="escondido fixed z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal bg-white top-1/2 left-1/2 transform -translate-x-2/4 -translate-y-2/4 tail-produto-modal-polyfill-div js-tail-produto-modal-polyfill-div"
-              ></div>
-
-              <section />
 
               {/* Assessments */}
               {/* <section
@@ -1204,6 +1087,90 @@ const MainProductPage = () => {
               </section>
             </section> */}
             </section>
+
+            {buyModal && (
+              <section
+                style={{
+                  background: "rgba(0, 0, 0, 0.7)",
+                  position: "fixed",
+                  top: "0",
+                  left: "0",
+                  width: "100%",
+                  height: "100vh",
+                  zIndex: "999",
+                }}
+              >
+                <div ref={modal} style={{ width: "100%", height: "100vh" }}></div>
+                <div
+                  className="z-50 w-11/12 max-w-xl text-left border border-gray-300 border-solid outline-none rounded-lg shadow-lg scroll-auto tail-prod-ver-modal js-tail-prod-ver-modal js-tail-etapa-comprar-modal"
+                  style={{
+                    position: "fixed",
+                    top: "50%",
+                    transform: "translate(-50%,-50%)",
+                    left: "50%",
+                    background: "#fff",
+                  }}
+                >
+                  <form
+                    autoComplete="off"
+                    noValidate
+                    id="form-carrinho-ajax"
+                    className="px-4 py-6 md:p-8"
+                  >
+                    <div className="grid gap-4">
+                      <div className="text-lg">Produto adicionado</div>
+                      <div className="flex flex-wrap items-center gap-4 text-center md:flex-nowrap">
+                        <button
+                          type="button"
+                          onClick={() => setBuyModal(false)}
+                          className="w-full px-4 py-2 flex justify-center items-center gap-1.5 text-base text-white bg-black rounded-md transition-opacity hover:opacity-70 tail-prod-ver-btn-seta tail-prod-ver-btn-modal ev-prod-ver-btn-modal js-tail-etapa-comprar-modal-btn"
+                        >
+                          Continuar comprando
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="3"
+                            stroke="currentColor"
+                            className="h-3.5 transition pointer-events-none tail-prod-ver-btn-seta-icone"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            ></path>
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            (window.location.href =
+                              window.location.origin + `/${storeUri}/carrinho`)
+                          }
+                          className="w-full px-4 py-2 flex justify-center items-center gap-1.5 text-base text-white bg-black rounded-md transition-opacity hover:opacity-70 tail-prod-ver-btn-seta tail-prod-ver-btn-modal ev-prod-ver-btn-modal"
+                        >
+                          Ir para o carrinho
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            className="h-4 transition pointer-events-none tail-prod-ver-btn-seta-icone"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </section>
+            )}
           </article>
         </div>
       )}

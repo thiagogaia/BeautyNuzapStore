@@ -29,8 +29,10 @@ const MainCart = () => {
                     </button>
                     <div className="flex flex-col pt-6 lg:pt-0 lg:gap-6 lg:flex-row lg:items-center">
                       <div className="grid w-full grid-cols-2 gap-4 lg:flex lg:w-auto lg:flex-row">
-                        <a
-                          href="/"
+                        <button
+                          onClick={() =>
+                            (window.location.href = window.location.origin + `/${storeUri}`)
+                          }
                           className="px-2 py-3 flex justify-center items-center gap-2 leading-none bg-gray-100 text-xs font-bold rounded-md hover:underline focus:underline lg:px-3 lg:text-sm tail-carr-prod-voltar ev-carr-prod-voltar"
                         >
                           <svg
@@ -48,7 +50,7 @@ const MainCart = () => {
                             />
                           </svg>
                           Continuar comprando
-                        </a>
+                        </button>
                         <button
                           type="button"
                           className="px-2 py-3 flex justify-center items-center gap-2 leading-none bg-gray-100 text-xs font-bold rounded-md hover:underline focus:underline lg:px-3 lg:text-sm tail-carr-prod-voltar ev-carr-prod-voltar cursor-pointer"

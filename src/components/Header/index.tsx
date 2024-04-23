@@ -264,9 +264,11 @@ const Header = () => {
                       <span className="inline-block js-tail-topo-inverter">
                         <HiOutlineShoppingBag style={{ fontSize: "1.45rem", cursor: "pointer" }} />
                       </span>
-                      <div className="absolute flex items-center justify-center cursor-pointer rounded-full -right-1 h-4 w-4 -top-1 bg-red-500 text-white font-bold leading-none tail-topo-sacola-numero js-tail-topo-carrinho-numero">
-                        {cart.reduce((acc, item) => acc + item.quantity, 0)}
-                      </div>
+                      {cart.length > 0 && (
+                        <div className="absolute flex items-center justify-center cursor-pointer rounded-full -right-1 h-4 w-4 -top-1 bg-red-500 text-white font-bold leading-none tail-topo-sacola-numero js-tail-topo-carrinho-numero">
+                          {cart.reduce((acc, item) => acc + item.quantity, 0)}
+                        </div>
+                      )}
                     </label>
                   </div>
                   <input
