@@ -1,6 +1,16 @@
+import { useContext } from "react";
 import CartCard from "./cartCard";
+import { StoreContext } from "../../contexts/Store";
+import { ICartProductData } from "../../contexts/types";
 
-const Cart = () => {
+interface Props {
+  cart: ICartProductData[];
+}
+const Cart = ({ cart }: Props) => {
+  const { storeUri } = useContext(StoreContext);
+
+  const totalPrice = cart.reduce((acc, item) => acc + Number(item.price) * item.quantity, 0);
+
   return (
     <nav className="fixed top-0 right-0 invisible w-64 h-screen text-sm bg-white shadow-md rounded-l-md md:w-96 ev-topo-carrinho-lista ev-topo-carrinho-1-dados-lista opacity-0 sm:bg-opacity-60 sm:backdrop-filter sm:backdrop-blur-md md:bg-opacity-60 md:backdrop-filter md:backdrop-blur-md lg:bg-opacity-60 lg:backdrop-filter lg:backdrop-blur-md xl:bg-opacity-60 xl:backdrop-filter xl:backdrop-blur-md tail-topo-sacola-lista">
       <div className="flex flex-col content-start h-full tail-topo-carrinho-interno">
@@ -20,21 +30,32 @@ const Cart = () => {
           </label>
         </div>
         <div className="p-5 text-sm font-bold text-center">
-          <a
-            href="/carrinho"
+          <button
+            onClick={() =>
+              (window.location.href = window.location.origin + `/${storeUri}/carrinho`)
+            }
             className="inline-block w-full py-4 text-center border border-gray-300 border-solid rounded-md tail-topo-carrinho-produto-ir ev-topo-carrinho-produto-ir ev-topo-carrinho-1-produto-ir"
           >
-            Ir para o carrinho
-          </a>
+            {cart.length > 0 ? "Ir para o carrinho" : "Carrinho vazio"}
+          </button>
         </div>
-        <div className="p-5 text-sm font-bold text-center">
-          <div className="flex items-center justify-center gap-1 text-base font-bold js-tail-topo-carrinho-subtotal">
-            <span className="font-normal">Subtotal:</span>
-            <span className="js-tail-topo-carrinho-subtotal-valor">R$ 989,60</span>
+        {cart.length > 0 && (
+          <div className="p-5 text-sm font-bold text-center">
+            <div className="flex items-center justify-center gap-1 text-base font-bold js-tail-topo-carrinho-subtotal">
+              <span className="font-normal">Subtotal:</span>
+              <span className="js-tail-topo-carrinho-subtotal-valor">
+                {totalPrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+            </div>
           </div>
-        </div>
+        )}
         <ul className="p-5 overflow-y-auto border-t border-b border-gray-200 border-solid divide-y divide-gray-200 divide-solid js-tail-topo-carrinho-produto-lista">
-          <CartCard />
+          {cart.map((item) => (
+            <CartCard key={item.id} product={item} />
+          ))}
         </ul>
       </div>
     </nav>

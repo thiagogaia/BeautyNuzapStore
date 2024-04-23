@@ -13,7 +13,7 @@ const PaymentMethods = () => {
                   <source
                     srcSet="/720908950.webp 400w, /720908950.webp 600w, /720908950.webp 1x, /720908950.webp 2x"
                     sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, (max-width: 1199px) 600px, 100vw"
-                    type="image/webp"
+                    type="image/*"
                   />
                   <source
                     srcSet="720908950.png 400w, /720908950.png 600w, /720908950.png 1x, /720908950.png 2x"
@@ -43,7 +43,7 @@ const PaymentMethods = () => {
                         <source
                           srcSet="/2644292766.webp 400w, /2644292766.webp 600w, /2644292766.webp 1x, /2644292766.webp 2x"
                           sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, (max-width: 1199px) 600px, 100vw"
-                          type="image/webp"
+                          type="image/*"
                         />
                         <source
                           srcSet="/2644292766.jpg 400w, /2644292766.jpg 600w, /2644292766.jpg 1x, /2644292766.jpg 2x"
