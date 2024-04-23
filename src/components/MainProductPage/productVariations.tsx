@@ -68,7 +68,11 @@ const ProductVariations = ({
                     onChange={() => selectVariation(data, "first")}
                     className="sr-only"
                   />
-                  <img src={data.imgThumbUrl} title={data.name} alt={data.name} />
+                  <img
+                    src={data.imgThumbUrl !== "" ? data.imgThumbUrl : "/no-image.jpg"}
+                    title={data.name}
+                    alt={data.name}
+                  />
                 </label>
               </li>
             ))}
