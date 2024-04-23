@@ -4,10 +4,10 @@ import { StoreContext } from "../../contexts/Store";
 import { CartContext } from "../../contexts/cart";
 
 interface Props {
-  product: ICartProductData;
+  item: ICartProductData;
 }
 
-const CardCart = ({ product }: Props) => {
+const CardCart = ({ item }: Props) => {
   const { storeUri } = useContext(StoreContext);
   const { addToCart, removeToCart, excludeProduct } = useContext(CartContext);
 
@@ -18,14 +18,14 @@ const CardCart = ({ product }: Props) => {
     >
       <div className="flex flex-row w-full gap-2 pt-4">
         <div className="flex-none w-28">
-          <img loading="lazy" src={product.imgUrl} alt={product.name} />
+          <img loading="lazy" src={item.imgUrl} alt={item.name} />
         </div>
         <div className="relative grid flex-auto gap-4">
           <label
             htmlFor="Carrinho0Excluir"
             title="Remover"
             className="absolute top-0 right-0 text-xs text-red-600 underline cursor-pointer tail-carr-excluir"
-            onClick={() => excludeProduct(product.id)}
+            onClick={() => excludeProduct(item.id)}
           >
             <svg
               className="h-8 fill-current"
@@ -57,14 +57,14 @@ const CardCart = ({ product }: Props) => {
               <span
                 onClick={() =>
                   (window.location.href =
-                    window.location.origin + `/${storeUri}/produto/${product.uri}`)
+                    window.location.origin + `/${storeUri}/produto/${item.uri}`)
                 }
                 className="text-sm font-bold leading-none hover:underline tail-carr-nome tail-carr-prod-nome"
               >
-                {product.name}
+                {item.name}
               </span>
             </div>
-            <div>Variação: {product.variation_data[0].name}</div>
+            <div>Variação: {item.variation}</div>
           </div>
           <div className="relative flex items-center justify-between flex-auto gap-1 lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="js-carrinho-produto-listagem-quantidade">
@@ -72,7 +72,7 @@ const CardCart = ({ product }: Props) => {
                 <button
                   type="button"
                   className="grid p-0.5 rounded-full cursor-pointer place-content-center bg-black ev-carrinho-produto-tabela-qtd-menos"
-                  onClick={() => removeToCart(product.id)}
+                  onClick={() => removeToCart(item.id)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,14 +89,14 @@ const CardCart = ({ product }: Props) => {
                   type="text"
                   name="dados[Carrinho][0][quantidade]"
                   inputMode="numeric"
-                  value={product.quantity}
+                  value={item.quantity}
                   readOnly
                   className="py-2 text-center bg-gray-100 bg-opacity-50 border border-gray-200 border-solid rounded w-9 js-carrinho-produto-listagem-quantidade-input"
                 />
                 <button
                   type="button"
                   className="grid p-0.5 rounded-full cursor-pointer place-content-center bg-black ev-carrinho-produto-tabela-qtd-mais"
-                  onClick={() => addToCart(product)}
+                  onClick={() => addToCart(item)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -132,20 +132,20 @@ const CardCart = ({ product }: Props) => {
             </div>
             <div className="text-base text-right tail-carr-prod-preco">
               <div className="gap-2 text-right tail-carr-prod-preco-parcelas">
-                {product.quantity > 1 && (
+                {item.quantity > 1 && (
                   <div className="gap-2 text-right tail-carr-prod-preco-parcelas">
                     <div className="font-bold tail-carr-prod-preco-parcelas-interno">
                       <span className="text-xs align-text-bottom tail-carr-prod-preco-parcelas-quantidade">
-                        {product.quantity}x
+                        {item.quantity}x
                       </span>
                       <span className="text-xs align-text-bottom tail-carr-prod-preco-parcelas-total">
-                        {product.price}
+                        {item.price}
                       </span>
                     </div>
                   </div>
                 )}
                 <div className="font-bold tail-carr-prod-preco-parcelas-interno">
-                  {(product.quantity * Number(product.price)).toLocaleString("pt-BR", {
+                  {(item.quantity * Number(item.price)).toLocaleString("pt-BR", {
                     style: "currency",
                     currency: "BRL",
                   })}

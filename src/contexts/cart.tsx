@@ -21,19 +21,46 @@ const CartProvider = ({ children }: IProviderProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart]);
 
-  const addToCart = (product: IProductData) => {
+  const addToCart = (product: IProductData | ICartProductData) => {
+    const keys = [
+      "id",
+      "name",
+      "price",
+      "image",
+      "imgUrl",
+      "category",
+      "code",
+      "uri",
+      "price_promo",
+      "stock",
+      "variation",
+      "variation_id",
+      "variation_item_id",
+      "discount",
+      "quantity",
+    ];
+
+    const filtredKeys = Object.entries(product)
+      .filter(([key]) => keys.includes(key))
+      .reduce<Record<keyof ICartProductData, unknown>>((obj, [key, value]) => {
+        obj[key as keyof ICartProductData] = value;
+        return obj;
+      }, {} as ICartProductData) as ICartProductData;
+
     if (cart.length === 0) {
-      setCart([...cart, { ...product, quantity: 1 }]);
+      setCart([...cart, { ...filtredKeys, quantity: 1 }]);
     } else {
       const idCart = [...new Set(cart.map((prodCart) => prodCart.id))];
 
-      if (idCart.includes(product.id)) {
+      if (idCart.includes(filtredKeys.id)) {
         const updateCart = cart.map((prodCart) =>
-          prodCart.id === product.id ? { ...prodCart, quantity: prodCart.quantity + 1 } : prodCart
+          prodCart.id === filtredKeys.id
+            ? { ...prodCart, quantity: prodCart.quantity + 1 }
+            : prodCart
         );
         setCart(updateCart);
       } else {
-        setCart([...cart, { ...product, quantity: 1 }]);
+        setCart([...cart, { ...filtredKeys, quantity: 1 }]);
       }
     }
   };

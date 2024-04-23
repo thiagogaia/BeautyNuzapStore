@@ -82,8 +82,8 @@ const MainCart = () => {
                     <div className="w-full text-sm">
                       <div className="grid gap-4">
                         {/* CARD MAP */}
-                        {cart.map((product) => (
-                          <CardCart key={product.id} product={product} />
+                        {cart.map((item) => (
+                          <CardCart key={item.id} item={item} />
                         ))}
                         {/* CARD MAP */}
                       </div>

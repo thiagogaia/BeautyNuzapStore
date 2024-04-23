@@ -32,7 +32,7 @@ const MainProductPage = () => {
   }, []);
 
   const purchase = (productData: IProductData) => {
-    console.log(productData);
+    // console.log(productData);
 
     addToCart(productData);
   };
