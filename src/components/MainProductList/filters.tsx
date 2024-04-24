@@ -49,7 +49,7 @@ const Filters = ({
         .join(",");
 
       const orderByField = [...fields]
-        .filter((field) => field.name === "order")
+        .filter((field) => field.name === "order" && field.defaultValue !== "novidades")
         .filter((field) => field.checked)
         .map((field) => field.defaultValue)[0];
 
@@ -58,7 +58,13 @@ const Filters = ({
       }${variationsFields.length > 0 ? `&variations=${variationsFields}` : ""}${
         +maxPriceField > 0 ? `&price=${maxPriceField}` : ""
       }`;
-      navigate(url);
+
+      const newsField = [...fields]
+        .filter((field) => field.name === "order" && field.defaultValue === "novidades")
+        .filter((field) => field.checked)
+        .map((field) => field.defaultValue);
+
+      navigate(newsField.length > 0 ? "" : url);
     }
 
     // window.location.href = window.location.origin + "/" + href
@@ -118,11 +124,19 @@ const Filters = ({
               <input
                 type="radio"
                 name="order"
+                id="FiltroNovidades"
+                defaultValue="novidades"
+                onChange={search}
+                className="hidden"
+                defaultChecked
+              />
+              <input
+                type="radio"
+                name="order"
                 id="FiltroOrdenarnomeAsc"
                 defaultValue="name_asc"
                 onChange={search}
                 className="hidden"
-                defaultChecked
               />
               <input
                 type="radio"
@@ -393,6 +407,21 @@ const Filters = ({
                     </svg>
                   </summary>
                   <div className="grid pb-4">
+                    <label
+                      htmlFor="FiltroNovidades"
+                      data-nome="Nome"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{
+                          backgroundColor: orderBy === null ? "black" : "white",
+                        }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Novidades</span>
+                    </label>
                     <label
                       htmlFor="FiltroOrdenarnomeAsc"
                       data-nome="Nome"

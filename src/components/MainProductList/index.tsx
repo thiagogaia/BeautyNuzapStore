@@ -78,6 +78,18 @@ const MainProductList = () => {
                   </summary>
                   <div className="absolute z-10 py-2 text-gray-700 bg-white border border-gray-300 border-solid rounded-lg shadow-2xl w-36 tail-busca-tag-lista lg:-ml-20">
                     <label
+                      htmlFor="FiltroNovidades"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{ backgroundColor: orderBy === null ? "black" : "white" }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Novidades</span>
+                    </label>
+                    <label
                       htmlFor="FiltroOrdenarnomeAsc"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
