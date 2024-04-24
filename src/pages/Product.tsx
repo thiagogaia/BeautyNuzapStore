@@ -15,7 +15,7 @@ const Product = () => {
   useEffect(() => {
     if (storeUri !== undefined) {
       setStoreUri(storeUri);
-      setWhatsapp(storeData.business.social_integrations.whatsapp_widget);
+      setWhatsapp(storeData.business?.social_integrations?.whatsapp_widget);
     }
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -28,8 +28,7 @@ const Product = () => {
         <>
           <Header />
           <MainProductPage />
-          {whatsapp.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
-
+          {whatsapp?.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
           <Footer />
         </>
       )}

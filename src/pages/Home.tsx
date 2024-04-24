@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (storeUri !== undefined) {
       setStoreUri(storeUri);
-      setWhatsapp(storeData.business.social_integrations.whatsapp_widget);
+      setWhatsapp(storeData.business?.social_integrations?.whatsapp_widget);
     }
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
           <ProductsProvider>
             <MainHome />
           </ProductsProvider>
-          {whatsapp.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
+          {whatsapp?.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
           <WidgetPrivacity />
           <Footer />
         </>
