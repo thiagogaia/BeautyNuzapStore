@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { StoreContext } from "../contexts/Store";
 
@@ -11,12 +11,14 @@ import Loading from "../components/Loading";
 import ProductsProvider from "../contexts/Products";
 
 const Home: React.FC = () => {
-  const { load, setStoreUri } = useContext(StoreContext);
+  const { load, setStoreUri, storeData } = useContext(StoreContext);
   const { storeUri } = useParams<{ storeUri: string | undefined }>();
+  const [whatsapp, setWhatsapp] = useState("");
 
   useEffect(() => {
     if (storeUri !== undefined) {
       setStoreUri(storeUri);
+      setWhatsapp(storeData.business.social_integrations.whatsapp_widget);
     }
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,7 +34,7 @@ const Home: React.FC = () => {
           <ProductsProvider>
             <MainHome />
           </ProductsProvider>
-          <WidgetWhatsapp numero="5548991729419" />
+          {whatsapp.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
           <WidgetPrivacity />
           <Footer />
         </>
