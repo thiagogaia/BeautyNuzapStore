@@ -18,7 +18,10 @@ const MainProductPage = () => {
   const [variationItem, setVariationItem] = useState("");
   const [variationItemId, setVariationItemId] = useState("");
   const [buyModal, setBuyModal] = useState<boolean>(false);
+
   const modal = useRef<HTMLDivElement>(null);
+  const buyButton = useRef<HTMLButtonElement>(null);
+  const floatingBuyButton = useRef<HTMLDivElement>(null);
 
   const { addToCart } = useContext(CartContext);
 
@@ -69,6 +72,33 @@ const MainProductPage = () => {
 
     return () => document.removeEventListener("click", pageClickEvent);
   }, [buyModal]);
+
+  useEffect(() => {
+    const scrollPage = () => {
+      if (floatingBuyButton.current && buyButton.current) {
+        const observer = new IntersectionObserver(
+          ([e]) => {
+            if (floatingBuyButton.current && buyButton.current) {
+              const stickyTop = floatingBuyButton.current.getBoundingClientRect().top;
+              const buttonTop = buyButton.current.getBoundingClientRect().top;
+
+              if (e.intersectionRatio === 1 && buttonTop > stickyTop) {
+                floatingBuyButton.current.style.visibility = "visible";
+              } else if (e.intersectionRatio === 1 && buttonTop <= stickyTop) {
+                floatingBuyButton.current.style.visibility = "hidden";
+              }
+            }
+          },
+          { threshold: [0, 1] }
+        );
+
+        observer.observe(floatingBuyButton.current);
+      }
+    };
+    window.addEventListener("scroll", scrollPage);
+
+    return () => window.removeEventListener("scroll", scrollPage);
+  }, []);
 
   return (
     <>
@@ -136,6 +166,7 @@ const MainProductPage = () => {
                         </div>
                       </div>
 
+                      {/* stock options */}
                       <div className="grid gap-8 tail-prod-ver-grupo-precos-e-variacoes">
                         <div className="grid gap-1 tail-prod-ver-grupo-precos ">
                           <div className="flex flex-col gap-1 tail-etapa-preco-interno">
@@ -271,9 +302,12 @@ const MainProductPage = () => {
                           setVariationItem={setVariationItem}
                         />
                       </div>
+
+                      {/* buy button */}
                       <div className="grid gap-4 tail-prod-ver-grupo-comprar">
                         <div className="flex gap-2 tail-etapa-comprar js-tail-etapa-comprar w-full lg:max-w-xs">
                           <button
+                            ref={buyButton}
                             type="button"
                             onClick={() => purchase(productData)}
                             className="relative flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border border-transparent border-solid rounded-lg select-none outline-none hover:opacity-70 ev-etapa-comprar-btn tail-etapa-comprar-btn js-tail-etapa-comprar-btn"
@@ -374,6 +408,7 @@ const MainProductPage = () => {
                           </a>
                         </div>
                       </div>
+
                       {/* to share */}
                       <div className="grid gap-4 tail-prod-ver-grupo-frete-e-social">
                         <section
@@ -1087,6 +1122,34 @@ const MainProductPage = () => {
               </section>
             </section> */}
             </section>
+
+            {/* floating buy button */}
+            <div
+              ref={floatingBuyButton}
+              className="float-buy-btn relative sticky z-10 flex gap-1 inset-x-0 bottom-0 px-2.5 py-3 overflow-visible bg-white border-t border-gray-300 border-solid md:hidden tail-etapa-comprar-btn-flutuante js-tail-etapa-comprar-btn-flutuante"
+            >
+              <button
+                className="relative flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border-none rounded-lg select-none outline-none hover:opacity-70 ev-etapa-comprar-btn ev-etapa-comprar-btn js-tail-etapa-comprar-flutuante-btn"
+                onClick={() => purchase(productData)}
+              >
+                Comprar
+              </button>
+
+              {/* <button className="flex-grow py-3 text-base tracking-wide text-center text-gray-500 bg-gray-100 border border-gray-300 border-solid rounded-lg pointer-events-none select-none escondido ev-etapa-comprar-btn-esgotado js-tail-etapa-comprar-flutuante-btn-esgotado">
+                Esgotado
+              </button>
+
+              <a
+                href="/login?redir=%2Fprod%2F2577"
+                className="relative flex-grow py-3 text-base tracking-wide text-center text-white transition-opacity bg-black border-none rounded-lg select-none outline-none hover:opacity-70 escondido ev-etapa-comprar-btn-privado js-tail-etapa-comprar-flutuante-privado"
+              >
+                Consulte
+              </a>
+
+              <button className="flex-grow py-3 text-base tracking-wide text-center text-gray-500 bg-gray-100 border border-gray-300 border-solid rounded-lg pointer-events-none select-none cursor-not-allowed escondido ev-etapa-comprar-btn-consulte js-tail-etapa-comprar-flutuante-btn-consulte">
+                Consulte
+              </button> */}
+            </div>
 
             {buyModal && (
               <section

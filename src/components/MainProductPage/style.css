@@ -173,3 +173,15 @@
 .cat-title {
     display: flex !important;
 }
+
+.img-props {
+    max-height: 80vh;
+    object-fit: contain;
+    object-position: top;
+    background: #f3f3f3;
+}
+
+.float-buy-btn {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+}

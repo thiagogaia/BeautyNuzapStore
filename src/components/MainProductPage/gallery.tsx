@@ -89,7 +89,7 @@ const Gallery = ({ productData }: Props) => {
                           srcSet={`${product.imgUrl} 600w,${product.imgUrl} 1000w,${product.imgUrl} 2x`}
                           sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
                           alt="product img"
-                          className="inline-block w-full h-full align-middle object-fit"
+                          className="img-props inline-block w-full h-full align-middle object-fit"
                         />
                       </div>
                     ))}
