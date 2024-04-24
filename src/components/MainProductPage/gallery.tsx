@@ -52,7 +52,7 @@ const Gallery = ({ productData }: Props) => {
             </div>
 
             {productData.gallery && (
-              <div className="flex flex-row js-produto-ver-foto-interno js-produto-ver-foto-interno-2581-0">
+              <div className="flex flex-col-reverse lg:flex-row js-produto-ver-foto-interno js-produto-ver-foto-interno-2581-0">
                 {/* image displayed */}
                 <div className=" relative order-1 w-full p-1 ml-2 border border-white border-solid lg:max-w-4xl">
                   {productData.gallery.length > 0 && (
@@ -72,7 +72,7 @@ const Gallery = ({ productData }: Props) => {
                     </>
                   )}
 
-                  <div className="flex overflow-x-auto js-produto-ver-foto-capa">
+                  <div className="flex overflow-hidden js-produto-ver-foto-capa">
                     {/* gallery images */}
                     {images.map((product) => (
                       <div
@@ -97,12 +97,12 @@ const Gallery = ({ productData }: Props) => {
                 </div>
 
                 {/* images on the side */}
-                <div className="flex flex-col flex-none w-12 gap-2 order-0 ">
+                <div className="flex flex-row lg:flex-col flex-none lg:w-12 gap-2 order-0 ">
                   {/* gallery images */}
                   {images.map((product, index) => (
                     <div
                       key={product.id}
-                      className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                      className="min-w-12 p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
                       onClick={() => setSlideIndex(index)}
                     >
                       <div className="h-full">

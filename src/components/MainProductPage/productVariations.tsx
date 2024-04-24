@@ -69,6 +69,7 @@ const ProductVariations = ({
                     className="sr-only"
                   />
                   <img
+                    style={{ borderRadius: "50%" }}
                     src={data.imgThumbUrl !== "" ? data.imgThumbUrl : "/no-image.jpg"}
                     title={data.name}
                     alt={data.name}
