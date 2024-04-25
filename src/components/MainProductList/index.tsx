@@ -9,6 +9,7 @@ import Loading from "../Loading";
 
 import { StoreContext } from "../../contexts/Store";
 import { IProductData } from "../../contexts/types";
+import Pagination from "./pagination";
 
 const MainProductList = () => {
   const [URLSearchParams] = useSearchParams();
@@ -177,77 +178,12 @@ const MainProductList = () => {
 
               {/* pagination  */}
               {(productList.length >= 12 || page > 1) && (
-                <div className="">
-                  <div className="flex justify-center gap-2 mx-2 tail-paginacao-manual ">
-                    <button
-                      style={{ cursor: page === 1 ? "auto" : "pointer" }}
-                      className="w-8 h-8 grid place-content-center rounded-lg text-gray-600 transition-colors hover:bg-gray-200 tail-paginacao-btn"
-                    >
-                      <a
-                        href={`?page=${page - 1}`}
-                        style={{ pointerEvents: page === 1 ? "none" : "auto" }}
-                      >
-                        <span className="sr-only">Anterior</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="h-4 mr-0.5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 19.5L8.25 12l7.5-7.5"
-                          />
-                        </svg>
-                      </a>
-                    </button>
-
-                    {/* pages */}
-                    {[...Array(6)].map((_, index) => (
-                      <a
-                        key={index}
-                        href={`?page=${index + 1}`}
-                        className={
-                          index + 1 === page
-                            ? "w-8 h-8 grid place-content-center rounded-lg bg-black text-white font-bold transition-opacity hover:opacity-70 ev-paginacao-btn-ativo tail-paginacao-btn-ativo"
-                            : "w-8 h-8 grid place-content-center rounded-lg text-gray-600 transition-colors hover:bg-gray-200 tail-paginacao-btn"
-                        }
-                        data-seta-posicao="cima"
-                      >
-                        {index + 1}
-                      </a>
-                    ))}
-
-                    <button
-                      style={{ cursor: productList.length < 12 ? "auto" : "pointer" }}
-                      className="w-8 h-8 grid place-content-center rounded-lg text-gray-600 transition-colors hover:bg-gray-200 tail-paginacao-btn"
-                    >
-                      <a
-                        href={`?page=${page + 1}`}
-                        style={{ pointerEvents: productList.length < 12 ? "none" : "auto" }}
-                      >
-                        <span className="sr-only">Próximo</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="h-4 ml-0.5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
-                      </a>
-                    </button>
-                  </div>
-                </div>
+                <Pagination
+                  page={page}
+                  productListLength={productList.length}
+                  maxPagesExibition={3}
+                  totalPages={100}
+                />
               )}
             </div>
           </div>

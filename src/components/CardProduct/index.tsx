@@ -82,21 +82,25 @@ const CardProduct = ({ className, ...data }: Props) => {
                 className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
               />
             </picture>
-            <picture>
-              <source
-                srcSet={`${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 200w, ${
-                  data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
-                } 400w, ${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 600w`}
-                sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                type="image/*"
-              />
-              <img
-                loading="lazy"
-                src={`${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl}`}
-                alt={data.name}
-                className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
-              />
-            </picture>
+            {imgsLoaded && (
+              <picture>
+                <source
+                  srcSet={`${
+                    data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
+                  } 200w, ${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 400w, ${
+                    data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
+                  } 600w`}
+                  sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
+                  type="image/*"
+                />
+                <img
+                  loading="lazy"
+                  src={`${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl}`}
+                  alt={data.name}
+                  className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
+                />
+              </picture>
+            )}
             {/* discont */}
             {data.price_promo !== null && Number(data.price_promo) < Number(data.price) && (
               <div
