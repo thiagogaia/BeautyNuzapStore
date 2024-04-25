@@ -100,6 +100,8 @@ const MainProductPage = () => {
     return () => window.removeEventListener("scroll", scrollPage);
   }, []);
 
+  console.log(productUri);
+
   return (
     <>
       {load ? (
@@ -420,9 +422,10 @@ const MainProductPage = () => {
                             className="flex gap-2 tail-etapa-social-lista ev-etapa-social-lista"
                             data-seta-posicao="esquerda"
                           >
+                            {/* whatsapp */}
                             <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                               <a
-                                href="https://wa.me/?text=https%3A%2F%2Fwww.nuzap.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
+                                href={`https://wa.me/?text=https%3A%2F%2Floja.nuzap.com.br%2F${storeUri}%2Fproduto%2F${productUri}`}
                                 className="p-2 inline-block cursor-pointer ev-etapa-social-link js-whatsapp"
                                 target="_blank"
                               >
@@ -444,9 +447,11 @@ const MainProductPage = () => {
                                 </svg>
                               </a>
                             </li>
-                            <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
+                            {/* email */}
+                            {/* <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                               <a
-                                href="mailto:?Subject=Olha%20o%20que%20eu%20gostei&body=Achei%20legal%20e%20queria%20compartilhar%20com%20você:%20https%3A%2F%2Fwww.nuzap.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
+                                href={`mailto:?Subject=Olha%20o%20que%20eu%20gostei&body=Achei%20legal%20e%20queria%20compartilhar%20com%20você:%20https%3A%2F%2Floja.nuzap.com.br%2F${storeUri}%2Fproduto%2F2${productUri}`}
+                                target="_blank"
                                 className="p-2 inline-block cursor-pointer ev-etapa-social-link"
                               >
                                 <span className="sr-only">Compartilhar via E-mail</span>
@@ -460,10 +465,11 @@ const MainProductPage = () => {
                                   <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                                 </svg>
                               </a>
-                            </li>
+                            </li> */}
+                            {/* facebook */}
                             <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                               <a
-                                href="//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.nuzao.com.br%2Fprod%2F2581%2Fvestido-longo-tule-glitter-busto-plissado-fucsia"
+                                href={`//www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Floja.nuzap.com.br%2F${storeUri}%2Fproduto%2F${productUri}`}
                                 target="_blank"
                                 className="p-2 inline-block cursor-pointer ev-etapa-social-link"
                               >
@@ -483,6 +489,7 @@ const MainProductPage = () => {
                                 </svg>
                               </a>
                             </li>
+                            {/* pintrest */}
                             <li className="border border-gray-300 border-solid rounded-full tail-etapa-social-item ev-etapa-social-item">
                               <a
                                 href="https://pinterest.com/"
