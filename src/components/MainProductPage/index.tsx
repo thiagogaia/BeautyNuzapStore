@@ -1,5 +1,5 @@
 import "./style.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { api } from "../../services/api";
 import { useContext, useEffect, useRef, useState } from "react";
@@ -11,6 +11,8 @@ import { CartContext } from "../../contexts/cart";
 
 const MainProductPage = () => {
   const { productUri, storeUri } = useParams();
+  const navigate = useNavigate();
+
   const [productData, setProductData] = useState({} as IProductData);
   const [load, setLoad] = useState(true);
   const [variation, setVariation] = useState("");
@@ -100,8 +102,6 @@ const MainProductPage = () => {
     return () => window.removeEventListener("scroll", scrollPage);
   }, []);
 
-  console.log(productUri);
-
   return (
     <>
       {load ? (
@@ -117,13 +117,8 @@ const MainProductPage = () => {
                     <FaArrowLeftLong />
                   </div>
                   <div>
-                    <span
-                      onClick={() =>
-                        (window.location.href = window.location.origin + "/" + storeUri)
-                      }
-                      style={{ cursor: "pointer" }}
-                    >
-                      Voltar ao início
+                    <span onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
+                      Voltar
                     </span>
                   </div>
                 </div>
