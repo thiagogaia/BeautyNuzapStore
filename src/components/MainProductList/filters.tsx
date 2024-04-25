@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { IStoreData } from "../../contexts/types";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import CurrencyInput from "react-currency-masked-input";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   orderBy: string | null;
   maxPrice: string | null;
   variationList: string | null;
+  variationItemList: string | null;
   categoryList: string | null;
 }
 
@@ -18,27 +20,41 @@ const Filters = ({
   orderBy,
   maxPrice,
   variationList,
+  variationItemList,
   categoryList,
 }: Props) => {
   const category = storeData.business.categories.find((e) => e.id === categoryId);
-  const variations = storeData.business.store_variations;
-  const variationItems = storeData.business.store_variation_items;
+  const variations = storeData.business.store_variations.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
+  const variationItems = storeData.business.store_variation_items.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
   const navigate = useNavigate();
-
   const form = useRef<HTMLFormElement>(null);
 
   const search = () => {
     if (form.current) {
       const fields = form.current.querySelectorAll("input");
 
-      const categoriesFields = [...fields]
+      const categoriesField = [...fields]
         .filter((field) => field.name === "categories")
         .filter((field) => field.checked)
         .map((field) => field.value)
         .join(",");
 
-      const variationsFields = [...fields]
+      const variationsField = [...fields]
         .filter((field) => field.name === "variations")
+        .filter((field) => field.checked)
+        .map((field) => field.value)
+        .join(",");
+
+      const variationItemsField = [...fields]
+        .filter((field) => field.name === "variationItems")
         .filter((field) => field.checked)
         .map((field) => field.value)
         .join(",");
@@ -49,25 +65,28 @@ const Filters = ({
         .join(",");
 
       const orderByField = [...fields]
-        .filter((field) => field.name === "order" && field.defaultValue !== "novidades")
+        .filter((field) => field.name === "order")
         .filter((field) => field.checked)
         .map((field) => field.defaultValue)[0];
 
-      const url = `?order=${orderByField}${
-        categoriesFields.length > 0 ? `&categories=${categoriesFields}` : ""
-      }${variationsFields.length > 0 ? `&variations=${variationsFields}` : ""}${
-        +maxPriceField > 0 ? `&price=${maxPriceField}` : ""
-      }`;
+      const params = [
+        ["categories", categoriesField],
+        ["variations", variationsField],
+        ["variationItems", variationItemsField],
+        ["order", orderByField],
+        ["price", maxPriceField],
+      ];
 
-      const newsField = [...fields]
-        .filter((field) => field.name === "order" && field.defaultValue === "novidades")
-        .filter((field) => field.checked)
-        .map((field) => field.defaultValue);
+      const url = params
+        .filter((e) => e[1].length > 0 && e[1] && e[1] !== "0.00")
+        .map((e, index) => {
+          if (index === 0) return `?${e[0]}=${e[1]}`;
+          return `&${e[0]}=${e[1]}`;
+        })
+        .join("");
 
-      navigate(newsField.length > 0 ? "" : url);
+      navigate(url);
     }
-
-    // window.location.href = window.location.origin + "/" + href
   };
 
   return (
@@ -138,14 +157,14 @@ const Filters = ({
                 onChange={search}
                 className="hidden"
               />
-              <input
+              {/* <input
                 type="radio"
                 name="order"
                 id="FiltroOrdenarnomeDesc"
                 defaultValue="name_desc"
                 onChange={search}
                 className="hidden"
-              />
+              /> */}
               <input
                 type="radio"
                 name="order"
@@ -208,7 +227,7 @@ const Filters = ({
                   <div className="grid gap-2 px-1 pb-4 text-left text-gray-700 tail-busca-filtro-texto">
                     <div className="grid grid-cols-1 gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
                       {variations.map((variation) => (
-                        <div className="flex items-start gap-2" key={variation.id}>
+                        <div className="flex items-start gap-2" key={uuidv4()}>
                           <input
                             type="checkbox"
                             id={variation.id}
@@ -273,15 +292,16 @@ const Filters = ({
                   <div className="grid gap-2 px-1 pb-4 text-left text-gray-700 tail-busca-filtro-texto">
                     <div className="grid grid-cols-1 gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
                       {variationItems.map((item) => (
-                        <div className="flex items-start gap-2" key={item.id}>
+                        <div className="flex items-start gap-2" key={uuidv4()}>
                           <input
                             type="checkbox"
                             id={item.id}
-                            name="variations"
+                            name="variationItems"
                             value={item.id}
                             onChange={search}
                             checked={
-                              variationList !== null && variationList.split(",").includes(item.id)
+                              variationItemList !== null &&
+                              variationItemList.split(",").includes(item.id)
                                 ? true
                                 : false
                             }
@@ -414,7 +434,8 @@ const Filters = ({
                     >
                       <div
                         style={{
-                          backgroundColor: orderBy === null ? "black" : "white",
+                          backgroundColor:
+                            orderBy === null || orderBy === "novidades" ? "black" : "white",
                         }}
                         className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
                       >
@@ -438,7 +459,7 @@ const Filters = ({
                       </div>
                       <span>Nome A - Z</span>
                     </label>
-                    <label
+                    {/* <label
                       htmlFor="FiltroOrdenarnomeDesc"
                       data-nome="Nome"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
@@ -453,7 +474,7 @@ const Filters = ({
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Nome Z - A</span>
-                    </label>
+                    </label> */}
                     <label
                       htmlFor="FiltroOrdenarbarato"
                       data-nome="Menor preço"

@@ -25,21 +25,31 @@ const MainProductList = () => {
   const orderBy = URLSearchParams.get("order");
   const maxPrice = URLSearchParams.get("price");
   const variations = URLSearchParams.get("variations");
+  const variationItems = URLSearchParams.get("variationItems");
   const categories = URLSearchParams.get("categories");
 
   useEffect(() => {
     setLoad(true);
 
-    const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}&_order_by=name_asc`;
-    const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}&_order_by=name_asc`;
+    const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`;
+    const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}`;
+
     const filterUrl = `products?_url=${storeUri}&_page=${page}&_limit=12${
-      categories !== null ? `&_categories=${categories}` : ""
-    }&_order_by=${orderBy}${variations !== null ? `&_variations=${variations}` : ""}${
+      productSearched !== undefined ? `&_name_like=${productSearched}` : ""
+    }${
+      categories !== null
+        ? `&_categories=${categories}`
+        : categoryId !== undefined
+        ? `&_category_id=${categoryId}`
+        : ""
+    }${orderBy !== "novidades" ? `&_order_by=${orderBy}` : ""}${
+      variations !== null ? `&_variations=${variations}` : ""
+    }${variationItems !== null ? `&_variation_items=${variationItems}` : ""}${
       maxPrice !== null ? `&_maxprice=${maxPrice}` : ""
     }`;
 
     api
-      .get(orderBy !== null ? filterUrl : productSearched === undefined ? categoryUrl : searchUrl)
+      .get(orderBy !== null ? filterUrl : productSearched !== undefined ? searchUrl : categoryUrl)
       .then((res) => {
         setProductList(res.data);
         setLoad(false);
@@ -47,7 +57,7 @@ const MainProductList = () => {
       .catch(() => {});
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [orderBy, maxPrice, variations]);
+  }, [categories, orderBy, maxPrice, variations, variationItems]);
 
   return (
     <>
@@ -83,7 +93,10 @@ const MainProductList = () => {
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
                       <div
-                        style={{ backgroundColor: orderBy === null ? "black" : "white" }}
+                        style={{
+                          backgroundColor:
+                            orderBy === null || orderBy === "novidades" ? "black" : "white",
+                        }}
                         className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
@@ -102,7 +115,7 @@ const MainProductList = () => {
                       </div>
                       <span>Nome A - Z</span>
                     </label>
-                    <label
+                    {/* <label
                       htmlFor="FiltroOrdenarnomeDesc"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
@@ -113,7 +126,7 @@ const MainProductList = () => {
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Nome Z - A</span>
-                    </label>
+                    </label> */}
                     <label
                       htmlFor="FiltroOrdenarbarato"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
@@ -149,6 +162,7 @@ const MainProductList = () => {
               maxPrice={maxPrice}
               orderBy={orderBy}
               variationList={variations}
+              variationItemList={variationItems}
               categoryList={categories}
             />
 
