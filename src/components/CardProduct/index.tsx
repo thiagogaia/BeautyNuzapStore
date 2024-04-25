@@ -10,6 +10,7 @@ interface Props extends IProductData {
 const CardProduct = ({ className, ...data }: Props) => {
   const [variations, setVariations] = useState<IProductVariationData[]>([]);
   const [variationItens, setVariationItens] = useState<IProductVariationItem[]>([]);
+  const [imgsLoaded, setImgsLoaded] = useState(false);
   const { storeUri } = useParams();
 
   const checkPricePromo = Number(data.price_promo) < Number(data.price) && Number(data.price_promo);
@@ -26,6 +27,25 @@ const CardProduct = ({ className, ...data }: Props) => {
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const loadImage = (image: string) => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image();
+        loadImg.src = image;
+
+        loadImg.onload = () => resolve(image);
+
+        loadImg.onerror = (err) => reject(err);
+      });
+    };
+
+    loadImage(data.imgUrl).then(() => setImgsLoaded(true));
+
+    // Promise.all([data.uri].map((image) => loadImage(image))).then(() => setImgsLoaded(true));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <li
@@ -53,7 +73,11 @@ const CardProduct = ({ className, ...data }: Props) => {
               />
               <img
                 loading="lazy"
-                src={data.imgUrl}
+                src={
+                  imgsLoaded
+                    ? data.imgUrl
+                    : "https://storage.ktalogue.com.br/uploads/1/loading_cart.gif"
+                }
                 alt={data.name}
                 className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
               />
