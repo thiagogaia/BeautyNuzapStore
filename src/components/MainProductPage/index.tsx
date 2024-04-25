@@ -62,13 +62,10 @@ const MainProductPage = () => {
     const pageClickEvent = (e: Event) => {
       if (modal.current !== null && modal.current.contains(e.target as Node)) {
         setBuyModal(false);
-        console.log("fecha");
       }
     };
 
     if (buyModal) {
-      console.log("abre");
-
       document.addEventListener("click", pageClickEvent);
     }
 

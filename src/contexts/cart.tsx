@@ -74,8 +74,6 @@ const CartProvider = ({ children }: IProviderProps) => {
   const removeToCart = (variationName: string) => {
     const filtredProduct = cart.find((product) => product.variation_name === variationName);
 
-    console.log(filtredProduct);
-
     const { quantity } = filtredProduct as ICartProductData;
 
     if (quantity > 1) {

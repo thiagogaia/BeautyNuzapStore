@@ -13,8 +13,6 @@ const Slider = () => {
   const { storeData } = useContext(StoreContext);
   const slides = storeData.business.slides;
 
-  console.log(slides);
-
   return (
     <>
       {slides.length > 0 && (
