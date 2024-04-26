@@ -1,6 +1,5 @@
 import "./style.css";
-import { useNavigate, useParams } from "react-router-dom";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
 import { useContext, useEffect, useRef, useState } from "react";
 import { IProductData } from "../../contexts/types";
@@ -11,7 +10,6 @@ import { CartContext } from "../../contexts/cart";
 
 const MainProductPage = () => {
   const { productUri, storeUri } = useParams();
-  const navigate = useNavigate();
 
   const [productData, setProductData] = useState({} as IProductData);
   const [load, setLoad] = useState(true);
@@ -110,13 +108,51 @@ const MainProductPage = () => {
             <section itemProp="breadcrumb" className="pt-6 js-appec-escondido">
               <div className="text-xs">
                 <div className="flex flex-wrap items-start justify-start w-full gap-1 text-center">
+                  <div>
+                    <a href={"/" + storeUri}>Home</a>
+                  </div>
                   <div className="mt-0.5">
-                    <FaArrowLeftLong />
+                    <svg
+                      className="w-3 h-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
                   </div>
                   <div>
-                    <span onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
-                      Voltar
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() => (window.location.href = window.location.origin + "/" + "")}
+                    >
+                      Todos Vestidos Longos
                     </span>
+                  </div>
+                  <div className="mt-0.5">
+                    <svg
+                      className="w-3 h-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <a href={`/${storeUri}/produto/${productData.uri}`}>{productData.name}</a>
                   </div>
                 </div>
               </div>

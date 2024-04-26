@@ -63,6 +63,49 @@ const MainProductList = () => {
     <>
       <div id="principal-limite" className="principal-limite">
         <article id="conteudo" className="conteudo">
+          <div className="relative">
+            <section itemProp="breadcrumb" className="mt-6 tail-busca-migalhas js-appec-escondido">
+              <div className="text-xs">
+                <div className="flex flex-wrap items-start justify-start w-full gap-1 text-center">
+                  <div>
+                    <a href={"/" + storeUri}>Home</a>
+                  </div>
+
+                  <div className="mt-0.5">
+                    <svg
+                      className="w-3 h-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <div>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        (window.location.href = categoryUri
+                          ? window.location.origin + "/" + `${storeUri}/loja/${categoryUri}`
+                          : window.location.origin + "/" + `${storeUri}/busca/${productSearched}`)
+                      }
+                      className="tail-busca-migalhas-link"
+                    >
+                      {categoryUri ? categoryUri : "Busca"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
           <div className="flex flex-wrap justify-end gap-4 ">
             <div className="flex-none flex items-center justify-end lg:w-full js-appec-escondido">
               <div className="flex items-center justify-center gap-2 lg:justify-end">
