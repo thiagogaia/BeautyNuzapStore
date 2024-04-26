@@ -1,7 +1,32 @@
+import { useRef, useState } from "react";
 import CardProduct from "../CardProduct";
 import { IShowcaseProps } from "./types";
 
 const Showcase = ({ title, productList }: IShowcaseProps) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const container = useRef<HTMLUListElement>(null);
+
+  const scroll = () => {
+    if (container.current !== null) {
+      setScrollPosition(container.current.scrollLeft);
+    }
+  };
+
+  const controls = (direction: "prev" | "next") => {
+    if (container.current !== null) {
+      const ul = container.current;
+
+      if (direction === "prev" && scrollPosition > 0) {
+        ul.scrollTo(scrollPosition - ul.offsetWidth, 0);
+        setScrollPosition(scrollPosition - ul.offsetWidth);
+      }
+      if (direction === "next" && ul.scrollLeft + ul.offsetWidth !== ul.scrollWidth) {
+        ul.scrollTo(scrollPosition + ul.offsetWidth, 0);
+        setScrollPosition(scrollPosition + ul.offsetWidth);
+      }
+    }
+  };
+
   return (
     <>
       <div className="cont-limite cont-limite-427 cont-pdd-pq ">
@@ -19,7 +44,7 @@ const Showcase = ({ title, productList }: IShowcaseProps) => {
               <button
                 aria-label="Voltar Slider para os produtos anteriores"
                 className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                // onclick="listagemSlider('voltar');"
+                onClick={() => controls("prev")}
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                   <svg
@@ -39,12 +64,17 @@ const Showcase = ({ title, productList }: IShowcaseProps) => {
                 </div>
               </button>
 
-              <ul className="flex flex-grow ml-2 overflow-x-scroll tail-listagem-prod-slider-container js-tail-listagem-prod-lista flex flex-grow ml-2 gap-y-2">
+              <ul
+                ref={container}
+                onScroll={scroll}
+                style={{ scrollbarWidth: "none" }}
+                className="flex flex-grow ml-2 overflow-x-scroll scroll-smooth snap-mandatory snap-x gap-y-2"
+              >
                 {productList.map((product) => (
                   <CardProduct
                     key={product.id}
                     {...product}
-                    className="flex-shrink-0 mr-2 tail-listagem-card-largura-2 md:tail-listagem-card-largura-2 lg:tail-listagem-card-largura-4 2xl:tail-listagem-card-largura-4"
+                    className="snap-start flex-shrink-0 mr-2 tail-listagem-card-largura-2 md:tail-listagem-card-largura-2 lg:tail-listagem-card-largura-4 2xl:tail-listagem-card-largura-4"
                   />
                 ))}
               </ul>
@@ -52,7 +82,7 @@ const Showcase = ({ title, productList }: IShowcaseProps) => {
               <button
                 aria-label="Avançar Slider para os próximos produtos"
                 className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-prod-seta"
-                // onclick="listagemSlider('avancar')"
+                onClick={() => controls("next")}
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                   <svg

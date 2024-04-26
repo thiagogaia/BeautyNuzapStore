@@ -10,6 +10,8 @@ export interface IStoreProviderData {
   storeUri: string;
   setStoreUri: (e: string) => void;
   productList: IProductData[];
+  productListPromo: IProductData[];
+  productListRelease: IProductData[];
 }
 
 export interface ICartProviderData {
