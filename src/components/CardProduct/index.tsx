@@ -1,4 +1,3 @@
-import "./style.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProductData, IProductVariationData, IProductVariationItem } from "../../contexts/types";
