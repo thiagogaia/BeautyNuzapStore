@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import InstagramCard from "./instagramCard";
 import { StoreContext } from "../../contexts/Store";
 
@@ -41,7 +41,39 @@ const Instagram = () => {
       link: "/instagram/401/1704904821",
       img: "/1298480547.jpg",
     },
+    {
+      link: "/instagram/402/1705073465",
+      img: "/989589331.jpg",
+    },
+    {
+      link: "/instagram/401/1704904821",
+      img: "/1298480547.jpg",
+    },
   ];
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const container = useRef<HTMLUListElement>(null);
+
+  const scroll = () => {
+    if (container.current !== null) {
+      setScrollPosition(container.current.scrollLeft);
+    }
+  };
+
+  const controls = (direction: "prev" | "next") => {
+    if (container.current !== null) {
+      const ul = container.current;
+
+      if (direction === "prev" && scrollPosition > 0) {
+        ul.scrollTo(scrollPosition - ul.offsetWidth, 0);
+        setScrollPosition(scrollPosition - ul.offsetWidth);
+      }
+      if (direction === "next" && ul.scrollLeft + ul.offsetWidth !== ul.scrollWidth) {
+        ul.scrollTo(scrollPosition + ul.offsetWidth, 0);
+        setScrollPosition(scrollPosition + ul.offsetWidth);
+      }
+    }
+  };
 
   return (
     <>
@@ -56,6 +88,7 @@ const Instagram = () => {
           >
             <section className="relative flex items-center gap-2 overflow-hidden js-tail-listagem-prod">
               <button
+                onClick={() => controls("prev")}
                 aria-label="Voltar Slider para os produtos anteriores"
                 className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-inst-seta"
               >
@@ -77,13 +110,18 @@ const Instagram = () => {
                 </div>
               </button>
 
-              <ul className="flex flex-grow ml-2 overflow-x-scroll tail-listagem-inst-slider-container js-tail-listagem-prod-lista">
+              <ul
+                onScroll={scroll}
+                ref={container}
+                className="flex flex-grow ml-2 overflow-x-scroll tail-listagem-inst-slider-container js-tail-listagem-prod-lista"
+              >
                 {instagramImages.map((data, index) => (
                   <InstagramCard key={index} {...data} />
                 ))}
               </ul>
 
               <button
+                onClick={() => controls("next")}
                 aria-label="Avançar Slider para os próximos produtos"
                 className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-inst-seta"
               >

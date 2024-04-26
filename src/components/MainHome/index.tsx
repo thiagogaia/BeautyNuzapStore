@@ -9,7 +9,7 @@ import { StoreContext } from "../../contexts/Store";
 import Instagram from "../Instagram";
 
 const MainHome = () => {
-  const { productList } = useContext(StoreContext);
+  const { productList, productListPromo, productListRelease } = useContext(StoreContext);
 
   return (
     <>
@@ -22,8 +22,12 @@ const MainHome = () => {
             <div className="cont-separador cont-separador-40" />
             <PaymentMethods />
 
-            <div className="cont-separador cont-separador-40 my-4" />
-            <Showcase title="Lançamentos" productList={productList} />
+            {productListRelease.length > 0 && (
+              <>
+                <div className="cont-separador cont-separador-40 my-4" />
+                <Showcase title="Lançamentos" productList={productListRelease} />
+              </>
+            )}
 
             <div className="cont-separador cont-separador-427 cont-alt-md " />
             <div className="cont-limite cont-limite-40">
@@ -34,8 +38,12 @@ const MainHome = () => {
               </ul>
             </div>
 
-            <div className="cont-separador cont-separador-40 my-4" />
-            <Showcase title="Promoções" productList={productList} />
+            {productListPromo.length > 0 && (
+              <>
+                <div className="cont-separador cont-separador-40 my-4" />
+                <Showcase title="Promoções" productList={productListPromo} />
+              </>
+            )}
 
             <div className="cont-separador cont-separador-40 my-4" />
             <Instagram />

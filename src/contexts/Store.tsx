@@ -7,6 +7,8 @@ export const StoreContext = createContext<IStoreProviderData>({} as IStoreProvid
 const StoreProvider = ({ children }: IProviderProps) => {
   const [storeData, setStoreData] = useState({} as IStoreData);
   const [productList, setProductList] = useState([] as IProductData[]);
+  const [productListPromo, setProductListPromo] = useState([] as IProductData[]);
+  const [productListRelease, setProductListRelease] = useState([] as IProductData[]);
   const [storeUri, setStoreUri] = useState("");
   const [load, setLoad] = useState(true);
 
@@ -33,6 +35,20 @@ const StoreProvider = ({ children }: IProviderProps) => {
           setProductList(res.data);
         })
         .catch(() => {});
+
+      api
+        .get(`/products?_url=${storeUri}&_page=1&_limit=8&_product_price=promo`)
+        .then((res) => {
+          setProductListPromo(res.data);
+        })
+        .catch(() => {});
+
+      api
+        .get(`/products?_url=${storeUri}&_page=1&_limit=8&_product_type=release`)
+        .then((res) => {
+          setProductListRelease(res.data);
+        })
+        .catch(() => {});
     }
 
     return () => {};
@@ -40,7 +56,17 @@ const StoreProvider = ({ children }: IProviderProps) => {
   }, [storeUri]);
 
   return (
-    <StoreContext.Provider value={{ load, storeData, productList, storeUri, setStoreUri }}>
+    <StoreContext.Provider
+      value={{
+        load,
+        storeData,
+        productList,
+        productListPromo,
+        productListRelease,
+        storeUri,
+        setStoreUri,
+      }}
+    >
       {children}
     </StoreContext.Provider>
   );
