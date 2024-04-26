@@ -9,9 +9,6 @@ export interface IStoreProviderData {
   storeData: IStoreData;
   storeUri: string;
   setStoreUri: (e: string) => void;
-}
-
-export interface IProductsProviderData {
   productList: IProductData[];
 }
 

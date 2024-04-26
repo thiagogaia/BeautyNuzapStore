@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 import WidgetPrivacity from "../components/WidgetPrivacity";
 import WidgetWhatsapp from "../components/WidgetWhatsapp";
 import Loading from "../components/Loading";
-import ProductsProvider from "../contexts/Products";
 
 const Home: React.FC = () => {
   const { load, setStoreUri, storeData } = useContext(StoreContext);
@@ -31,9 +30,7 @@ const Home: React.FC = () => {
       ) : (
         <>
           <Header />
-          <ProductsProvider>
-            <MainHome />
-          </ProductsProvider>
+          <MainHome />
           {whatsapp?.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
           <WidgetPrivacity />
           <Footer />

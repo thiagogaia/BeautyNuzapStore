@@ -4,10 +4,10 @@ import Slider from "./slider";
 import PaymentMethods from "./paymentMethods";
 import CardProduct from "../CardProduct";
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/Products";
+import { StoreContext } from "../../contexts/Store";
 
 const MainHome = () => {
-  const { productList } = useContext(ProductsContext);
+  const { productList } = useContext(StoreContext);
 
   return (
     <>
@@ -17,7 +17,7 @@ const MainHome = () => {
             <div className="cont-separador cont-separador-120  esconder-dk esconder-mn " />
             <Slider />
 
-            <div className="cont-separador cont-separador-40  " />
+            <div className="cont-separador cont-separador-40" />
             <PaymentMethods />
 
             <div className="cont-separador cont-separador-427 cont-alt-md " />
