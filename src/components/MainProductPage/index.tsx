@@ -7,8 +7,10 @@ import Gallery from "./gallery";
 import ProductVariations from "./productVariations";
 import Loading from "../Loading";
 import { CartContext } from "../../contexts/cart";
+import { StoreContext } from "../../contexts/Store";
 
 const MainProductPage = () => {
+  const { storeData } = useContext(StoreContext);
   const { productUri, storeUri } = useParams();
 
   const [productData, setProductData] = useState({} as IProductData);
@@ -18,6 +20,8 @@ const MainProductPage = () => {
   const [variationItem, setVariationItem] = useState("");
   const [variationItemId, setVariationItemId] = useState("");
   const [buyModal, setBuyModal] = useState<boolean>(false);
+
+  const categoryData = storeData.business.categories.find((e) => e.name === productData.category);
 
   const modal = useRef<HTMLDivElement>(null);
   const buyButton = useRef<HTMLButtonElement>(null);
@@ -130,9 +134,11 @@ const MainProductPage = () => {
                   <div>
                     <span
                       style={{ cursor: "pointer" }}
-                      onClick={() => (window.location.href = window.location.origin + "/" + "")}
+                      onClick={() =>
+                        (window.location.href = `${window.location.origin}/${storeUri}/loja/${categoryData?.uri}`)
+                      }
                     >
-                      Todos Vestidos Longos
+                      {categoryData?.uri}
                     </span>
                   </div>
                   <div className="mt-0.5">
@@ -152,7 +158,9 @@ const MainProductPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <a href={`/${storeUri}/produto/${productData.uri}`}>{productData.name}</a>
+                    <a href={`/${storeUri}/produto/${productData.uri}`}>
+                      {productData.name.toLocaleLowerCase()}
+                    </a>
                   </div>
                 </div>
               </div>
