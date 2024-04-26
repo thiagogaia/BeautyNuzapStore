@@ -131,7 +131,7 @@ const Header = () => {
                         <a
                           href={social_links.youtube}
                           className="block p-1 ev-topo-social-link  ev-topo-social-dados-link"
-                          title="tiktok"
+                          title="youtube"
                           rel="external"
                           target="_blank"
                         >
