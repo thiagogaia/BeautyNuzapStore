@@ -1,4 +1,4 @@
-const MainPasswordSend = () => {
+const MainPasswordSent = () => {
   return (
     <>
       <main id="principal" className="principal tail-principal ev-principal">
@@ -61,4 +61,4 @@ const MainPasswordSend = () => {
   );
 };
 
-export default MainPasswordSend;
+export default MainPasswordSent;

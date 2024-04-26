@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 
 import Loading from "../components/Loading";
 import Header from "../components/Header";
-import MainPasswordSend from "../components/MainPasswordSend";
+import MainPasswordSent from "../components/MainPasswordSent";
 import WidgetWhatsapp from "../components/WidgetWhatsapp";
 import Footer from "../components/Footer";
 
-const PasswordSend = () => {
+const PasswordSent = () => {
   const { load, setStoreUri, storeData } = useContext(StoreContext);
   const { storeUri } = useParams();
   const [whatsapp, setWhatsapp] = useState("");
@@ -29,7 +29,7 @@ const PasswordSend = () => {
       ) : (
         <>
           <Header />
-          <MainPasswordSend />
+          <MainPasswordSent />
           {whatsapp?.length > 0 && <WidgetWhatsapp numero={whatsapp} />}
           <Footer />
         </>
@@ -38,4 +38,4 @@ const PasswordSend = () => {
   );
 };
 
-export default PasswordSend;
+export default PasswordSent;

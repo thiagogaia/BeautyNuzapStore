@@ -6,7 +6,7 @@ import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ForgotPassword from "../pages/ForgotPassword";
-import PasswordSend from "../pages/PasswordSend";
+import PasswordSent from "../pages/PasswordSent";
 
 const Routes = () => {
   return (
@@ -19,7 +19,7 @@ const Routes = () => {
       <Route path="/:storeUri/login" element={<Login />} />
       <Route path="/:storeUri/cadastro" element={<Register />} />
       <Route path="/:storeUri/senha" element={<ForgotPassword />} />
-      <Route path="/:storeUri/senha-enviada" element={<PasswordSend />} />
+      <Route path="/:storeUri/senha-enviada" element={<PasswordSent />} />
     </Switch>
   );
 };
