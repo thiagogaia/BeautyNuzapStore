@@ -26,12 +26,15 @@ const MainForgotPassword = () => {
                       />
                     </svg>
                     <span className="font-semibold">Voltar</span>
-                  </a>{" "}
+                  </a>
                 </div>
                 <div className="grid gap-4">
                   <h1 className="mb-0 text-2xl tt">
                     <span className="tt-texto">Recuperar senha</span>
                   </h1>
+                  <div className="escondido w-full p-2 text-sm text-red-700 bg-red-100 border border-red-400 border-dashed rounded-lg">
+                    E-mail não localizado
+                  </div>
                   <form
                     action="/senha"
                     autoComplete="off"
@@ -78,7 +81,7 @@ const MainForgotPassword = () => {
                           </div>
                         </div>
                       </div>
-                      <div id="senhaEmail" className="grid gap-6 lg:gap-2 escondido">
+                      <div id="senhaEmail" className="escondido grid gap-6 lg:gap-2">
                         <div className="w-full border-t border-gray-400 border-dashed lg:mx-1" />
                         <div
                           className="flex flex-col flex-grow gap-1 border lg:rounded-lg lg:hover:bg-yellow-50 lg:px-1 lg:py-2 js-tail-form-geral  border-transparent form-div-usuario-email"
@@ -88,7 +91,7 @@ const MainForgotPassword = () => {
                             className="block text-sm font-medium text-gray-800"
                             htmlFor="UsuarioEmail"
                           >
-                            Digite seu e-mail{" "}
+                            Digite seu e-mail
                           </label>
                           <div className="relative flex gap-1 js-tail-form-text-lista">
                             <input
