@@ -3756,6 +3756,13 @@
     border-top: 1px solid #e3e3e5 !important
 }
 
+@media only screen and (min-width: 1000px) and (max-width: 1249px) {
+    #principal-limite {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
 @media (min-width: 1024px) {
     .tail-busca-filtro-details-varis {
         border-top: none !important

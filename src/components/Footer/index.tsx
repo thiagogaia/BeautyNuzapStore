@@ -1,5 +1,10 @@
+import { useContext } from "react";
 import "./style.css";
+import { StoreContext } from "../../contexts/Store";
+
 const Footer = () => {
+  const { storeUri, storeData } = useContext(StoreContext);
+
   return (
     <>
       <footer className="bg-white text-center text-xs tail-cor tail-rodape-fonte mt-10 tail-rodape js-appec-escondido">
@@ -22,38 +27,11 @@ const Footer = () => {
                       <ul className="list-inside list-none lg:list-disc json-rodape-borda-lista json-rodape-menu_1-borda-dados_lista json-rodape-fundo-lista json-rodape-menu_1-fundo-dados_lista json-rodape-cores-lista json-rodape-menu_1-cores-dados_lista grid gap-2">
                         <li className="pl-px json-rodape-borda-item json-rodape-menu_1-borda-dados_item json-rodape-fundo-item json-rodape-menu_1-fundo-dados_item json-rodape-cores-item json-rodape-menu_1-cores-dados_item">
                           <a
-                            href="/"
+                            href={`/${storeUri}`}
                             rel="next"
                             className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_1-borda-dados_link json-rodape-fundo-link json-rodape-menu_1-fundo-dados_link json-rodape-cores-link json-rodape-menu_1-cores-dados_link"
                           >
                             <span className="inline">Home </span>
-                          </a>
-                        </li>
-                        <li className="pl-px json-rodape-borda-item json-rodape-menu_1-borda-dados_item json-rodape-fundo-item json-rodape-menu_1-fundo-dados_item json-rodape-cores-item json-rodape-menu_1-cores-dados_item">
-                          <a
-                            href="/pag/1/sobre-nos"
-                            rel="next"
-                            className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_1-borda-dados_link json-rodape-fundo-link json-rodape-menu_1-fundo-dados_link json-rodape-cores-link json-rodape-menu_1-cores-dados_link"
-                          >
-                            <span className="inline">Sobre </span>
-                          </a>
-                        </li>
-                        <li className="pl-px json-rodape-borda-item json-rodape-menu_1-borda-dados_item json-rodape-fundo-item json-rodape-menu_1-fundo-dados_item json-rodape-cores-item json-rodape-menu_1-cores-dados_item">
-                          <a
-                            href="/pag/duvidas"
-                            rel="next"
-                            className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_1-borda-dados_link json-rodape-fundo-link json-rodape-menu_1-fundo-dados_link json-rodape-cores-link json-rodape-menu_1-cores-dados_link"
-                          >
-                            <span className="inline">Dúvidas </span>
-                          </a>
-                        </li>
-                        <li className="pl-px json-rodape-borda-item json-rodape-menu_1-borda-dados_item json-rodape-fundo-item json-rodape-menu_1-fundo-dados_item json-rodape-cores-item json-rodape-menu_1-cores-dados_item">
-                          <a
-                            href="/pag/contato"
-                            rel="next"
-                            className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_1-borda-dados_link json-rodape-fundo-link json-rodape-menu_1-fundo-dados_link json-rodape-cores-link json-rodape-menu_1-cores-dados_link"
-                          >
-                            <span className="inline">Contato </span>
                           </a>
                         </li>
                       </ul>
@@ -114,7 +92,7 @@ const Footer = () => {
                     <ul className="flex gap-2 justify-center lg:justify-start">
                       <li className="border border-solid border-1 border-black border-opacity-10 rounded">
                         <a
-                          href="//www.facebook.com/joelikoficial"
+                          href={storeData.business.social_links.facebook}
                           className="p-1 block"
                           title="facebook"
                           rel="external"
@@ -137,7 +115,7 @@ const Footer = () => {
                       </li>
                       <li className="border border-solid border-1 border-black border-opacity-10 rounded">
                         <a
-                          href="//www.instagram.com/joelikoficial"
+                          href={storeData.business.social_links.instagram}
                           className="p-1 block"
                           title="instagram"
                           rel="external"
@@ -164,18 +142,23 @@ const Footer = () => {
                       </li>
                       <li className="border border-solid border-1 border-black border-opacity-10 rounded">
                         <a
-                          href="//tiktok.com/@joelikoficial/"
+                          href={storeData.business.social_links.youtube}
                           className="p-1 block"
-                          title="tiktok"
+                          title="youtube"
                           rel="external"
                           target="_blank"
                         >
                           <svg
-                            className="h-4 fill-current text-black tail-rodape-social-vetor-tiktok json-rodape-social-vetor"
-                            viewBox="0 0 32 32"
-                            xmlns="//www.w3.org/2000/svg"
+                            stroke="currentColor"
+                            fill="currentColor"
+                            strokeWidth="0"
+                            viewBox="0 0 576 512"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{ fontSize: "1.2rem" }}
                           >
-                            <path d="M16.708 0.027c1.745-0.027 3.48-0.011 5.213-0.027 0.105 2.041 0.839 4.12 2.333 5.563 1.491 1.479 3.6 2.156 5.652 2.385v5.369c-1.923-0.063-3.855-0.463-5.6-1.291-0.76-0.344-1.468-0.787-2.161-1.24-0.009 3.896 0.016 7.787-0.025 11.667-0.104 1.864-0.719 3.719-1.803 5.255-1.744 2.557-4.771 4.224-7.88 4.276-1.907 0.109-3.812-0.411-5.437-1.369-2.693-1.588-4.588-4.495-4.864-7.615-0.032-0.667-0.043-1.333-0.016-1.984 0.24-2.537 1.495-4.964 3.443-6.615 2.208-1.923 5.301-2.839 8.197-2.297 0.027 1.975-0.052 3.948-0.052 5.923-1.323-0.428-2.869-0.308-4.025 0.495-0.844 0.547-1.485 1.385-1.819 2.333-0.276 0.676-0.197 1.427-0.181 2.145 0.317 2.188 2.421 4.027 4.667 3.828 1.489-0.016 2.916-0.88 3.692-2.145 0.251-0.443 0.532-0.896 0.547-1.417 0.131-2.385 0.079-4.76 0.095-7.145 0.011-5.375-0.016-10.735 0.025-16.093z" />
+                            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
                           </svg>
                         </a>
                       </li>
@@ -369,7 +352,6 @@ const Footer = () => {
                   <div className="w-full lg:w-auto">
                     Desenvolvimento:
                     <a href="//www.nuzap.com.br/" target="_blank" rel="external">
-                      {" "}
                       Nuzap Agency
                     </a>
                     <span className="hidden lg:inline"> - </span>

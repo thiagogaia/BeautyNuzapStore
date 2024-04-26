@@ -1,4 +1,3 @@
-import "./style.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProductData, IProductVariationData, IProductVariationItem } from "../../contexts/types";
@@ -10,7 +9,10 @@ interface Props extends IProductData {
 const CardProduct = ({ className, ...data }: Props) => {
   const [variations, setVariations] = useState<IProductVariationData[]>([]);
   const [variationItens, setVariationItens] = useState<IProductVariationItem[]>([]);
+  const [imgsLoaded, setImgsLoaded] = useState(false);
   const { storeUri } = useParams();
+
+  const checkPricePromo = Number(data.price_promo) < Number(data.price) && Number(data.price_promo);
 
   useEffect(() => {
     if (data.variation_data.length > 0) {
@@ -24,6 +26,25 @@ const CardProduct = ({ className, ...data }: Props) => {
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const loadImage = (image: string) => {
+      return new Promise((resolve, reject) => {
+        const loadImg = new Image();
+        loadImg.src = image;
+
+        loadImg.onload = () => resolve(image);
+
+        loadImg.onerror = (err) => reject(err);
+      });
+    };
+
+    loadImage(data.imgUrl).then(() => setImgsLoaded(true));
+
+    // Promise.all([data.uri].map((image) => loadImage(image))).then(() => setImgsLoaded(true));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <li
@@ -51,26 +72,34 @@ const CardProduct = ({ className, ...data }: Props) => {
               />
               <img
                 loading="lazy"
-                src={data.imgUrl}
+                src={
+                  imgsLoaded
+                    ? data.imgUrl
+                    : "https://storage.ktalogue.com.br/uploads/1/loading_cart.gif"
+                }
                 alt={data.name}
                 className="absolute w-full h-full tail-listagem-prod-imagem-1 object-cover"
               />
             </picture>
-            <picture>
-              <source
-                srcSet={`${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 200w, ${
-                  data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
-                } 400w, ${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 600w`}
-                sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
-                type="image/*"
-              />
-              <img
-                loading="lazy"
-                src={`${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl}`}
-                alt={data.name}
-                className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
-              />
-            </picture>
+            {imgsLoaded && (
+              <picture>
+                <source
+                  srcSet={`${
+                    data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
+                  } 200w, ${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl} 400w, ${
+                    data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl
+                  } 600w`}
+                  sizes="(max-width: 575px) 200px, (max-width: 991px) 400px, 600px"
+                  type="image/*"
+                />
+                <img
+                  loading="lazy"
+                  src={`${data.gallery.length > 0 ? data.gallery[0].imgUrl : data.imgUrl}`}
+                  alt={data.name}
+                  className="absolute w-full h-full transition-opacity opacity-0 group-hover:opacity-100 tail-listagem-prod-imagem-2 object-cover"
+                />
+              </picture>
+            )}
             {/* discont */}
             {data.price_promo !== null && Number(data.price_promo) < Number(data.price) && (
               <div
@@ -100,19 +129,30 @@ const CardProduct = ({ className, ...data }: Props) => {
                     data-seta-posicao="direita"
                   >
                     <span className="mr-0.5">
-                      {Number(data.price).toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
+                      {Number(checkPricePromo ? data.price_promo : data.price).toLocaleString(
+                        "pt-BR",
+                        {
+                          style: "currency",
+                          currency: "BRL",
+                        }
+                      )}
                     </span>
                   </ins>
                   {/* old price */}
-                  <del
-                    className="hidden flex items-center text-xs text-center text-gray-500 tail-listagem-prod-preco-de ev-listagem-prod-preco-de"
-                    data-seta-posicao="direita"
-                  >
-                    <span className="mr-0.5">R$ 329,90</span>
-                  </del>
+                  {Boolean(checkPricePromo) && (
+                    <del
+                      className="flex items-center text-xs text-center text-gray-500 tail-listagem-prod-preco-de ev-listagem-prod-preco-de"
+                      data-seta-posicao="direita"
+                    >
+                      <span className="mr-0.5">
+                        {Number(data.price).toLocaleString("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                        })}
+                      </span>
+                    </del>
+                  )}
+
                   {/* parcels */}
                   <div className=" flex flex-row flex-wrap gap-1 items-center divide-x divide-solid divide-gray-400 tail-listagem-prod-precos2">
                     <div
@@ -145,12 +185,14 @@ const CardProduct = ({ className, ...data }: Props) => {
               >
                 <span>Consulta</span>
               </div>
-              <div
-                className="hidden flex items-center text-base font-bold text-gray-500 tail-listagem-prod-preco-esgotado ev-listagem-prod-preco-esgotado"
-                data-seta-posicao="direita"
-              >
-                <span>Esgotado</span>
-              </div>
+              {+data.stock <= 0 && (
+                <div
+                  className="hidden flex items-center text-base font-bold text-gray-500 tail-listagem-prod-preco-esgotado ev-listagem-prod-preco-esgotado"
+                  data-seta-posicao="direita"
+                >
+                  <span>Esgotado</span>
+                </div>
+              )}
             </div>
           </div>
         </a>
@@ -163,7 +205,7 @@ const CardProduct = ({ className, ...data }: Props) => {
                   <li
                     key={uuidv4()}
                     className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
-                    title="38"
+                    title={variation.name}
                   >
                     {variation.variation_item_name}
                   </li>

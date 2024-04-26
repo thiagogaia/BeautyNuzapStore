@@ -33,7 +33,10 @@ const Slider = () => {
                 >
                   {slides.map((slide) => (
                     <SwiperSlide key={slide.id}>
-                      <a href={slide.link}>
+                      <a
+                        href={slide.link}
+                        style={{ pointerEvents: slide.link.length > 0 ? "auto" : "none" }}
+                      >
                         <picture>
                           <source
                             srcSet={slide.image_mobile}
@@ -91,7 +94,10 @@ const Slider = () => {
                 >
                   {slides.map((slide) => (
                     <SwiperSlide key={slide.id}>
-                      <a href={slide.link}>
+                      <a
+                        href={slide.link}
+                        style={{ pointerEvents: slide.link.length > 0 ? "auto" : "none" }}
+                      >
                         <picture>
                           <source
                             srcSet={slide.image_desktop}

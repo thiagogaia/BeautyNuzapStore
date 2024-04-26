@@ -9,20 +9,32 @@ export interface IStoreProviderData {
   storeData: IStoreData;
   storeUri: string;
   setStoreUri: (e: string) => void;
-}
-
-export interface IProductsProviderData {
   productList: IProductData[];
 }
 
 export interface ICartProviderData {
   cart: ICartProductData[];
-  addToCart: (e: IProductData) => void;
+  addToCart: (e: IProductData | ICartProductData) => void;
   removeToCart: (e: string) => void;
   excludeProduct: (e: string) => void;
 }
 
-export interface ICartProductData extends IProductData {
+export interface ICartProductData {
+  id: string;
+  name: string;
+  price: string;
+  image: string;
+  imgUrl: string;
+  category: string;
+  code: string;
+  uri: string;
+  price_promo: string;
+  stock: string;
+  variation: string;
+  variation_name: string;
+  variation_id: string;
+  variation_item_id: string;
+  discount: number;
   quantity: number;
 }
 

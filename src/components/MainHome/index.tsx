@@ -4,10 +4,12 @@ import Slider from "./slider";
 import PaymentMethods from "./paymentMethods";
 import CardProduct from "../CardProduct";
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/Products";
+import Showcase from "../Showcase";
+import { StoreContext } from "../../contexts/Store";
+import Instagram from "../Instagram";
 
 const MainHome = () => {
-  const { productList } = useContext(ProductsContext);
+  const { productList } = useContext(StoreContext);
 
   return (
     <>
@@ -17,8 +19,11 @@ const MainHome = () => {
             <div className="cont-separador cont-separador-120  esconder-dk esconder-mn " />
             <Slider />
 
-            <div className="cont-separador cont-separador-40  " />
+            <div className="cont-separador cont-separador-40" />
             <PaymentMethods />
+
+            <div className="cont-separador cont-separador-40 my-4" />
+            <Showcase title="Lançamentos" productList={productList} />
 
             <div className="cont-separador cont-separador-427 cont-alt-md " />
             <div className="cont-limite cont-limite-40">
@@ -28,6 +33,12 @@ const MainHome = () => {
                 ))}
               </ul>
             </div>
+
+            <div className="cont-separador cont-separador-40 my-4" />
+            <Showcase title="Promoções" productList={productList} />
+
+            <div className="cont-separador cont-separador-40 my-4" />
+            <Instagram />
           </div>
         </article>
       </main>

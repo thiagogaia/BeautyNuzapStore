@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import InstagramCard from "./instagramCard";
+import { StoreContext } from "../../contexts/Store";
 
 const Instagram = () => {
+  const { storeData } = useContext(StoreContext);
+  const instagramUrl = storeData.business.social_links.instagram;
+  const invlidStrings = ["", "https:", "www.instagram.com"];
+  const instagramUserName = instagramUrl.split("/").filter((e) => !invlidStrings.includes(e))[0];
+
   const instagramImages = [
     {
       link: "/instagram/404/1707160798",
@@ -18,7 +25,24 @@ const Instagram = () => {
       link: "/instagram/401/1704904821",
       img: "/1298480547.jpg",
     },
+    {
+      link: "/instagram/404/1707160798",
+      img: "/3586542259.jpg",
+    },
+    {
+      link: "/instagram/403/1706724600",
+      img: "/2707333948.jpg",
+    },
+    {
+      link: "/instagram/402/1705073465",
+      img: "/989589331.jpg",
+    },
+    {
+      link: "/instagram/401/1704904821",
+      img: "/1298480547.jpg",
+    },
   ];
+
   return (
     <>
       <div className="cont-limite cont-limite-65 cont-pdd-pq ">
@@ -34,7 +58,6 @@ const Instagram = () => {
               <button
                 aria-label="Voltar Slider para os produtos anteriores"
                 className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-inst-seta"
-                // onclick="listagemSlider('voltar');"
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-inst-seta-interno ev-listagem-seta-interno">
                   <svg
@@ -63,7 +86,6 @@ const Instagram = () => {
               <button
                 aria-label="Avançar Slider para os próximos produtos"
                 className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-inst-seta"
-                // onclick="listagemSlider('avancar')"
               >
                 <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-inst-seta-interno ev-listagem-seta-interno">
                   <svg
@@ -86,7 +108,7 @@ const Instagram = () => {
 
             <div className=" mt-2">
               <a
-                href="https://www.instagram.com/joelikoficial/"
+                href={instagramUrl}
                 className="flex items-center justify-center gap-2 mx-auto divide-x divide-gray-300 w-max divide-solid"
                 target="_blank"
               >
@@ -95,7 +117,7 @@ const Instagram = () => {
                   className="flex-shrink-0"
                   alt="Ícone do Instagram"
                 />
-                <span className="pl-2">Siga @joelikoficial</span>
+                <span className="pl-2">Siga @{instagramUserName}</span>
               </a>
             </div>
           </li>

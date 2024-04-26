@@ -9,6 +9,7 @@ import Loading from "../Loading";
 
 import { StoreContext } from "../../contexts/Store";
 import { IProductData } from "../../contexts/types";
+import Pagination from "./pagination";
 
 const MainProductList = () => {
   const [URLSearchParams] = useSearchParams();
@@ -24,21 +25,31 @@ const MainProductList = () => {
   const orderBy = URLSearchParams.get("order");
   const maxPrice = URLSearchParams.get("price");
   const variations = URLSearchParams.get("variations");
+  const variationItems = URLSearchParams.get("variationItems");
   const categories = URLSearchParams.get("categories");
 
   useEffect(() => {
     setLoad(true);
 
-    const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}&_order_by=name_asc`;
-    const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}&_order_by=name_asc`;
+    const categoryUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_category_id=${categoryId}`;
+    const searchUrl = `products?_url=${storeUri}&_page=${page}&_limit=12&_name_like=${productSearched}`;
+
     const filterUrl = `products?_url=${storeUri}&_page=${page}&_limit=12${
-      categories !== null ? `&_categories=${categories}` : ""
-    }&_order_by=${orderBy}${variations !== null ? `&_variations=${variations}` : ""}${
+      productSearched !== undefined ? `&_name_like=${productSearched}` : ""
+    }${
+      categories !== null
+        ? `&_categories=${categories}`
+        : categoryId !== undefined
+        ? `&_category_id=${categoryId}`
+        : ""
+    }${orderBy !== "novidades" ? `&_order_by=${orderBy}` : ""}${
+      variations !== null ? `&_variations=${variations}` : ""
+    }${variationItems !== null ? `&_variation_items=${variationItems}` : ""}${
       maxPrice !== null ? `&_maxprice=${maxPrice}` : ""
     }`;
 
     api
-      .get(orderBy !== null ? filterUrl : productSearched === undefined ? categoryUrl : searchUrl)
+      .get(orderBy !== null ? filterUrl : productSearched !== undefined ? searchUrl : categoryUrl)
       .then((res) => {
         setProductList(res.data);
         setLoad(false);
@@ -46,12 +57,55 @@ const MainProductList = () => {
       .catch(() => {});
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [orderBy, maxPrice, variations]);
+  }, [categories, orderBy, maxPrice, variations, variationItems]);
 
   return (
     <>
       <div id="principal-limite" className="principal-limite">
         <article id="conteudo" className="conteudo">
+          <div className="relative">
+            <section itemProp="breadcrumb" className="mt-6 tail-busca-migalhas js-appec-escondido">
+              <div className="text-xs">
+                <div className="flex flex-wrap items-start justify-start w-full gap-1 text-center">
+                  <div>
+                    <a href={"/" + storeUri}>Home</a>
+                  </div>
+
+                  <div className="mt-0.5">
+                    <svg
+                      className="w-3 h-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
+                  </div>
+
+                  <div>
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        (window.location.href = categoryUri
+                          ? window.location.origin + "/" + `${storeUri}/loja/${categoryUri}`
+                          : window.location.origin + "/" + `${storeUri}/busca/${productSearched}`)
+                      }
+                      className="tail-busca-migalhas-link"
+                    >
+                      {categoryUri ? categoryUri : "Busca"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
           <div className="flex flex-wrap justify-end gap-4 ">
             <div className="flex-none flex items-center justify-end lg:w-full js-appec-escondido">
               <div className="flex items-center justify-center gap-2 lg:justify-end">
@@ -78,6 +132,21 @@ const MainProductList = () => {
                   </summary>
                   <div className="absolute z-10 py-2 text-gray-700 bg-white border border-gray-300 border-solid rounded-lg shadow-2xl w-36 tail-busca-tag-lista lg:-ml-20">
                     <label
+                      htmlFor="FiltroNovidades"
+                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                    >
+                      <div
+                        style={{
+                          backgroundColor:
+                            orderBy === null || orderBy === "novidades" ? "black" : "white",
+                        }}
+                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                      >
+                        <span className="sr-only">Ordenação ativa</span>
+                      </div>
+                      <span>Novidades</span>
+                    </label>
+                    <label
                       htmlFor="FiltroOrdenarnomeAsc"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
@@ -89,7 +158,7 @@ const MainProductList = () => {
                       </div>
                       <span>Nome A - Z</span>
                     </label>
-                    <label
+                    {/* <label
                       htmlFor="FiltroOrdenarnomeDesc"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
                     >
@@ -100,7 +169,7 @@ const MainProductList = () => {
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
                       <span>Nome Z - A</span>
-                    </label>
+                    </label> */}
                     <label
                       htmlFor="FiltroOrdenarbarato"
                       className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
@@ -136,6 +205,7 @@ const MainProductList = () => {
               maxPrice={maxPrice}
               orderBy={orderBy}
               variationList={variations}
+              variationItemList={variationItems}
               categoryList={categories}
             />
 
@@ -165,77 +235,12 @@ const MainProductList = () => {
 
               {/* pagination  */}
               {(productList.length >= 12 || page > 1) && (
-                <div className="">
-                  <div className="flex justify-center gap-2 mx-2 tail-paginacao-manual ">
-                    <button
-                      style={{ cursor: page === 1 ? "auto" : "pointer" }}
-                      className="w-8 h-8 grid place-content-center rounded-lg text-gray-600 transition-colors hover:bg-gray-200 tail-paginacao-btn"
-                    >
-                      <a
-                        href={`?page=${page - 1}`}
-                        style={{ pointerEvents: page === 1 ? "none" : "auto" }}
-                      >
-                        <span className="sr-only">Anterior</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="h-4 mr-0.5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 19.5L8.25 12l7.5-7.5"
-                          />
-                        </svg>
-                      </a>
-                    </button>
-
-                    {/* pages */}
-                    {[...Array(6)].map((_, index) => (
-                      <a
-                        key={index}
-                        href={`?page=${index + 1}`}
-                        className={
-                          index + 1 === page
-                            ? "w-8 h-8 grid place-content-center rounded-lg bg-black text-white font-bold transition-opacity hover:opacity-70 ev-paginacao-btn-ativo tail-paginacao-btn-ativo"
-                            : "w-8 h-8 grid place-content-center rounded-lg text-gray-600 transition-colors hover:bg-gray-200 tail-paginacao-btn"
-                        }
-                        data-seta-posicao="cima"
-                      >
-                        {index + 1}
-                      </a>
-                    ))}
-
-                    <button
-                      style={{ cursor: productList.length < 12 ? "auto" : "pointer" }}
-                      className="w-8 h-8 grid place-content-center rounded-lg text-gray-600 transition-colors hover:bg-gray-200 tail-paginacao-btn"
-                    >
-                      <a
-                        href={`?page=${page + 1}`}
-                        style={{ pointerEvents: productList.length < 12 ? "none" : "auto" }}
-                      >
-                        <span className="sr-only">Próximo</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="h-4 ml-0.5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
-                      </a>
-                    </button>
-                  </div>
-                </div>
+                <Pagination
+                  page={page}
+                  productListLength={productList.length}
+                  maxPagesExibition={3}
+                  totalPages={100}
+                />
               )}
             </div>
           </div>
