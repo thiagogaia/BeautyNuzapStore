@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
+
 const MainMyData = () => {
+  const { storeUri } = useContext(StoreContext);
+
   return (
     <main id="principal" className="principal tail-principal ev-principal">
       <div id="principal-limite" className="principal-limite">
@@ -6,9 +12,9 @@ const MainMyData = () => {
           <div className="grid w-full gap-4 mt-8">
             <div className="grid gap-8 px-1 mx-auto lg:max-w-xl md:p-4">
               <div>
-                <a
-                  href="/conta"
-                  className="flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
+                <span
+                  onClick={() => formatAndFollowUrl(`${storeUri}/conta`)}
+                  className="cursor-pointer flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
                 >
                   <svg
                     xmlns="//www.w3.org/2000/svg"
@@ -25,14 +31,13 @@ const MainMyData = () => {
                     />
                   </svg>
                   <span className="font-semibold">Voltar</span>
-                </a>
+                </span>
               </div>
               <div className="grid gap-4">
                 <h1 className="mb-0 text-2xl tt">
                   <span className="tt-texto text-2xl">Meus Dados</span>
                 </h1>
                 <form
-                  action="/conta/cadastro"
                   autoComplete="on"
                   method="post"
                   className="grid w-full gap-6 lg:gap-2 js-clie-form"
@@ -471,33 +476,12 @@ const MainMyData = () => {
                 </form>
               </div>
               <div>
-                <a
+                <span
                   className="float-right mt-2 text-xs text-right underline"
-                  href="/conta/encerrar"
-                  //   onclick="return confirm('Tem certeza que deseja apagar?');"
+                  onClick={() => formatAndFollowUrl(`${storeUri}/conta/encerrar`)}
                 >
                   Solicitar a exclusão da minha conta
-                </a>
-                <a
-                  href="/conta"
-                  className="flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
-                >
-                  <svg
-                    xmlns="//www.w3.org/2000/svg"
-                    className="h-3 lg:h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                    />
-                  </svg>
-                  <span className="font-semibold">Voltar</span>
-                </a>
+                </span>
               </div>
             </div>
           </div>

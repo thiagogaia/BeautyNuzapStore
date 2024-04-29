@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
+
 const MainLogin = () => {
+  const { storeUri } = useContext(StoreContext);
+
   return (
     <>
       <main id="principal" className="principal tail-principal ev-principal">
@@ -69,12 +75,12 @@ const MainLogin = () => {
                           />
                         </div>
                       </div>
-                      <a
-                        href="/senha"
-                        className="block text-sm font-medium text-gray-800 underline lg:px-1 tail-link-padrao"
+                      <button
+                        onClick={() => formatAndFollowUrl(`${storeUri}/senha`)}
+                        className="block text-sm text-start font-medium text-gray-800 underline lg:px-1 tail-link-padrao"
                       >
                         Esqueceu sua senha?
-                      </a>
+                      </button>
                       <input
                         type="hidden"
                         data-rotulo=""
@@ -83,11 +89,13 @@ const MainLogin = () => {
                         className=""
                       />
                     </div>
+
                     <div className="text-center">
                       <div className="relative">
                         <div className="absolute z-10 w-full h-full text-center bg-white top js-login-entrar-loader opacity-90 escondido">
                           <div className="m-auto loader" />
                         </div>
+
                         <div className="z-0 grid gap-2 text-center justify-items-center js-login-entrar-campos">
                           <div>
                             <div
@@ -150,15 +158,15 @@ const MainLogin = () => {
                               target="_blank"
                             >
                               Política de Privacidade
-                            </a>
-                            e
+                            </a>{" "}
+                            e{" "}
                             <a
                               href="https://policies.google.com/terms"
                               className="text-blue-600 hover:underline tail-link-padrao"
                               rel="external"
                               target="_blank"
                             >
-                              Termos de serviço
+                              Termos de serviço{" "}
                             </a>
                             se aplicam.
                           </div>
@@ -167,6 +175,7 @@ const MainLogin = () => {
                     </div>
                   </form>
                   <div className="w-full border-t border-gray-400 border-dashed lg:mx-1" />
+                  {/* register */}
                   <div className="grid gap-6 lg:gap-6">
                     <div className="grid gap-6 text-center lg:gap-2">
                       <h2 className="text-lg font-semibold lg:text-base lg:px-1 lg:py-2">
@@ -178,12 +187,12 @@ const MainLogin = () => {
                       </div>
                     </div>
                     <div className="text-center">
-                      <a
-                        href="/cadastro"
+                      <button
+                        onClick={() => formatAndFollowUrl(`${storeUri}/cadastro`)}
                         className="w-full text-sm botao botao-secundario lg:w-80 lg:text-base lg:px-12 lg:py-3"
                       >
                         Criar Conta
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

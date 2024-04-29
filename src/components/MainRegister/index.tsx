@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
+
 const MainRegister = () => {
+  const { storeUri } = useContext(StoreContext);
+
   return (
     <>
       <main id="principal" className="principal tail-principal ev-principal">
@@ -7,8 +13,8 @@ const MainRegister = () => {
             <div className="grid w-full gap-4 mt-8">
               <div className="grid gap-8 px-1 mx-auto lg:max-w-xl md:p-4">
                 <div>
-                  <a
-                    href="/login"
+                  <button
+                    onClick={() => formatAndFollowUrl(`${storeUri}/login`)}
                     className="flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
                   >
                     <svg
@@ -26,7 +32,7 @@ const MainRegister = () => {
                       />
                     </svg>
                     <span className="font-semibold">Já tenho login e senha</span>
-                  </a>
+                  </button>
                 </div>
                 <div className="grid gap-4">
                   <h1 className="mb-0 text-2xl tt">

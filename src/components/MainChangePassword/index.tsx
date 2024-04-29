@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
+
 const MainChangePassword = () => {
+  const { storeUri } = useContext(StoreContext);
+
   return (
     <main id="principal" className="principal tail-principal ev-principal">
       <div id="principal-limite" className="principal-limite">
@@ -7,8 +13,8 @@ const MainChangePassword = () => {
             <div className="grid gap-8">
               <div>
                 <a
-                  href="/conta"
-                  className="flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
+                  onClick={() => formatAndFollowUrl(`${storeUri}/conta`)}
+                  className="cursor-pointer flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
                 >
                   <svg
                     xmlns="//www.w3.org/2000/svg"

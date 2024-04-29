@@ -1,4 +1,12 @@
+import { useContext, useState } from "react";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
+
 const MainForgotPassword = () => {
+  const { storeUri } = useContext(StoreContext);
+
+  const [method, setMethod] = useState("");
+
   return (
     <>
       <main id="principal" className="principal tail-principal ev-principal">
@@ -7,8 +15,8 @@ const MainForgotPassword = () => {
             <div className="grid w-full gap-1 px-1 mx-auto mt-8 lg:max-w-xl md:p-4">
               <div className="grid gap-8">
                 <div>
-                  <a
-                    href="/login"
+                  <button
+                    onClick={() => formatAndFollowUrl(`${storeUri}/login`)}
                     className="flex items-center inline-block gap-1 px-4 py-2 bg-gray-100 rounded-lg w-max hover:bg-gray-200 tail-btn-voltar js-appec-escondido"
                   >
                     <svg
@@ -26,7 +34,7 @@ const MainForgotPassword = () => {
                       />
                     </svg>
                     <span className="font-semibold">Voltar</span>
-                  </a>
+                  </button>
                 </div>
                 <div className="grid gap-4">
                   <h1 className="mb-0 text-2xl tt">
@@ -54,9 +62,9 @@ const MainForgotPassword = () => {
                               data-rotulo=""
                               id="UsuarioTipo1"
                               name="dados[Usuario][tipo]"
-                              // onchange="senhaRadio(this.value)"
+                              onChange={() => setMethod("email")}
                               className="flex-shrink-0 text-sm text-gray-800 align-top border-gray-400 rounded-full cursor-pointer mt-0.5 ring-0 outline-none disabled-bg"
-                              defaultValue={1}
+                              checked={method === "email" ? true : false}
                             />
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +89,10 @@ const MainForgotPassword = () => {
                           </div>
                         </div>
                       </div>
-                      <div id="senhaEmail" className="escondido grid gap-6 lg:gap-2">
+                      <div
+                        id="senhaEmail"
+                        className={`grid gap-6 lg:gap-2 ${method === "email" ? "" : "escondido"}`}
+                      >
                         <div className="w-full border-t border-gray-400 border-dashed lg:mx-1" />
                         <div
                           className="flex flex-col flex-grow gap-1 border lg:rounded-lg lg:hover:bg-yellow-50 lg:px-1 lg:py-2 js-tail-form-geral  border-transparent form-div-usuario-email"

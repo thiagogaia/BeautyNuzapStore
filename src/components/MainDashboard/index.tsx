@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
+
 const MainDashboard = () => {
+  const { storeUri } = useContext(StoreContext);
+
   return (
     <main id="principal" className="principal tail-principal ev-principal">
       <div id="principal-limite" className="principal-limite">
@@ -17,9 +23,9 @@ const MainDashboard = () => {
                 </div>
                 <ul className="grid grid-cols-2 gap-3 md:gap-4 sm:grid-cols-3 md:grid-cols-4 conta-box-lista">
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/pedidos"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/pedidos`)}
                     >
                       <span>
                         <svg
@@ -38,12 +44,12 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Pedidos</span>
-                    </a>
+                    </button>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/cadastro"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/cadastro`)}
                     >
                       <span>
                         <svg
@@ -62,12 +68,12 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Meus Dados</span>
-                    </a>
+                    </button>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/senha"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/senha`)}
                     >
                       <span>
                         <svg
@@ -86,12 +92,12 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Alterar senha</span>
-                    </a>
+                    </button>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/enderecos"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/enderecos`)}
                     >
                       <span>
                         <svg
@@ -115,12 +121,12 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Endereços</span>
-                    </a>
+                    </button>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/carteira"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/carteira`)}
                     >
                       <span>
                         <svg
@@ -139,12 +145,12 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Créditos</span>
-                    </a>
+                    </button>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/descontos"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/descontos`)}
                     >
                       <span>
                         <svg
@@ -163,12 +169,12 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Vale-Desconto</span>
-                    </a>
+                    </button>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/desejos"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/desejos`)}
                     >
                       <span>
                         <svg
@@ -187,11 +193,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Lista de desejo</span>
-                    </a>
+                    </button>
                   </li>
                   {/* <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       href="/conta/afiliados"
                     >
                       <span>
@@ -215,7 +221,7 @@ const MainDashboard = () => {
                   </li> */}
                   {/* <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       href="/conta/avaliacoes"
                     >
                       <span>
@@ -238,9 +244,9 @@ const MainDashboard = () => {
                     </a>
                   </li> */}
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <a
-                      className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
-                      href="/conta/devolucoes"
+                    <button
+                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/devolucoes`)}
                     >
                       <span>
                         <svg
@@ -259,7 +265,7 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Devoluções</span>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>

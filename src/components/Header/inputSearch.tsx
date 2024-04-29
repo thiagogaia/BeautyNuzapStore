@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import { formatAndFollowUrl } from "../utils/links";
 
 interface Props {
   storeUri: string;
@@ -9,7 +10,7 @@ const InputSearch = ({ storeUri }: Props) => {
 
   const search = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = window.location.origin + "/" + `${storeUri}/busca/${inputValue}`;
+    formatAndFollowUrl(`${storeUri}/busca/${inputValue}`);
   };
 
   return (

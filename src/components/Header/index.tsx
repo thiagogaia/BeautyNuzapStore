@@ -15,6 +15,7 @@ import { useContext } from "react";
 import { StoreContext } from "../../contexts/Store";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../contexts/cart";
+import { formatAndFollowUrl } from "../utils/links";
 
 const Header = () => {
   const { storeData } = useContext(StoreContext);
@@ -174,28 +175,26 @@ const Header = () => {
                     <HiOutlineUser style={{ fontSize: "1.3rem" }} />
                     <ul className="flex items-center gap-2 divide-x divide-gray-200 divide-solid tail-topo-login-lista ev-topo-login-lista tail-topo-login">
                       <li className="tail-topo-login-item ev-topo-login-item ml-1 tail-topo-login-dados-entrar-item ev-topo-login-dados-entrar-item">
-                        <a
-                          href="/login?redir=%2F"
-                          rel="nofollow"
+                        <button
+                          onClick={() => formatAndFollowUrl(`${storeUri}/login`)}
                           className="inline-block p-0 hover:underline tail-topo-login-link ev-topo-login-link  tail-topo-login-dados-entrar-link ev-topo-login-dados-entrar-link tail-topo-login-dados-link"
                           data-nome="Entrar"
                         >
                           <div className="tail-topo-login-texto ev-topo-login-link-texto  tail-topo-login-dados-entrar-texto ev-topo-login-dados-entrar-texto js-tail-topo-inverter">
                             Entrar
                           </div>
-                        </a>
+                        </button>
                       </li>
                       <li className="tail-topo-login-item ev-topo-login-item pl-2 ">
-                        <a
-                          href="/cadastro"
-                          rel="nofollow"
+                        <button
+                          onClick={() => formatAndFollowUrl(`${storeUri}/cadastro`)}
                           className="inline-block p-0 hover:underline tail-topo-login-link ev-topo-login-link tail-topo-login-dados-link"
                           data-nome="Criar conta"
                         >
                           <div className="tail-topo-login-texto ev-topo-login-link-texto js-tail-topo-inverter">
                             Criar conta
                           </div>
-                        </a>
+                        </button>
                       </li>
                     </ul>
                   </nav>
@@ -223,26 +222,24 @@ const Header = () => {
                     />
                     <ul className="absolute right-0 flex flex-col items-center invisible bg-white border border-gray-100 border-solid divide-y divide-gray-200 rounded-md shadow-md opacity-0 top-8 divide-solid tail-topo-login-lista ev-topo-login-lista tail-topo-login">
                       <li className="w-full whitespace-nowrap tail-topo-login-item ev-topo-login-item  tail-topo-login-dados-entrar-item ev-topo-login-dados-entrar-item">
-                        <a
-                          href="/login?redir=%2F"
-                          rel="nofollow"
+                        <button
+                          onClick={() => formatAndFollowUrl(`${storeUri}/login`)}
                           className="inline-block py-4 pl-4 pr-12 tail-topo-login-link ev-topo-login-link  tail-topo-login-dados-entrar-link ev-topo-login-dados-entrar-link"
                         >
                           <div className="tail-topo-login-texto ev-topo-login-link-texto  tail-topo-login-dados-entrar-texto ev-topo-login-dados-entrar-texto">
                             Entrar
                           </div>
-                        </a>
+                        </button>
                       </li>
                       <li className="w-full whitespace-nowrap tail-topo-login-item ev-topo-login-item ">
-                        <a
-                          href="/cadastro"
-                          rel="nofollow"
+                        <button
+                          onClick={() => formatAndFollowUrl(`${storeUri}/cadastro`)}
                           className="inline-block py-4 pl-4 pr-12 tail-topo-login-link ev-topo-login-link"
                         >
                           <div className="tail-topo-login-texto ev-topo-login-link-texto">
                             Criar conta
                           </div>
-                        </a>
+                        </button>
                       </li>
                     </ul>
                   </nav>

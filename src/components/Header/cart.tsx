@@ -3,6 +3,7 @@ import CartCard from "./cartCard";
 import { StoreContext } from "../../contexts/Store";
 import { ICartProductData } from "../../contexts/types";
 import { v4 as uuidv4 } from "uuid";
+import { formatAndFollowUrl } from "../utils/links";
 
 interface Props {
   cart: ICartProductData[];
@@ -32,9 +33,7 @@ const Cart = ({ cart }: Props) => {
         </div>
         <div className="p-5 text-sm font-bold text-center">
           <button
-            onClick={() =>
-              (window.location.href = window.location.origin + `/${storeUri}/carrinho`)
-            }
+            onClick={() => formatAndFollowUrl(`${storeUri}/carrinho`)}
             className="inline-block w-full py-4 text-center border border-gray-300 border-solid rounded-md tail-topo-carrinho-produto-ir ev-topo-carrinho-produto-ir ev-topo-carrinho-1-produto-ir"
           >
             {cart.length > 0 ? "Ir para o carrinho" : "Carrinho vazio"}
