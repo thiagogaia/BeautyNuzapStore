@@ -189,7 +189,7 @@ const MainDashboard = () => {
                       <span className="conta-box-texto">Lista de desejo</span>
                     </a>
                   </li>
-                  <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
+                  {/* <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
                       className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       href="/conta/afiliados"
@@ -212,8 +212,8 @@ const MainDashboard = () => {
                       </span>
                       <span className="conta-box-texto">Indicações</span>
                     </a>
-                  </li>
-                  <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
+                  </li> */}
+                  {/* <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
                       className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       href="/conta/avaliacoes"
@@ -236,7 +236,7 @@ const MainDashboard = () => {
                       </span>
                       <span className="conta-box-texto">Avaliar Compras</span>
                     </a>
-                  </li>
+                  </li> */}
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
                       className="flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
