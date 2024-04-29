@@ -33,7 +33,7 @@ const MainAddress = () => {
               </div>
               <div className="grid gap-4">
                 <h1 className="mb-0 text-2xl tt">
-                  <span className="tt-texto">Endereço</span>
+                  <span className="tt-texto text-2xl">Endereço</span>
                 </h1>
                 <div>
                   <a

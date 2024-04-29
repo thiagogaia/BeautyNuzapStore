@@ -29,7 +29,7 @@ const MainChangePassword = () => {
               </div>
               <div className="grid gap-4">
                 <h1 className="mb-0 text-2xl tt">
-                  <span className="tt-texto">Alterar senha</span>
+                  <span className="tt-texto text-2xl">Alterar senha</span>
                 </h1>
                 <form
                   action="/conta/senha"

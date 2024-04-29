@@ -1,4 +1,4 @@
-const MainCredits = () => {
+const MainWishlist = () => {
   return (
     <main id="principal" className="principal tail-principal ev-principal">
       <div id="principal-limite" className="principal-limite">
@@ -28,11 +28,17 @@ const MainCredits = () => {
                 </a>
               </div>
               <div className="grid gap-4">
-                <h1 className="mb-0 text-2xl tt js-appec-escondido">
-                  <span className="tt-texto text-2xl">Créditos</span>
+                <h1 className="mb-0 text-2xl tt">
+                  <span className="tt-texto text-2xl">Lista de desejo</span>
                 </h1>
-                <div className="text-sm">
-                  Saldo de créditos <strong>R$ 0,00</strong>.
+                <div className="grid gap-4">
+                  <div className="grid gap-4">
+                    <section className="relative flex items-center gap-2 overflow-hidden tail-listagem-prod js-tail-listagem-prod">
+                      <ul className="tail-listagem-prod-lista js-tail-listagem-prod-lista js-tail-paginacao-busca-lista flex-grow grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-4">
+                        {/* product card */}
+                      </ul>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>
@@ -43,4 +49,4 @@ const MainCredits = () => {
   );
 };
 
-export default MainCredits;
+export default MainWishlist;

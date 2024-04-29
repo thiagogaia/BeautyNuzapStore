@@ -13,7 +13,8 @@ import MyData from "../pages/MyData";
 import ChangePassword from "../pages/ChangePassword";
 import Address from "../pages/Address";
 import Credits from "../pages/Credits";
-import DiscountVoucher from "../pages/Login copy";
+import DiscountVoucher from "../pages/DiscountVoucher";
+import Wishlist from "../pages/Wishlist";
 
 const Routes = () => {
   return (
@@ -34,6 +35,7 @@ const Routes = () => {
       <Route path="/:storeUri/conta/enderecos" element={<Address />} />
       <Route path="/:storeUri/conta/carteira" element={<Credits />} />
       <Route path="/:storeUri/conta/descontos" element={<DiscountVoucher />} />
+      <Route path="/:storeUri/conta/desejos" element={<Wishlist />} />
     </Switch>
   );
 };
