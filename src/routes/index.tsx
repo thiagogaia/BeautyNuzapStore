@@ -9,6 +9,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import PasswordSent from "../pages/PasswordSent";
 import Dashboard from "../pages/Dashboard";
 import PurchaseRequests from "../pages/PurchaseRequests";
+import MyData from "../pages/MyData";
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
       <Route path="/:storeUri/senha-enviada" element={<PasswordSent />} />
       <Route path="/:storeUri/conta" element={<Dashboard />} />
       <Route path="/:storeUri/conta/pedidos" element={<PurchaseRequests />} />
+      <Route path="/:storeUri/conta/cadastro" element={<MyData />} />
     </Switch>
   );
 };
