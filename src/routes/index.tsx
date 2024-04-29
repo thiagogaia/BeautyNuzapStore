@@ -5,9 +5,10 @@ import Product from "../pages/Product";
 import Cart from "../pages/Cart";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Dashboard from "../pages/Dashboard";
 import ForgotPassword from "../pages/ForgotPassword";
 import PasswordSent from "../pages/PasswordSent";
+import Dashboard from "../pages/Dashboard";
+import PurchaseRequests from "../pages/PurchaseRequests";
 
 const Routes = () => {
   return (
@@ -19,9 +20,10 @@ const Routes = () => {
       <Route path="/:storeUri/carrinho" element={<Cart />} />
       <Route path="/:storeUri/login" element={<Login />} />
       <Route path="/:storeUri/cadastro" element={<Register />} />
-      <Route path="/:storeUri/conta" element={<Dashboard />} />
       <Route path="/:storeUri/senha" element={<ForgotPassword />} />
       <Route path="/:storeUri/senha-enviada" element={<PasswordSent />} />
+      <Route path="/:storeUri/conta" element={<Dashboard />} />
+      <Route path="/:storeUri/conta/pedidos" element={<PurchaseRequests />} />
     </Switch>
   );
 };
