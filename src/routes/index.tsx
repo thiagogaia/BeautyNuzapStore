@@ -12,6 +12,7 @@ import PurchaseRequests from "../pages/PurchaseRequests";
 import MyData from "../pages/MyData";
 import ChangePassword from "../pages/ChangePassword";
 import Address from "../pages/Address";
+import Credits from "../pages/Credits";
 
 const Routes = () => {
   return (
@@ -30,6 +31,7 @@ const Routes = () => {
       <Route path="/:storeUri/conta/cadastro" element={<MyData />} />
       <Route path="/:storeUri/conta/senha" element={<ChangePassword />} />
       <Route path="/:storeUri/conta/enderecos" element={<Address />} />
+      <Route path="/:storeUri/conta/carteira" element={<Credits />} />
     </Switch>
   );
 };
