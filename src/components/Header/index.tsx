@@ -158,9 +158,12 @@ const Header = () => {
               >
                 <div className="ev-topo-desejo-interno">
                   <div className="ev-topo-desejo-vetor">
-                    <a href="/conta/desejos" className="ev-topo-desejo-vetor-link">
+                    <button
+                      onClick={() => formatAndFollowUrl(`${storeUri}/conta/desejos`)}
+                      className="cursor-pointer ev-topo-desejo-vetor-link"
+                    >
                       <BsHeart style={{ fontSize: "1.15rem" }} />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

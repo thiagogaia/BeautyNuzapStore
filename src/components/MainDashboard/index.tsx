@@ -23,8 +23,8 @@ const MainDashboard = () => {
                 </div>
                 <ul className="grid grid-cols-2 gap-3 md:gap-4 sm:grid-cols-3 md:grid-cols-4 conta-box-lista">
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/pedidos`)}
                     >
                       <span>
@@ -44,11 +44,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Pedidos</span>
-                    </button>
+                    </a>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/cadastro`)}
                     >
                       <span>
@@ -68,11 +68,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Meus Dados</span>
-                    </button>
+                    </a>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/senha`)}
                     >
                       <span>
@@ -92,11 +92,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Alterar senha</span>
-                    </button>
+                    </a>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/enderecos`)}
                     >
                       <span>
@@ -121,11 +121,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Endereços</span>
-                    </button>
+                    </a>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/carteira`)}
                     >
                       <span>
@@ -145,11 +145,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Créditos</span>
-                    </button>
+                    </a>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/descontos`)}
                     >
                       <span>
@@ -169,11 +169,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Vale-Desconto</span>
-                    </button>
+                    </a>
                   </li>
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/desejos`)}
                     >
                       <span>
@@ -193,11 +193,11 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Lista de desejo</span>
-                    </button>
+                    </a>
                   </li>
                   {/* <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       href="/conta/afiliados"
                     >
                       <span>
@@ -221,7 +221,7 @@ const MainDashboard = () => {
                   </li> */}
                   {/* <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
                     <a
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       href="/conta/avaliacoes"
                     >
                       <span>
@@ -244,8 +244,8 @@ const MainDashboard = () => {
                     </a>
                   </li> */}
                   <li className="transition duration-200 ease-in-out bg-gray-100 rounded-lg hover:bg-gray-200 conta-box-item">
-                    <button
-                      className="mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
+                    <a
+                      className="cursor-pointer mx-auto flex flex-col items-center gap-1 px-2 py-3 text-base lg:text-sm conta-box-link"
                       onClick={() => formatAndFollowUrl(`${storeUri}/conta/devolucoes`)}
                     >
                       <span>
@@ -265,7 +265,7 @@ const MainDashboard = () => {
                         </svg>
                       </span>
                       <span className="conta-box-texto">Devoluções</span>
-                    </button>
+                    </a>
                   </li>
                 </ul>
               </div>

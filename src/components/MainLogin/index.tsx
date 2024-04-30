@@ -1,15 +1,42 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { formatAndFollowUrl } from "../utils/links";
 import { StoreContext } from "../../contexts/Store";
 
+import * as yup from "yup";
+import { FieldValues, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 const MainLogin = () => {
   const { storeUri } = useContext(StoreContext);
+  const [loginError, setLoginError] = useState(false);
+
+  const schema = yup.object().shape({
+    email: yup.string().email(),
+    password: yup.string(),
+  });
+
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const sendForm = (data: FieldValues) => {
+    console.log(data);
+
+    return setLoginError(true);
+  };
 
   return (
     <>
       <main id="principal" className="principal tail-principal ev-principal">
         <div id="principal-limite" className="principal-limite">
           <article id="conteudo" className="conteudo">
+            {loginError && (
+              <div className="mb-3 lg:mb-6 p-2 bg-yellow-400 border border-dashed border-yellow-500 rounded text-sm text-yellow-800 tail-notificacao-alerta">
+                <div className="font-medium">ATENÇÃO</div>
+                <div className="">E-mail ou senha inválidos</div>
+              </div>
+            )}
+
             <div className="grid w-full gap-1 px-1 mx-auto mt-8 lg:max-w-xl md:p-4">
               <div className="grid gap-8">
                 <div className="grid gap-4">
@@ -17,7 +44,7 @@ const MainLogin = () => {
                     <span className="tt-texto">Identificação</span>
                   </h1>
                   <form
-                    action="/login?redir=%2F"
+                    onSubmit={handleSubmit(sendForm)}
                     autoComplete="on"
                     method="post"
                     className="grid w-full gap-6 lg:gap-6 js-recaptcha"
@@ -39,7 +66,7 @@ const MainLogin = () => {
                             autoComplete="username"
                             data-rotulo="E-mail:"
                             id="UsuarioEmail"
-                            name="dados[Usuario][email]"
+                            {...register("email")}
                             required
                             className="block w-full px-3 py-2 text-base text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none sm:text-sm focus:border-indigo-500 ring-0 disabled-bg"
                             style={{
@@ -69,7 +96,7 @@ const MainLogin = () => {
                             autoComplete="current-password"
                             data-rotulo="Senha:"
                             id="UsuarioSenha"
-                            name="dados[Usuario][senha]"
+                            {...register("password")}
                             required
                             className="block w-full px-3 py-2 text-base text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none sm:text-sm focus:border-indigo-500 ring-0 disabled-bg"
                           />
@@ -81,13 +108,6 @@ const MainLogin = () => {
                       >
                         Esqueceu sua senha?
                       </button>
-                      <input
-                        type="hidden"
-                        data-rotulo=""
-                        id="Token"
-                        name="dados[_token]"
-                        className=""
-                      />
                     </div>
 
                     <div className="text-center">
@@ -138,7 +158,7 @@ const MainLogin = () => {
                             <iframe style={{ display: "none" }} />
                           </div>
                           <button
-                            type="button"
+                            type="submit"
                             data-action="submit"
                             data-callback="recaptchaSubmit"
                             data-error-callback="recaptchaError"
