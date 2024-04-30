@@ -4,6 +4,7 @@ import { CartContext } from "../../contexts/cart";
 import CardCart from "../CardCart";
 import { StoreContext } from "../../contexts/Store";
 import { v4 as uuidv4 } from "uuid";
+import { formatAndFollowUrl } from "../utils/links";
 
 const MainCart = () => {
   const { storeUri } = useContext(StoreContext);
@@ -30,9 +31,7 @@ const MainCart = () => {
                     <div className="flex flex-col pt-6 lg:pt-0 lg:gap-6 lg:flex-row lg:items-center">
                       <div className="grid w-full grid-cols-2 gap-4 lg:flex lg:w-auto lg:flex-row">
                         <button
-                          onClick={() =>
-                            (window.location.href = window.location.origin + `/${storeUri}`)
-                          }
+                          onClick={() => formatAndFollowUrl(storeUri)}
                           className="px-2 py-3 flex justify-center items-center gap-2 leading-none bg-gray-100 text-xs font-bold rounded-md hover:underline focus:underline lg:px-3 lg:text-sm tail-carr-prod-voltar ev-carr-prod-voltar"
                         >
                           <svg
@@ -304,7 +303,7 @@ const MainCart = () => {
               <div className="carr-vazio-box">
                 <div className="botao-box">
                   <span
-                    onClick={() => (window.location.href = window.location.origin + `/${storeUri}`)}
+                    onClick={() => formatAndFollowUrl(storeUri)}
                     className="botao botao-primario"
                   >
                     Continuar comprando

@@ -1,6 +1,8 @@
-import { useContext } from "react";
 import "./style.css";
+
+import { useContext } from "react";
 import { StoreContext } from "../../contexts/Store";
+import { formatAndFollowUrl } from "../utils/links";
 
 const Footer = () => {
   const { storeUri, storeData } = useContext(StoreContext);
@@ -39,7 +41,9 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
+
               <div className="flex flex-col gap-7">
+                {/* my account */}
                 <div
                   data-nome="menu_2"
                   className=" tail-rodape-coluna tail-rodape-coluna-menu js-tail-rodape-coluna"
@@ -51,36 +55,35 @@ const Footer = () => {
                     <nav>
                       <ul className="list-inside list-none lg:list-disc json-rodape-borda-lista json-rodape-menu_2-borda-dados_lista json-rodape-fundo-lista json-rodape-menu_2-fundo-dados_lista json-rodape-cores-lista json-rodape-menu_2-cores-dados_lista grid gap-2">
                         <li className="pl-px json-rodape-borda-item json-rodape-menu_2-borda-dados_item json-rodape-fundo-item json-rodape-menu_2-fundo-dados_item json-rodape-cores-item json-rodape-menu_2-cores-dados_item">
-                          <a
-                            href="/conta/cadastro"
-                            rel="next"
-                            className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_2-borda-dados_link json-rodape-fundo-link json-rodape-menu_2-fundo-dados_link json-rodape-cores-link json-rodape-menu_2-cores-dados_link"
+                          <span
+                            onClick={() => formatAndFollowUrl(`${storeUri}/conta/cadastro`)}
+                            className="cursor-pointer no-underline hover:underline json-rodape-borda-link json-rodape-menu_2-borda-dados_link json-rodape-fundo-link json-rodape-menu_2-fundo-dados_link json-rodape-cores-link json-rodape-menu_2-cores-dados_link"
                           >
                             <span className="inline">Meus Dados </span>
-                          </a>
+                          </span>
                         </li>
                         <li className="pl-px json-rodape-borda-item json-rodape-menu_2-borda-dados_item json-rodape-fundo-item json-rodape-menu_2-fundo-dados_item json-rodape-cores-item json-rodape-menu_2-cores-dados_item">
-                          <a
-                            href="/conta/pedidos"
-                            rel="next"
-                            className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_2-borda-dados_link json-rodape-fundo-link json-rodape-menu_2-fundo-dados_link json-rodape-cores-link json-rodape-menu_2-cores-dados_link"
+                          <span
+                            onClick={() => formatAndFollowUrl(`${storeUri}/conta/pedidos`)}
+                            className="cursor-pointer no-underline hover:underline json-rodape-borda-link json-rodape-menu_2-borda-dados_link json-rodape-fundo-link json-rodape-menu_2-fundo-dados_link json-rodape-cores-link json-rodape-menu_2-cores-dados_link"
                           >
                             <span className="inline">Meus Pedidos </span>
-                          </a>
+                          </span>
                         </li>
                         <li className="pl-px json-rodape-borda-item json-rodape-menu_2-borda-dados_item json-rodape-fundo-item json-rodape-menu_2-fundo-dados_item json-rodape-cores-item json-rodape-menu_2-cores-dados_item">
-                          <a
-                            href="/conta/desejos"
-                            rel="next"
-                            className="no-underline hover:underline json-rodape-borda-link json-rodape-menu_2-borda-dados_link json-rodape-fundo-link json-rodape-menu_2-fundo-dados_link json-rodape-cores-link json-rodape-menu_2-cores-dados_link"
+                          <span
+                            onClick={() => formatAndFollowUrl(`${storeUri}/conta/desejos`)}
+                            className="cursor-pointer no-underline hover:underline json-rodape-borda-link json-rodape-menu_2-borda-dados_link json-rodape-fundo-link json-rodape-menu_2-fundo-dados_link json-rodape-cores-link json-rodape-menu_2-cores-dados_link"
                           >
                             <span className="inline">Lista Desejos </span>
-                          </a>
+                          </span>
                         </li>
                       </ul>
                     </nav>
                   </div>
                 </div>
+
+                {/* follow us */}
                 <div
                   data-nome="social_1"
                   className=" tail-rodape-coluna tail-rodape-coluna-social js-tail-rodape-coluna"
@@ -166,6 +169,8 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
+
+              {/* whatsapp support */}
               <div>
                 <div
                   data-nome="texto_1"
@@ -227,6 +232,8 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
+
+              {/* payment methods */}
               <div className="flex flex-col gap-7">
                 <div
                   data-nome="pagamento_1"
@@ -269,6 +276,8 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
+
+              {/* newsletter */}
               <div className="flex justify-center">
                 <div
                   data-nome="news_1"
@@ -330,16 +339,16 @@ const Footer = () => {
         >
           <div className="py-3 flex flex-col items-center gap-3 lg:gap-2 tail-rodape-limite-2">
             <div>
-              <div data-nome="texto_2" className=" ">
+              <div data-nome="texto_2">
                 <div className="json-rodape-borda-interno json-rodape-texto_2-borda-interno json-rodape-fundo-interno json-rodape-texto_2-fundo-interno json-rodape-cores-interno json-rodape-texto_2-cores-interno">
                   <div className="flex flex-col gap-1 lg:flex-row json-rodape-borda-texto json-rodape-texto_2-borda-texto json-rodape-fundo-texto json-rodape-texto_2-fundo-texto json-rodape-cores-texto json-rodape-texto_2-cores-texto">
                     <span>
                       Todos os direitos reservados
-                      <span className="hidden lg:inline">-</span>
+                      <span className="hidden lg:inline"> -</span>
                     </span>
                     <span>
                       Joelik Confeccoes LTDA
-                      <span className="hidden lg:inline">-</span>
+                      <span className="hidden lg:inline"> -</span>
                     </span>
                     <span>CNPJ: 11.473.118/0001-53</span>
                   </div>

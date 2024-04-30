@@ -1,3 +1,4 @@
+import { formatAndFollowUrl } from "../utils/links";
 import { IFilterTag } from "./types";
 
 const FilterTag = ({ href, name }: IFilterTag) => {
@@ -8,7 +9,7 @@ const FilterTag = ({ href, name }: IFilterTag) => {
     >
       <div>
         <button
-          onClick={() => (window.location.href = window.location.origin + "/" + href)}
+          onClick={() => formatAndFollowUrl(href)}
           rel="next"
           className="inline-block p-3 tail-topo-categorias-link-0 ev-topo-categorias-link ev-topo-categorias-1-dados-link0 tail-topo-categorias-1-dados-link-0 js-tail-topo-inverter"
           data-nome={name}
