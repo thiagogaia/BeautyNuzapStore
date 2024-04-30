@@ -19,6 +19,7 @@ const MainProductPage = () => {
   const [variationId, setVariationId] = useState("");
   const [variationItem, setVariationItem] = useState("");
   const [variationItemId, setVariationItemId] = useState("");
+  const [slideIndex, setSlideIndex] = useState(0);
   const [buyModal, setBuyModal] = useState<boolean>(false);
 
   const categoryData = storeData.business.categories.find((e) => e.name === productData.category);
@@ -37,10 +38,13 @@ const MainProductPage = () => {
       .get(`/products/${productUri}?_store=${storeUri}`)
       .then((res) => {
         setProductData(res.data);
-        setVariation(res.data.variation_data[0].name);
-        setVariationId(res.data.variation_data[0].id);
-        setVariationItem(res.data.variation_data[0].item[0].variation_item_name);
-        setVariationItemId(res.data.variation_data[0].item[0].id);
+
+        if (res.data.variation_data.length > 0) {
+          setVariation(res.data.variation_data[0].name);
+          setVariationId(res.data.variation_data[0].id);
+          setVariationItem(res.data.variation_data[0].item[0].variation_item_name);
+          setVariationItemId(res.data.variation_data[0].item[0].id);
+        }
 
         setLoad(false);
       })
@@ -168,7 +172,12 @@ const MainProductPage = () => {
 
             <section className="grid max-w-screen-md gap-8 mx-auto mt-6 overflow-visible text-sm md:gap-10 lg:mx-0 lg:max-w-none tail-prod-ver-geral">
               <div className="grid gap-8 tail-prod-ver-tamanho-colunas js-tail-comprar">
-                <Gallery productData={productData} />
+                <Gallery
+                  productData={productData}
+                  variation={variation}
+                  slideIndex={slideIndex}
+                  setSlideIndex={setSlideIndex}
+                />
 
                 <div className="flex flex-col gap-8">
                   <div className="relative flex-shrink-0 text-sm lg:w-full lg:col-start-2 lg:row-span-2">
@@ -192,7 +201,7 @@ const MainProductPage = () => {
                           <span>{productData.name}</span>
                         </h1>
                         <div className="flex items-center gap-1.5 text-xs text-gray-500 tail-prod-ver-codigo">
-                          <div className="">
+                          <div>
                             <span>Código {productData.code}</span>
                           </div>
 
@@ -209,7 +218,7 @@ const MainProductPage = () => {
                         <div className="grid gap-1 tail-prod-ver-grupo-precos ">
                           <div className="flex flex-col gap-1 tail-etapa-preco-interno">
                             <div
-                              className="relative flex flex-col justify-center h-32 gap-1 p-4 bg-gray-100 rounded-lg cursor-pointer lg:h-28 ev-etapa-preco-grupo tail-etapa-preco-grupo"
+                              className="relative flex flex-col justify-center h-32 gap-1 p-4 bg-gray-100 rounded-lg lg:h-28 ev-etapa-preco-grupo tail-etapa-preco-grupo"
                               data-privado={0}
                               // onclick="etapaParcelaFetch()"
                             >
@@ -243,7 +252,7 @@ const MainProductPage = () => {
                                             R$ 99,90
                                           </span>
                                         </div> */}
-                                        <div className="">
+                                        <div>
                                           <span className="js-tail-etapa-preco-economia-numero">
                                             {Math.round(
                                               100 -
@@ -338,6 +347,7 @@ const MainProductPage = () => {
                           variationItem={variationItem}
                           setVariationItemId={setVariationItemId}
                           setVariationItem={setVariationItem}
+                          setSlideIndex={setSlideIndex}
                         />
                       </div>
 
