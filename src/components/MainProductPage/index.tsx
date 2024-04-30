@@ -772,13 +772,6 @@ const MainProductPage = () => {
                         placeholder="Digite seu e-mail"
                         // onkeypress="etapaEsperaEnterNoInput()"
                         className="flex items-center w-full px-2 py-2.5 transition-shadow bg-white border border-gray-300 border-solid rounded-lg shadow outline-none placeholder-gray-500 hover:border-black focus:border-black js-tail-etapa-espera-email js-cookie-email"
-                        style={{
-                          backgroundImage: 'url("data:image/png',
-                          backgroundRepeat: "no-repeat",
-                          backgroundSize: 20,
-                          backgroundPosition: "97% center",
-                          cursor: "auto",
-                        }}
                         data-temp-mail-org={1}
                       />
                     </div>

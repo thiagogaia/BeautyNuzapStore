@@ -69,13 +69,6 @@ const MainLogin = () => {
                             {...register("email")}
                             required
                             className="block w-full px-3 py-2 text-base text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none sm:text-sm focus:border-indigo-500 ring-0 disabled-bg"
-                            style={{
-                              backgroundImage: 'url("data:image/png',
-                              backgroundRepeat: "no-repeat",
-                              backgroundSize: 20,
-                              backgroundPosition: "97% center",
-                              cursor: "auto",
-                            }}
                             data-temp-mail-org={0}
                           />
                         </div>
