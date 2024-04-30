@@ -5,9 +5,10 @@ import { StoreContext } from "../../contexts/Store";
 import * as yup from "yup";
 import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { api } from "../../services/api";
 
 const MainLogin = () => {
-  const { storeUri } = useContext(StoreContext);
+  const { storeUri, storeData } = useContext(StoreContext);
   const [loginError, setLoginError] = useState(false);
 
   const schema = yup.object().shape({
@@ -20,9 +21,14 @@ const MainLogin = () => {
   });
 
   const sendForm = (data: FieldValues) => {
-    console.log(data);
-
-    return setLoginError(true);
+    api
+      .post(`store-api-auth/${storeData.business.url}`, data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch(() => {
+        return setLoginError(true);
+      });
   };
 
   return (
