@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { IProductData } from "../../contexts/types";
 
 interface Props {
   productData: IProductData;
+  variation: string;
+  slideIndex: number;
+  setSlideIndex: (e: number) => void;
 }
 
-const Gallery = ({ productData }: Props) => {
+const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) => {
   const images = [productData, ...productData.gallery];
-  const [slideIndex, setSlideIndex] = useState(0);
+
+  const currentVariation = productData.variation_data.find((e) => e.name == variation);
 
   useEffect(() => {
     return () => {};
@@ -74,6 +78,41 @@ const Gallery = ({ productData }: Props) => {
 
                   <div className="flex overflow-hidden js-produto-ver-foto-capa">
                     {/* gallery images */}
+                    {currentVariation && (
+                      <div
+                        className="flex-none w-full text-center"
+                        style={{
+                          transform: `translateX(${slideIndex * -100}%)`,
+                          transition: "transform .5s",
+                        }}
+                      >
+                        <img
+                          loading="eager"
+                          src={
+                            currentVariation.imgUrl.length > 0
+                              ? currentVariation.imgUrl
+                              : "/no-image.jpg"
+                          }
+                          srcSet={`${
+                            currentVariation.imgUrl.length > 0
+                              ? currentVariation.imgUrl
+                              : "/no-image.jpg"
+                          } 600w,${
+                            currentVariation.imgUrl.length > 0
+                              ? currentVariation.imgUrl
+                              : "/no-image.jpg"
+                          } 1000w,${
+                            currentVariation.imgUrl.length > 0
+                              ? currentVariation.imgUrl
+                              : "/no-image.jpg"
+                          } 2x`}
+                          sizes="(max-width: 1199px) 600px, (min-width: 1200px) 1000px"
+                          alt="product img"
+                          className="img-props inline-block w-full h-full align-middle object-fit"
+                        />
+                      </div>
+                    )}
+
                     {images.map((product) => (
                       <div
                         key={product.id}
@@ -99,11 +138,31 @@ const Gallery = ({ productData }: Props) => {
                 {/* images on the side */}
                 <div className="flex flex-row lg:flex-col flex-none lg:w-12 gap-2 order-0 ">
                   {/* gallery images */}
+                  {currentVariation && (
+                    <div
+                      className="min-w-12 p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                      onClick={() => setSlideIndex(0)}
+                    >
+                      <div className="h-full">
+                        <img
+                          loading="eager"
+                          src={
+                            currentVariation.imgUrl.length > 0
+                              ? currentVariation.imgUrl
+                              : "/no-image.jpg"
+                          }
+                          alt="product img"
+                          className="inline-block object-cover w-full h-full align-middle"
+                        />
+                      </div>
+                    </div>
+                  )}
+
                   {images.map((product, index) => (
                     <div
                       key={product.id}
                       className="min-w-12 p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
-                      onClick={() => setSlideIndex(index)}
+                      onClick={() => setSlideIndex(index + 1)}
                     >
                       <div className="h-full">
                         <img

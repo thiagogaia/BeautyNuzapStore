@@ -64,13 +64,6 @@ const Payment = () => {
                           name="dados[Cliente][email]"
                           placeholder="E-mail"
                           className="h-12 px-2 text-sm placeholder-transparent bg-white border border-gray-300 border-solid rounded-md outline-none hover:border-blue-500 focus:border-blue-500 ring-0 tail-carrinho-form-campo js-carrinho-cliente-email"
-                          style={{
-                            backgroundImage: 'url("data:image/png',
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: 20,
-                            backgroundPosition: "97% center",
-                            cursor: "auto",
-                          }}
                           data-temp-mail-org={0}
                         />
                       </div>

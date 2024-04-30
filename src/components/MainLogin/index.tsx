@@ -5,9 +5,10 @@ import { StoreContext } from "../../contexts/Store";
 import * as yup from "yup";
 import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { api } from "../../services/api";
 
 const MainLogin = () => {
-  const { storeUri } = useContext(StoreContext);
+  const { storeUri, storeData } = useContext(StoreContext);
   const [loginError, setLoginError] = useState(false);
 
   const schema = yup.object().shape({
@@ -20,9 +21,14 @@ const MainLogin = () => {
   });
 
   const sendForm = (data: FieldValues) => {
-    console.log(data);
-
-    return setLoginError(true);
+    api
+      .post(`store-api-auth/${storeData.business.url}`, data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch(() => {
+        return setLoginError(true);
+      });
   };
 
   return (
@@ -69,13 +75,6 @@ const MainLogin = () => {
                             {...register("email")}
                             required
                             className="block w-full px-3 py-2 text-base text-black bg-white border border-gray-400 border-solid rounded-lg shadow-sm outline-none sm:text-sm focus:border-indigo-500 ring-0 disabled-bg"
-                            style={{
-                              backgroundImage: 'url("data:image/png',
-                              backgroundRepeat: "no-repeat",
-                              backgroundSize: 20,
-                              backgroundPosition: "97% center",
-                              cursor: "auto",
-                            }}
                             data-temp-mail-org={0}
                           />
                         </div>

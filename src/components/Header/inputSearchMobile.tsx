@@ -41,14 +41,14 @@ const InputSearchMobile = ({ storeUri }: Props) => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.currentTarget.value)}
                 className="w-full px-4 leading-normal placeholder-gray-500 rounded-none outline-none py-3.5 tail-topo-busca-campo ev-topo-busca-campo js-busca-campo"
-                id="topo-busca-campo"
+                id="topo-busca-campo-mobile"
               />
               <button
                 aria-label="Enviar busca"
                 type="submit"
                 className="px-4 text-gray-600 bg-white cursor-pointer tail-topo-busca-btn-ok ev-topo-busca-btn-ok js-busca-botao"
               >
-                <label htmlFor="topo-busca-campo">
+                <label htmlFor="topo-busca-campo-mobile">
                   <CiSearch style={{ fontSize: "1.5rem" }} />
                   <span className="sr-only">Selecionar barra de pesquisa</span>
                 </label>

@@ -11,6 +11,7 @@ interface IProps {
   setVariationId: (e: string) => void;
   setVariationItem: (e: string) => void;
   setVariationItemId: (e: string) => void;
+  setSlideIndex: (e: number) => void;
 }
 
 const ProductVariations = ({
@@ -21,6 +22,7 @@ const ProductVariations = ({
   variationItem,
   setVariationItem,
   setVariationItemId,
+  setSlideIndex,
 }: IProps) => {
   const { storeData } = useContext(StoreContext);
   const currentVariation = productData.variation_data.find((e) => e.name == variation);
@@ -38,6 +40,8 @@ const ProductVariations = ({
       if (newVariation !== undefined) {
         setVariation(newVariation.name);
         setVariationId(newVariation.id);
+        setSlideIndex(0);
+
         setVariationItem(newVariation.item[0].variation_item_name);
         setVariationItemId(newVariation.item[0].id);
       }
@@ -47,63 +51,71 @@ const ProductVariations = ({
   return (
     <div className="grid gap-8 tail-prod-ver-grupo-variacoes ">
       <div className="relative grid gap-4 overflow-visible variacoes-1 js-tail-etapa-vari-div js-prod-ver-etapa-variacao-clone">
-        Variações:
-        {productData.variation_data.length > 0 && (
-          <ul className="flex flex-wrap gap-2">
-            {productData.variation_data.map((data) => (
-              <li
-                key={uuidv4()}
-                className="flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item"
-              >
-                <label
-                  htmlFor={data.id}
-                  className="flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
-                >
-                  <input
-                    type="radio"
-                    name="variation"
-                    id={data.id}
-                    value={data.name}
-                    checked={variation === data.name ? true : false}
-                    onChange={() => selectVariation(data, "first")}
-                    className="sr-only"
-                  />
-                  <img
-                    style={{ borderRadius: "50%" }}
-                    src={data.imgThumbUrl !== "" ? data.imgThumbUrl : "/no-image.jpg"}
-                    title={data.name}
-                    alt={data.name}
-                  />
-                </label>
-              </li>
-            ))}
-          </ul>
+        {variation.length > 0 && (
+          <>
+            Variações:
+            {productData.variation_data.length > 0 && (
+              <ul className="flex flex-wrap gap-2">
+                {productData.variation_data.map((data) => (
+                  <li
+                    key={uuidv4()}
+                    className="flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item"
+                  >
+                    <label
+                      htmlFor={data.id}
+                      className="flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
+                    >
+                      <input
+                        type="radio"
+                        name="variation"
+                        id={data.id}
+                        value={data.name}
+                        checked={variation === data.name ? true : false}
+                        onChange={() => selectVariation(data, "first")}
+                        className="sr-only"
+                      />
+                      <img
+                        style={{ borderRadius: "50%" }}
+                        src={data.imgThumbUrl !== "" ? data.imgThumbUrl : "/no-image.jpg"}
+                        title={data.name}
+                        alt={data.name}
+                      />
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
         )}
-        Itens da Variação:
-        {currentVariation !== undefined && currentVariation.item.length > 0 && (
-          <ul className="flex flex-wrap gap-2">
-            {currentVariation.item.map((data) => (
-              <li
-                key={uuidv4()}
-                className="flex-shrink-0 flex gap-1.5 flex-wrap relative js-tail-etapa-variacao-item js-tail-etapa-comprar-topo-vari2"
-              >
-                <input
-                  type="radio"
-                  name="variationItem"
-                  id={data.variation_item_id}
-                  onChange={() => selectVariation(data, "second")}
-                  checked={variationItem === data.variation_item_name ? true : false}
-                  className="hidden tail-prod-ver-variacao-input ev-prod-ver-variacao-input js-tail-etapa-variacao-input js-tail-etapa-variacao-1-input"
-                />
-                <label
-                  htmlFor={data.variation_item_id}
-                  className="px-1.5 h-10 grid place-content-center border border-gray-300 border-solid rounded-lg cursor-pointer ev-prod-ver-variacao-label tail-prod-ver-variacao-label tail-prod-ver-variacao-texto js-tail-etapa-variacao-label js-tail-etapa-variacao-label-texto ev-etapa-variacao-label"
-                >
-                  {data.variation_item_name}
-                </label>
-              </li>
-            ))}
-          </ul>
+        {variationItem.length > 0 && (
+          <>
+            Itens da Variação:
+            {currentVariation !== undefined && currentVariation.item.length > 0 && (
+              <ul className="flex flex-wrap gap-2">
+                {currentVariation.item.map((data) => (
+                  <li
+                    key={uuidv4()}
+                    className="flex-shrink-0 flex gap-1.5 flex-wrap relative js-tail-etapa-variacao-item js-tail-etapa-comprar-topo-vari2"
+                  >
+                    <input
+                      type="radio"
+                      name="variationItem"
+                      id={data.variation_item_id}
+                      onChange={() => selectVariation(data, "second")}
+                      checked={variationItem === data.variation_item_name ? true : false}
+                      className="hidden tail-prod-ver-variacao-input ev-prod-ver-variacao-input js-tail-etapa-variacao-input js-tail-etapa-variacao-1-input"
+                    />
+                    <label
+                      htmlFor={data.variation_item_id}
+                      className="px-1.5 h-10 grid place-content-center border border-gray-300 border-solid rounded-lg cursor-pointer ev-prod-ver-variacao-label tail-prod-ver-variacao-label tail-prod-ver-variacao-texto js-tail-etapa-variacao-label js-tail-etapa-variacao-label-texto ev-etapa-variacao-label"
+                    >
+                      {data.variation_item_name}
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
         )}
         {/* stock */}
         {storeData.business.control_stock_config.display_stock === "on" && (
