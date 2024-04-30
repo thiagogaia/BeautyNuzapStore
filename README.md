@@ -1,7 +1,10 @@
+# BeautyNuzapStore - New Store for Nuzap
 
-# BeautyNuzapStore
-New Store for Nuzap
-=======
+<div style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+  <img src="./public/img/print-home-desktop.png" width="65%" height="auto" />
+  <img src="./public/img/print-home-mobile.png" width="30%" height="auto" />
+</div>
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -21,15 +24,14 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
