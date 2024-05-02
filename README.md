@@ -105,6 +105,8 @@ filtering and listing product variations and variation items allows you to recei
 
 - `&_variations=123`
 - `&_variations=123,654,789,753,195`
+- `&_variation_items=321`
+- `&_variation_items=321,456,987,357,591`
 
 The accepted ordering types for filtering using `&_order_by` are currently:
 
