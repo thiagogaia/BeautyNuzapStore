@@ -136,7 +136,7 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
                 </div>
 
                 {/* images on the side */}
-                <div className="flex flex-row lg:flex-col flex-none lg:w-12 gap-2 order-0 ">
+                <div className="overflow-x-auto flex flex-row lg:flex-col flex-none lg:w-12 gap-2 order-0 ">
                   {/* gallery images */}
                   {currentVariation && (
                     <div
@@ -174,6 +174,7 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
                       </div>
                     </div>
                   ))}
+
                   {/* video */}
                   {/* <div
                   className="p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
@@ -201,9 +202,6 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
                     </svg>
                   </div>
                 </div> */}
-
-                  <div className="flex-none w-full" />
-                  <div className="flex-none w-full" />
                 </div>
               </div>
             )}
