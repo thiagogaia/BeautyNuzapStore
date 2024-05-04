@@ -18,7 +18,7 @@ const StoreProvider = ({ children }: IProviderProps) => {
         setLoad(false);
         setStoreData(res.data);
 
-        const themeData = { darkMode: "on", themeColor: "255, 0, 159" };
+        const themeData = { darkMode: "off", themeColor: "255, 0, 159" };
 
         document.documentElement.style.setProperty("--theme-color", themeData.themeColor);
         document.querySelector("html")!.dataset["theme"] =
