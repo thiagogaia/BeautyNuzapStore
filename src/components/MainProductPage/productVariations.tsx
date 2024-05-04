@@ -49,7 +49,7 @@ const ProductVariations = ({
   };
 
   return (
-    <div className="grid gap-8 tail-prod-ver-grupo-variacoes ">
+    <div className="theme-mode-bg grid gap-8 tail-prod-ver-grupo-variacoes ">
       <div className="relative grid gap-4 overflow-visible variacoes-1 js-tail-etapa-vari-div js-prod-ver-etapa-variacao-clone">
         {variation.length > 0 && (
           <>

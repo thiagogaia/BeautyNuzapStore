@@ -122,7 +122,7 @@ const Filters = ({
           <div className="flex justify-end">
             <label
               htmlFor="buscaFiltroMostrar"
-              className="block rounded-full p-1.5 w-max cursor-pointer hover:bg-gray-100 lg:hidden"
+              className="block rounded-full p-1.5 w-max cursor-pointer lg:hidden"
             >
               <svg
                 className="w-6 h-6 text-gray-400"
