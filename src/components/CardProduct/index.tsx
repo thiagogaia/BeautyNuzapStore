@@ -49,7 +49,7 @@ const CardProduct = ({ className, ...data }: Props) => {
     <>
       <li
         className={
-          "relative flex flex-col border border-gray-300 border-solid rounded-lg cursor-pointer tail-listagem-prod-item ev-listagem-prod-item js-tail-listagem-prod-item js-tail-paginacao-busca-item " +
+          "border-[rgba(var(--border-color),1)] relative flex flex-col border border-solid rounded-lg cursor-pointer tail-listagem-prod-item ev-listagem-prod-item js-tail-listagem-prod-item js-tail-paginacao-busca-item " +
           className
         }
         data-seta-posicao="direita"
@@ -204,7 +204,7 @@ const CardProduct = ({ className, ...data }: Props) => {
               ? variationItens.map((variation) => (
                   <li
                     key={uuidv4()}
-                    className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
+                    className="border-[rgba(var(--border-color),1)] flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
                     title={variation.name}
                   >
                     {variation.variation_item_name}
@@ -213,7 +213,7 @@ const CardProduct = ({ className, ...data }: Props) => {
               : variations.map((variation) => (
                   <li
                     key={uuidv4()}
-                    className="flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-gray-300 border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
+                    className="border-[rgba(var(--border-color),1)] flex-shrink-0 flex gap-1.5 flex-wrap relative tail-listagem-prod-variacao-parent-1002 grid h-6 px-2 text-xs text-center border border-solid rounded-lg cursor-pointer place-content-center ev-listagem-prod-variacao-texto tail-listagem-prod-variacao-texto"
                     title="38"
                   >
                     {variation.name}

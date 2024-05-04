@@ -21,6 +21,15 @@ export interface ICartProviderData {
   excludeProduct: (e: string) => void;
 }
 
+export interface IThemesProviderData {
+  theme: IThemeData;
+}
+
+export interface IThemeData {
+  darkMode: string;
+  themeColor: string;
+}
+
 export interface ICartProductData {
   id: string;
   name: string;

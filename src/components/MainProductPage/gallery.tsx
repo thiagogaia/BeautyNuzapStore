@@ -58,17 +58,18 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
             {productData.gallery && (
               <div className="flex flex-col-reverse lg:flex-row js-produto-ver-foto-interno js-produto-ver-foto-interno-2581-0">
                 {/* image displayed */}
-                <div className=" relative order-1 w-full p-1 ml-2 border border-white border-solid lg:max-w-4xl">
+                <div className=" relative order-1 w-full p-1 lg:max-w-4xl">
+                  {/* controls */}
                   {productData.gallery.length > 0 && (
                     <>
                       <div
-                        className="absolute z-10 left-0 px-2 py-1 ml-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
+                        className="theme-mode-bg absolute z-10 left-0 px-3 py-2 ml-2.5 border border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-anterior tail-prod-ver-foto-btn-anterior "
                         onClick={() => slideControl("prev")}
                       >
                         &lt;
                       </div>
                       <div
-                        className="absolute z-10 right-0 px-2 py-1 mr-2 text-gray-400 bg-white border border-gray-400 border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
+                        className="theme-mode-bg absolute z-10 right-0 px-3 py-2 mr-3 border border-solid rounded-full opacity-50 cursor-pointer top-2/4 prod-ver-foto-btn-proximo tail-prod-ver-foto-btn-proximo "
                         onClick={() => slideControl("next")}
                       >
                         &gt;
@@ -76,8 +77,8 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
                     </>
                   )}
 
+                  {/* gallery images */}
                   <div className="flex overflow-hidden js-produto-ver-foto-capa">
-                    {/* gallery images */}
                     {currentVariation && (
                       <div
                         className="flex-none w-full text-center"
@@ -140,7 +141,7 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
                   {/* gallery images */}
                   {currentVariation && (
                     <div
-                      className="min-w-12 p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                      className="min-w-[20%] p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
                       onClick={() => setSlideIndex(0)}
                     >
                       <div className="h-full">
@@ -161,7 +162,7 @@ const Gallery = ({ productData, variation, slideIndex, setSlideIndex }: Props) =
                   {images.map((product, index) => (
                     <div
                       key={product.id}
-                      className="min-w-12 p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
+                      className="min-w-[20%] p-1 border border-white border-solid cursor-pointer hover:border-gray-500 tail-prodver-thumbs"
                       onClick={() => setSlideIndex(index + 1)}
                     >
                       <div className="h-full">

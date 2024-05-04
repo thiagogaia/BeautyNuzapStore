@@ -1,8 +1,11 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import CardProduct from "../CardProduct";
 import { IShowcaseProps } from "./types";
+import { formatAndFollowUrl } from "../utils/links";
+import { StoreContext } from "../../contexts/Store";
 
-const Showcase = ({ title, productList }: IShowcaseProps) => {
+const Showcase = ({ title, productList, categoryUri }: IShowcaseProps) => {
+  const { storeUri } = useContext(StoreContext);
   const [scrollPosition, setScrollPosition] = useState(0);
   const container = useRef<HTMLUListElement>(null);
 
@@ -31,9 +34,12 @@ const Showcase = ({ title, productList }: IShowcaseProps) => {
     <>
       <div className="cont-limite cont-limite-427 cont-pdd-pq ">
         <h2 className="tt vitr-tt cont-tt  cont-ali-ip-c cont-ali-fb-c cont-ali-dk-c cont-ali-mn-c cont-tt-427">
-          <a href="https://www.nuzap.com.br/joelik/cat/5/new-in" className="tt-url">
-            <span className="tt-texto">{title}</span>
-          </a>
+          <button
+            onClick={() => formatAndFollowUrl(`${storeUri}/loja/${categoryUri}`)}
+            className="tt-url"
+          >
+            <span className="theme-mode-color tt-texto">{title}</span>
+          </button>
         </h2>
         <ul className="cont-lista cont-lista-427 cont-mgm-l-md ">
           <li
@@ -46,14 +52,14 @@ const Showcase = ({ title, productList }: IShowcaseProps) => {
                 className="absolute left-0 z-10 p-2 pl-0.5 tail-listagem-seta tail-listagem-prod-seta"
                 onClick={() => controls("prev")}
               >
-                <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
+                <div className="theme-mode-bg grid flex-shrink-0 px-2 border border-solid rounded-full place-content-center tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={3}
                     stroke="currentColor"
-                    className="h-3 md:h-4 -ml-0.5 text-gray-500 pointer-events-none ev-listagem-seta-icone"
+                    className="h-3 md:h-4 -ml-0.5 pointer-events-none ev-listagem-seta-icone"
                   >
                     <path
                       strokeLinecap="round"
@@ -84,14 +90,14 @@ const Showcase = ({ title, productList }: IShowcaseProps) => {
                 className="absolute right-0 p-2 pr-0.5 tail-listagem-seta tail-listagem-prod-seta"
                 onClick={() => controls("next")}
               >
-                <div className="grid flex-shrink-0 px-2 border border-gray-300 border-solid rounded-full place-content-center bg-gray-50 tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
+                <div className="theme-mode-bg grid flex-shrink-0 px-2 border border-solid rounded-full place-content-center tail-listagem-seta-interno tail-listagem-prod-seta-interno ev-listagem-seta-interno">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={3}
                     stroke="currentColor"
-                    className="h-3 md:h-4 -mr-0.5 text-gray-500 pointer-events-none"
+                    className="h-3 md:h-4 -mr-0.5 pointer-events-none"
                   >
                     <path
                       strokeLinecap="round"

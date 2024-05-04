@@ -13,7 +13,7 @@ const Logo = () => {
               src={storeData.business.logo}
               width={259}
               height={60}
-              className="object-contain max-h-12 md:max-h-20 ev-topo-logo-foto-img tail-topo-logo-img"
+              className="drop-shadow-[var(--filter-drop-shadow)] object-contain max-h-12 md:max-h-20 ev-topo-logo-foto-img tail-topo-logo-img"
               alt={storeData.business.name}
             />
           </a>
