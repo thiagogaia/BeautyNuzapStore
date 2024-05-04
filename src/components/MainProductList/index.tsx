@@ -61,7 +61,7 @@ const MainProductList = () => {
 
   return (
     <>
-      <div id="principal-limite" className="principal-limite">
+      <div id="principal-limite" className="theme-mode-bg principal-limite">
         <article id="conteudo" className="conteudo">
           <div className="relative">
             <section itemProp="breadcrumb" className="mt-6 tail-busca-migalhas js-appec-escondido">
@@ -70,7 +70,6 @@ const MainProductList = () => {
                   <div>
                     <a href={"/" + storeUri}>Home</a>
                   </div>
-
                   <div className="mt-0.5">
                     <svg
                       className="w-3 h-3"
@@ -87,7 +86,6 @@ const MainProductList = () => {
                       ></path>
                     </svg>
                   </div>
-
                   <div>
                     <span
                       style={{ cursor: "pointer" }}
@@ -112,7 +110,7 @@ const MainProductList = () => {
                 {/* desktop sorting */}
                 <details className="hidden lg:block select-none tail-busca-filtro-details js-tail-busca-filtro-filtro">
                   <summary className="flex items-center py-2 list-none cursor-pointer whitespace-nowrap tail-busca-filtro-summary">
-                    <span className="text-sm text-gray-700 tail-busca-filtro-ordenar-texto">
+                    <span className="theme-mode-second-color text-sm tail-busca-filtro-ordenar-texto">
                       Ordenar
                     </span>
                     <svg
@@ -130,17 +128,19 @@ const MainProductList = () => {
                       />
                     </svg>
                   </summary>
-                  <div className="absolute z-10 py-2 text-gray-700 bg-white border border-gray-300 border-solid rounded-lg shadow-2xl w-36 tail-busca-tag-lista lg:-ml-20">
+                  <div className="theme-mode-bg theme-mode-second-color absolute z-10 py-2 border border-solid rounded-lg shadow-2xl w-36 tail-busca-tag-lista lg:-ml-20">
                     <label
                       htmlFor="FiltroNovidades"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
                         style={{
                           backgroundColor:
-                            orderBy === null || orderBy === "novidades" ? "black" : "white",
+                            orderBy === null || orderBy === "novidades"
+                              ? "rgba(var(--reverse-color), 1)"
+                              : "transparent",
                         }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -148,11 +148,14 @@ const MainProductList = () => {
                     </label>
                     <label
                       htmlFor="FiltroOrdenarnomeAsc"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
-                        style={{ backgroundColor: orderBy === "name_asc" ? "black" : "white" }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        style={{
+                          backgroundColor:
+                            orderBy === "name_asc" ? "rgba(var(--text-color),1)" : "transparent",
+                        }}
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -160,11 +163,11 @@ const MainProductList = () => {
                     </label>
                     {/* <label
                       htmlFor="FiltroOrdenarnomeDesc"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
-                        style={{ backgroundColor: orderBy === "name_desc" ? "black" : "white" }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        style={{ backgroundColor: orderBy === "name_desc" ? "rgba(var(--text-color),1)" : "transparent" }}
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -172,11 +175,14 @@ const MainProductList = () => {
                     </label> */}
                     <label
                       htmlFor="FiltroOrdenarbarato"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
-                        style={{ backgroundColor: orderBy === "price_asc" ? "black" : "white" }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        style={{
+                          backgroundColor:
+                            orderBy === "price_asc" ? "rgba(var(--text-color),1)" : "transparent",
+                        }}
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -184,11 +190,14 @@ const MainProductList = () => {
                     </label>
                     <label
                       htmlFor="FiltroOrdenarcaro"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
-                        style={{ backgroundColor: orderBy === "price_desc" ? "black" : "white" }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        style={{
+                          backgroundColor:
+                            orderBy === "price_desc" ? "rgba(var(--text-color),1)" : "transparent",
+                        }}
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>

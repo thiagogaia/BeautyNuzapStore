@@ -9,7 +9,8 @@ const HeaderWarning = () => {
       <ul className="relative w-full h-full tail-aviso-alternado-lista ev-aviso-alternado-lista">
         <li className="h-full top-0 left-0 absolute w-full tail-aviso-alternado-item tail-aviso-alternado-item-1 ev-aviso-alternado-item">
           <a
-            href="https://www.nuzap.com.br/joelik/desconto/ganhei10"
+            href="#"
+            style={{ pointerEvents: "none" }}
             className="tail-aviso-alternado-link tail-aviso-alternado-link-1 ev-aviso-alternado-link"
           >
             <div className="flex items-center justify-center h-full tail-aviso-alternado-texto tail-aviso-alternado-texto-1 ev-aviso-alternado-texto">

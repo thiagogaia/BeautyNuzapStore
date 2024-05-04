@@ -28,7 +28,7 @@ const InputSearchMobile = ({ storeUri }: Props) => {
           onSubmit={(e) => search(e)}
         >
           <div className="tail-topo-busca-form-interno-1 ev-topo-busca-form-interno-1">
-            <div className="flex justify-between border-t border-b border-gray-200 border-solid divide-x divide-gray-200 divide-solid tail-topo-busca-form-interno-2 ev-topo-busca-form-interno-2">
+            <div className="border-[rgba(var(--border-color),1)] divide-[rgba(var(--border-color),1)] flex justify-between border-t border-b border-solid divide-x divide-solid tail-topo-busca-form-interno-2 ev-topo-busca-form-interno-2">
               <input
                 type="text"
                 inputMode="search"
@@ -40,16 +40,16 @@ const InputSearchMobile = ({ storeUri }: Props) => {
                 placeholder="Buscar produto"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.currentTarget.value)}
-                className="w-full px-4 leading-normal placeholder-gray-500 rounded-none outline-none py-3.5 tail-topo-busca-campo ev-topo-busca-campo js-busca-campo"
+                className="placeholder-[rgba(var(--text-color),1)] bg-transparent w-full px-4 leading-normal rounded-none outline-none py-3.5 tail-topo-busca-campo ev-topo-busca-campo js-busca-campo"
                 id="topo-busca-campo-mobile"
               />
               <button
                 aria-label="Enviar busca"
                 type="submit"
-                className="px-4 text-gray-600 bg-white cursor-pointer tail-topo-busca-btn-ok ev-topo-busca-btn-ok js-busca-botao"
+                className="px-4 text-gray-600 bg-transparent cursor-pointer tail-topo-busca-btn-ok ev-topo-busca-btn-ok js-busca-botao"
               >
                 <label htmlFor="topo-busca-campo-mobile">
-                  <CiSearch style={{ fontSize: "1.5rem" }} />
+                  <CiSearch style={{ fontSize: "1.5rem" }} className="theme-mode-color" />
                   <span className="sr-only">Selecionar barra de pesquisa</span>
                 </label>
               </button>

@@ -9,10 +9,10 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-white text-center text-xs tail-cor tail-rodape-fonte mt-10 tail-rodape js-appec-escondido">
+      <footer className="text-center text-xs tail-cor tail-rodape-fonte mt-10 tail-rodape js-appec-escondido">
         <section
           data-nome="interno_1"
-          className="px-2 flex w-full justify-center lg:px-0 border-t border-solid border-black border-opacity-10 lg:text-left json-rodape-rodape_interno_1-fundo-interno tail-rodape-interno-1"
+          className="theme-mode-bg px-2 flex w-full justify-center lg:px-0 border-t border-solid border-black border-opacity-10 lg:text-left json-rodape-rodape_interno_1-fundo-interno tail-rodape-interno-1"
         >
           <div className="py-6 px-8 w-full tail-rodape-limite-1">
             <div className="flex gap-7 lg:gap-0 flex-col lg:flex-row lg:justify-between">
@@ -93,7 +93,7 @@ const Footer = () => {
                       SIGA-NOS
                     </h2>
                     <ul className="flex gap-2 justify-center lg:justify-start">
-                      <li className="border border-solid border-1 border-black border-opacity-10 rounded">
+                      <li className="border-[rgba(var(--reverse-color),.1)] border border-solid border-1 border-opacity-10 rounded">
                         <a
                           href={storeData.business.social_links.facebook}
                           className="p-1 block"
@@ -102,7 +102,7 @@ const Footer = () => {
                           target="_blank"
                         >
                           <svg
-                            className="h-4 fill-current text-black tail-rodape-social-vetor-facebook json-rodape-social-vetor"
+                            className="h-4 fill-current tail-rodape-social-vetor-facebook json-rodape-social-vetor"
                             version="1.1"
                             xmlns="//www.w3.org/2000/svg"
                             xmlnsXlink="//www.w3.org/1999/xlink"
@@ -116,7 +116,7 @@ const Footer = () => {
                           </svg>
                         </a>
                       </li>
-                      <li className="border border-solid border-1 border-black border-opacity-10 rounded">
+                      <li className="border-[rgba(var(--reverse-color),.1)] border border-solid border-1 border-opacity-10 rounded">
                         <a
                           href={storeData.business.social_links.instagram}
                           className="p-1 block"
@@ -125,7 +125,7 @@ const Footer = () => {
                           target="_blank"
                         >
                           <svg
-                            className="h-4 fill-current text-black tail-rodape-social-vetor-instagram json-rodape-social-vetor"
+                            className="h-4 fill-current tail-rodape-social-vetor-instagram json-rodape-social-vetor"
                             version="1.1"
                             xmlns="//www.w3.org/2000/svg"
                             xmlnsXlink="//www.w3.org/1999/xlink"
@@ -143,7 +143,7 @@ const Footer = () => {
                           </svg>
                         </a>
                       </li>
-                      <li className="border border-solid border-1 border-black border-opacity-10 rounded">
+                      <li className="border-[rgba(var(--reverse-color),.1)] border border-solid border-1 border-opacity-10 rounded">
                         <a
                           href={storeData.business.social_links.youtube}
                           className="p-1 block"
@@ -255,6 +255,8 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* security */}
                 <div
                   data-nome="ssl_1"
                   className=" tail-rodape-coluna tail-rodape-coluna-ssl js-tail-rodape-coluna"
@@ -268,7 +270,7 @@ const Footer = () => {
                         <img
                           loading="lazy"
                           src="/tail-ssl-preto.webp"
-                          className="mx-auto lg:m-0 tail-rodape-ssl"
+                          className="drop-shadow-[var(--filter-drop-shadow)] mx-auto lg:m-0 tail-rodape-ssl"
                           alt="Formas de Pagamento"
                         />
                       </figure>
@@ -295,27 +297,27 @@ const Footer = () => {
                       autoComplete="off"
                       method="post"
                       noValidate
-                      className=" js-newsletter"
+                      className="js-newsletter"
                     >
                       <div>
-                        <div className="border-b border-b border-solid border-black border-opacity-10 py-3 text-left tail-rodape-news-nome">
+                        <div className="border-[rgba(var(--border-color),.1)] border-b border-b border-solid border-opacity-10 py-3 text-left tail-rodape-news-nome">
                           <input
                             type="email"
                             name="newsNome"
                             autoComplete="off"
                             placeholder="Nome"
                             // onkeyup="nesletterEnter(this, event);"
-                            className="outline-none py-1 bg-transparent placeholder-black js-newsletter-nome"
+                            className="placeholder-[rgba(var(--text-color),1)] outline-none py-1 bg-transparent js-newsletter-nome"
                           />
                         </div>
-                        <div className="border-b border-b border-solid border-black border-opacity-10 py-3 grid grid-cols-5 leading-normal tail-rodape-news-email">
+                        <div className="border-[rgba(var(--border-color),.1)] border-b border-b border-solid border-opacity-10 py-3 grid grid-cols-5 leading-normal tail-rodape-news-email">
                           <input
                             type="email"
                             name="newsEmail"
                             autoComplete="off"
                             placeholder="E-mail"
                             // onkeyup="nesletterEnter(this, event);"
-                            className="outline-none py-1 bg-transparent placeholder-black col-span-4 leading-none js-newsletter-email"
+                            className="placeholder-[rgba(var(--text-color),1)] outline-none py-1 bg-transparent col-span-4 leading-none js-newsletter-email"
                           />
                           <input
                             type="button"
@@ -333,9 +335,10 @@ const Footer = () => {
             </div>
           </div>
         </section>
+
         <section
           data-nome="interno_2"
-          className="px-2 flex w-full justify-center lg:px-0 border-t border-solid border-black border-opacity-10 json-rodape-rodape_interno_2-fundo-interno tail-rodape-interno-2"
+          className="theme-mode-bg px-2 flex w-full justify-center lg:px-0 border-t border-solid border-black border-opacity-10 json-rodape-rodape_interno_2-fundo-interno tail-rodape-interno-2"
         >
           <div className="py-3 flex flex-col items-center gap-3 lg:gap-2 tail-rodape-limite-2">
             <div>

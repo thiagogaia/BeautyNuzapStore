@@ -92,19 +92,19 @@ const Filters = ({
   return (
     <div className="py-2 lg:py-0 lg:pb-12 lg:w-60 js-appec-escondido">
       <div
-        className="flex justify-center lg:p-2 lg:rounded-lg lg:justify-end lg:border lg:border-solid lg:border-gray-300 ev-busca-filtro-container tail-busca-filtro-container"
+        className="lg:border-[rgba(var(--border-color),1)]  flex justify-center lg:p-2 lg:rounded-lg lg:justify-end lg:border lg:border-solid ev-busca-filtro-container tail-busca-filtro-container"
         data-seta-posicao="cima"
       >
         <label
           htmlFor="buscaFiltroMostrar"
-          className="flex items-center block gap-1 text-gray-700 cursor-pointer lg:hidden"
+          className="theme-mode-second-color flex items-center block gap-1 cursor-pointer lg:hidden"
         >
-          <span className="text-sm text-gray-700 tail-busca-filtro-mostrar-texto">Filtros</span>
+          <span className="text-sm tail-busca-filtro-mostrar-texto">Filtros</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="h-4 text-gray-500 tail-busca-filtro-mostrar-vetor"
+            className="theme-mode-second-color h-4 tail-busca-filtro-mostrar-vetor"
           >
             <path
               fillRule="evenodd"
@@ -118,7 +118,7 @@ const Filters = ({
           type="checkbox"
           className="hidden tail-busca-filtro-mostrar-btn-input"
         />
-        <div className="fixed top-0 right-0 bottom-0 hidden p-2 overflow-y-auto bg-white border border-gray-200 border-solid shadow-2xl w-60 lg:p-0 lg:block lg:h-auto lg:static lg:overflow-y-hidden lg:border-0 lg:shadow-none tail-busca-filtro-mostrar">
+        <div className="theme-mode-bg border-[rgba(var(--border-color),1)] fixed top-0 right-0 bottom-0 hidden p-2 overflow-y-auto border border-solid shadow-2xl w-60 lg:p-0 lg:block lg:h-auto lg:static lg:overflow-y-hidden lg:border-0 lg:shadow-none tail-busca-filtro-mostrar">
           <div className="flex justify-end">
             <label
               htmlFor="buscaFiltroMostrar"
@@ -185,12 +185,12 @@ const Filters = ({
 
             {/* filters */}
             <div className="w-full js-appec-escondido">
-              <div className="text-xs divide-y divide-gray-200 divide-solid tail-busca-filtro-geral">
+              <div className="divide-[rgba(var(--border-color),1)] text-xs divide-y divide-solid tail-busca-filtro-geral">
                 {/* variations */}
                 <details className="select-none tail-busca-filtro-details tail-busca-filtro-details">
-                  <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
+                  <summary className="hover:bg-[rgba(var(--border-color),.5)] flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap tail-busca-filtro-summary">
                     <span
-                      className="text-sm font-bold text-gray-700 tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1"
+                      className="text-sm font-bold tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1"
                       data-seta-posicao="cima"
                     >
                       <svg
@@ -199,7 +199,7 @@ const Filters = ({
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="h-5 text-gray-500 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
+                        className="h-5 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
                       >
                         <path
                           strokeLinecap="round"
@@ -215,7 +215,7 @@ const Filters = ({
                       viewBox="0 0 24 24"
                       strokeWidth={3}
                       stroke="currentColor"
-                      className="relative w-4 h-4 text-gray-400 mr-0.5 tail-busca-filtro-icone"
+                      className="theme-mode-second-color relative w-4 h-4 mr-0.5 tail-busca-filtro-icone"
                     >
                       <path
                         strokeLinecap="round"
@@ -224,8 +224,9 @@ const Filters = ({
                       />
                     </svg>
                   </summary>
-                  <div className="grid gap-2 px-1 pb-4 text-left text-gray-700 tail-busca-filtro-texto">
-                    <div className="grid grid-cols-1 gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
+
+                  <div className="grid gap-2 px-1 pb-4 text-left tail-busca-filtro-texto">
+                    <div className="grid grid-cols-1 gap-2 px-1 pt-2 pb-4 tail-busca-tag-lista">
                       {variations.map((variation) => (
                         <div className="flex items-start gap-2" key={uuidv4()}>
                           <input
@@ -240,7 +241,7 @@ const Filters = ({
                                 ? true
                                 : false
                             }
-                            className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
+                            className="border-[rgba(var(--border-color),1)] flex-shrink-0 align-top rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                           />
                           <label htmlFor={variation.id} className="flex flex-wrap gap-1">
                             <div>{variation.name}</div>
@@ -252,10 +253,10 @@ const Filters = ({
                 </details>
 
                 {/* variation items */}
-                <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-cates">
-                  <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
+                <details className="select-none tail-busca-filtro-details">
+                  <summary className="hover:bg-[rgba(var(--border-color),.5)] flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap tail-busca-filtro-summary">
                     <span
-                      className="text-sm font-bold text-gray-700 tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1"
+                      className="text-sm font-bold tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1"
                       data-seta-posicao="cima"
                     >
                       <svg
@@ -264,7 +265,7 @@ const Filters = ({
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="h-5 text-gray-500 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
+                        className="h-5 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
                       >
                         <path
                           strokeLinecap="round"
@@ -280,7 +281,7 @@ const Filters = ({
                       viewBox="0 0 24 24"
                       strokeWidth={3}
                       stroke="currentColor"
-                      className="relative w-4 h-4 text-gray-400 mr-0.5 tail-busca-filtro-icone"
+                      className="theme-mode-second-color relative w-4 h-4 mr-0.5 tail-busca-filtro-icone"
                     >
                       <path
                         strokeLinecap="round"
@@ -289,8 +290,8 @@ const Filters = ({
                       />
                     </svg>
                   </summary>
-                  <div className="grid gap-2 px-1 pb-4 text-left text-gray-700 tail-busca-filtro-texto">
-                    <div className="grid grid-cols-1 gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
+                  <div className="grid gap-2 px-1 pb-4 text-left tail-busca-filtro-texto">
+                    <div className="grid grid-cols-1 gap-2 px-1 pt-2 pb-4 tail-busca-tag-lista">
                       {variationItems.map((item) => (
                         <div className="flex items-start gap-2" key={uuidv4()}>
                           <input
@@ -305,7 +306,7 @@ const Filters = ({
                                 ? true
                                 : false
                             }
-                            className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
+                            className="border-[rgba(var(--border-color),1)] flex-shrink-0 align-top rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                           />
                           <label htmlFor={item.id} className="flex flex-wrap gap-1">
                             <div>{item.name}</div>
@@ -317,10 +318,10 @@ const Filters = ({
                 </details>
 
                 {/* categories */}
-                <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-cates">
-                  <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
+                <details className="select-none tail-busca-filtro-details">
+                  <summary className="hover:bg-[rgba(var(--border-color),.5)] flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap tail-busca-filtro-summary">
                     <span
-                      className="text-sm font-bold text-gray-700 tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1"
+                      className="text-sm font-bold tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1"
                       data-seta-posicao="cima"
                     >
                       <svg
@@ -329,7 +330,7 @@ const Filters = ({
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="h-5 text-gray-500 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
+                        className="h-5 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
                       >
                         <path
                           strokeLinecap="round"
@@ -350,7 +351,7 @@ const Filters = ({
                       viewBox="0 0 24 24"
                       strokeWidth={3}
                       stroke="currentColor"
-                      className="relative w-4 h-4 text-gray-400 mr-0.5 tail-busca-filtro-icone"
+                      className="theme-mode-second-color relative w-4 h-4 mr-0.5 tail-busca-filtro-icone"
                     >
                       <path
                         strokeLinecap="round"
@@ -359,7 +360,7 @@ const Filters = ({
                       />
                     </svg>
                   </summary>
-                  <div className="grid gap-2 px-1 pb-4 text-left text-gray-700 tail-busca-filtro-texto">
+                  <div className="grid gap-2 px-1 pb-4 text-left tail-busca-filtro-texto">
                     <ul className="pt-2 pl-4 grid gap-2 list-disc">
                       {category !== undefined ? (
                         <li className="pt-2">
@@ -379,7 +380,7 @@ const Filters = ({
                                   ? true
                                   : false
                               }
-                              className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
+                              className="border-[rgba(var(--border-color),1)] flex-shrink-0 align-top rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                             />
                             <label htmlFor={cat.id} className="flex flex-wrap gap-1">
                               <div>{cat.name}</div>
@@ -393,15 +394,15 @@ const Filters = ({
 
                 {/* order mobile labels */}
                 <details className="lg:hidden select-none tail-busca-filtro-details">
-                  <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
-                    <span className="flex items-center gap-1 text-sm font-bold text-gray-700 tail-busca-filtro-nome">
+                  <summary className="hover:bg-[rgba(var(--border-color),.5)] flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap tail-busca-filtro-summary">
+                    <span className="flex items-center gap-1 text-sm font-bold tail-busca-filtro-nome">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="h-5 text-gray-500 tail-busca-filtro-nome-svg"
+                        className="h-5 tail-busca-filtro-nome-svg"
                       >
                         <path
                           strokeLinecap="round"
@@ -417,7 +418,7 @@ const Filters = ({
                       viewBox="0 0 24 24"
                       strokeWidth={3}
                       stroke="currentColor"
-                      className="relative w-4 h-4 text-gray-400 mr-0.5 tail-busca-filtro-icone"
+                      className="theme-mode-second-color relative w-4 h-4 mr-0.5 tail-busca-filtro-icone"
                     >
                       <path
                         strokeLinecap="round"
@@ -430,14 +431,16 @@ const Filters = ({
                     <label
                       htmlFor="FiltroNovidades"
                       data-nome="Nome"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
                         style={{
                           backgroundColor:
-                            orderBy === null || orderBy === "novidades" ? "black" : "white",
+                            orderBy === null || orderBy === "novidades"
+                              ? "rgba(var(--reverse-color), 1)"
+                              : "transparent",
                         }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -446,14 +449,16 @@ const Filters = ({
                     <label
                       htmlFor="FiltroOrdenarnomeAsc"
                       data-nome="Nome"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
                         style={{
                           backgroundColor:
-                            orderBy !== null && orderBy === "name_asc" ? "black" : "white",
+                            orderBy !== null && orderBy === "name_asc"
+                              ? "rgba(var(--reverse-color), 1)"
+                              : "transparent",
                         }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -467,9 +472,9 @@ const Filters = ({
                       <div
                         style={{
                           backgroundColor:
-                            orderBy !== null && orderBy === "name_desc" ? "black" : "white",
+                            orderBy !== null && orderBy === "name_desc" ? "rgba(var(--reverse-color), 1)" : "transparent",
                         }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 bg-white border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -478,14 +483,16 @@ const Filters = ({
                     <label
                       htmlFor="FiltroOrdenarbarato"
                       data-nome="Menor preço"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
                         style={{
                           backgroundColor:
-                            orderBy !== null && orderBy === "price_asc" ? "black" : "white",
+                            orderBy !== null && orderBy === "price_asc"
+                              ? "rgba(var(--reverse-color), 1)"
+                              : "transparent",
                         }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -494,14 +501,16 @@ const Filters = ({
                     <label
                       htmlFor="FiltroOrdenarcaro"
                       data-nome="Maior preço"
-                      className="flex items-center gap-2 p-2 text-sm cursor-pointer hover:bg-gray-100 tail-busca-filtro-label"
+                      className="hover:bg-[rgba(var(--border-color),.5)] flex items-center gap-2 p-2 text-sm cursor-pointer tail-busca-filtro-label"
                     >
                       <div
                         style={{
                           backgroundColor:
-                            orderBy !== null && orderBy === "price_desc" ? "black" : "white",
+                            orderBy !== null && orderBy === "price_desc"
+                              ? "rgba(var(--reverse-color), 1)"
+                              : "transparent",
                         }}
-                        className="w-4 h-4 bg-white border border-gray-200 border-solid rounded-full"
+                        className="border-[rgba(var(--border-color),1)] w-4 h-4 border border-solid rounded-full"
                       >
                         <span className="sr-only">Ordenação ativa</span>
                       </div>
@@ -512,15 +521,15 @@ const Filters = ({
 
                 {/* price */}
                 <details className="select-none tail-busca-filtro-details tail-busca-filtro-details-preco">
-                  <summary className="flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap hover:bg-gray-100 tail-busca-filtro-summary">
-                    <span className="text-sm font-bold text-gray-700 tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1">
+                  <summary className="hover:bg-[rgba(var(--border-color),.5)] flex items-center justify-between px-1 py-2 list-none cursor-pointer whitespace-nowrap tail-busca-filtro-summary">
+                    <span className="text-sm font-bold tail-busca-filtro-nome ev-busca-filtro-nome flex items-center gap-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke="currentColor"
-                        className="h-5 text-gray-500 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
+                        className="h-5 tail-busca-filtro-nome-svg ev-busca-filtro-nome-svg"
                       >
                         <path
                           strokeLinecap="round"
@@ -536,7 +545,7 @@ const Filters = ({
                       viewBox="0 0 24 24"
                       strokeWidth={3}
                       stroke="currentColor"
-                      className="relative w-4 h-4 text-gray-400 tail-busca-filtro-icone"
+                      className="theme-mode-second-color relative w-4 h-4 tail-busca-filtro-icone"
                     >
                       <path
                         strokeLinecap="round"
@@ -545,7 +554,7 @@ const Filters = ({
                       />
                     </svg>
                   </summary>
-                  <div className="overflow-visible flex gap-2 px-1 pt-2 pb-4 text-gray-700 tail-busca-tag-lista">
+                  <div className="overflow-visible flex gap-2 px-1 pt-2 pb-4 tail-busca-tag-lista">
                     {/* <div className="flex-shrink">
                       <div className="pl-2 font-bold">Mínimo:</div>
                       <input
@@ -553,7 +562,7 @@ const Filters = ({
                         name="preco1"
                         defaultValue=""
                         placeholder="De"
-                        className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
+                        className="border-[rgba(var(--border-color),1)] w-full p-2 text-xs text-black bg-white border border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
                         autoComplete="off"
                         inputMode="decimal"
                         pattern="[0-9]*"
@@ -568,7 +577,7 @@ const Filters = ({
                         name="price"
                         defaultValue={maxPrice !== null && Number(maxPrice) > 0 ? maxPrice : ""}
                         placeholder="Até"
-                        className="w-full p-2 text-xs text-black bg-white border border-gray-300 border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
+                        className="theme-mode-bg border-[rgba(var(--border-color),1)] w-full p-2 text-xs border border-solid rounded-lg shadow-sm outline-none focus:border-indigo-500 ring-0 disabled-bg js-imask-moeda"
                         autoComplete="off"
                         onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
                           e.key === "Enter" && e.preventDefault()
@@ -579,7 +588,7 @@ const Filters = ({
                       <button
                         type="button"
                         onClick={search}
-                        className="border border-solid border-gray-300 p-2 text-white bg-black rounded-lg ev-busca-filtro-preco-btn tail-busca-filtro-preco-botao"
+                        className="border-[rgba(var(--border-color),1)] border border-solid p-2 text-white bg-black rounded-lg ev-busca-filtro-preco-btn tail-busca-filtro-preco-botao"
                         data-seta-posicao="cima"
                       >
                         <span className="sr-only">Filtrar</span>
@@ -641,7 +650,7 @@ const Filters = ({
                     <li className="relative flex-shrink-0 flex flex-col items-center gap-1 cursor-pointer overflow-visible tail-busca-filtro-variacao-cor-item">
                       <label
                         htmlFor="FiltroVari1300"
-                        className="flex flex items-center border-2 border-gray-300 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
+                        className="border-[rgba(var(--border-color),1)] flex flex items-center border-2 border-solid rounded-full cursor-pointer w-9 h-9 tail-busca-filtro-variacao-label tail-busca-filtro-variacao-cor text-center"
                       >
                         <div className="relative">
                           <input
@@ -704,7 +713,7 @@ const Filters = ({
                     <li className="flex-shrink-0 flex gap-1.5 flex-wrap w-full relative">
                       <label
                         htmlFor="FiltroVari1003"
-                        className="flex p-0.5 grid border border-gray-300 border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
+                        className="border-[rgba(var(--border-color),1)] flex p-0.5 grid border border-solid rounded-lg cursor-pointer w-full place-content-center tail-busca-filtro-variacao-label tail-busca-filtro-variacao-2-label text-center"
                       >
                         <div className="relative">
                           <input
@@ -765,7 +774,7 @@ const Filters = ({
                         id="FiltroDest4"
                         defaultValue={4}
                         // onchange="this.form.submit();"
-                        className="flex-shrink-0 align-top border-gray-400 rounded-full outline-none cursor-pointer ring-0 disabled-bg"
+                        className="border-[rgba(var(--border-color),1)] flex-shrink-0 align-top rounded-full outline-none cursor-pointer ring-0 disabled-bg"
                       />
                       <label htmlFor="FiltroDest4" className="flex gap-1">
                         <div>Super Desconto (2)</div>

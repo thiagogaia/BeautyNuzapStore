@@ -18,7 +18,9 @@ const CartCard = ({ product }: Props) => {
           </div>
           <div className="flex flex-col gap-y-2">
             <div className="font-bold">{product.name}</div>
-            <div className="text-xs text-gray-500">Variação: {product.variation_name}</div>
+            <div className="text-xs theme-mode-second-color">
+              Variação: {product.variation_name}
+            </div>
             <div>
               <span className="font-bold">
                 {Number(product.price).toLocaleString("pt-BR", {

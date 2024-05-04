@@ -27,7 +27,7 @@ const InputSearch = ({ storeUri }: Props) => {
           onSubmit={(e) => search(e)}
         >
           <div className="tail-topo-busca-form-interno-1 ev-topo-busca-form-interno-1">
-            <div className="flex justify-between border border-black border-solid rounded-full tail-topo-busca-form-interno-2 ev-topo-busca-form-interno-2">
+            <div className="border-[rgba(var(--border-color),1)] flex justify-between border border-solid rounded-full tail-topo-busca-form-interno-2 ev-topo-busca-form-interno-2">
               <input
                 type="text"
                 inputMode="search"
@@ -39,7 +39,7 @@ const InputSearch = ({ storeUri }: Props) => {
                 placeholder="Buscar produto"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.currentTarget.value)}
-                className="w-full px-4 py-2 pr-0 leading-normal placeholder-black bg-transparent rounded-none outline-none tail-topo-busca-campo ev-topo-busca-campo js-busca-campo"
+                className="placeholder-[rgba(var(--text-color),1)] w-full px-4 py-2 pr-0 leading-normal bg-transparent rounded-none outline-none tail-topo-busca-campo ev-topo-busca-campo js-busca-campo"
                 id="topo-busca-campo"
               />
               <button

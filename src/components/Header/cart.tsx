@@ -14,7 +14,7 @@ const Cart = ({ cart }: Props) => {
   const totalPrice = cart.reduce((acc, item) => acc + Number(item.price) * item.quantity, 0);
 
   return (
-    <nav className="fixed top-0 right-0 invisible w-64 h-screen text-sm bg-white shadow-md rounded-l-md md:w-96 ev-topo-carrinho-lista ev-topo-carrinho-1-dados-lista opacity-0 sm:bg-opacity-60 sm:backdrop-filter sm:backdrop-blur-md md:bg-opacity-60 md:backdrop-filter md:backdrop-blur-md lg:bg-opacity-60 lg:backdrop-filter lg:backdrop-blur-md xl:bg-opacity-60 xl:backdrop-filter xl:backdrop-blur-md tail-topo-sacola-lista">
+    <nav className="theme-mode-bg bg-[rgba(var(--bg-color),1)] md:bg-[rgba(var(--bg-color),.6)] fixed top-0 right-0 invisible w-64 h-screen text-sm shadow-md rounded-l-md md:w-96 ev-topo-carrinho-lista ev-topo-carrinho-1-dados-lista opacity-0 sm:bg-opacity-60 sm:backdrop-filter sm:backdrop-blur-md md:bg-opacity-60 md:backdrop-filter md:backdrop-blur-md lg:bg-opacity-60 lg:backdrop-filter lg:backdrop-blur-md xl:bg-opacity-60 xl:backdrop-filter xl:backdrop-blur-md tail-topo-sacola-lista">
       <div className="flex flex-col content-start h-full tail-topo-carrinho-interno">
         <div className="flex items-center justify-between p-5">
           <h3 className="text-sm md:text-base">Meu Carrinho</h3>
@@ -34,7 +34,7 @@ const Cart = ({ cart }: Props) => {
         <div className="p-5 text-sm font-bold text-center">
           <button
             onClick={() => formatAndFollowUrl(`${storeUri}/carrinho`)}
-            className="inline-block w-full py-4 text-center border border-gray-300 border-solid rounded-md tail-topo-carrinho-produto-ir ev-topo-carrinho-produto-ir ev-topo-carrinho-1-produto-ir"
+            className="border-[rgba(var(--border-color),1)] inline-block w-full py-4 text-center border border-solid rounded-md tail-topo-carrinho-produto-ir ev-topo-carrinho-produto-ir ev-topo-carrinho-1-produto-ir"
           >
             {cart.length > 0 ? "Ir para o carrinho" : "Carrinho vazio"}
           </button>
@@ -52,7 +52,7 @@ const Cart = ({ cart }: Props) => {
             </div>
           </div>
         )}
-        <ul className="p-5 overflow-y-auto border-t border-b border-gray-200 border-solid divide-y divide-gray-200 divide-solid js-tail-topo-carrinho-produto-lista">
+        <ul className="border-[rgba(var(--border-color),1)] divide-[rgba(var(--border-color),1)] p-5 overflow-y-auto border-t border-b border-solid divide-y divide-solid js-tail-topo-carrinho-produto-lista">
           {cart.map((item) => (
             <CartCard key={uuidv4()} product={item} />
           ))}

@@ -25,7 +25,11 @@ const MainHome = () => {
             {productListRelease.length > 0 && (
               <>
                 <div className="cont-separador cont-separador-40 my-4" />
-                <Showcase title="Lançamentos" productList={productListRelease} />
+                <Showcase
+                  title="Lançamentos"
+                  categoryUri="lancamentos"
+                  productList={productListRelease}
+                />
               </>
             )}
 
@@ -41,7 +45,11 @@ const MainHome = () => {
             {productListPromo.length > 0 && (
               <>
                 <div className="cont-separador cont-separador-40 my-4" />
-                <Showcase title="Promoções" productList={productListPromo} />
+                <Showcase
+                  title="Promoções"
+                  categoryUri="promocoes"
+                  productList={productListPromo}
+                />
               </>
             )}
 

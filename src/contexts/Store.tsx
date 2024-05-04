@@ -14,13 +14,16 @@ const StoreProvider = ({ children }: IProviderProps) => {
 
   useEffect(() => {
     if (storeUri.length > 0) {
-      api
-        .get(`store-api/${storeUri}`)
-        .then((res) => {
-          setLoad(false);
-          setStoreData(res.data);
-        })
-        .catch(() => {});
+      api.get(`store-api/${storeUri}`).then((res) => {
+        setLoad(false);
+        setStoreData(res.data);
+
+        const themeData = { darkMode: "on", themeColor: "255, 0, 159" };
+
+        document.documentElement.style.setProperty("--theme-color", themeData.themeColor);
+        document.querySelector("html")!.dataset["theme"] =
+          themeData.darkMode === "on" ? "dark" : "light";
+      });
     }
 
     return () => {};

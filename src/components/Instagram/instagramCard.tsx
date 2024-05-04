@@ -8,7 +8,7 @@ const InstagramCard = ({ link, img, ...props }: CardProps) => {
     <>
       <li
         {...props}
-        className="relative flex flex-col gap-1.5 border border-solid border-gray-300 rounded-lg cursor-pointer tail-listagem-inst-item flex-shrink-0 mr-2 tail-listagem-card-largura-2 md:tail-listagem-card-largura-3 lg:tail-listagem-card-largura-4 2xl:tail-listagem-card-largura-5"
+        className="border-[rgba(var(--border-color),1)] relative flex flex-col gap-1.5 border border-solid rounded-lg cursor-pointer tail-listagem-inst-item flex-shrink-0 mr-2 tail-listagem-card-largura-2 md:tail-listagem-card-largura-3 lg:tail-listagem-card-largura-4 2xl:tail-listagem-card-largura-5"
       >
         <a href={link} target="_blank" className="flex-grow flex flex-col">
           <div className="relative group js-tail-hover-mobile" style={{ paddingBottom: "100%" }}>

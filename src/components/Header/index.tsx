@@ -35,15 +35,12 @@ const Header = () => {
       <section className="overflow-visible text-xs relative tail-topo ev-topo js-tail-topo js-appec-escondido">
         <section
           data-nome="interno_1"
-          className="relative p-4 overflow-visible transition duration-300 border-b border-transparent border-solid md:border-gray-200 lg:text-left ev-topo-interno-1 js-tail-topo-interno-1 tail-topo-interno-1"
+          className="md:border-[rgba(var(--border-color),1)] relative p-4 overflow-visible transition duration-300 border-b border-transparent border-solid lg:text-left ev-topo-interno-1 js-tail-topo-interno-1 tail-topo-interno-1"
         >
           <div className="grid grid-cols-3 overflow-visible tail-topo-classe-limite">
             <div className="flex items-center md:gap-6 md:flex-col md:items-start lg:items-center lg:flex-row">
               <div className="flex items-center md:order-last lg:order-none md:hidden ev-topo-categorias-toggle-btn-abrir js-tail-topo-inverter">
-                <label
-                  htmlFor="tail-topo-hamburger-abrir"
-                  // onclick="topoToggleTodosFechar(this)"
-                >
+                <label htmlFor="tail-topo-hamburger-abrir">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -84,9 +81,9 @@ const Header = () => {
                     </svg>
                   </label>
                 </div>
-                <div className="w-64 h-full overflow-auto text-sm bg-white md:w-72 lg:w-80 ev-topo-categorias-toggle-interno ev-topo-categorias-toggle-1-interno">
+                <div className="theme-mode-bg w-64 h-full overflow-auto text-sm md:w-72 lg:w-80 ev-topo-categorias-toggle-interno ev-topo-categorias-toggle-1-interno">
                   <div className="overflow-visible ev-topo-categorias-toggle-interno ev-topo-categorias-toggle-1-dados-interno0">
-                    <div className="flex flex-col overflow-visible uppercase divide-y divide-gray-200 divide-solid tail-topo-categorias-toggle-lista ev-topo-categorias-toggle-lista ev-topo-categorias-toggle-1-dados-lista0">
+                    <div className="divide-[rgba(var(--border-color),1)] flex flex-col overflow-visible uppercase divide-y divide-solid tail-topo-categorias-toggle-lista ev-topo-categorias-toggle-lista ev-topo-categorias-toggle-1-dados-lista0">
                       {categories.map((category) => (
                         <FilterTagMobile
                           key={category.id}
@@ -98,6 +95,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+
               <div data-nome="social-1" className="hidden md:block js-tail-topo-inverter">
                 <div className="ev-topo-social-interno">
                   <ul className="flex justify-center gap-1 md:justify-start ev-topo-social-lista">
@@ -210,12 +208,8 @@ const Header = () => {
               >
                 <div className="flex justify-end tail-topo-login-interno ev-topo-login-interno">
                   <nav className="flex tail-topo-login-nav ev-topo-login-nav">
-                    <label
-                      htmlFor="tail-topo-login-toggle"
-                      className="js-tail-topo-inverter"
-                      // onclick="topoToggleTodosFechar(this)"
-                    >
-                      <HiOutlineUser style={{ fontSize: "1.5rem" }} />
+                    <label htmlFor="tail-topo-login-toggle" className="js-tail-topo-inverter">
+                      <HiOutlineUser style={{ fontSize: "1.5rem", cursor: "pointer" }} />
                     </label>
                     <input
                       className="hidden tail-topo-login-toggle js-tail-topo-toggle-todos"
@@ -223,7 +217,7 @@ const Header = () => {
                       name="tail-topo-login-toggle"
                       id="tail-topo-login-toggle"
                     />
-                    <ul className="absolute right-0 flex flex-col items-center invisible bg-white border border-gray-100 border-solid divide-y divide-gray-200 rounded-md shadow-md opacity-0 top-8 divide-solid tail-topo-login-lista ev-topo-login-lista tail-topo-login">
+                    <ul className="theme-mode-bg border-[rgba(var(--border-color),1)] divide-[rgba(var(--border-color),1)] absolute right-0 flex flex-col items-center invisible border border-solid divide-y rounded-md shadow-md opacity-0 top-8 divide-solid tail-topo-login-lista ev-topo-login-lista tail-topo-login">
                       <li className="w-full whitespace-nowrap tail-topo-login-item ev-topo-login-item  tail-topo-login-dados-entrar-item ev-topo-login-dados-entrar-item">
                         <button
                           onClick={() => formatAndFollowUrl(`${storeUri}/login`)}
@@ -259,7 +253,6 @@ const Header = () => {
                     <label
                       htmlFor="tail-topo-sacola-toggle"
                       className="relative inline-block overflow-visible"
-                      // onclick="topoToggleTodosFechar(this)"
                     >
                       <span className="inline-block js-tail-topo-inverter">
                         <HiOutlineShoppingBag style={{ fontSize: "1.45rem", cursor: "pointer" }} />
@@ -294,7 +287,7 @@ const Header = () => {
               <div data-nome="categorias-1" className="hidden overflow-visible md:block">
                 <div className="overflow-visible ev-topo-categorias-interno ev-topo-categorias-1-interno">
                   <nav className="overflow-visible ev-topo-categorias-interno ev-topo-categorias-1-dados-interno0">
-                    <ul className="flex flex-wrap justify-center px-6 overflow-visible uppercase border-b border-gray-200 border-solid gap-x-3 tail-topo-categorias-lista-0 ev-topo-categorias-lista ev-topo-categorias-1-dados-lista0">
+                    <ul className="border-[rgba(var(--border-color),1)] flex flex-wrap justify-center px-6 overflow-visible uppercase border-b border-solid gap-x-3 tail-topo-categorias-lista-0 ev-topo-categorias-lista ev-topo-categorias-1-dados-lista0">
                       {categories.map((category) => (
                         <FilterTag
                           key={category.id}
